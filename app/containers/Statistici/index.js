@@ -1,7 +1,33 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
 import Helmet from 'react-helmet';
+import ListStats from './components/ListStats';
+
+const statsMock = [
+  {
+    title: '12.232',
+    subtitle: 'something something',
+  },
+  {
+    title: 'Dolj',
+    subtitle: 'something something',
+  },
+  {
+    title: 'Tragoviste',
+    subtitle: 'something something',
+  },
+  {
+    title: '9.423',
+    subtitle: 'something something',
+  },
+  {
+    title: 'Constanta',
+    subtitle: 'something something',
+  },
+  {
+    title: 'Bucuresti',
+    subtitle: 'something something',
+  },
+];
 
 export default class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -13,9 +39,8 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
             { name: 'description', content: 'Statistici' },
           ]}
         />
-        <h1>
-          <FormattedMessage {...messages.header} />
-        </h1>
+
+        <ListStats stats={statsMock} />
       </div>
     );
   }
