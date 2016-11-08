@@ -19,10 +19,90 @@ export default function createRoutes(store) {
   return [
     {
       path: '/',
-      name: 'home',
+      name: 'acasa',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/HomePage'),
+          System.import('containers/Acasa'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/acasa',
+      name: 'acasa',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Acasa'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/statistici',
+      name: 'statistici',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Statistici'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/sesizari',
+      name: 'sesizari',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Sesizari'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/reguli-vot',
+      name: 'reguli',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/ReguliVot'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/despre-noi',
+      name: 'despre',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/DespreNoi'),
         ]);
 
         const renderRoute = loadModule(cb);
