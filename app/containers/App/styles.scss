@@ -1,5 +1,8 @@
 @import "~react-toolbox/lib/commons";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-.root {
+$roboto-font: 'Roboto', sans-serif;
 
+.container {
+  font-family: $roboto-font;
 }
