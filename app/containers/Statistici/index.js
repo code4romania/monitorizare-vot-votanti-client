@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import ListStats from './components/ListStats';
-import { Button } from 'react-toolbox/lib/button';
 
 const statsMock = [
   {
@@ -44,7 +43,6 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
 
         <div className="row center-xs">
           <div className="col-xs-6">
-            <Button icon="trending_flat" label="VEZI TOATE SESIZARILE" raised primary />
           </div>
         </div>
       </div>
