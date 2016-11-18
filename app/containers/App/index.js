@@ -10,7 +10,7 @@ export default class App extends React.PureComponent { // eslint-disable-line re
 
   render() {
     return (
-      <div className="col-md-10 col-md-offset-1">
+      <div className="col-md-12">
         <Header {...this.props.location} />
         {React.Children.toArray(this.props.children)}
         <Footer />
