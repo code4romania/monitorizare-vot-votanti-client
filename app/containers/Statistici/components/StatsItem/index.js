@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// @TODO: Move each of the following styled components into separate files.
 const Title = styled.h1`
   font-size: 48px;
   font-weight: 900;
@@ -36,6 +37,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+//
 
 export default function StatsItem(props) {
   return (
