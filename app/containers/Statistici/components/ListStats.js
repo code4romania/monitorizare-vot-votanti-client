@@ -1,5 +1,5 @@
 import React from 'react';
-import StatsItem from './StatsItem';
+import StatsItem from './StatsItem/index';
 
 export default function ListStats(props) {
   return (

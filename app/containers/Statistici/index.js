@@ -57,7 +57,7 @@ const styles = {
 export default class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
+      <div className="row">
         <Helmet
           title="Statistici"
           meta={[
@@ -65,20 +65,21 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
           ]}
         />
 
-        <StatsInfo />
-        <ListStats stats={statsMock} />
+        <div className="col-md-12">
+          <StatsInfo />
+          <ListStats stats={statsMock} />
 
-        <div className="row center-xs" style={styles.buttonWrapper}>
-          <div className="col-xs-6">
-            <RaisedButton
-              label="VEZI TOATE SESIZARILE"
-              labelPosition="before"
-              primary
-              icon={<ArrowForwardIcon />}
-            />
+          <div className="row center-xs" style={styles.buttonWrapper}>
+            <div className="col-xs-6">
+              <RaisedButton
+                label="VEZI TOATE SESIZARILE"
+                labelPosition="before"
+                primary
+                icon={<ArrowForwardIcon />}
+              />
+            </div>
           </div>
         </div>
-
       </div>
     );
   }
