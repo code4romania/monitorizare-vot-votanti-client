@@ -87,14 +87,17 @@ export class LeftContainer extends React.PureComponent {
   render() {
     return (
       <Wrapper className="col-xs-5">
-        <TextField hintText="Numele si prenume" floatingLabelText="Nume si prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-        <AutoComplete hintText="Judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-        <AutoComplete hintText="Orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-        <AutoComplete hintText="Sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-        <Toggle label="Nu sunt in sectie" labelPosition="right" />
-        <SelectField hintText="Tipul de problema" fullWidth />
-        <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Da-ne mai multe detalii despre ce s-a intamplat" fullWidth multiLine rows={2} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-        <Button text="Adauga sesizare" style={styles.butonSesizare} />
+        <h2 style={{ color: '#5F288D' }}>Adauga o sesisare</h2>
+        <div style={{ padding: '10px' }}>
+          <TextField hintText="Numele si prenume" floatingLabelText="Nume si prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
+          <AutoComplete hintText="Judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
+          <AutoComplete hintText="Orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
+          <AutoComplete hintText="Sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
+          <Toggle label="Nu sunt in sectie" labelPosition="right" />
+          <SelectField hintText="Tipul de problema" fullWidth />
+          <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Da-ne mai multe detalii despre ce s-a intamplat" fullWidth multiLine rows={2} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
+          <Button text="Adauga sesizare" style={styles.butonSesizare} />
+        </div>
       </Wrapper>
     );
   }

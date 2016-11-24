@@ -22,12 +22,17 @@ export default function createRoutes(store) {
       name: 'acasa',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+          System.import('containers/Acasa/reducer'),
+          System.import('containers/Acasa/sagas'),
           System.import('containers/Acasa'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('acasa', reducer.default);
+          injectSagas(sagas.default);
+
           renderRoute(component);
         });
 
@@ -38,12 +43,17 @@ export default function createRoutes(store) {
       name: 'acasa',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+          System.import('containers/Acasa/reducer'),
+          System.import('containers/Acasa/sagas'),
           System.import('containers/Acasa'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('acasa', reducer.default);
+          injectSagas(sagas.default);
+
           renderRoute(component);
         });
 
