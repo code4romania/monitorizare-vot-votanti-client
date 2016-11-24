@@ -1,0 +1,2 @@
+export const INCIDENTS = 'INCIDENTS';
+export const INCIDENTS_LODADED = 'INCIDENTS_LODADED';
