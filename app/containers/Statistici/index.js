@@ -3,7 +3,15 @@ import Helmet from 'react-helmet';
 import ListStats from './components/ListStats';
 import StatsInfo from './components/StatsInfo';
 import RaisedButton from 'material-ui/RaisedButton';
-import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward';
+import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+import { browserHistory } from 'react-router';
+
+const buttonStyle = {
+  backgroundColor: '#5F288D',
+  color: 'white',
+  padding: '0 25px',
+  height: '50px',
+};
 
 const statsMock = [
   {
@@ -55,6 +63,9 @@ const styles = {
 };
 
 export default class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  browseToSesizari() {
+    browserHistory.push('/sesizari');
+  }
   render() {
     return (
       <div className="col-md-12">
@@ -69,10 +80,13 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
         <div className="row center-xs" style={styles.buttonWrapper}>
           <div className="center-xs">
             <RaisedButton
-              label="VEZI TOATE SESIZARILE"
+              label="Vezi toate sesizarile"
               labelPosition="before"
+              backgroundColor="#5F288D"
               primary
-              icon={<ArrowForwardIcon />}
+              icon={<ChevronRight />}
+              buttonStyle={buttonStyle}
+              onClick={this.browseToSesizari}
             />
           </div>
         </div>

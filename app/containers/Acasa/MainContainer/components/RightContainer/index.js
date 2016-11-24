@@ -4,7 +4,7 @@ import IncidentItem from './item';
 import * as _ from 'lodash';
 import Loading from 'components/Loading';
 import RaisedButton from 'material-ui/RaisedButton';
-import ActionAndroid from 'material-ui/svg-icons/navigation/chevron-right';
+import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 import { browserHistory } from 'react-router';
 
 const buttonStyle = {
@@ -38,7 +38,7 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
               labelPosition="before"
               backgroundColor="#5F288D"
               primary
-              icon={<ActionAndroid />}
+              icon={<ChevronRight />}
               buttonStyle={buttonStyle}
               onClick={this.browseToSesizari}
             />
