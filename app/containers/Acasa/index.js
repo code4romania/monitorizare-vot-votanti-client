@@ -7,7 +7,7 @@ import MainContainer from './MainContainer/index';
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="col-xs-12">
+      <div className="col-md-10 col-md-offset-1 col-xs-12">
         <Helmet
           title="Acasa"
           meta={[

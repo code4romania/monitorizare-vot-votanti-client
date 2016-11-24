@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 export default class DespreNoi extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
+      <div className="col-md-10 col-md-offset-1">
         <Helmet
           title="Despre noi"
           meta={[

@@ -60,7 +60,7 @@ export class Sesizari extends React.PureComponent {
           />
           <Title />
           <Filters />
-          <div>
+          <div style={{ padding: '30px' }}>
             <div className="showIncidentsCount" style={{ textAlign: 'center' }}>
               <h2 style={{ color: '#2D2D2D' }}>{this.props.incidents.paginator.total} sesizari inregistrate</h2>
             </div>

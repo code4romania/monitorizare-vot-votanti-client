@@ -31,12 +31,14 @@ export default class ReguliVot extends React.PureComponent { // eslint-disable-l
             { name: 'description', content: 'Reguli vot' },
           ]}
         />
-        <GridList cols={8.2} padding={5} cellHeight={130}>
-          {settings.map((item, index) =>
-            <Tile {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
-          )}
-        </GridList>
-        <TileContent>{currentTabData.content}</TileContent>
+        <div className="col-md-10 col-md-offset-1" style={{ marginTop: '15vh' }}>
+          <GridList cols={8.2} padding={5} cellHeight={130}>
+            {settings.map((item, index) =>
+              <Tile {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
+            )}
+          </GridList>
+          <TileContent>{currentTabData.content}</TileContent>
+        </div>
       </Wrapper>
     );
   }

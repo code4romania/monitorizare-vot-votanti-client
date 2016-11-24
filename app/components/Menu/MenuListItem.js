@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const MenuItem = styled.li`
   display: inline;
-  padding: 10px 15px;
+  padding: 10px 35px;
   background: #FFCC00;
-  border-right: 1px solid grey;
+  font-weight: bold;
 `;
 
 export default MenuItem;
