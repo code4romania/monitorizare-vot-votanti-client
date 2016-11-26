@@ -1,16 +1,34 @@
 import React from 'react';
 import Menu from '../Menu';
 import Logo from './logo_monitorizare.png';
+import styled from 'styled-components';
 
-const styles = {
-  background: '#FFCC00',
-};
+const HeaderWrap = styled.div`
+  background: #ffcc00;
+`;
+
+const LogoType = styled.a`
+  height: auto;
+  display: inline-block;
+  width: 230px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
 
 export default function Header(props) {
   return (
-    <div style={styles}>
-      <img width={320} src={Logo} className="logo" role="presentation" />
-      <Menu {...props} />
-    </div>
+    <HeaderWrap>
+      <div className="container">
+        <div className="row">
+          <LogoType>
+            <img src={Logo} role="presentation" />
+          </LogoType>
+          <Menu {...props} />
+        </div>
+      </div>
+    </HeaderWrap>
   );
 }
