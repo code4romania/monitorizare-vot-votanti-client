@@ -7,7 +7,7 @@ import RightContainer from './components/RightContainer/index';
 
 export function MainContainer(props) { // eslint-disable-line react/prefer-stateless-function
   return (
-    <div className="row centerContainer">
+    <div className="row">
       <LeftContainer />
       <RightContainer {...props} />
     </div>

@@ -1,7 +1,16 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const StyledTitle = styled.div`
-  color: white;
-`;
+function Title() {
+  return (
+    <div className="col-md-8 col-md-offset-2 page-hero">
+      <h1>
+        Sesizari
+      </h1>
+      <p>
+        Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective.
+      </p>
+    </div>
+  );
+}
 
-export default StyledTitle;
+export default Title;

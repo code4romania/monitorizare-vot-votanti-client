@@ -4,13 +4,16 @@ import Helmet from 'react-helmet';
 export default class DespreNoi extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="col-md-10 col-md-offset-1">
+      <div className="col-md-8 col-md-offset-2">
         <Helmet
-          title="Despre noi"
+          title="Despre noi - Monitorizare Vot"
           meta={[
             { name: 'description', content: 'Despre noi' },
           ]}
         />
+        <div className="page-hero">
+          <h1>Află mai multe despre noi</h1>
+        </div>
         <h4>Episode 5, Lotus Eaters[edit]</h4>
         <p>Bloom makes his way to Westland Row post office where he receives a love letter from one Martha Clifford addressed to his pseudonym, Henry Flower. He meets an acquaintance, and while they chat, Bloom attempts to ogle a woman wearing stockings, but is prevented by a passing tram. Next, he reads the letter and tears up the envelope in an alley. He wanders into a Catholic church service and muses on theology. The priest has the letters I.N.R.I. or I.H.S. on his back; Molly had told Bloom that they meant I have sinned or I have suffered, and Iron nails ran in.[18] He goes to a chemist where he buys a bar of lemon soap. He then meets another acquaintance, Bantam Lyons, who mistakenly takes him to be offering a racing tip for the horse Throwaway. Finally, Bloom heads towards the baths.</p>
         <h4>Episode 6, Hades[edit</h4>

@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 const HeaderWrap = styled.div`
   background: #ffcc00;
-  padding: 20px 0;
 `;
 
 const LogoType = styled(Link)`
@@ -14,6 +13,10 @@ const LogoType = styled(Link)`
   display: block;
   width: 230px;
   float: left;
+
+  @media (min-width: 1024px) {
+    margin-top: 20px;
+  }
 
   img {
     width: 100%;

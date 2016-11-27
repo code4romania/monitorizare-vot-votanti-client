@@ -1,7 +1,7 @@
 import React from 'react';
-import StyledGridTile from './gridTile';
+import StyledGridItem from './gridTile';
 import StyledIcon from './icon';
-import Title from './title';
+import TileTitle from './tile-title';
 
 const active = {
   background: '#352245',
@@ -11,14 +11,14 @@ const active = {
 
 function Tile(props) {
   return (
-    <StyledGridTile
+    <StyledGridItem
       id={props.id}
       style={props.activeTab === props.id ? active : ''}
       onClick={props.selectItem}
     >
       <StyledIcon className={`fa fa-${props.icon}`} aria-hidden="true"></StyledIcon>
-      <Title>{props.titlu}</Title>
-    </StyledGridTile>
+      <TileTitle>{props.titlu}</TileTitle>
+    </StyledGridItem>
   );
 }
 

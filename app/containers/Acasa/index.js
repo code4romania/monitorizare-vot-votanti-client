@@ -40,17 +40,11 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         primary
         onTouchTap={this.handleClose}
       />,
-      <FlatButton
-        label="Submit"
-        primary
-        keyboardFocused
-        onTouchTap={this.handleClose}
-      />,
     ];
     return (
-      <div className="col-md-12 col-xs-12" style={{ padding: '50px' }}>
+      <div>
         <Helmet
-          title="Acasa"
+          title="Monitorizare Vot"
           meta={[
             { name: 'description', content: 'Acasa' },
           ]}

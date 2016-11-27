@@ -1,6 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+
+const Wrapper = styled.div`
+  font-family: 'Arimo', sans-serif;
+
+  .page-hero {
+    text-align: center;
+  }
+`;
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -10,7 +20,7 @@ export default class App extends React.PureComponent { // eslint-disable-line re
 
   render() {
     return (
-      <div className="wrap">
+      <Wrapper className="wrap">
         <Header {...this.props.location} />
 
         <div className="container">
@@ -18,7 +28,7 @@ export default class App extends React.PureComponent { // eslint-disable-line re
         </div>
 
         <Footer />
-      </div>
+      </Wrapper>
     );
   }
 }

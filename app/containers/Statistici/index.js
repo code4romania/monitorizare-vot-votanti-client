@@ -70,7 +70,7 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
     return (
       <div className="col-md-12">
         <Helmet
-          title="Statistici"
+          title="Statistici - Monitorizare Vot"
           meta={[
             { name: 'description', content: 'Statistici' },
           ]}

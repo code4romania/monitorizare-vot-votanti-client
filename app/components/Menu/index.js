@@ -19,9 +19,14 @@ const MenuLink = styled(Link)`
   font-size: 14px;
   display: inline-block;
   line-height: 20px;
-  padding: 10px 20px;
+  padding: 20px 20px;
   color: #5F288D;
   font-weight: 700;
+  text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    padding: 30px 20px;
+  }
 
   &:active,
   &:focus {
@@ -38,18 +43,18 @@ export default class Menu extends React.PureComponent {
   componentDidMount() {
     const path = this.props.pathname.split('/');
     const getLocation = path[1] || path[0];
-    // TODO: use class name toggle here
+
     document.getElementById(getLocation).firstElementChild.classList.add('selected');
   }
 
   render() {
     return (
       <MenuList>
-        <MenuItem id="acasa"><MenuLink to="acasa">MONITORIZARE</MenuLink></MenuItem>
-        <MenuItem id="sesizari"><MenuLink to="sesizari">SESIZARI</MenuLink></MenuItem>
-        <MenuItem id="statistici"><MenuLink to="statistici">STATISTICI</MenuLink></MenuItem>
-        <MenuItem id="reguli-vot"><MenuLink to="reguli-vot">REGULI VOT</MenuLink></MenuItem>
-        <MenuItem id="despre-noi"><MenuLink to="despre-noi">DESPRE NOI</MenuLink></MenuItem>
+        <MenuItem id="acasa"><MenuLink to="acasa">Monitorizare</MenuLink></MenuItem>
+        <MenuItem id="sesizari"><MenuLink to="sesizari">Sesizări</MenuLink></MenuItem>
+        <MenuItem id="statistici"><MenuLink to="statistici">Statistici</MenuLink></MenuItem>
+        <MenuItem id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></MenuItem>
+        <MenuItem id="despre-noi"><MenuLink to="despre-noi">Despre noi</MenuLink></MenuItem>
       </MenuList>
     );
   }

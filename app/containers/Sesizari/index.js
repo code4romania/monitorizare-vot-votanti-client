@@ -42,20 +42,14 @@ export class Sesizari extends React.PureComponent {
         primary
         onTouchTap={this.handleClose}
       />,
-      <FlatButton
-        label="Submit"
-        primary
-        keyboardFocused
-        onTouchTap={this.handleClose}
-      />,
     ];
     if (this.props.incidents.data) {
       return (
         <div>
           <Helmet
-            title="Sesizari"
+            title="Sesizări - Monitorizare Vot"
             meta={[
-              { name: 'description', content: 'Sesizari' },
+              { name: 'description', content: 'Sesizări' },
             ]}
           />
           <Title />
