@@ -67,7 +67,7 @@ function IncidentItem(props) {
       <div style={footerContainer}>
         <div style={{ paddingLeft: '10px' }}><i style={{ fontSize: '2.5rem', color: '#5F288D', float: 'left' }} className="material-icons">&#xE55F;</i></div>
         <div style={{ marginLeft: '30px' }}>{props.name} / Sectia {props.station_number}</div>
-        <div style={{ marginLeft: '30px', fontSize: '14px', color: 'grey' }}>{props.city}/{props.county.name}</div>
+        <div style={{ marginLeft: '30px', fontSize: '14px', color: 'grey' }}>{props.city.name}/{props.county.name}</div>
       </div>
     </GridTile>
   );
@@ -76,7 +76,7 @@ function IncidentItem(props) {
 IncidentItem.propTypes = {
   img: React.PropTypes.string,
   description: React.PropTypes.string,
-  city: React.PropTypes.string,
+  city: React.PropTypes.object,
   station_number: React.PropTypes.string,
   name: React.PropTypes.string,
   image_url: React.PropTypes.string,

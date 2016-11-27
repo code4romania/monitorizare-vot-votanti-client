@@ -1,34 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router';
-
 import styled from 'styled-components';
 
-const MenuItem = styled.li`
-  display: inline;
-  padding: 10px 35px;
-  background: #ffcc00;
-  font-weight: bold;
-`;
 
 const MenuList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0;
+  float: right;
+`;
+
+const MenuItem = styled.li`
+  display: inline;
 `;
 
 const MenuLink = styled(Link)`
   text-decoration: none;
   font-size: 14px;
+  display: inline-block;
+  line-height: 20px;
+  padding: 10px 20px;
+  color: #5F288D;
+  font-weight: 700;
+
+  &:active,
+  &:focus {
+    color: #5F288D;
+  }
+
+  &.selected {
+    background: #5F288D;
+    color: #fff;
+  }
 `;
 
 export default class Menu extends React.PureComponent {
   componentDidMount() {
     const path = this.props.pathname.split('/');
     const getLocation = path[1] || path[0];
-    // TODO: use class toggle
-    document.getElementById(getLocation).style.background = '#352245';
-    document.getElementById(getLocation).style.fontWeight = 'bold';
-    document.getElementById(getLocation).firstElementChild.style.color = '#FFCC00';
+    // TODO: use class name toggle here
+    document.getElementById(getLocation).firstElementChild.classList.add('selected');
   }
 
   render() {

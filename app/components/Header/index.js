@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Menu from '../Menu';
 import Logo from './logo_monitorizare.png';
 import styled from 'styled-components';
 
 const HeaderWrap = styled.div`
   background: #ffcc00;
+  padding: 20px 0;
 `;
 
-const LogoType = styled.a`
+const LogoType = styled(Link)`
   height: auto;
-  display: inline-block;
+  display: block;
   width: 230px;
+  float: left;
 
   img {
     width: 100%;
@@ -23,10 +26,12 @@ export default function Header(props) {
     <HeaderWrap>
       <div className="container">
         <div className="row">
-          <LogoType>
-            <img src={Logo} role="presentation" />
-          </LogoType>
-          <Menu {...props} />
+          <div className="col-xs-12">
+            <LogoType to="acasa">
+              <img src={Logo} role="presentation" />
+            </LogoType>
+            <Menu {...props} />
+          </div>
         </div>
       </div>
     </HeaderWrap>

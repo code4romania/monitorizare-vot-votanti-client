@@ -10,9 +10,13 @@ export default class App extends React.PureComponent { // eslint-disable-line re
 
   render() {
     return (
-      <div style={{ padding: '0' }}>
+      <div className="wrap">
         <Header {...this.props.location} />
-        {React.Children.toArray(this.props.children)}
+
+        <div className="container">
+          {React.Children.toArray(this.props.children)}
+        </div>
+
         <Footer />
       </div>
     );
