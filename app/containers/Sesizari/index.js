@@ -6,7 +6,6 @@ import { getIncidents } from './selectors';
 import { connect } from 'react-redux';
 import Title from './components/title';
 import Filters from './components/filters';
-import { GridList } from 'material-ui/GridList';
 import IncidentItem from './components/incidentItem';
 import Loading from 'components/Loading';
 import Dialog from 'material-ui/Dialog';
@@ -54,20 +53,18 @@ export class Sesizari extends React.PureComponent {
           />
           <Title />
           <Filters />
-          <div style={{ padding: '30px' }}>
-            <div className="showIncidentsCount" style={{ textAlign: 'center' }}>
-              <h2 style={{ color: '#2D2D2D' }}>{this.props.incidents.paginator.total} sesizari inregistrate</h2>
-            </div>
-            <GridList
-              cellHeight={400}
-              cols={4}
-              padding={30}
-            >
+          <section className="container">
+            <div className="row">
+              <div className="col-xs-12 showIncidentsCount" style={{ textAlign: 'center' }}>
+                <h2 style={{ color: '#2D2D2D' }}>{this.props.incidents.paginator.total} sesizari inregistrate</h2>
+              </div>
               {this.props.incidents.data.map((tile, index) => (
-                <IncidentItem {...tile} key={index} handleOpen={this.handleOpen} />
+                <div className="col-xs-6 col-md-4">
+                  <IncidentItem {...tile} key={index} handleOpen={this.handleOpen} />
+                </div>
               ))}
-            </GridList>
-          </div>
+            </div>
+          </section>
           <div>
             <Dialog
               title=""

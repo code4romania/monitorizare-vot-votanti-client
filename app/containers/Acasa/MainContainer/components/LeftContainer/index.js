@@ -86,7 +86,7 @@ export class LeftContainer extends React.PureComponent {
 
   render() {
     return (
-      <Wrapper className="col-xs-5">
+      <Wrapper className="col-xs-12 col-lg-6">
         <h2 style={{ color: '#5F288D' }}>Adauga o sesisare</h2>
         <div style={{ padding: '10px' }}>
           <TextField hintText="Numele si prenume" floatingLabelText="Nume si prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />

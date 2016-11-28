@@ -22,7 +22,7 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
   render() {
     if (_.isArray(this.props.incidents)) {
       return (
-        <div className="col-xs-7" style={{ padding: '20px' }}>
+        <div className="col-xs-12 col-lg-6" style={{ padding: '20px' }}>
           <GridList
             cellHeight={400}
             cols={2}

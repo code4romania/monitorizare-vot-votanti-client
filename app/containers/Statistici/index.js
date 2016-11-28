@@ -76,20 +76,22 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
           ]}
         />
         <StatsInfo />
-        <ListStats stats={statsMock} />
-        <div className="row center-xs" style={styles.buttonWrapper}>
-          <div className="center-xs">
-            <RaisedButton
-              label="Vezi toate sesizarile"
-              labelPosition="before"
-              backgroundColor="#5F288D"
-              primary
-              icon={<ChevronRight />}
-              buttonStyle={buttonStyle}
-              onClick={this.browseToSesizari}
-            />
+        <section className="container">
+          <div className="row">
+            <ListStats stats={statsMock} />
+            <div style={styles.buttonWrapper}>
+              <RaisedButton
+                label="Vezi toate sesizarile"
+                labelPosition="before"
+                backgroundColor="#5F288D"
+                primary
+                icon={<ChevronRight />}
+                buttonStyle={buttonStyle}
+                onClick={this.browseToSesizari}
+              />
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     );
   }

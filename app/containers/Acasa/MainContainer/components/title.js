@@ -15,23 +15,27 @@ export class Title extends React.PureComponent {
   }
   render() {
     return (
-      <div className="col-md-8 col-md-offset-2 page-hero">
-        <h1>
-          Sesizeaza orice incident
-        </h1>
-        <p>
-          Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective.
-        </p>
-        <RaisedButton
-          label="Vezi toate sesizarile"
-          labelPosition="before"
-          backgroundColor="#5F288D"
-          primary
-          icon={<ChevronRight />}
-          buttonStyle={buttonStyle}
-          onClick={this.browseToSesizari}
-        />
-      </div>
+      <section className="container">
+        <div className="row">
+          <div className="col-md-8 col-md-offset-2 page-hero">
+            <h1>
+              Sesizeaza orice incident
+            </h1>
+            <p>
+              Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective.
+            </p>
+            <RaisedButton
+              label="Vezi toate sesizarile"
+              labelPosition="before"
+              backgroundColor="#5F288D"
+              primary
+              icon={<ChevronRight />}
+              buttonStyle={buttonStyle}
+              onClick={this.browseToSesizari}
+            />
+          </div>
+        </div>
+      </section>
     );
   }
 }

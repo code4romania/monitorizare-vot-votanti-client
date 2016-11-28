@@ -37,7 +37,6 @@ const Wrapper = styled.div`
     }
   }
 `;
-//
 
 export default function StatsItem(props) {
   return (

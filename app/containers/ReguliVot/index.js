@@ -32,14 +32,16 @@ export default class ReguliVot extends React.PureComponent { // eslint-disable-l
           ]}
         />
         <Title />
-        <div className="row">
-          <GridList cols={8.2} padding={5} cellHeight={130}>
-            {settings.map((item, index) =>
-              <Tile {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
-            )}
-          </GridList>
-          <TileContent>{currentTabData.content}</TileContent>
-        </div>
+        <section className="container">
+          <div className="row">
+            <GridList cols={8.2} padding={5} cellHeight={130}>
+              {settings.map((item, index) =>
+                <Tile {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
+              )}
+            </GridList>
+            <TileContent>{currentTabData.content}</TileContent>
+          </div>
+        </section>
       </div>
     );
   }
