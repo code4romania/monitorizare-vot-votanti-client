@@ -60,6 +60,10 @@ const styles = {
   buttonWrapper: {
     marginTop: '35px',
   },
+
+  rowWrapper: {
+    justifyContent: 'center',
+  },
 };
 
 export default class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -77,8 +81,9 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
         />
         <StatsInfo />
         <section className="container">
-          <div className="row">
+          <div className="row" style={styles.rowWrapper}>
             <ListStats stats={statsMock} />
+
             <div style={styles.buttonWrapper}>
               <RaisedButton
                 label="Vezi toate sesizarile"
