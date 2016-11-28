@@ -2,7 +2,7 @@
  * Created by dcorde on 08.11.2016.
  */
 import React from 'react';
-// import { Input } from 'react-toolbox/lib/input';
+import { Input } from 'react-toolbox/lib/input';
 // import { Autocomplete } from 'react-toolbox/lib/autocomplete';
 
 import Button from 'components/Button';
@@ -88,7 +88,7 @@ export class LeftContainer extends React.PureComponent {
         <h2 style={{ color: '#5F288D' }}>Adauga o sesisare</h2>
         <div className="row">
           <div className="col-xs-12 col-md-6">
-            {/* <Input hintText="Andrei" floatingLabelText="Nume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} /> */}
+            <Input type='text' multiline label='Multiline' maxLength={20} onChange={this.handleChange.bind(this, 'multiline')} />
           </div>
 
           <div className="col-xs-12 col-md-6">
@@ -124,7 +124,9 @@ export class LeftContainer extends React.PureComponent {
           </div>
 
           <div className="col-xs-12 col-md-6">
-            {// <SelectField hintText="Tipul sesizarii" fullWidth /> */}
+            <div>
+              {/* <SelectField hintText="Tipul sesizarii" fullWidth /> */}
+            </div>
             <div className="add-photo">
               Incarca o poza
             </div>
