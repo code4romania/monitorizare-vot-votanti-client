@@ -1,14 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const FiltersWrap = styled.section`
+  background: #ffcc00;
+  padding: 30px 0;
+`;
 
 function Filters() {
   return (
-    <section className="filters"style={{ background: '#FFCC00', height: '20vh' }}>
+    <FiltersWrap>
       <div className="container">
-        <div className="sesizariFilters row">
-          Filters
+        <div className="row">
+          <div className="col-xs-12">
+            Filters
+          </div>
         </div>
       </div>
-    </section>
+    </FiltersWrap>
   );
 }
 

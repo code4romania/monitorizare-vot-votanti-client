@@ -17,7 +17,7 @@ export class Title extends React.PureComponent {
     return (
       <section className="container">
         <div className="row">
-          <div className="col-md-8 col-md-offset-2 page-hero">
+          <div className="col-xs-12 col-md-offset-2 col-md-8 page-hero">
             <h1>
               Sesizeaza orice incident
             </h1>

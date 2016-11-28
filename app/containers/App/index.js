@@ -5,13 +5,20 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const Wrapper = styled.div`
-  background: #F9F9F9;
+  background: #f9f9f9;
   color: #2d2d2d;
   font-family: 'Arimo', sans-serif;
+  // ceva e funky aici, n-ar trebui sa fie nevoie de asta
+  overflow-x: hidden;
 
   .page-hero {
     text-align: center;
-    padding: 20px 0 40px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+
+    p {
+      font-size: 16px;
+    }
   }
 `;
 

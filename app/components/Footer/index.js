@@ -1,22 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const styles = {
-  textAlign: 'center',
-  marginTop: '10px',
-  borderTop: '1px solid lightgray',
-  paddingTop: '15px',
-};
-
-const removeHrefStyle = {
-  color: 'black',
-  textDecoration: 'none',
-};
+const FooterWrap = styled.div`
+  background: #fff;
+  border-top: 1px solid #ffcc00;
+  padding: 40px 0;
+`;
 
 export default function Footer() {
   return (
-    <div style={styles}>
-      <div>Email: <a href="mailto:youremailaddress" style={removeHrefStyle}>test@test.com</a></div>
-      <h5 style={{ margin: '5px' }}>Monitorizare vot @2016</h5>
-    </div>
+    <FooterWrap>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12">
+            some footer content here
+          </div>
+        </div>
+      </div>
+    </FooterWrap>
   );
 }

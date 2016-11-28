@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridList } from 'material-ui/GridList';
+// import { GridList } from 'material-ui/GridList';
 import IncidentItem from './item';
 import * as _ from 'lodash';
 import Loading from 'components/Loading';
@@ -22,26 +22,22 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
   render() {
     if (_.isArray(this.props.incidents)) {
       return (
-        <div className="col-xs-12 col-lg-6" style={{ padding: '20px' }}>
-          <GridList
-            cellHeight={400}
-            cols={2}
-            padding={30}
-          >
+        <div className="col-xs-12 col-lg-6">
+          <div className="row">
             {this.props.incidents.map((tile, index) => (
               <IncidentItem {...tile} key={index} handleOpen={this.props.handleOpen} />
             ))}
-          </GridList>
-          <div style={{ textAlign: 'center', marginTop: '50px' }} >
-            <RaisedButton
-              label="Vezi toate sesizarile"
-              labelPosition="before"
-              backgroundColor="#5F288D"
-              primary
-              icon={<ChevronRight />}
-              buttonStyle={buttonStyle}
-              onClick={this.browseToSesizari}
-            />
+            <div>
+              <RaisedButton
+                label="Vezi toate sesizarile"
+                labelPosition="before"
+                backgroundColor="#5F288D"
+                primary
+                icon={<ChevronRight />}
+                buttonStyle={buttonStyle}
+                onClick={this.browseToSesizari}
+              />
+            </div>
           </div>
         </div>
       );

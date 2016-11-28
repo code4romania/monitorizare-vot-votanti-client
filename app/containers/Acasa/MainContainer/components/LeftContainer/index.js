@@ -6,7 +6,6 @@ import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
-import Wrapper from './Wrapper';
 import Button from 'components/Button';
 
 import { connect } from 'react-redux';
@@ -86,9 +85,9 @@ export class LeftContainer extends React.PureComponent {
 
   render() {
     return (
-      <Wrapper className="col-xs-12 col-lg-6">
+      <div className="col-xs-12 col-lg-6">
         <h2 style={{ color: '#5F288D' }}>Adauga o sesisare</h2>
-        <div style={{ padding: '10px' }}>
+        <div>
           <TextField hintText="Numele si prenume" floatingLabelText="Nume si prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
           <AutoComplete hintText="Judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
           <AutoComplete hintText="Orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
@@ -98,7 +97,7 @@ export class LeftContainer extends React.PureComponent {
           <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Da-ne mai multe detalii despre ce s-a intamplat" fullWidth multiLine rows={2} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
           <Button text="Adauga sesizare" style={styles.butonSesizare} />
         </div>
-      </Wrapper>
+      </div>
     );
   }
 }
