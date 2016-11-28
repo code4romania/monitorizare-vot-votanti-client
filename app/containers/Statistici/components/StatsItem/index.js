@@ -24,11 +24,12 @@ const TextWrapper = styled.div`
 const RowWrapper = styled.div`
   background: #FFCC00;
   color: #5F288D;
-  margin: 15px;
   padding: 35px;
 `;
 
 const Wrapper = styled.div`
+  padding: 15px;
+  box-sizing: border-box;
   &:nth-child(-n+2) > .row-wrap {
     background: #5F288D;
     color: #FFF;
