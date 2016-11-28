@@ -20,8 +20,8 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import LanguageProvider from 'containers/LanguageProvider';
-import configureStore from './store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import configureStore from './store';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -53,7 +53,6 @@ const rootRoute = {
   component: App,
   childRoutes: createRoutes(store),
 };
-
 
 const render = (translatedMessages) => {
   ReactDOM.render(

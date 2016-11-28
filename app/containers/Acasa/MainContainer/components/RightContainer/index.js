@@ -1,5 +1,4 @@
 import React from 'react';
-// import { GridList } from 'material-ui/GridList';
 import IncidentItem from './item';
 import * as _ from 'lodash';
 import Loading from 'components/Loading';
@@ -24,10 +23,12 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
       return (
         <div className="col-xs-12 col-lg-6">
           <div className="row">
+
             {this.props.incidents.map((tile, index) => (
               <IncidentItem {...tile} key={index} handleOpen={this.props.handleOpen} />
             ))}
-            <div>
+
+            <div className="col-xs-12">
               <RaisedButton
                 label="Vezi toate sesizarile"
                 labelPosition="before"
@@ -38,6 +39,7 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
                 onClick={this.browseToSesizari}
               />
             </div>
+
           </div>
         </div>
       );

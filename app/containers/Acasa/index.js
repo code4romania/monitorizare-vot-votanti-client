@@ -24,7 +24,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   handleOpen = (ev) => {
     this.setState({
       open: true,
-      imgSrc: ev.currentTarget.nextSibling.src,
+      imgSrc: ev.currentTarget.querySelector('img').src,
     });
   };
 
@@ -50,7 +50,11 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           ]}
         />
         <Title />
-        <MainContainer {...this.props} handleOpen={this.handleOpen} handleClose={this.handleClose} />
+        <MainContainer
+          {...this.props}
+          handleOpen={this.handleOpen}
+          handleClose={this.handleClose}
+        />
         <Dialog
           title=""
           actions={actions}
