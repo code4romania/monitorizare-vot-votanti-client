@@ -6,21 +6,42 @@ import styled from 'styled-components';
 
 const HeaderWrap = styled.div`
   background: #ffcc00;
+  padding: 10px 0;
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
 `;
 
 const LogoType = styled(Link)`
-  height: auto;
+  height: 30px;
   display: block;
-  width: 230px;
+  width: auto;
   float: left;
+  margin-left: 10px;
+
+  @media (min-width: 768px) {
+    margin-left: 0;
+  }
 
   @media (min-width: 1024px) {
-    margin-top: 20px;
+    margin-top: 10px;
+    height: 40px;
   }
 
   img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
+  }
+`;
+
+const Burger = styled.button`
+  float: right;
+  display: inline-block;
+  margin: 0 10px 0 0;
+
+  @media (min-width: 1024px) {
+    display: none;
   }
 `;
 
@@ -30,10 +51,13 @@ export default function Header(props) {
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
-            <LogoType to="acasa">
+            <LogoType to="acasa" className="brand">
               <img src={Logo} role="presentation" />
             </LogoType>
             <Menu {...props} />
+            <Burger className="burger">
+              <i className="material-icons">&#xE5D2;</i>
+            </Burger>
           </div>
         </div>
       </div>

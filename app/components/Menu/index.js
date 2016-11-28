@@ -6,12 +6,17 @@ import styled from 'styled-components';
 const MenuList = styled.ul`
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 0 10px 0 0;
   float: right;
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
 `;
 
 const MenuItem = styled.li`
-  display: inline;
+  display: inline-block;
 `;
 
 const MenuLink = styled(Link)`
@@ -19,14 +24,10 @@ const MenuLink = styled(Link)`
   font-size: 14px;
   display: inline-block;
   line-height: 20px;
-  padding: 20px 20px;
+  padding: 20px;
   color: #5F288D;
   font-weight: 700;
   text-transform: uppercase;
-
-  @media (min-width: 1024px) {
-    padding: 30px 20px;
-  }
 
   &:active,
   &:focus {
