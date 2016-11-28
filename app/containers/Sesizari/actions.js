@@ -8,6 +8,7 @@ export function getIncidentsAction() {
 export function incidentsLoaded(incidents) {
   return {
     type: INCIDENTS_LODADED,
-    incidents,
+    incidents: incidents.data,
+    pagination: incidents.paginator,
   };
 }

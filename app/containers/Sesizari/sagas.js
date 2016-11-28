@@ -1,13 +1,15 @@
 import { takeLatest } from 'redux-saga';
-import { take, call, put, fork, cancel } from 'redux-saga/effects';
+import { take, call, put, fork, cancel, select } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { incidentsLoaded } from './actions';
 import { INCIDENTS } from './constants';
+import { getNextPage } from './selectors';
 
 import request from 'utils/request';
 
 export function* getIncidents() {
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+  const nextPage = yield select(getNextPage());
+  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/incidents?limit=20&page=${nextPage}`;
 
   try {
     const incidentsResponse = yield call(request, requestURL);
