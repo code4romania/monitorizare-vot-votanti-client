@@ -2,10 +2,9 @@
  * Created by dcorde on 08.11.2016.
  */
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import AutoComplete from 'material-ui/AutoComplete';
-import SelectField from 'material-ui/SelectField';
-import Toggle from 'material-ui/Toggle';
+// import { Input } from 'react-toolbox/lib/input';
+// import { Autocomplete } from 'react-toolbox/lib/autocomplete';
+
 import Button from 'components/Button';
 
 import { connect } from 'react-redux';
@@ -87,14 +86,53 @@ export class LeftContainer extends React.PureComponent {
     return (
       <div className="col-xs-12 col-lg-6">
         <h2 style={{ color: '#5F288D' }}>Adauga o sesisare</h2>
-        <div>
-          <TextField hintText="Numele si prenume" floatingLabelText="Nume si prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <AutoComplete hintText="Judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <AutoComplete hintText="Orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <AutoComplete hintText="Sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <Toggle label="Nu sunt in sectie" labelPosition="right" />
-          <SelectField hintText="Tipul de problema" fullWidth />
-          <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Da-ne mai multe detalii despre ce s-a intamplat" fullWidth multiLine rows={2} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
+        <div className="row">
+          <div className="col-xs-12 col-md-6">
+            {/* <Input hintText="Andrei" floatingLabelText="Nume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} /> */}
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            {/* <Input hintText="Popescu" floatingLabelText="Prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} /> */}
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            In Romania
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            In Diaspora
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            {/* <Autocomplete hintText="Judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} /> */}
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            {/* <Autocomplete hintText="Orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} /> */}
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            {/* <Autocomplete hintText="Sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} /> */}
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            {/* <Toggle label="Nu sunt in sectie" labelPosition="right" /> */}
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            {/* <Input hintText="Descrie sesizarea ta in maxim 300 de caracatere" openOnFocus floatingLabelText="Descriere sesizare" fullWidth multiLine rows={4} maxLength={300} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} /> */}
+          </div>
+
+          <div className="col-xs-12 col-md-6">
+            {// <SelectField hintText="Tipul sesizarii" fullWidth /> */}
+            <div className="add-photo">
+              Incarca o poza
+            </div>
+          </div>
+
+
+
+
           <Button text="Adauga sesizare" style={styles.butonSesizare} />
         </div>
       </div>
