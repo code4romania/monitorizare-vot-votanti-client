@@ -1,8 +1,9 @@
 import React from 'react';
 import MapRo from './map-ro.png';
 import MapWorld from './map-world.png';
+
 const inactive = {
-  opacity: '0.5',
+  opacity: '0.6',
   outline: 'none',
 };
 
@@ -13,6 +14,7 @@ const active = {
 const inlineBlock = {
   display: 'inline-block',
   padding: '3px',
+  cursor: 'pointer',
 };
 
 export default function SelectCountry(props) { // eslint-disable-line react/nostate

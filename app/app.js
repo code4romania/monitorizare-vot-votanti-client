@@ -21,6 +21,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import LanguageProvider from 'containers/LanguageProvider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import configureStore from './store';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -55,11 +56,51 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
+const mvTheme = getMuiTheme({
+  fontFamily: '"Open Sans", sans-serif',
+
+  palette: {
+    textColor: '#2d2d2d',
+  },
+
+  textField: {
+    textColor: 'rgba(95, 40, 141, 1)',
+    hintColor: 'rgba(95, 40, 141, 0.6)',
+    floatingLabelColor: 'rgba(95, 40, 141, 1)',
+    disabledTextColor: 'rgba(95, 40, 141, 0.6)',
+    errorColor: 'rgba(200, 0, 0, 1)',
+    focusColor: 'rgba(95, 40, 141, 1)',
+    borderColor: '#f00',
+  },
+
+});
+
+// textField: {
+//       textColor: palette.textColor,
+//       hintColor: palette.disabledColor,
+//       floatingLabelColor: palette.disabledColor,
+//       disabledTextColor: palette.disabledColor,
+//       errorColor: red500,
+//       focusColor: palette.primary1Color,
+//       backgroundColor: 'transparent',
+//       borderColor: palette.borderColor,
+//     },
+// flatButton: {
+//       color: transparent,
+//       buttonFilterColor: '#999999',
+//       disabledTextColor: fade(palette.textColor, 0.3),
+//       textColor: palette.textColor,
+//       primaryTextColor: palette.primary1Color,
+//       secondaryTextColor: palette.accent1Color,
+//       fontSize: typography.fontStyleButtonFontSize,
+//       fontWeight: typography.fontWeightMedium,
+//     }
+
 const render = (translatedMessages) => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={translatedMessages}>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={mvTheme}>
           <Router
             history={history}
             routes={rootRoute}

@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const Wrapper = styled.div`
+  // TODO: fix global styles, these shouldn be on body
   background: #f9f9f9;
   color: #2d2d2d;
   font-family: 'Arimo', sans-serif;

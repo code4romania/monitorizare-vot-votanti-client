@@ -2,14 +2,16 @@
  * Created by dcorde on 08.11.2016.
  */
 import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
-import Button from 'components/Button';
-import Map from 'components/selectCountry';
+import FlatButton from 'material-ui/FlatButton';
 
-import { connect } from 'react-redux';
+import Map from 'components/selectCountry';
 
 const mocks = {
   judete: [
@@ -22,24 +24,20 @@ const mocks = {
   ],
 };
 
-const styles = {
-  floatRight: {
-    float: 'right',
-  },
-  floatingLabelFocusStyle: {
-    color: '#352245',
-  },
-  underlineStyle: {
-    borderColor: '#352245',
-  },
-  butonSesizare: {
-    color: '#FFFF00',
-    backgroundColor: '#352245',
-    textAlign: 'center',
-    fontSize: '1.2rem',
-    padding: '0.5rem',
-  },
-};
+const AddIncidentForm = styled.div`
+  // TODO: global with style variables (colors, breakpoints etc.)
+  background: #ffcc00;
+  padding: 20px;
+
+  h2 {
+    margin-top: 0;
+    color: #5f288d;
+  }
+
+  p {
+    color: #5f288d;
+  }
+`;
 
 export class LeftContainer extends React.PureComponent {
   constructor(props) {
@@ -93,20 +91,56 @@ export class LeftContainer extends React.PureComponent {
   render() {
     return (
       <div className="col-xs-12 col-lg-6">
-        <h2 style={{ color: '#5F288D' }}>Adauga o sesisare</h2>
-        <div>
-          <TextField hintText="Numele si prenume" floatingLabelText="Nume si prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <div className="col-md-12" style={{ textAlign: 'center' }}>
-            <Map half active={this.state.active} setActiveOption={this.setActiveOption} />
+        <AddIncidentForm className="form-incident">
+          <h2>Adauga o sesisare</h2>
+          <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
+
+          <div className="row">
+            <div className="col-xs-12 col-sm-6">
+              <TextField hintText="Andrei" floatingLabelText="Nume" fullWidth onChange={this.handleOnChangeInput} />
+            </div>
+
+            <div className="col-xs-12 col-sm-6">
+              <TextField hintText="Popescu" floatingLabelText="Prenume" fullWidth onChange={this.handleOnChangeInput} />
+            </div>
+
+            <div className="col-xs-12">
+              <Map half active={this.state.active} setActiveOption={this.setActiveOption} />
+            </div>
+
+            <div className="col-xs-12 col-sm-6">
+              <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+            </div>
+
+            <div className="col-xs-12 col-sm-6">
+              <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+            </div>
+
+            <div className="col-xs-12 col-sm-6">
+              <AutoComplete hintText="Alege sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+            </div>
+
+            <div className="col-xs-12 col-sm-6">
+              <Toggle label="Nu sunt in sectie" labelPosition="right" />
+            </div>
+
+            <div className="col-xs-12 col-sm-6">
+              <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Sesizarea ta" fullWidth multiLine rows={2} />
+            </div>
+
+            <div className="col-xs-12 col-sm-6">
+              <div>
+                <SelectField hintText="Tipul sesizarii" fullWidth />
+              </div>
+
+              <div>
+                <FlatButton label="Adauga sesizare" primary />
+              </div>
+            </div>
+
+
           </div>
-          <AutoComplete hintText="Judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <AutoComplete hintText="Orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <AutoComplete hintText="Sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <Toggle label="Nu sunt in sectie" labelPosition="right" />
-          <SelectField hintText="Tipul de problema" fullWidth />
-          <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Da-ne mai multe detalii despre ce s-a intamplat" fullWidth multiLine rows={2} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
-          <Button text="Adauga sesizare" style={styles.butonSesizare} />
-        </div>
+        </AddIncidentForm>
       </div>
     );
   }
