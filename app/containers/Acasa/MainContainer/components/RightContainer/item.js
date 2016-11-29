@@ -48,7 +48,7 @@ function IncidentItem(props) {
             { /* TODO: add zoom icon on image */ }
 
             <CardMedia onTouchTap={props.handleOpen} className="incident-image">
-              <img src={props.image_url} role="presentation" />
+              <img src="https://placekitten.com/300/300" role="presentation" />
             </CardMedia>
 
             <CardTitle
@@ -75,7 +75,7 @@ IncidentItem.propTypes = {
   city: React.PropTypes.object,
   station_number: React.PropTypes.string,
   name: React.PropTypes.string,
-  image_url: React.PropTypes.string,
+  // image_url: React.PropTypes.string,
   incidentType: React.PropTypes.object,
   county: React.PropTypes.object,
   handleOpen: React.PropTypes.func,
