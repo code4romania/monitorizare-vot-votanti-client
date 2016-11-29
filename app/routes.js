@@ -64,12 +64,17 @@ export default function createRoutes(store) {
       name: 'statistici',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+          System.import('containers/Statistici/reducer'),
+          System.import('containers/Statistici/sagas'),
           System.import('containers/Statistici'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('statistici', reducer.default);
+          injectSagas(sagas.default);
+
           renderRoute(component);
         });
 

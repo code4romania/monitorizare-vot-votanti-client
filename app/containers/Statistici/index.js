@@ -5,6 +5,8 @@ import StatsInfo from './components/StatsInfo';
 import RaisedButton from 'material-ui/RaisedButton';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 import { browserHistory } from 'react-router';
+import { connect } from 'react-redux';
+import { getStatsAction } from './actions';
 
 const buttonStyle = {
   backgroundColor: '#5F288D',
@@ -66,7 +68,10 @@ const styles = {
   },
 };
 
-export default class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  componentWillMount() {
+    this.props.getStats();
+  }
   browseToSesizari() {
     browserHistory.push('/sesizari');
   }
@@ -101,3 +106,15 @@ export default class Statistici extends React.PureComponent { // eslint-disable-
     );
   }
 }
+
+Statistici.propTypes = {
+  getStats: React.PropTypes.func,
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    getStats: () => dispatch(getStatsAction()),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Statistici);

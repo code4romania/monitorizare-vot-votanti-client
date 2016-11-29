@@ -7,6 +7,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
 import Button from 'components/Button';
+import Map from 'components/selectCountry';
 
 import { connect } from 'react-redux';
 
@@ -63,8 +64,14 @@ export class LeftContainer extends React.PureComponent {
         },
       },
       dataSource: mocks.judete,
+      active: true,
     };
   }
+
+  setActiveOption = () => {
+    this.setState({ active: !this.state.active });
+  }
+
   handleOnChangeInput = (value) => {
     this.setState({
       form: {
@@ -89,6 +96,9 @@ export class LeftContainer extends React.PureComponent {
         <h2 style={{ color: '#5F288D' }}>Adauga o sesisare</h2>
         <div>
           <TextField hintText="Numele si prenume" floatingLabelText="Nume si prenume" fullWidth onChange={this.handleOnChangeInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
+          <div className="col-md-12" style={{ textAlign: 'center' }}>
+            <Map half active={this.state.active} setActiveOption={this.setActiveOption} />
+          </div>
           <AutoComplete hintText="Judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
           <AutoComplete hintText="Orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
           <AutoComplete hintText="Sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} floatingLabelFocusStyle={styles.floatingLabelFocusStyle} underlineFocusStyle={styles.underlineStyle} />
