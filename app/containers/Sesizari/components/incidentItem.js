@@ -1,90 +1,117 @@
 import React from 'react';
-import { GridTile } from 'material-ui/GridList';
+import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import styled from 'styled-components';
+import RoomIcon from 'material-ui/svg-icons/action/room';
+import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
+import BusIcon from 'material-ui/svg-icons/maps/directions-bus';
 
-const gridTileStyle = {
-  WebkitBoxShadow: '0 0 12px -1px rgba(0, 0, 0, 0.30)',
-  MozBoxShadow: '0 0 12px -1px rgba(0, 0, 0, 0.30)',
-  boxShadow: '0 0 12px -1px rgba(0, 0, 0, 0.30)',
-};
+const muiTheme = getMuiTheme({
+  fontFamily: '"Arimo", sans-serif',
 
-const cardHeader = {
-  width: '100%',
-  display: 'inline-block',
-  marginLeft: '10px',
-  height: '50px',
-  padding: '10px',
-};
+  palette: {
+    textColor: '#2d2d2d',
+  },
+});
+
+const IncidentWrap = styled.div`
+  .incident-card {
+    margin: 0 0 20px;
+  }
+
+  .incident-media {
+    height: 100px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #000;
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .incident-subtitle {
+    display: flex;
+  }
+
+  .incident-title {
+    padding: 16px;
+    font-size: 24px;
+  }
+
+  .incident-header-icon {
+    background: #5F288D;
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    width: 30px;
+    height: 30px;
+  }
+`;
 
 const cardHeaderIcon = {
   background: '#5F288D',
   padding: '5px',
   borderRadius: '50%',
   color: 'white',
-  float: 'left',
-  marginRight: '10px',
-};
-
-const imageContainer = {
-  height: '100px',
-  overflow: 'hidden',
-  postition: 'relative',
+  width: '30px',
+  height: '30px',
 };
 
 const imageContainerIcon = {
-  position: 'absolute',
-  left: '45%',
   color: 'white',
-  fontSize: '4rem',
-  marginTop: '20px',
   cursor: 'pointer',
+  opacity: '0.7',
 };
 
-const footerContainer = {
-  position: 'absolute',
-  bottom: '0',
-  height: '60px',
-  width: '100%',
-  paddingTop: '10px',
-  marginBottom: '10px',
-  borderTop: '1px solid rgb(216, 216, 216)',
-};
 
 function IncidentItem(props) {
+  const Subtitle = (
+    <div className="incident-subtitle">
+      <RoomIcon color={'#5F288D'} />
+      <span>{props.city.name}, {props.county.name}</span>
+    </div>);
+
   return (
-    <GridTile
-      key={props.img}
-      title={props.title}
-      style={gridTileStyle}
-    >
-      <div style={cardHeader}>
-        <i className="material-icons" style={cardHeaderIcon}>&#xE530;</i>
-        <div>{props.incidentType.name}</div>
-      </div>
-      <div style={imageContainer}>
-        <i style={imageContainerIcon} onTouchTap={props.handleOpen} className="material-icons">&#xE8FF;</i>
-        <img style={{ width: '100%' }} src={props.image_url} role="presentation" />
-      </div>
-      <p style={{ padding: '10px' }}>{props.description}</p>
-      <div style={footerContainer}>
-        <div style={{ paddingLeft: '10px' }}><i style={{ fontSize: '2.5rem', color: '#5F288D', float: 'left' }} className="material-icons">&#xE55F;</i></div>
-        <div style={{ marginLeft: '30px' }}>{props.name} / Sectia {props.station_number}</div>
-        <div style={{ marginLeft: '30px', fontSize: '14px', color: 'grey' }}>{props.city.name}/{props.county.name}</div>
-      </div>
-    </GridTile>
+    <IncidentWrap>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <Card className="incident-card">
+
+          <CardHeader
+            title={props.incidentType.name}
+            avatar={<BusIcon style={cardHeaderIcon} />}
+          />
+
+          <CardMedia onTouchTap={props.handleOpen} className="incident-media">
+            <ZoomIcon style={imageContainerIcon} onTouchTap={props.handleOpen} />
+          </CardMedia>
+
+          <CardTitle
+            className="incident-title"
+            title={`Sectia ${props.precinct.precinctNumber}`}
+            subtitle={Subtitle}
+          />
+
+          <CardText>
+            {props.description}
+          </CardText>
+
+        </Card>
+      </MuiThemeProvider>
+    </IncidentWrap>
   );
 }
 
 IncidentItem.propTypes = {
-  img: React.PropTypes.string,
   description: React.PropTypes.string,
   city: React.PropTypes.object,
-  station_number: React.PropTypes.string,
   name: React.PropTypes.string,
-  image_url: React.PropTypes.string,
-  title: React.PropTypes.string,
   incidentType: React.PropTypes.object,
   county: React.PropTypes.object,
   handleOpen: React.PropTypes.func,
+  precinct: React.PropTypes.object,
+  precinctNumber: React.PropTypes.number,
 };
 
 export default IncidentItem;
