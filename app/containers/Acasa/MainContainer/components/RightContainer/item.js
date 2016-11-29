@@ -5,7 +5,7 @@ import React from 'react';
 import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
+import styled from 'styled-components';
 
 const muiTheme = getMuiTheme({
   fontFamily: '"Arimo", sans-serif',
@@ -14,8 +14,6 @@ const muiTheme = getMuiTheme({
     textColor: '#2d2d2d',
   },
 });
-
-import styled from 'styled-components';
 
 const IncidentWrap = styled.div`
   .incident-card {
@@ -54,7 +52,7 @@ function IncidentItem(props) {
 
             <CardTitle
               style={CardTitleStyle}
-              title={'Sectia ' + props.station_number}
+              title={'Sectia ' + props.precinct.precinctNumber}
               subtitle={props.county.name + ', ' + props.city.name}
             />
 
@@ -74,7 +72,7 @@ IncidentItem.propTypes = {
   // avatar: React.PropTypes.string, // need avatar icon slug here // incidentType.icon ?
   description: React.PropTypes.string,
   city: React.PropTypes.object,
-  station_number: React.PropTypes.string,
+  precinct: React.PropTypes.object,
   name: React.PropTypes.string,
   // image_url: React.PropTypes.string,
   incidentType: React.PropTypes.object,

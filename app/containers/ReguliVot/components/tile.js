@@ -13,7 +13,7 @@ function Tile(props) {
   return (
     <StyledGridItem
       id={props.id}
-      style={props.activeTab === props.id ? active : ''}
+      style={props.activeTab === props.id ? active : {}}
       onClick={props.selectItem}
     >
       <StyledIcon className={`fa fa-${props.icon}`} aria-hidden="true"></StyledIcon>
