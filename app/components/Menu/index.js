@@ -45,7 +45,9 @@ export default class Menu extends React.PureComponent {
     const path = this.props.pathname.split('/');
     const getLocation = path[1] || path[0];
 
-    document.getElementById(getLocation).firstElementChild.classList.add('selected');
+    if (this.props.pathname.length > 1) {
+      document.getElementById(getLocation).firstElementChild.classList.add('selected');
+    }
   }
 
   render() {

@@ -23,6 +23,7 @@ import LanguageProvider from 'containers/LanguageProvider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import configureStore from './store';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
 injectTapEventPlugin();
 
 // Import i18n messages

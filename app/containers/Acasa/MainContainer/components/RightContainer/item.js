@@ -6,6 +6,7 @@ import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Ca
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+
 const muiTheme = getMuiTheme({
   fontFamily: '"Arimo", sans-serif',
 

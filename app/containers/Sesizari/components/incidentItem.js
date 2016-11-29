@@ -1,5 +1,6 @@
 import React from 'react';
 import { GridTile } from 'material-ui/GridList';
+
 const gridTileStyle = {
   WebkitBoxShadow: '0 0 12px -1px rgba(0, 0, 0, 0.30)',
   MozBoxShadow: '0 0 12px -1px rgba(0, 0, 0, 0.30)',
