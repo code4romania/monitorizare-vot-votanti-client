@@ -66,11 +66,11 @@ const mvTheme = getMuiTheme({
   textField: {
     textColor: 'rgba(95, 40, 141, 1)',
     hintColor: 'rgba(95, 40, 141, 0.6)',
-    floatingLabelColor: 'rgba(95, 40, 141, 1)',
+    floatingLabelColor: 'rgba(95, 40, 141, 0.6)',
     disabledTextColor: 'rgba(95, 40, 141, 0.6)',
     errorColor: 'rgba(200, 0, 0, 1)',
     focusColor: 'rgba(95, 40, 141, 1)',
-    borderColor: '#f00',
+    borderColor: 'rgba(95, 40, 141, 0.4)',
   },
 
 });

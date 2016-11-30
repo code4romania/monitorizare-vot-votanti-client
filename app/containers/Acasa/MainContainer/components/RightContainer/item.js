@@ -23,7 +23,7 @@ const CardTitleStyle = {
 
 function IncidentItem(props) {
   return (
-    <div className="col-xs-12 col-sm-6 col-lg-12">
+    <div className="col-xs-12 col-sm-6">
       <IncidentWrap>
         <Card className="incident-card">
 
