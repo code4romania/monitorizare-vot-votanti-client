@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Menu from '../Menu';
 import Logo from './logo_monitorizare.png';
 import styled from 'styled-components';
+import OverlayNav from '../../components/Header/OverlayNav';
 
 const HeaderWrap = styled.div`
   background: #ffcc00;
@@ -45,22 +46,38 @@ const Burger = styled.button`
   }
 `;
 
-export default function Header(props) {
-  return (
-    <HeaderWrap>
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12">
-            <LogoType to="acasa" className="brand">
-              <img src={Logo} role="presentation" />
-            </LogoType>
-            <Menu {...props} />
-            <Burger className="burger">
-              <i className="material-icons">&#xE5D2;</i>
-            </Burger>
+export default class Header extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showNav: false,
+    };
+  }
+
+  handleToggleNav = () => {
+    this.setState({ showNav: !this.state.showNav });
+  }
+
+  render() {
+    return (
+      <HeaderWrap>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <LogoType to="acasa" className="brand">
+                <img src={Logo} role="presentation" />
+              </LogoType>
+              <Menu {...this.props} />
+              { !this.state.showNav ? <Burger className="burger" onClick={this.handleToggleNav}>
+                <i className="material-icons">&#xE5D2;</i>
+              </Burger> : '' }
+            </div>
           </div>
         </div>
-      </div>
-    </HeaderWrap>
-  );
+
+        <OverlayNav show={this.state.showNav} handleToggleNav={this.handleToggleNav} />
+      </HeaderWrap>
+    );
+  }
 }
