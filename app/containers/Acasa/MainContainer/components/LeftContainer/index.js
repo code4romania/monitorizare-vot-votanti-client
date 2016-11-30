@@ -36,6 +36,11 @@ const AddIncidentForm = styled.div`
   p {
     color: #5f288d;
   }
+
+  @media (min-width: 75em) {
+    position: fixed;
+    width: 550px;
+  }
 `;
 
 export class LeftContainer extends React.PureComponent {
