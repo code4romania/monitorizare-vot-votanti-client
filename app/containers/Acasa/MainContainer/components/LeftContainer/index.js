@@ -26,7 +26,6 @@ const mocks = {
 
 const AddIncidentForm = styled.div`
   // TODO: global with style variables (colors, breakpoints etc.)
-  background: #ffcc00;
   padding: 20px;
 
   h2 {
@@ -90,7 +89,7 @@ export class LeftContainer extends React.PureComponent {
 
   render() {
     return (
-      <div className="col-xs-12 col-lg-6">
+      <div className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="form-incident">
           <h2>Adauga o sesisare</h2>
           <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>

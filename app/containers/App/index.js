@@ -21,6 +21,10 @@ const Wrapper = styled.div`
       font-size: 16px;
     }
   }
+
+  .form-col {
+    background: #ffcc00;
+  }
 `;
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

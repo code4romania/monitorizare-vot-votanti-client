@@ -1,10 +1,17 @@
 import React from 'react';
-import IncidentItem from './item';
+import styled from 'styled-components';
 import * as _ from 'lodash';
-import Loading from 'components/Loading';
+import { browserHistory } from 'react-router';
+
 import RaisedButton from 'material-ui/RaisedButton';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-import { browserHistory } from 'react-router';
+
+import IncidentItem from './item';
+import Loading from 'components/Loading';
+
+const ListTitle = styled.div`
+
+`;
 
 const buttonStyle = {
   backgroundColor: '#5F288D',
@@ -22,6 +29,13 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
     if (_.isArray(this.props.incidents)) {
       return (
         <div className="col-xs-12 col-lg-6">
+          <ListTitle className="row">
+            <div className="col-xs-12">
+              <h2>Ultimele sesizari</h2>
+              { /* TODO: last updated @ time goes here */ }
+            </div>
+          </ListTitle>
+
           <div className="row">
 
             {this.props.incidents.map((tile, index) => (
