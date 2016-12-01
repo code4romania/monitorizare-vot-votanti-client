@@ -1,5 +1,3 @@
-/* eslint prefer-template: 0 */
-
 import React from 'react';
 // import { Avatar } from 'material-ui/Avatar';
 import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';

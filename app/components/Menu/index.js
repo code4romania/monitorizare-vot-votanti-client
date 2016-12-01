@@ -10,7 +10,7 @@ const MenuList = styled.ul`
   float: right;
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 75em) {
     display: block;
   }
 `;

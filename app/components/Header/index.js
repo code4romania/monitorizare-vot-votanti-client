@@ -9,7 +9,7 @@ const HeaderWrap = styled.div`
   background: #ffcc00;
   padding: 10px 0;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 75em) {
     padding: 0;
   }
 `;
@@ -21,11 +21,11 @@ const LogoType = styled(Link)`
   float: left;
   margin-left: 10px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
     margin-left: 0;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 75em) {
     margin-top: 10px;
     height: 40px;
   }
@@ -41,7 +41,7 @@ const Burger = styled.button`
   display: inline-block;
   margin: 0 10px 0 0;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 75em) {
     display: none;
   }
 `;

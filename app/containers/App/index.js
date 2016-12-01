@@ -14,8 +14,7 @@ const Wrapper = styled.div`
 
   .page-hero {
     text-align: center;
-    padding-bottom: 40px;
-    padding-top: 20px;
+    padding: 20px 20px 40px;
 
     p {
       font-size: 16px;

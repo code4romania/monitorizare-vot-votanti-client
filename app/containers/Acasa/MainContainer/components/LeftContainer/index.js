@@ -4,16 +4,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-
+import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
-import FlatButton from 'material-ui/FlatButton';
+
 
 import Map from 'components/selectCountry';
-
-import AffixWrapper from '../../../../../components/AffixWrapper/index';
+import AffixWrapper from 'components/AffixWrapper';
 
 const mocks = {
   judete: [
@@ -28,19 +27,29 @@ const mocks = {
 
 const AddIncidentForm = styled.div`
   // TODO: global with style variables (colors, breakpoints etc.)
-  padding: 20px;
+  padding: 10px 20px 20px;
 
-  h2 {
-    margin-top: 0;
-    color: #5f288d;
-  }
-
+  h2,
   p {
     color: #5f288d;
   }
 
-  @media (min-width: 75em) {
-    .affix {
+  .presence {
+    margin: 37px 0 12px;
+
+    @media (min-width: 48em) {
+      margin: 37px 0 0;
+    }
+  }
+
+  .types {
+    @media (min-width: 48em) {
+      margin-top: 24px;
+    }
+  }
+
+  .affix {
+    @media (min-width: 75em) {
       position: fixed;
       top: 0;
       width: 560px;
@@ -101,7 +110,7 @@ export class LeftContainer extends React.PureComponent {
     return (
       <div className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="form-incident">
-          <AffixWrapper offset={350}>
+          <AffixWrapper offset={340}>
             <h2>Adauga o sesisare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
@@ -131,20 +140,22 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <Toggle label="Nu sunt in sectie" labelPosition="right" />
+                <div className="presence">
+                  <Toggle label="Nu sunt in sectie" labelPosition="right" />
+                </div>
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Sesizarea ta" fullWidth multiLine rows={2} />
+                <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Sesizarea ta" fullWidth multiLine rows={4} maxLength={300} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <div>
+                <div className="types">
                   <SelectField hintText="Tipul sesizarii" fullWidth />
                 </div>
 
                 <div>
-                  <FlatButton label="Adauga sesizare" primary />
+                  <RaisedButton label="Adauga sesizare" className="button add-incident" />
                 </div>
               </div>
             </div>

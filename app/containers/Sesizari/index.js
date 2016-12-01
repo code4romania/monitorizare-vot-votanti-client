@@ -9,17 +9,8 @@ import Filters from './components/filters';
 import IncidentItem from './components/incidentItem';
 import Loading from 'components/Loading';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-
-const buttonStyle = {
-  backgroundColor: '#5F288D',
-  color: 'white',
-  padding: '0 25px',
-  height: '50px',
-};
-
 
 export class Sesizari extends React.PureComponent {
   constructor() {
@@ -49,9 +40,10 @@ export class Sesizari extends React.PureComponent {
   }
   render() {
     const actions = [
-      <FlatButton
+      <RaisedButton
         label="Cancel"
-        primary
+        secondary
+        className="button"
         onTouchTap={this.handleClose}
       />,
     ];
@@ -82,10 +74,8 @@ export class Sesizari extends React.PureComponent {
             <RaisedButton
               label={this.props.nextPage !== this.props.pagination.lastPage ? 'Vezi toate sesizarile' : 'Nu mai sunt sesizari'}
               labelPosition="before"
-              backgroundColor="#5F288D"
               primary
               icon={this.props.nextPage !== this.props.pagination.lastPage ? <ChevronRight /> : ''}
-              buttonStyle={buttonStyle}
               disabled={this.props.nextPage === this.props.pagination.lastPage}
               onClick={this.loadNextIncidents}
             />

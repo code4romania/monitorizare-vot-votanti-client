@@ -1,19 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { browserHistory } from 'react-router';
+import { connect } from 'react-redux';
+import { getStatsAction } from './actions';
 import ListStats from './components/ListStats';
 import StatsInfo from './components/StatsInfo';
 import RaisedButton from 'material-ui/RaisedButton';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-import { browserHistory } from 'react-router';
-import { connect } from 'react-redux';
-import { getStatsAction } from './actions';
-
-const buttonStyle = {
-  backgroundColor: '#5F288D',
-  color: 'white',
-  padding: '0 25px',
-  height: '50px',
-};
 
 const statsMock = [
   {
@@ -62,10 +55,6 @@ const styles = {
   buttonWrapper: {
     marginTop: '35px',
   },
-
-  rowWrapper: {
-    justifyContent: 'center',
-  },
 };
 
 export class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -86,17 +75,16 @@ export class Statistici extends React.PureComponent { // eslint-disable-line rea
         />
         <StatsInfo />
         <section className="container">
-          <div className="row" style={styles.rowWrapper}>
+          <div className="row">
             <ListStats stats={statsMock} />
 
             <div style={styles.buttonWrapper}>
               <RaisedButton
                 label="Vezi toate sesizarile"
                 labelPosition="before"
-                backgroundColor="#5F288D"
                 primary
                 icon={<ChevronRight />}
-                buttonStyle={buttonStyle}
+                className="button"
                 onClick={this.browseToSesizari}
               />
             </div>

@@ -73,28 +73,27 @@ const mvTheme = getMuiTheme({
     borderColor: 'rgba(95, 40, 141, 0.4)',
   },
 
-});
+  raisedButton: {
+    color: 'rgba(95, 40, 141, 1)',
+    textColor: 'rgba(255, 255, 255, 1)',
+    primaryColor: 'rgba(95, 40, 141, 1)',
+    primaryTextColor: 'rgba(255, 255, 255, 1)',
+    secondaryColor: 'rgba(255, 204, 0, 1)',
+    secondaryTextColor: 'rgba(95, 40, 141, 1)',
+    disabledColor: 'rgba(95, 40, 141, 0.1)',
+    disabledTextColor: 'rgba(95, 40, 141, 1)',
+    fontSize: '14px',
+  },
 
-// textField: {
-//       textColor: palette.textColor,
-//       hintColor: palette.disabledColor,
-//       floatingLabelColor: palette.disabledColor,
-//       disabledTextColor: palette.disabledColor,
-//       errorColor: red500,
-//       focusColor: palette.primary1Color,
-//       backgroundColor: 'transparent',
-//       borderColor: palette.borderColor,
-//     },
-// flatButton: {
-//       color: transparent,
-//       buttonFilterColor: '#999999',
-//       disabledTextColor: fade(palette.textColor, 0.3),
-//       textColor: palette.textColor,
-//       primaryTextColor: palette.primary1Color,
-//       secondaryTextColor: palette.accent1Color,
-//       fontSize: typography.fontStyleButtonFontSize,
-//       fontWeight: typography.fontWeightMedium,
-//     }
+  toggle: {
+    thumbOnColor: 'rgba(95, 40, 141, 1)',
+    thumbOffColor: 'rgba(255, 255, 255, 1)',
+    thumbRequiredColor: 'rgba(95, 40, 141, 1)',
+    trackOnColor: 'rgba(159, 106, 85, 1)',
+    labelColor: 'rgba(95, 40, 141, 0.6)',
+  },
+
+});
 
 const render = (translatedMessages) => {
   ReactDOM.render(

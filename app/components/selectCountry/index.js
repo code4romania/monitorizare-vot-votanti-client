@@ -1,6 +1,41 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import MapRo from './map-ro.png';
 import MapWorld from './map-world.png';
+
+const MapsWrapper = styled.div`
+
+`;
+
+const Map = styled.div`
+  margin: 25px 0 0;
+
+  button {
+    font-family: "Open Sans", sans-serif;
+    color: #5f288d;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .map-label,
+  .map-icon {
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .map-label {
+    display: block;
+
+    @media (min-width: 48em) {
+      display: inline-block;
+      padding-left: 10px;
+    }
+  }
+`;
 
 const inactive = {
   opacity: '0.6',
@@ -11,28 +46,22 @@ const active = {
   outline: 'none',
 };
 
-const inlineBlock = {
-  display: 'inline-block',
-  padding: '3px',
-  cursor: 'pointer',
-};
-
 export default function SelectCountry(props) { // eslint-disable-line react/nostate
   return (
-    <div className="row">
-      <div className="col-md-6">
+    <MapsWrapper className="row">
+      <Map className="col-xs-6">
         <button style={props.active ? active : inactive} onClick={props.setActiveOption} data-name="romania" >
-          <img style={inlineBlock} width={50} src={MapRo} role="presentation" />
-          <div style={inlineBlock}>In Romania</div>
+          <img className="map-icon" height={40} src={MapRo} role="presentation" />
+          <div className="map-label">In Romania</div>
         </button>
-      </div>
-      <div className="col-md-6">
+      </Map>
+      <Map className="col-xs-6">
         <button style={props.active ? inactive : active} onClick={props.setActiveOption} data-name="world" >
-          <img style={inlineBlock} width={50} src={MapWorld} role="presentation" />
-          <div style={inlineBlock}>In Disapora</div>
+          <img className="map-icon" height={40} src={MapWorld} role="presentation" />
+          <div className="map-label">In Disapora</div>
         </button>
-      </div>
-    </div>
+      </Map>
+    </MapsWrapper>
   );
 }
 
