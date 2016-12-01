@@ -12,6 +12,15 @@ const Wrapper = styled.div`
   // ceva e funky aici, n-ar trebui sa fie nevoie de asta
   overflow-x: hidden;
 
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @media (min-width: 75em) {
+      padding: 0;
+    }
+  }
+
   .page-hero {
     text-align: center;
     padding: 20px 20px 40px;

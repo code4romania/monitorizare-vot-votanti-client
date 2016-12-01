@@ -4,10 +4,6 @@ import styled from 'styled-components';
 import MapRo from './map-ro.png';
 import MapWorld from './map-world.png';
 
-const MapsWrapper = styled.div`
-
-`;
-
 const Map = styled.div`
   margin: 25px 0 0;
 
@@ -18,6 +14,7 @@ const Map = styled.div`
     display: block;
     text-align: center;
     width: 100%;
+    white-space: nowrap;
   }
 
   .map-label,
@@ -48,20 +45,20 @@ const active = {
 
 export default function SelectCountry(props) { // eslint-disable-line react/nostate
   return (
-    <MapsWrapper className="row">
-      <Map className="col-xs-6">
+    <div className="row">
+      <Map className="col-xs-6 map">
         <button style={props.active ? active : inactive} onClick={props.setActiveOption} data-name="romania" >
           <img className="map-icon" height={40} src={MapRo} role="presentation" />
           <div className="map-label">In Romania</div>
         </button>
       </Map>
-      <Map className="col-xs-6">
+      <Map className="col-xs-6 map">
         <button style={props.active ? inactive : active} onClick={props.setActiveOption} data-name="world" >
           <img className="map-icon" height={40} src={MapWorld} role="presentation" />
           <div className="map-label">In Disapora</div>
         </button>
       </Map>
-    </MapsWrapper>
+    </div>
   );
 }
 

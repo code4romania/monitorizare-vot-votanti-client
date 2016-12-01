@@ -4,15 +4,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import Map from 'components/selectCountry';
+import AffixWrapper from 'components/AffixWrapper';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
-
-
-import Map from 'components/selectCountry';
-import AffixWrapper from 'components/AffixWrapper';
 
 const mocks = {
   judete: [
@@ -27,7 +25,7 @@ const mocks = {
 
 const AddIncidentForm = styled.div`
   // TODO: global with style variables (colors, breakpoints etc.)
-  padding: 10px 20px 20px;
+  padding: 10px 20px 40px;
 
   h2,
   p {
@@ -111,7 +109,7 @@ export class LeftContainer extends React.PureComponent {
       <div className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="form-incident">
           <AffixWrapper offset={340}>
-            <h2>Adauga o sesisare</h2>
+            <h2>Adauga o sesizare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
             <div className="row">

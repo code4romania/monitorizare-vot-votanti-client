@@ -93,6 +93,15 @@ const mvTheme = getMuiTheme({
     labelColor: 'rgba(95, 40, 141, 0.6)',
   },
 
+  // menuItem: {
+  //   dataHeight: 32,
+  //   height: 48,
+  //   hoverColor: fade(palette.textColor, 0.1),
+  //   padding: spacing.desktopGutter,
+  //   selectedTextColor: palette.accent1Color,
+  //   rightIconDesktopFill: grey600,
+  // },
+
 });
 
 const render = (translatedMessages) => {

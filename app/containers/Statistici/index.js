@@ -66,7 +66,7 @@ export class Statistici extends React.PureComponent { // eslint-disable-line rea
   }
   render() {
     return (
-      <div className="col-md-12">
+      <div className="container">
         <Helmet
           title="Statistici - Monitorizare Vot"
           meta={[
