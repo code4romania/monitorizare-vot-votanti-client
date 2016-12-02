@@ -35,7 +35,7 @@ const TextWrapper = styled.div`
 `;
 
 const RowWrapper = styled.div`
-  background: #FFCC00;
+  background: #fdda44;
   color: #5F288D;
   padding: 15px;
   height: 100%;
