@@ -9,11 +9,7 @@ import Hero from './components/hero';
 import Rule from './components/rule';
 
 const Content = styled.div`
-  background: #352245;
-  color: white;
-  margin-top: 5%;
-  padding: 10px;
-  margin-right: 30px;
+  margin: 60px 0 120px;
 `;
 
 export default class ReguliVot extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

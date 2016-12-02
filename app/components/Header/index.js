@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Menu from '../Menu';
-import Logo from './logo_monitorizare.png';
 import styled from 'styled-components';
-import OverlayNav from '../../components/Header/OverlayNav';
+import Menu from 'components/Menu';
+import Icons from 'components/Icons';
+import OverlayNav from './OverlayNav';
 
 const HeaderWrap = styled.div`
   background: #fdda44;
@@ -66,7 +66,7 @@ export default class Header extends React.PureComponent {
           <div className="row">
             <div className="col-xs-12">
               <LogoType to="acasa" className="brand">
-                <img src={Logo} role="presentation" />
+                <Icons icon="mvCircle" />
               </LogoType>
               <Menu {...this.props} />
               { !this.state.showNav ? <Burger className="burger" onClick={this.handleToggleNav}>
