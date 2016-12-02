@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import OverlayNav from '../../components/Header/OverlayNav';
 
 const HeaderWrap = styled.div`
-  background: #ffcc00;
+  background: #fdda44;
   padding: 10px 0;
 
   @media (min-width: 75em) {

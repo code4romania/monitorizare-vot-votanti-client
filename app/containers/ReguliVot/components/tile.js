@@ -1,24 +1,55 @@
 import React from 'react';
+// import createFragment from 'react-addons-create-fragment';
+// import styled from 'styled-components';
+
 import StyledGridItem from './gridTile';
-import StyledIcon from './icon';
 import TileTitle from './tile-title';
 
+import IconBox from './icons/icon-box';
+import IconBuilding from './icons/icon-building';
+import IconClock from './icons/icon-clock';
+import IconInfo from './icons/icon-info';
+import IconLocation from './icons/icon-location';
+import IconPolice from './icons/icon-police';
+import IconSystem from './icons/icon-system';
+import IconVote from './icons/icon-vote';
+
+// const Icons = createFragment({
+//   box: <IconBox />,
+//   building: <IconBuilding />,
+//   clock: <IconClock />,
+//   info: <IconInfo />,
+//   location: <IconLocation />,
+//   police: <IconPolice />,
+//   system: <IconSystem />,
+//   vote: <IconVote />,
+// });
+
 const active = {
-  background: '#352245',
-  fontWeight: 'bold',
-  color: 'white',
+  background: '#5F288D',
+  color: '#ffffff',
 };
 
 function Tile(props) {
   return (
-    <StyledGridItem
-      id={props.id}
-      style={props.activeTab === props.id ? active : {}}
-      onClick={props.selectItem}
-    >
-      <StyledIcon className={`fa fa-${props.icon}`} aria-hidden="true"></StyledIcon>
-      <TileTitle>{props.titlu}</TileTitle>
-    </StyledGridItem>
+    <div>
+      <IconBox />
+      <IconBuilding />
+      <IconClock />
+      <IconInfo />
+      <IconLocation />
+      <IconPolice />
+      <IconSystem />
+      <IconVote />
+      <StyledGridItem
+        id={props.id}
+        style={props.activeTab === props.id ? active : {}}
+        onClick={props.selectItem}
+      >
+        {props.icon}
+        <TileTitle>{props.titlu}</TileTitle>
+      </StyledGridItem>
+    </div>
   );
 }
 

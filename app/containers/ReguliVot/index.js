@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import settings from './settings';
 import Tile from './components/tile';
 import Title from './components/title';
-import { GridList } from 'material-ui/GridList';
 import * as _ from 'lodash';
 import TileContent from './components/tileContent';
 
@@ -34,11 +33,9 @@ export default class ReguliVot extends React.PureComponent { // eslint-disable-l
         <Title />
         <section className="container">
           <div className="row">
-            <GridList cols={8.2} padding={5} cellHeight={130}>
-              {settings.map((item, index) =>
-                <Tile {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
-              )}
-            </GridList>
+            {settings.map((item, index) =>
+              <Tile {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
+            )}
             <TileContent>{currentTabData.content}</TileContent>
           </div>
         </section>

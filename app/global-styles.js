@@ -32,7 +32,7 @@ injectGlobal`
   }
 
   .form-col {
-    background: #ffcc00;
+    background: #fdda44;
   }
 
   .row {

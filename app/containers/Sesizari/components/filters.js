@@ -6,7 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 
 const FiltersWrap = styled.section`
-  background: #ffcc00;
+  background: #fdda44;
   padding: 30px 0;
 
   @media (min-width: 48em) {
