@@ -6,7 +6,7 @@
  */
 import 'babel-polyfill';
 
-/* eslint-disable import/no-unresolved, import/extensions */
+/* eslint-disable import/no-unresolved, import/extensions, no-unused-vars */
 // Load the manifest.json file and the .htaccess file
 import '!file?name=[name].[ext]!./manifest.json';
 import 'file?name=[name].[ext]!./.htaccess';
@@ -19,6 +19,7 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
+import GlobalStyles from './global-styles';
 import LanguageProvider from 'containers/LanguageProvider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -93,14 +94,9 @@ const mvTheme = getMuiTheme({
     labelColor: 'rgba(95, 40, 141, 0.6)',
   },
 
-  // menuItem: {
-  //   dataHeight: 32,
-  //   height: 48,
-  //   hoverColor: fade(palette.textColor, 0.1),
-  //   padding: spacing.desktopGutter,
-  //   selectedTextColor: palette.accent1Color,
-  //   rightIconDesktopFill: grey600,
-  // },
+  menuItem: {
+    selectedTextColor: 'rgba(95, 40, 141, 1)',
+  },
 
 });
 

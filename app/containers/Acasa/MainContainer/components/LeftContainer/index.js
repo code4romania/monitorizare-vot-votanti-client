@@ -24,8 +24,8 @@ const mocks = {
 };
 
 const AddIncidentForm = styled.div`
-  // TODO: global with style variables (colors, breakpoints etc.)
-  padding: 10px 20px 40px;
+  { // TODO: global with style variables (colors, breakpoints etc.) }
+  padding: 20px 30px 40px;
 
   h2,
   p {
@@ -50,7 +50,7 @@ const AddIncidentForm = styled.div`
     @media (min-width: 75em) {
       position: fixed;
       top: 0;
-      width: 560px;
+      width: 540px;
     }
   }
 `;
@@ -107,7 +107,7 @@ export class LeftContainer extends React.PureComponent {
   render() {
     return (
       <div className="col-xs-12 col-lg-6 form-col">
-        <AddIncidentForm className="form-incident">
+        <AddIncidentForm className="interact">
           <AffixWrapper offset={340}>
             <h2>Adauga o sesizare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>

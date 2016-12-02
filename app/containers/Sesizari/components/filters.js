@@ -63,25 +63,29 @@ export class Filters extends React.PureComponent {
 
   render() {
     return (
-      <FiltersWrap>
+      <FiltersWrap className="interact">
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-sm-6">
-              <Maps half={false} active={this.state.active} setActiveOption={this.setActiveOption} />
-            </div>
+            <div className="col-xs-12 col-md-offset-1 col-md-10">
+              <div className="row">
+                <div className="col-xs-12 col-sm-6">
+                  <Maps half={false} active={this.state.active} setActiveOption={this.setActiveOption} />
+                </div>
 
-            <div className="col-xs-12 col-sm-6">
-              <SelectField floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.handleChange} hintText="Alege tipul sesizarii" fullWidth>
-                {mocks.incidentTypes}
-              </SelectField>
-            </div>
+                <div className="col-xs-12 col-sm-6">
+                  <SelectField floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.handleChange} hintText="Alege tipul sesizarii" fullWidth className="dropdown" style={{ color: '#ff0000' }}>
+                    {mocks.incidentTypes}
+                  </SelectField>
+                </div>
 
-            <div className="col-xs-12 col-sm-6">
-              <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
-            </div>
+                <div className="col-xs-12 col-sm-6">
+                  <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                </div>
 
-            <div className="col-xs-12 col-sm-6">
-              <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <div className="col-xs-12 col-sm-6">
+                  <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
