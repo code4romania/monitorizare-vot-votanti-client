@@ -11,6 +11,8 @@ import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
+import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
+import FileUploader from 'components/FileUploader';
 
 const mocks = {
   judete: [
@@ -21,6 +23,12 @@ const mocks = {
     { text: 'Iasi', value: 5 },
     { text: 'Vaslui', value: 6 },
   ],
+};
+
+const buttonStyle = {
+  height: '36',
+  backgroundColor: '#5F288D',
+  color: 'white',
 };
 
 const AddIncidentForm = styled.div`
@@ -109,16 +117,16 @@ export class LeftContainer extends React.PureComponent {
       <div className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="form-incident">
           <AffixWrapper offset={340}>
-            <h2>Adauga o sesizare</h2>
+            <h2>Adauga o sesisare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
             <div className="row">
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Andrei" floatingLabelText="Nume" fullWidth onChange={this.handleOnChangeInput} />
+                <TextField hintText="Popescu" floatingLabelText="Nume" fullWidth onChange={this.handleOnChangeInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Popescu" floatingLabelText="Prenume" fullWidth onChange={this.handleOnChangeInput} />
+                <TextField hintText="Andrei" floatingLabelText="Prenume" fullWidth onChange={this.handleOnChangeInput} />
               </div>
 
               <div className="col-xs-12">
@@ -148,19 +156,23 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <div className="types">
-                  <SelectField hintText="Tipul sesizarii" fullWidth />
-                </div>
-
-                <div>
-                  <RaisedButton label="Adauga sesizare" className="button add-incident" />
-                </div>
+                <SelectField hintText="Tipul sesizarii" fullWidth />
+                <FileUploader />
+                <RaisedButton
+                  buttonStyle={buttonStyle}
+                  label="Adauga sesizare"
+                  labelPosition="after"
+                  icon={<AddCircleOutline />}
+                  fullWidth
+                  primary
+                  onClick={this.handleSubmit}
+                />
               </div>
             </div>
+
           </AffixWrapper>
         </AddIncidentForm>
-      </div>
-    );
+      </div>);
   }
 }
 
