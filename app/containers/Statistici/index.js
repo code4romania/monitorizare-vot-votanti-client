@@ -7,49 +7,9 @@ import ListStats from './components/ListStats';
 import StatsInfo from './components/StatsInfo';
 import RaisedButton from 'material-ui/RaisedButton';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-
-const statsMock = [
-  {
-    title: 'Teleorman',
-    subtitle: 'este judetul cu cele mai multe sesizari de la votanti',
-  },
-  {
-    title: 'Craiova',
-    subtitle: 'este judetul cu cele mai multe sesizari de la votanti',
-  },
-  {
-    title: 'Tragoviste',
-    subtitle: 'something something',
-  },
-  {
-    title: '347',
-    subtitle: 'orasul cu cele mai multe sesizari de la votanti',
-  },
-  {
-    title: 'Constanta',
-    subtitle: 'something something',
-  },
-  {
-    title: 'Bucuresti',
-    subtitle: 'something something',
-  },
-  {
-    title: 'Teleorman',
-    subtitle: 'este judetul cu cele mai multe sesizari de la votanti',
-  },
-  {
-    title: 'Tragoviste',
-    subtitle: 'este judetul cu cele mai multe sesizari de la votanti',
-  },
-  {
-    title: 'Arad',
-    subtitle: 'este judetul cu cele mai multe sesizari de la votanti',
-  },
-  {
-    title: 'Timis',
-    subtitle: 'este judetul cu cele mai multe sesizari de la votanti',
-  },
-];
+import { getStatsData } from './selectors';
+import { createStructuredSelector } from 'reselect';
+import Loading from 'components/Loading';
 
 const styles = {
   buttonWrapper: {
@@ -65,38 +25,44 @@ export class Statistici extends React.PureComponent { // eslint-disable-line rea
     browserHistory.push('/sesizari');
   }
   render() {
-    return (
-      <div className="container">
-        <Helmet
-          title="Statistici - Monitorizare Vot"
-          meta={[
-            { name: 'description', content: 'Statistici' },
-          ]}
-        />
-        <StatsInfo />
-        <section className="container">
-          <div className="row">
-            <ListStats stats={statsMock} />
-
-            <div style={styles.buttonWrapper}>
-              <RaisedButton
-                label="Vezi toate sesizarile"
-                labelPosition="before"
-                primary
-                icon={<ChevronRight />}
-                className="button"
-                onClick={this.browseToSesizari}
-              />
+    if (this.props.stats && this.props.stats.incidentsByCounty) {
+      return (
+        <div className="container">
+          <Helmet
+            title="Statistici - Monitorizare Vot"
+            meta={[
+              { name: 'description', content: 'Statistici' },
+            ]}
+          />
+          <StatsInfo />
+          <section className="container">
+            <div className="row">
+              { this.props.stats ?
+                <ListStats {...this.props} />
+                : null
+              }
+              <div style={styles.buttonWrapper}>
+                <RaisedButton
+                  label="Vezi toate sesizarile"
+                  labelPosition="before"
+                  primary
+                  icon={<ChevronRight />}
+                  className="button"
+                  onClick={this.browseToSesizari}
+                />
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    );
+          </section>
+        </div>
+      );
+    }
+    return <Loading />;
   }
 }
 
 Statistici.propTypes = {
   getStats: React.PropTypes.func,
+  stats: React.PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -105,4 +71,8 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(Statistici);
+const mapStateToProps = createStructuredSelector({
+  stats: getStatsData(),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Statistici);
