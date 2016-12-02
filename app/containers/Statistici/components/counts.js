@@ -52,20 +52,20 @@ export default function CountsItem(props) {
     <Wrapper className="col-md-12 col-xs-12">
       <RowWrapper className="row row-wrap">
         <TextWrapper className="text-wrap" >
-          <Title className="item-title"> {_.first(props.counts).incidentsCount} </Title>
+          <Title className="item-title"> {_.first(props.counts).countyName} </Title>
         </TextWrapper>
 
         <TextWrapper>
-          <Subtitle> {_.first(props.counts).countyName} </Subtitle>
-          <ul style={{ listStyleType: 'none', display: 'flex' }}>
-            {_.tail(props.counts).map((item, index) =>
-              <li key={index}>
-                <span>{item.countyName}, </span>
-                <span>( {item.incidentsCount} )</span>
-              </li>
-            )}
-          </ul>
+          <Subtitle> {_.first(props.counts).incidentsCount} </Subtitle>
         </TextWrapper>
+        <ul style={{ width: '100%', listStyleType: 'none', display: 'flex' }}>
+          {_.tail(props.counts).map((item, index) =>
+            <li key={index}>
+              <span> {item.countyName} </span>
+              <span>({item.incidentsCount}), </span>
+            </li>
+          )}
+        </ul>
       </RowWrapper>
     </Wrapper>
   );
