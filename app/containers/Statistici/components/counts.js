@@ -4,12 +4,12 @@ import * as _ from 'lodash';
 
 // @TODO: Move each of the following styled components into separate files.
 const Title = styled.h1`
-  // font-size: 40px;
-  // font-weight: 900;
-  // margin: 0;
-  // padding: 0;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
+  font-size: 40px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 // const Subtitle = styled.h2`
@@ -52,12 +52,8 @@ export default function CountsItem(props) {
     <Wrapper className="col-xs-12">
       <h2>{props.title}</h2>
       <RowWrapper className="">
-        <TextWrapper className="text-wrap" >
-          <Title className="item-title"> {_.first(props.counts).incidentsCount} </Title>
-        </TextWrapper>
-
-        <TextWrapper>
-          <Title> {_.first(props.counts).countyName} </Title>
+        <TextWrapper className="text-wrap">
+          <Title className="item-title">{_.first(props.counts).incidentsCount} {_.first(props.counts).countyName}</Title>
           {_.tail(props.counts).map((item, index) =>
             <div key={index}>
               <Title className="item-title">{item.countyName} ( {item.incidentsCount} )</Title>
