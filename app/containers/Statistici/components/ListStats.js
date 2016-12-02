@@ -1,16 +1,21 @@
 import React from 'react';
-import StatsItem from './StatsItem/index';
+import LeftColumn from './leftColumn';
+import RightColumn from './rightColumn';
+
 
 export default function ListStats(props) {
   return (
     <div className="row">
-      {props.stats.map((item, index) =>
-        <StatsItem key={index} title={item.title} subtitle={item.subtitle} />
-      )}
+      <div className="col-md-6">
+        <LeftColumn {...props} />
+      </div>
+      <div className="col-md-6">
+        <RightColumn {...props} />
+      </div>
     </div>
   );
 }
 
 ListStats.propTypes = {
-  stats: React.PropTypes.array,
+  stats: React.PropTypes.object,
 };

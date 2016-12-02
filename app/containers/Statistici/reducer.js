@@ -1,23 +1,17 @@
-/*
- *
- * LanguageProvider reducer
- *
- */
-
 import { fromJS } from 'immutable';
-// import {
-//   CHANGE_LOCALE,
-// } from './constants';
 import {
-  DEFAULT_LOCALE,
-} from '../App/constants'; // eslint-disable-line
+  STATS_LOADED,
+} from './constants';
 
 const initialState = fromJS({
-  locale: DEFAULT_LOCALE,
+  stats: {},
 });
 
 function StatsReducer(state = initialState, action) {
   switch (action.type) {
+    case STATS_LOADED:
+      return state
+      .set('stats', action.stats);
     default:
       return state;
   }

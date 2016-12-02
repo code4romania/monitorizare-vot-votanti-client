@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as _ from 'lodash';
 
 // @TODO: Move each of the following styled components into separate files.
 const Title = styled.h1`
@@ -46,23 +47,30 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function StatsItem(props) {
+export default function CountsItem(props) {
   return (
     <Wrapper className="col-md-12 col-xs-12">
       <RowWrapper className="row row-wrap">
         <TextWrapper className="text-wrap" >
-          <Title className="item-title"> {props.title} </Title>
+          <Title className="item-title"> {_.first(props.counts).incidentsCount} </Title>
         </TextWrapper>
 
         <TextWrapper>
-          <Subtitle> {props.subtitle} </Subtitle>
+          <Subtitle> {_.first(props.counts).countyName} </Subtitle>
+          <ul style={{ listStyleType: 'none', display: 'flex' }}>
+            {_.tail(props.counts).map((item, index) =>
+              <li key={index}>
+                <span>{item.countyName}, </span>
+                <span>( {item.incidentsCount} )</span>
+              </li>
+            )}
+          </ul>
         </TextWrapper>
       </RowWrapper>
     </Wrapper>
   );
 }
 
-StatsItem.propTypes = {
-  title: React.PropTypes.string,
-  subtitle: React.PropTypes.string,
+CountsItem.propTypes = {
+  counts: React.PropTypes.array,
 };

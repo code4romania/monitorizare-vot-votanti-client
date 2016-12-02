@@ -1,24 +1,18 @@
 import { takeLatest } from 'redux-saga';
-import { take, call, fork, cancel } from 'redux-saga/effects';
+import { take, call, fork, cancel, put } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { GET_STATS } from './constants';
+import request from 'utils/request';
+import { statsLoaded } from './actions';
 
 export function* getStatsData() {
-  const urls = ['http://portal-votanti-uat.azurewebsites.net/api/statistici/numar-observatori', 'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari', 'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari-judete',
-    'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari-judet-top', 'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari-sectii', 'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari-deschidere-judete',
-    'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari-deschidere-sectii', 'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari-numarare-judete', 'http://portal-votanti-uat.azurewebsites.net/api/statistici/sesizari-numarare-sectii',
-  ];
+  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/reports';
 
-  yield urls.map((url) => call(parallelFetch, url));
-
-  function* parallelFetch(url) {
-    try {
-      let data = yield call(fetch, url);
-      data = yield data.json();
-      console.log(data);
-    } catch (e) {
-      console.log(e);
-    }
+  try {
+    const stats = yield call(request, requestURL);
+    yield put(statsLoaded(stats));
+  } catch (err) {
+    // to do when failed
   }
 }
 
