@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const TileContent = styled.div`
+const RuleContent = styled.div`
   background: #352245;
   color: white;
   margin-top: 5%;
@@ -8,4 +8,4 @@ const TileContent = styled.div`
   margin-right: 30px;
 `;
 
-export default TileContent;
+export default RuleContent;

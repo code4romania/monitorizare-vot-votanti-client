@@ -2,8 +2,8 @@ import React from 'react';
 // import createFragment from 'react-addons-create-fragment';
 // import styled from 'styled-components';
 
-import StyledGridItem from './gridTile';
-import TileTitle from './tile-title';
+// import StyledGridItem from './gridTile';
+// import TileTitle from './tile-title';
 
 import IconBox from './icons/icon-box';
 import IconBuilding from './icons/icon-building';
@@ -30,7 +30,7 @@ const active = {
   color: '#ffffff',
 };
 
-function Tile(props) {
+function Rule(props) {
   return (
     <div>
       <IconBox />
@@ -41,19 +41,19 @@ function Tile(props) {
       <IconPolice />
       <IconSystem />
       <IconVote />
-      <StyledGridItem
+      <div
         id={props.id}
         style={props.activeTab === props.id ? active : {}}
-        onClick={props.selectItem}
+        onTouchTap={props.selectItem}
       >
         {props.icon}
-        <TileTitle>{props.titlu}</TileTitle>
-      </StyledGridItem>
+        <div>{props.titlu}</div>
+      </div>
     </div>
   );
 }
 
-Tile.propTypes = {
+Rule.propTypes = {
   id: React.PropTypes.number,
   activeTab: React.PropTypes.number,
   titlu: React.PropTypes.string,
@@ -61,4 +61,4 @@ Tile.propTypes = {
   selectItem: React.PropTypes.func,
 };
 
-export default Tile;
+export default Rule;

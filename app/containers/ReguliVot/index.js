@@ -1,10 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import settings from './settings';
-import Tile from './components/tile';
-import Title from './components/title';
 import * as _ from 'lodash';
-import TileContent from './components/tileContent';
+
+import rules from './rules';
+
+import Hero from './components/hero';
+import Rule from './components/rule';
+import Content from './components/content';
 
 export default class ReguliVot extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
@@ -21,7 +23,7 @@ export default class ReguliVot extends React.PureComponent { // eslint-disable-l
   }
 
   render() {
-    const currentTabData = _.find(settings, (item) => item.id === this.state.activeTab);
+    const currentTabData = _.find(rules, (item) => item.id === this.state.activeTab);
     return (
       <div>
         <Helmet
@@ -30,13 +32,13 @@ export default class ReguliVot extends React.PureComponent { // eslint-disable-l
             { name: 'description', content: 'Reguli vot' },
           ]}
         />
-        <Title />
+        <Hero />
         <section className="container">
           <div className="row">
-            {settings.map((item, index) =>
-              <Tile {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
+            {rules.map((item, index) =>
+              <Rule {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
             )}
-            <TileContent>{currentTabData.content}</TileContent>
+            <Content>{currentTabData.content}</Content>
           </div>
         </section>
       </div>

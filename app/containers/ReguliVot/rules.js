@@ -1,4 +1,4 @@
-const settings = [
+const rules = [
   {
     titlu: 'Informații generale',
     id: 1,
@@ -49,4 +49,4 @@ const settings = [
   },
 ];
 
-export default settings;
+export default rules;
