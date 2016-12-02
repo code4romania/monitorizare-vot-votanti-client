@@ -9,7 +9,7 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 import IncidentItem from './item';
 
 const IncidentWrap = styled.div`
-  padding: 10px 20px 60px;
+  padding: 10px 0 60px;
 `;
 
 

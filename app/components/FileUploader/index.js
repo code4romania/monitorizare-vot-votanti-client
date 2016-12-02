@@ -15,7 +15,7 @@ const inputStyles = {
 };
 const iconStyles = {
   width: '100%',
-  height: '40',
+  height: '40px',
   color: '#9E6D53',
 };
 const textStyles = {

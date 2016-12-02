@@ -36,11 +36,11 @@ export class Statistici extends React.PureComponent { // eslint-disable-line rea
           />
           <StatsInfo />
           <section className="container">
+            { this.props.stats ?
+              <ListStats {...this.props} />
+              : null
+            }
             <div className="row">
-              { this.props.stats ?
-                <ListStats {...this.props} />
-                : null
-              }
               <div style={styles.buttonWrapper}>
                 <RaisedButton
                   label="Vezi toate sesizarile"

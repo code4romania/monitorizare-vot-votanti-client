@@ -26,14 +26,14 @@ const mocks = {
 };
 
 const buttonStyle = {
-  height: '36',
+  height: '36px',
   backgroundColor: '#5F288D',
-  color: 'white',
+  color: '#ffffff',
 };
 
 const AddIncidentForm = styled.div`
   { // TODO: global with style variables (colors, breakpoints etc.) }
-  padding: 20px 30px 40px;
+  padding: 10px 0 40px;
 
   h2,
   p {
@@ -58,7 +58,7 @@ const AddIncidentForm = styled.div`
     @media (min-width: 75em) {
       position: fixed;
       top: 0;
-      width: 540px;
+      width: 593px;
     }
   }
 `;
@@ -156,8 +156,12 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <SelectField hintText="Tipul sesizarii" fullWidth />
+                <div className="types">
+                  <SelectField hintText="Tipul sesizarii" fullWidth />
+                </div>
+
                 <FileUploader />
+
                 <RaisedButton
                   buttonStyle={buttonStyle}
                   label="Adauga sesizare"

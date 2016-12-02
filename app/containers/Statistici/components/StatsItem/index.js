@@ -3,22 +3,30 @@ import styled from 'styled-components';
 
 // @TODO: Move each of the following styled components into separate files.
 const Title = styled.h1`
-  font-size: 40px;
+  font-size: 26px;
   font-weight: 900;
   margin: 0;
   padding: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (min-width: 48em) {
+    font-size: 32px;
+  }
 `;
 
 const Subtitle = styled.h2`
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   opacity: 0.7;
   margin: 0;
   padding: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (min-width: 48em) {
+    font-size: 16px;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -29,27 +37,19 @@ const TextWrapper = styled.div`
 const RowWrapper = styled.div`
   background: #FFCC00;
   color: #5F288D;
-  padding: 25px;
+  padding: 15px;
   height: 100%;
+  display: flex;
 `;
 
 const Wrapper = styled.div`
-  padding: 10px 20px;
-  box-sizing: border-box;
-
-  &:nth-child(-n+1) > .row-wrap {
-    background: #5F288D;
-    color: #FFF;
-    > .text-wrap > .item-title {
-      font-size: 50px;
-    }
-  }
+  margin-bottom: 30px;
 `;
 
 export default function StatsItem(props) {
   return (
-    <Wrapper className="col-md-12 col-xs-12">
-      <RowWrapper className="row row-wrap">
+    <Wrapper className="col-xs-12 col-sm-6">
+      <RowWrapper>
         <TextWrapper className="text-wrap" >
           <Title className="item-title"> {props.title} </Title>
         </TextWrapper>
@@ -63,6 +63,6 @@ export default function StatsItem(props) {
 }
 
 StatsItem.propTypes = {
-  title: React.PropTypes.string,
+  title: React.PropTypes.number,
   subtitle: React.PropTypes.string,
 };
