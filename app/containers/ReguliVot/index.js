@@ -1,12 +1,20 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import * as _ from 'lodash';
+import styled from 'styled-components';
 
 import rules from './rules';
 
 import Hero from './components/hero';
 import Rule from './components/rule';
-import Content from './components/content';
+
+const Content = styled.div`
+  background: #352245;
+  color: white;
+  margin-top: 5%;
+  padding: 10px;
+  margin-right: 30px;
+`;
 
 export default class ReguliVot extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
@@ -38,7 +46,7 @@ export default class ReguliVot extends React.PureComponent { // eslint-disable-l
             {rules.map((item, index) =>
               <Rule {...item} key={index} selectItem={this.selectItem} activeTab={this.state.activeTab} />
             )}
-            <Content>{currentTabData.content}</Content>
+            <Content dangerouslySetInnerHTML={{ __html: currentTabData.content }} />
           </div>
         </section>
       </div>
