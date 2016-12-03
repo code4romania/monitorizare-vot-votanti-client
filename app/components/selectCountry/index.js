@@ -26,11 +26,6 @@ const Map = styled.div`
 
   .map-label {
     display: block;
-
-    @media (min-width: 48em) {
-      display: inline-block;
-      padding-left: 10px;
-    }
   }
 `;
 

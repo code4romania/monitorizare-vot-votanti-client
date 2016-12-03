@@ -18,14 +18,16 @@ export class Title extends React.PureComponent {
             <p>
               Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective.
             </p>
-            <RaisedButton
-              label="Vezi toate sesizarile"
-              labelPosition="before"
-              className="button"
-              primary
-              icon={<ChevronRight />}
-              onClick={this.browseToSesizari}
-            />
+            <div className="hero-cta">
+              <RaisedButton
+                label="Vezi toate sesizarile"
+                labelPosition="before"
+                className="button"
+                primary
+                icon={<ChevronRight />}
+                onClick={this.browseToSesizari}
+              />
+            </div>
           </div>
         </div>
       </section>

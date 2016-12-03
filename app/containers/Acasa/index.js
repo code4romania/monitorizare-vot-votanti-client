@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { getIncidentsAction } from './actions';
 import { getIncidents } from './selectors';
-import Title from './MainContainer/components/title';
+import Hero from './MainContainer/components/hero';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -49,7 +49,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             { name: 'description', content: 'Acasa' },
           ]}
         />
-        <Title />
+        <Hero />
         <MainContainer
           {...this.props}
           handleOpen={this.handleOpen}

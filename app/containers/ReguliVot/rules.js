@@ -132,6 +132,8 @@ const rules = [
     content: '<h1>Infracțiuni electorale</h1>\n\
       <h2>Cine și unde poate sesiza comiterea unei infracțiuni electorale? </h2>\n\
       <p>Orice persoană poate sesiza organele de cercetare penală sau organele de urmărire penală, după regulile generale de sesizare, prevăzute în art. 289 și art. 290 din Codul de procedură penală.</p>\n\
+      <h2>Cine și în ce condiții poate cere anularea alegerilor pentru fraudă electorală?</h2>\n\
+      <p>Cererea de anulare a alegerilor dintr-o secţie de votare sau circumscripţie electorală pentru fraudă electorală se poate face numai de către competitorii electorali care au participat la alegeri în circumscripţia electorală respectivă. Cererea se depune la Biroul Electoral Central în termen de cel mult 48 de ore de la data încheierii votării, sub sancţiunea decăderii. Cererea trebuie temeinic motivată şi însoţită de dovezile pe care se întemeiază. Lipsa probelor atrage respingerea cererii. [Art. 12 alin. (3) din Legea nr. 208/2015]</p>\n\
       <h3>INFRACŢIUNI CONFORM CODULUI PENAL</h3>\n\
       <h2>ART. 385 - Împiedicarea exercitării drepturilor electorale</h2>\n\
       <p>(1) Împiedicarea, prin orice mijloace, a liberului exerciţiu al dreptului de a alege sau de a fi ales se pedepseşte cu închisoarea de la 6 luni la 3 ani.</p>\n\
@@ -157,9 +159,7 @@ const rules = [
       <p>(3) Introducerea în uz sau folosirea unui program informatic cu vicii care alterează înregistrarea ori însumarea rezultatelor obţinute în secţiile de votare sau determină repartizarea mandatelor în afara prevederilor legii se pedepseşte cu închisoarea de la 2 la 7 ani şi interzicerea exercitării unor drepturi.</p>\n\
       <p>(4) Cu aceeaşi pedeapsă se sancţionează introducerea de date, informaţii sau proceduri care duc la alterarea sistemului informaţional naţional necesar stabilirii rezultatelor alegerilor.</p>\n\
       <h2>ART. 393 – Sancţionarea tentativei</h2>\n\
-      <p>Tentativa la infracţiunile prevăzute în art. 385 şi art. 387 – 391 se pedepseşte.</p>\n\
-      <h2>Cine și în ce condiții poate cere anularea alegerilor pentru fraudă electorală?</h2>\n\
-      <p>Cererea de anulare a alegerilor dintr-o secţie de votare sau circumscripţie electorală pentru fraudă electorală se poate face numai de către competitorii electorali care au participat la alegeri în circumscripţia electorală respectivă. Cererea se depune la Biroul Electoral Central în termen de cel mult 48 de ore de la data încheierii votării, sub sancţiunea decăderii. Cererea trebuie temeinic motivată şi însoţită de dovezile pe care se întemeiază. Lipsa probelor atrage respingerea cererii. [Art. 12 alin. (3) din Legea nr. 208/2015]</p>',
+      <p>Tentativa la infracţiunile prevăzute în art. 385 şi art. 387 – 391 se pedepseşte.</p>',
   },
 ];
 

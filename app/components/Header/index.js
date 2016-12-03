@@ -70,7 +70,7 @@ export default class Header extends React.PureComponent {
                 <Icons icon="mv" />
               </LogoType>
               <Menu {...this.props} />
-              { !this.state.showNav ? <Burger onTouchTap={this.handleToggleNav}>
+              { !this.state.showNav ? <Burger onClick={this.handleToggleNav}>
                 <i className="material-icons">&#xE5D2;</i>
               </Burger> : '' }
             </div>

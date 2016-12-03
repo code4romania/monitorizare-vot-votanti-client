@@ -32,7 +32,7 @@ const buttonStyle = {
 };
 
 const AddIncidentForm = styled.div`
-  { // TODO: global with style variables (colors, breakpoints etc.) }
+  { // TODO: add variables to styled (colors, breakpoints etc.) }
   padding: 10px 0 40px;
 
   h2,
@@ -116,7 +116,7 @@ export class LeftContainer extends React.PureComponent {
     return (
       <div className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="interact">
-          <AffixWrapper offset={340}>
+          <AffixWrapper offset={415}>
             <h2>Adauga o sesisare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
@@ -169,7 +169,6 @@ export class LeftContainer extends React.PureComponent {
                   labelPosition="after"
                   icon={<AddCircleOutline />}
                   fullWidth
-                  primary
                   onClick={this.handleSubmit}
                 />
               </div>

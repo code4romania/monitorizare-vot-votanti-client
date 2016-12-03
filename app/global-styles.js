@@ -9,6 +9,10 @@ injectGlobal`
     font-family: 'Open Sans', sans-serif;
   }
 
+  a {
+    color: #5F288D;
+  }
+
   .container {
     padding-left: 16px;
     padding-right: 16px;
@@ -23,8 +27,12 @@ injectGlobal`
     padding: 20px 20px 40px;
 
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
+  }
+
+  .hero-cta {
+    margin: 40px 0 20px;
   }
 
   .form-col {
