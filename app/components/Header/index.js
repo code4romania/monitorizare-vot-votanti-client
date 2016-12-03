@@ -37,6 +37,7 @@ const LogoType = styled(Link)`
 `;
 
 const Burger = styled.button`
+  cursor: pointer;
   float: right;
   display: inline-block;
   margin: 0 10px 0 0;
@@ -66,10 +67,10 @@ export default class Header extends React.PureComponent {
           <div className="row">
             <div className="col-xs-12">
               <LogoType to="acasa" className="brand">
-                <Icons icon="mvCircle" />
+                <Icons icon="mv" />
               </LogoType>
               <Menu {...this.props} />
-              { !this.state.showNav ? <Burger className="burger" onClick={this.handleToggleNav}>
+              { !this.state.showNav ? <Burger onTouchTap={this.handleToggleNav}>
                 <i className="material-icons">&#xE5D2;</i>
               </Burger> : '' }
             </div>

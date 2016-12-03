@@ -5,7 +5,7 @@ import MapRo from './map-ro.png';
 import MapWorld from './map-world.png';
 
 const Map = styled.div`
-  margin: 25px 0 0;
+  margin: 15px 0 0;
 
   button {
     font-family: "Open Sans", sans-serif;
@@ -46,13 +46,13 @@ const active = {
 export default function SelectCountry(props) { // eslint-disable-line react/nostate
   return (
     <div className="row">
-      <Map className="col-xs-6 map">
+      <Map className="col-xs-6">
         <button style={props.active ? active : inactive} onClick={props.setActiveOption} data-name="romania" >
           <img className="map-icon" height={40} src={MapRo} role="presentation" />
           <div className="map-label">In Romania</div>
         </button>
       </Map>
-      <Map className="col-xs-6 map">
+      <Map className="col-xs-6">
         <button style={props.active ? inactive : active} onClick={props.setActiveOption} data-name="world" >
           <img className="map-icon" height={40} src={MapWorld} role="presentation" />
           <div className="map-label">In Disapora</div>

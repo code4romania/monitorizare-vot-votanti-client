@@ -6,29 +6,24 @@ const RuleWrapper = styled.div`
   cursor: pointer;
 `;
 
-const active = {
-  background: '#5F288D',
-  color: '#ffffff',
-};
-
-function Rule(props) {
+function ItemRule(props) {
   return (
-    <div>
+    <div className="col-sm-4 rule">
       <div
         id={props.id}
-        style={props.activeTab === props.id ? active : {}}
         onTouchTap={props.selectItem}
+        className={props.activeTab === props.id ? 'rule-item active' : 'rule-item'}
       >
         <RuleWrapper>
           <Icons icon={props.icon} />
-          <div>{props.titlu}</div>
+          <strong>{props.titlu}</strong>
         </RuleWrapper>
       </div>
     </div>
   );
 }
 
-Rule.propTypes = {
+ItemRule.propTypes = {
   id: React.PropTypes.number,
   activeTab: React.PropTypes.number,
   titlu: React.PropTypes.string,
@@ -36,4 +31,4 @@ Rule.propTypes = {
   selectItem: React.PropTypes.func,
 };
 
-export default Rule;
+export default ItemRule;

@@ -134,15 +134,15 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete hintText="Cauta judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete hintText="Cauta orasul" floatingLabelText="Orasul" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Alege sectia" floatingLabelText="Sectia" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete hintText="Cauta sectia" floatingLabelText="Sectia" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">

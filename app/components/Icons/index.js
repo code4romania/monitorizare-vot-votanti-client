@@ -27,10 +27,9 @@ const iconList = {
 
 const Icon = styled.i`
   display: inline-block;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
 `;
-
 
 function Icons(props) {
   return (
