@@ -3,6 +3,27 @@ import RaisedButton from 'material-ui/RaisedButton';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 import { browserHistory } from 'react-router';
 
+const buttonStyle = {
+  height: '60px',
+  backgroundColor: '#5F288D',
+  color: '#ffffff',
+};
+
+const buttonOverlayStyle = {
+  height: '60px',
+};
+
+const buttonLabelStyle = {
+  lineHeight: '60px',
+  fontWeight: '700',
+  fontSize: '16px',
+  letterSpacing: '1px',
+};
+
+const buttonIconStyle = {
+  color: '#ffffff',
+};
+
 export class Title extends React.PureComponent {
   browseToSesizari() {
     browserHistory.push('/sesizari');
@@ -24,7 +45,10 @@ export class Title extends React.PureComponent {
                 labelPosition="before"
                 className="button"
                 primary
-                icon={<ChevronRight />}
+                buttonStyle={buttonStyle}
+                overlayStyle={buttonOverlayStyle}
+                labelStyle={buttonLabelStyle}
+                icon={<ChevronRight style={buttonIconStyle} />}
                 onClick={this.browseToSesizari}
               />
             </div>

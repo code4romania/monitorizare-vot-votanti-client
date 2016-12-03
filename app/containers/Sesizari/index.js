@@ -4,13 +4,32 @@ import Helmet from 'react-helmet';
 import { getIncidentsAction } from './actions';
 import { getIncidents, getPagination, getNextPage } from './selectors';
 import { connect } from 'react-redux';
-import Title from './components/title';
+import Hero from './components/hero';
 import Filters from './components/filters';
 import IncidentItem from './components/incidentItem';
 import Loading from 'components/Loading';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
-import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+import Refresh from 'material-ui/svg-icons/navigation/refresh';
+
+const buttonStyle = {
+  height: '60px',
+};
+
+const buttonOverlayStyle = {
+  height: '60px',
+};
+
+const buttonLabelStyle = {
+  lineHeight: '60px',
+  fontWeight: '700',
+  fontSize: '16px',
+  letterSpacing: '1px',
+};
+
+const buttonIconStyle = {
+  color: '#ffffff',
+};
 
 export class Sesizari extends React.PureComponent {
   constructor() {
@@ -56,7 +75,7 @@ export class Sesizari extends React.PureComponent {
               { name: 'description', content: 'Sesizări' },
             ]}
           />
-          <Title />
+          <Hero />
           <Filters />
           <section className="container">
             <div className="row">
@@ -71,14 +90,19 @@ export class Sesizari extends React.PureComponent {
                 : null
               ))}
             </div>
-            <RaisedButton
-              label={this.props.nextPage !== this.props.pagination.lastPage ? 'Vezi toate sesizarile' : 'Nu mai sunt sesizari'}
-              labelPosition="before"
-              primary
-              icon={this.props.nextPage !== this.props.pagination.lastPage ? <ChevronRight /> : ''}
-              disabled={this.props.nextPage === this.props.pagination.lastPage}
-              onClick={this.loadNextIncidents}
-            />
+            <div className="bottom-cta">
+              <RaisedButton
+                label={this.props.nextPage !== this.props.pagination.lastPage ? 'Încarcă mai multe sesizări' : 'Nu mai sunt sesizări'}
+                buttonStyle={buttonStyle}
+                overlayStyle={buttonOverlayStyle}
+                labelStyle={buttonLabelStyle}
+                labelPosition="after"
+                primary
+                icon={this.props.nextPage !== this.props.pagination.lastPage ? <Refresh style={buttonIconStyle} /> : ''}
+                disabled={this.props.nextPage === this.props.pagination.lastPage}
+                onClick={this.loadNextIncidents}
+              />
+            </div>
           </section>
           <div>
             <Dialog

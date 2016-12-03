@@ -26,8 +26,23 @@ const mocks = {
 };
 
 const buttonStyle = {
-  height: '36px',
+  height: '60px',
   backgroundColor: '#5F288D',
+  color: '#ffffff',
+};
+
+const buttonOverlayStyle = {
+  height: '60px',
+};
+
+const buttonLabelStyle = {
+  lineHeight: '60px',
+  fontWeight: '700',
+  fontSize: '16px',
+  letterSpacing: '1px',
+};
+
+const buttonIconStyle = {
   color: '#ffffff',
 };
 
@@ -165,9 +180,11 @@ export class LeftContainer extends React.PureComponent {
 
                 <RaisedButton
                   buttonStyle={buttonStyle}
-                  label="Adauga sesizare"
+                  overlayStyle={buttonOverlayStyle}
+                  labelStyle={buttonLabelStyle}
+                  label="Adauga sesizarea"
                   labelPosition="after"
-                  icon={<AddCircleOutline />}
+                  icon={<AddCircleOutline style={buttonIconStyle} />}
                   fullWidth
                   onClick={this.handleSubmit}
                 />

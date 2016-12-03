@@ -35,6 +35,11 @@ injectGlobal`
     margin: 40px 0 20px;
   }
 
+  .bottom-cta {
+    text-align: center;
+    padding: 60px 0;
+  }
+
   .form-col {
     background: #fdda44;
   }
@@ -56,7 +61,7 @@ injectGlobal`
       bottom: 2px !important;
     }
 
-    svg {
+    .types svg {
       fill: rgba(95, 40, 141, 0.6) !important;
     }
   }
