@@ -6,6 +6,7 @@ import IconBuilding from './icons/icon-building';
 import IconClock from './icons/icon-clock';
 import IconInfo from './icons/icon-info';
 import IconLocation from './icons/icon-location';
+import IconMV from './icons/icon-mv';
 import IconMVCircle from './icons/icon-mv-circle';
 import IconPolice from './icons/icon-police';
 import IconSystem from './icons/icon-system';
@@ -17,10 +18,11 @@ const iconList = {
   clock: <IconClock />,
   info: <IconInfo />,
   location: <IconLocation />,
+  mv: <IconMV />,
+  mvCircle: <IconMVCircle />,
   police: <IconPolice />,
   system: <IconSystem />,
   vote: <IconVote />,
-  mvCircle: <IconMVCircle />,
 };
 
 const Icon = styled.i`

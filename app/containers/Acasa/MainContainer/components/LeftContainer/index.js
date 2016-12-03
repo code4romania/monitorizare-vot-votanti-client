@@ -122,11 +122,11 @@ export class LeftContainer extends React.PureComponent {
 
             <div className="row">
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Popescu" floatingLabelText="Nume" fullWidth onChange={this.handleOnChangeInput} />
+                <TextField hintText="Popescu" floatingLabelText="Nume" floatingLabelFixed fullWidth onChange={this.handleOnChangeInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Andrei" floatingLabelText="Prenume" fullWidth onChange={this.handleOnChangeInput} />
+                <TextField hintText="Andrei" floatingLabelText="Prenume" floatingLabelFixed fullWidth onChange={this.handleOnChangeInput} />
               </div>
 
               <div className="col-xs-12">
@@ -134,15 +134,15 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Alege sectia" floatingLabelText="Sectia" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete hintText="Alege sectia" floatingLabelText="Sectia" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
@@ -152,12 +152,13 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat" floatingLabelText="Sesizarea ta" fullWidth multiLine rows={4} maxLength={300} />
+                { /* TODO: character count */ }
+                <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat in maxim 300 de caractere" floatingLabelText="Sesizarea ta" floatingLabelFixed fullWidth multiLine rows={2} maxLength={300} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField hintText="Tipul sesizarii" fullWidth />
+                  <SelectField floatingLabelText="Tipul sesizarii" fullWidth floatingLabelFixed hintText="Alege tipul sesizarii" />
                 </div>
 
                 <FileUploader />

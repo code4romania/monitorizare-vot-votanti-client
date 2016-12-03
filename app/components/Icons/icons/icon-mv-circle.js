@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-function Logo() {
+function LogoCircle() {
   return (
     <svg version="1.1" id="icon-mv-circle" x="0px" y="0px" viewBox="-263 386.9 68 68">
       <g>
@@ -15,4 +15,4 @@ function Logo() {
   );
 }
 
-export default Logo;
+export default LogoCircle;

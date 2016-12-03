@@ -66,7 +66,7 @@ export class Filters extends React.PureComponent {
       <FiltersWrap className="interact">
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-md-offset-1 col-md-10">
+            <div className="col-xs-12 col-md-offset-2 col-md-8">
               <div className="row">
                 <div className="col-xs-12 col-sm-6">
                   <Maps half={false} active={this.state.active} setActiveOption={this.setActiveOption} />
@@ -79,11 +79,11 @@ export class Filters extends React.PureComponent {
                 </div>
 
                 <div className="col-xs-12 col-sm-6">
-                  <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                  <AutoComplete hintText="Alege judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
                 </div>
 
                 <div className="col-xs-12 col-sm-6">
-                  <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                  <AutoComplete hintText="Alege orasul" floatingLabelText="Orasul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
                 </div>
               </div>
             </div>
