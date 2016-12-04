@@ -1,7 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// @TODO: Move each of the following styled components into separate files.
+const Wrapper = styled.div`
+  margin-bottom: 30px;
+`;
+
+const RowWrapper = styled.div`
+  background: #fdda44;
+  color: #5F288D;
+  padding: 15px;
+  height: 100%;
+  display: flex;
+`;
+
+const TextWrapper = styled.div`
+  align-self: center;
+  margin-right: 15px;
+`;
+
 const Title = styled.h1`
   font-size: 26px;
   font-weight: 900;
@@ -29,24 +45,7 @@ const Subtitle = styled.h2`
   }
 `;
 
-const TextWrapper = styled.div`
-  align-self: center;
-  margin-right: 15px;
-`;
-
-const RowWrapper = styled.div`
-  background: #fdda44;
-  color: #5F288D;
-  padding: 15px;
-  height: 100%;
-  display: flex;
-`;
-
-const Wrapper = styled.div`
-  margin-bottom: 30px;
-`;
-
-export default function StatsItem(props) {
+export default function ItemStats(props) {
   return (
     <Wrapper className="col-xs-12 col-sm-6">
       <RowWrapper>
@@ -62,7 +61,7 @@ export default function StatsItem(props) {
   );
 }
 
-StatsItem.propTypes = {
+ItemStats.propTypes = {
   title: React.PropTypes.number,
   subtitle: React.PropTypes.string,
 };

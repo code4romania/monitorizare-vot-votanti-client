@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function StatsInfo() {
+export default function Hero() {
   return (
     <div className="row">
       <div className="col-xs-12 col-md-offset-2 col-md-8 page-hero">

@@ -3,19 +3,13 @@ import Helmet from 'react-helmet';
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { getStatsAction } from './actions';
-import ListStats from './components/ListStats';
-import StatsInfo from './components/StatsInfo';
-import RaisedButton from 'material-ui/RaisedButton';
-import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-import { getStatsData } from './selectors';
 import { createStructuredSelector } from 'reselect';
+import CallToAction from 'components/CallToAction';
 import Loading from 'components/Loading';
-
-const styles = {
-  buttonWrapper: {
-    marginTop: '35px',
-  },
-};
+import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+import Hero from './components/hero';
+import ListStats from './components/list-stats';
+import { getStatsData } from './selectors';
 
 export class Statistici extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   componentWillMount() {
@@ -34,21 +28,17 @@ export class Statistici extends React.PureComponent { // eslint-disable-line rea
               { name: 'description', content: 'Statistici' },
             ]}
           />
-          <StatsInfo />
+          <Hero />
           <section className="container">
             { this.props.stats ?
               <ListStats {...this.props} />
               : null
             }
             <div className="row">
-              <div style={styles.buttonWrapper}>
-                <RaisedButton
+              <div className="col-xs-12" style={{ marginBottom: '40px' }}>
+                <CallToAction
                   label="Vezi toate sesizarile"
-                  labelPosition="before"
-                  primary
                   icon={<ChevronRight />}
-                  className="button"
-                  onClick={this.browseToSesizari}
                 />
               </div>
             </div>
