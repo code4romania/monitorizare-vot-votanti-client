@@ -11,6 +11,9 @@ import IconMVCircle from './icons/icon-mv-circle';
 import IconPolice from './icons/icon-police';
 import IconSystem from './icons/icon-system';
 import IconVote from './icons/icon-vote';
+import IconItElecTurism from './icons/icon-it_elec_turism';
+import IconItMedia from './icons/icon-it_media';
+
 
 const iconList = {
   box: <IconBox />,
@@ -23,6 +26,16 @@ const iconList = {
   police: <IconPolice />,
   system: <IconSystem />,
   vote: <IconVote />,
+  it_elec_turism: <IconItElecTurism />,
+  it_media: <IconItMedia />,
+  // it_multiple: ,
+  // it_other: ,
+  // it_offices: ,
+  // it_election_day: ,
+  // it_observers: ,
+  // it_bribe: ,
+  // it_opening: ,
+  // it_counting: ,
 };
 
 const Icon = styled.i`

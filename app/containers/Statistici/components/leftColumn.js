@@ -14,6 +14,7 @@ const TitleStats = styled.h2`
 const iconStyle = {
   width: '32px',
   height: '32px',
+  fill: '#5F288D',
 };
 
 export default function LeftColumn(props) {
