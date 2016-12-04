@@ -8,13 +8,27 @@ const LastUpdate = styled.p`
   color: #999;
   font-weight: 400;
   text-align: center;
-  margin-left: 20px;
-  margin-right: 20px;
+`;
+
+const Wrapper = styled.div`
+  h1 {
+    font-size: 24px;
+    font-weight: 400;
+
+    strong {
+      font-size: 48px;
+      color: #5F288D;
+    }
+  }
+
+  h2 {
+    font-weight: 400;
+  }
 `;
 
 export default function ListStats(props) {
   return (
-    <div className="row">
+    <Wrapper className="row">
       <LastUpdate className="col-xs-12">
         Ultima actualizare a fos la 15:34:30 11 Decembrie 2016
       </LastUpdate>
@@ -24,7 +38,7 @@ export default function ListStats(props) {
       <div className="col-xs-12 col-md-6">
         <RightColumn {...props} />
       </div>
-    </div>
+    </Wrapper>
   );
 }
 

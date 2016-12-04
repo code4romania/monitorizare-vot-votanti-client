@@ -11,6 +11,12 @@ const RowWrapper = styled.div`
   padding: 15px;
   height: 100%;
   display: flex;
+  position: relative;
+
+  &.primary {
+    background: #5F288D;
+    color: #fff;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -47,8 +53,8 @@ const Subtitle = styled.h2`
 
 export default function ItemStats(props) {
   return (
-    <Wrapper className="col-xs-12 col-sm-6">
-      <RowWrapper>
+    <Wrapper className={props.columns}>
+      <RowWrapper className={props.primary ? 'primary' : ''}>
         <TextWrapper className="text-wrap" >
           <Title className="item-title"> {props.title} </Title>
         </TextWrapper>
@@ -64,4 +70,6 @@ export default function ItemStats(props) {
 ItemStats.propTypes = {
   title: React.PropTypes.number,
   subtitle: React.PropTypes.string,
+  columns: React.PropTypes.string,
+  primary: React.PropTypes.bool,
 };
