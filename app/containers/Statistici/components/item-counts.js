@@ -13,7 +13,6 @@ export default function ItemCounts(props) {
   return (
     <div className="row">
       <div className="col-xs-12">
-        <h2>{props.title}</h2>
         <Title className="item-title">{_.first(props.counts).incidentsCount} {_.first(props.counts).countyName}</Title>
         {_.tail(props.counts).map((item, index) =>
           <div key={index}>
@@ -26,6 +25,5 @@ export default function ItemCounts(props) {
 }
 
 ItemCounts.propTypes = {
-  title: React.PropTypes.string,
   counts: React.PropTypes.array,
 };
