@@ -92,14 +92,14 @@ export class Sesizari extends React.PureComponent {
             </div>
             <div className="bottom-cta">
               <RaisedButton
-                label={this.props.nextPage !== this.props.pagination.lastPage ? 'Încarcă mai multe sesizări' : 'Nu mai sunt sesizări'}
+                label={this.props.nextPage !== this.props.pagination.lastPage ? 'Nu mai sunt sesizări' : 'Încarcă mai multe sesizări'}
                 buttonStyle={buttonStyle}
                 overlayStyle={buttonOverlayStyle}
                 labelStyle={buttonLabelStyle}
                 labelPosition="after"
                 primary
-                icon={this.props.nextPage !== this.props.pagination.lastPage ? <Refresh style={buttonIconStyle} /> : ''}
-                disabled={this.props.nextPage === this.props.pagination.lastPage}
+                icon={this.props.nextPage !== this.props.pagination.lastPage ? '' : <Refresh style={buttonIconStyle} />}
+                disabled={this.props.nextPage !== this.props.pagination.lastPage}
                 onClick={this.loadNextIncidents}
               />
             </div>
