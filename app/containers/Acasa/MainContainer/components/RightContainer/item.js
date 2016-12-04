@@ -34,7 +34,7 @@ function IncidentItem(props) {
           { /* TODO: add zoom icon on image */ }
 
           <CardMedia onTouchTap={props.handleOpen} className="incident-image">
-            <img src="https://placekitten.com/300/300" role="presentation" />
+            <img src="http://placehold.it/400x400" role="presentation" />
           </CardMedia>
 
           <CardTitle

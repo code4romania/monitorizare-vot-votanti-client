@@ -3,9 +3,10 @@ import CameraAlt from 'material-ui/svg-icons/image/camera-alt';
 
 const wrapperStyles = {
   width: '100%',
-  padding: '14px 0',
-  border: '2px dashed #D7A323',
-  margin: '10px 0',
+  padding: '20px 0',
+  border: '1px dashed #D7A323',
+  borderRadius: '4px',
+  margin: '20px 0px 30px',
   cursor: 'pointer',
 };
 const inputStyles = {
@@ -15,7 +16,7 @@ const inputStyles = {
 };
 const iconStyles = {
   width: '100%',
-  height: '40px',
+  height: '32px',
   color: '#9E6D53',
 };
 const textStyles = {

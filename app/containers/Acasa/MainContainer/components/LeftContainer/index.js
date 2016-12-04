@@ -45,6 +45,12 @@ const buttonIconStyle = {
   color: '#ffffff',
 };
 
+const overflowElipsisStyle = {
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+};
+
 const AddIncidentForm = styled.div`
   { // TODO: add variables to styled (colors, breakpoints etc.) }
   padding: 10px 0 40px;
@@ -172,7 +178,7 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField floatingLabelText="Tipul sesizarii" fullWidth floatingLabelFixed hintText="Alege tipul sesizarii" />
+                  <SelectField floatingLabelText="Tipul sesizarii" fullWidth floatingLabelFixed hintText="Alege tipul sesizarii" style={overflowElipsisStyle} />
                 </div>
 
                 <FileUploader />

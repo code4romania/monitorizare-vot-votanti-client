@@ -31,8 +31,9 @@ injectGlobal`
     }
   }
 
-  .hero-cta {
-    margin: 40px 0 20px;
+  .cta-wrap {
+    margin: 30px 0 20px;
+    text-align: center;
   }
 
   .bottom-cta {

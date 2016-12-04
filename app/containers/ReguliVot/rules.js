@@ -104,7 +104,7 @@ const rules = [
       <p>În situaţia în care alegătorul, din motive bine întemeiate, constatate de către preşedintele biroului electoral al secţiei de votare, nu poate semna în lista electorală permanentă, preşedintele face o menţiune în lista electorală, confirmată prin semnătura sa şi a unui alt membru al biroului electoral. [Art. 84 alin. (5) din Legea nr. 208/2015]</p>',
   },
   {
-    titlu: 'Urnele speciale',
+    titlu: 'Urna specială',
     id: 6,
     icon: 'box',
     content: '<h1>Urna specială</h1>\n\

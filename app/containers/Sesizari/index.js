@@ -83,7 +83,7 @@ export class Sesizari extends React.PureComponent {
               </div>
               {this.props.incidents.map((tile, index) => (
                 tile.createdAt ?
-                  <div className="col-xs-12 col-md-3" key={index} >
+                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3" key={index} >
                     <IncidentItem {...tile} key={index} handleOpen={this.handleOpen} />
                   </div>
                 : null

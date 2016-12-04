@@ -8,7 +8,7 @@ const RuleWrapper = styled.div`
 
 function ItemRule(props) {
   return (
-    <div className="col-sm-4 rule">
+    <div className="col-sm-4 col-lg-3 rule">
       <div
         id={props.id}
         onTouchTap={props.selectItem}

@@ -106,7 +106,7 @@ export default class ReguliVot extends React.PureComponent { // eslint-disable-l
         <Hero />
         <section className="container">
           <div className="row">
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-lg-offset-2 col-lg-8">
+            <div className="col-xs-12 col-sm-offset-1 col-sm-10">
               <Scroller>
                 <div className="scroll-table">
                   <div className="row row-inline">

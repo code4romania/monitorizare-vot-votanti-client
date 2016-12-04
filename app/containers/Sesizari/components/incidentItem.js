@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import styled from 'styled-components';
@@ -83,9 +83,9 @@ function IncidentItem(props) {
             avatar={<BusIcon style={cardHeaderIcon} />}
           />
 
-          <CardMedia onTouchTap={props.handleOpen} className="incident-media">
-            <ZoomIcon style={imageContainerIcon} onTouchTap={props.handleOpen} />
-          </CardMedia>
+          <div onTouchTap={props.handleOpen} className="incident-media">
+            <ZoomIcon style={imageContainerIcon} />
+          </div>
 
           <CardTitle
             className="incident-title"

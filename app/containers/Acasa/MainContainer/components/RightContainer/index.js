@@ -1,22 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as _ from 'lodash';
-import { browserHistory } from 'react-router';
 import Loading from 'components/Loading';
-import RaisedButton from 'material-ui/RaisedButton';
-import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-
+import CallToAction from 'components/CallToAction';
 import IncidentItem from './item';
+import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const IncidentWrap = styled.div`
   padding: 10px 0 60px;
 `;
 
-
 export class RightContainer extends React.PureComponent {// eslint-disable-line react/prefer-stateless-function
-  browseToSesizari() {
-    browserHistory.push('/sesizari');
-  }
   render() {
     if (_.isArray(this.props.incidents)) {
       return (
@@ -37,13 +31,9 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
 
             <div className="row">
               <div className="col-xs-12">
-                <RaisedButton
+                <CallToAction
                   label="Vezi toate sesizarile"
-                  labelPosition="before"
-                  primary
-                  className="button"
                   icon={<ChevronRight />}
-                  onClick={this.browseToSesizari}
                 />
               </div>
             </div>
