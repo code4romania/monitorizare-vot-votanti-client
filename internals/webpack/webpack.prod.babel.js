@@ -16,6 +16,8 @@ module.exports = require('./webpack.base.babel')({
     chunkFilename: '[name].[chunkhash].chunk.js',
   },
 
+  devtool: 'cheap-module-eval-source-map',
+
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

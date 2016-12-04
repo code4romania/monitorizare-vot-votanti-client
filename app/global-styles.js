@@ -69,4 +69,9 @@ injectGlobal`
   span[type="button"] > div {
     background: #fff !important;
   }
+
+  .button svg {
+    top: -2px;
+    position: relative;
+  }
 `;

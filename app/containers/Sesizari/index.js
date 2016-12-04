@@ -22,7 +22,6 @@ const buttonOverlayStyle = {
 
 const buttonLabelStyle = {
   lineHeight: '60px',
-  fontWeight: '700',
   fontSize: '16px',
   letterSpacing: '1px',
 };

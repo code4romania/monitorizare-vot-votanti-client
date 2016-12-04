@@ -37,7 +37,6 @@ const buttonOverlayStyle = {
 
 const buttonLabelStyle = {
   lineHeight: '60px',
-  fontWeight: '700',
   fontSize: '16px',
   letterSpacing: '1px',
 };
@@ -131,7 +130,7 @@ export class LeftContainer extends React.PureComponent {
     return (
       <div className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="interact">
-          <AffixWrapper offset={415}>
+          <AffixWrapper offset={438}>
             <h2>Adauga o sesisare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
@@ -186,6 +185,7 @@ export class LeftContainer extends React.PureComponent {
                   labelPosition="after"
                   icon={<AddCircleOutline style={buttonIconStyle} />}
                   fullWidth
+                  className="button"
                   onClick={this.handleSubmit}
                 />
               </div>

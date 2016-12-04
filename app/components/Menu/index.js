@@ -26,8 +26,8 @@ const MenuLink = styled(Link)`
   line-height: 20px;
   padding: 20px;
   color: #5F288D;
-  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
 
   &:active,
   &:focus {
