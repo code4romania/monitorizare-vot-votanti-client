@@ -26,7 +26,7 @@ const TextWrapper = styled.div`
 
 const Title = styled.h1`
   font-size: 26px;
-  font-weight: 900;
+  font-weight: 700;
   margin: 0;
   padding: 0;
   overflow: hidden;

@@ -1,10 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import MainContainer from './MainContainer/index';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { getIncidentsAction } from './actions';
 import { getIncidents } from './selectors';
-import HeroPre from './MainContainer/components/hero-pre';
+import Hero from './MainContainer/components/hero';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -31,6 +34,13 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 
 
   render() {
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary
+        onTouchTap={this.handleClose}
+      />,
+    ];
     return (
       <div>
         <Helmet
@@ -39,7 +49,21 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             { name: 'description', content: 'Acasa' },
           ]}
         />
-        <HeroPre />
+        <Hero />
+        <MainContainer
+          {...this.props}
+          handleOpen={this.handleOpen}
+          handleClose={this.handleClose}
+        />
+        <Dialog
+          title=""
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          <img role="presentation" src={this.state.imgSrc} />
+        </Dialog>
       </div>
     );
   }
