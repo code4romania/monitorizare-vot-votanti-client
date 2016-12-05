@@ -39,7 +39,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   opacity: 0.7;
   margin: 0;
   padding: 0;

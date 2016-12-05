@@ -69,6 +69,7 @@ const Scroller = styled.div`
     strong {
       margin-top: 10px;
       display: block;
+      font-weight: 700;
     }
 
     &.active {

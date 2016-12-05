@@ -33,6 +33,7 @@ const MenuLink = styled(Link)`
   color: #5F288D;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 700;
 
   &:active,
   &:focus {

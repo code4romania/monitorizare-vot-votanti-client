@@ -6,14 +6,14 @@ import RightColumn from './rightColumn';
 const LastUpdate = styled.p`
   font-size: 14px;
   color: #999;
-  font-weight: 400;
+  font-weight: 300;
   text-align: center;
 `;
 
 const Wrapper = styled.div`
   h1 {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
 
     strong {
       font-size: 48px;
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   }
 
   h2 {
-    font-weight: 400;
+    font-weight: 300;
   }
 `;
 

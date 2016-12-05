@@ -7,6 +7,11 @@ injectGlobal`
     background: #fff;
     color: #2d2d2d;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  p {
+    line-height: 1.7;
   }
 
   a {
@@ -26,9 +31,22 @@ injectGlobal`
     text-align: center;
     padding: 20px 20px 40px;
 
+    h1 {
+      font-size: 32px;
+      line-height: 1.34;
+
+      @media (min-width: 48em) {
+        font-size: 42px;
+      }
+    }
+
     p {
       font-size: 18px;
     }
+  }
+
+  .page-hero-content {
+    padding: 20px 20px 0;
   }
 
   .cta-wrap {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Title() {
+function Hero() {
   return (
     <section className="container">
       <div className="row">
@@ -9,7 +9,7 @@ function Title() {
             Urzeala Regulilor
           </h1>
           <p>
-            Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective.
+            Vrei să trimiți o sesizare, dar nu ești sigur dacă s-a încălcat o regulă? Verifică mai jos, în ghidul alegătorului, care sunt regulile de vot, pentru a transmite informații corecte și utile.<br />Pentru a ne asigura ca sesizările privesc exact subiectul alegerilor, acestea vor fi postate pe site după o verificare făcută de echipa proiectului.
           </p>
         </div>
       </div>
@@ -17,4 +17,4 @@ function Title() {
   );
 }
 
-export default Title;
+export default Hero;
