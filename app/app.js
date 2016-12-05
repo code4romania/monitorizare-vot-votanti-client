@@ -4,10 +4,13 @@
  * This is the entry file for the application, only setup and boilerplate
  * code.
  */
+
+// Needed for redux-saga es6 generator support
 import 'babel-polyfill';
 
-/* eslint-disable import/no-unresolved, import/extensions, no-unused-vars */
-// Load the manifest.json file and the .htaccess file
+/* eslint-disable import/no-unresolved, import/extensions */
+// Load the favicon, the manifest.json file and the .htaccess file
+import 'file?name=[name].[ext]!./favicon.ico';
 import '!file?name=[name].[ext]!./manifest.json';
 import 'file?name=[name].[ext]!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
@@ -18,21 +21,30 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import FontFaceObserver from 'fontfaceobserver';
 import { useScroll } from 'react-router-scroll';
-import GlobalStyles from './global-styles';
-import LanguageProvider from 'containers/LanguageProvider';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import configureStore from './store';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
-injectTapEventPlugin();
+// Import Language Provider
+import LanguageProvider from 'containers/LanguageProvider';
+
+// Import CSS reset and Global Styles
+import 'sanitize.css/sanitize.css';
+import './global-styles';
+
+// Observe loading of Open Sans (to remove open sans, remove the <link> tag in
+// the index.html file and this observer)
+const openSansObserver = new FontFaceObserver('Open Sans', {});
+
+// When Open Sans is loaded, add a font-family using Open Sans to the body
+openSansObserver.load().then(() => {
+  document.body.classList.add('fontLoaded');
+}, () => {
+  document.body.classList.remove('fontLoaded');
+});
 
 // Import i18n messages
 import { translationMessages } from './i18n';
-
-// Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
-import 'sanitize.css/sanitize.css';
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
@@ -57,70 +69,24 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
-const mvTheme = getMuiTheme({
-  fontFamily: '"Open Sans", sans-serif',
-
-  palette: {
-    textColor: '#2d2d2d',
-  },
-
-  textField: {
-    textColor: 'rgba(95, 40, 141, 1)',
-    hintColor: 'rgba(95, 40, 141, 0.6)',
-    floatingLabelColor: 'rgba(95, 40, 141, 0.6)',
-    disabledTextColor: 'rgba(95, 40, 141, 0.6)',
-    errorColor: 'rgba(200, 0, 0, 1)',
-    focusColor: 'rgba(95, 40, 141, 1)',
-    borderColor: 'rgba(95, 40, 141, 0.4)',
-  },
-
-  raisedButton: {
-    color: 'rgba(95, 40, 141, 1)',
-    textColor: 'rgba(255, 255, 255, 1)',
-    primaryColor: 'rgba(95, 40, 141, 1)',
-    primaryTextColor: 'rgba(255, 255, 255, 1)',
-    secondaryColor: 'rgba(255, 204, 0, 1)',
-    secondaryTextColor: 'rgba(95, 40, 141, 1)',
-    disabledColor: 'rgba(95, 40, 141, 0.1)',
-    disabledTextColor: 'rgba(95, 40, 141, 1)',
-    fontSize: '14px',
-  },
-
-  toggle: {
-    thumbOnColor: 'rgba(95, 40, 141, 1)',
-    thumbOffColor: 'rgba(255, 255, 255, 1)',
-    thumbRequiredColor: 'rgba(95, 40, 141, 1)',
-    trackOnColor: 'rgba(159, 106, 85, 1)',
-    labelColor: 'rgba(95, 40, 141, 0.6)',
-  },
-
-  menuItem: {
-    selectedTextColor: 'rgba(95, 40, 141, 1)',
-  },
-
-});
-
-const render = (translatedMessages) => {
+const render = (messages) => {
   ReactDOM.render(
     <Provider store={store}>
-      <LanguageProvider messages={translatedMessages}>
-        <MuiThemeProvider muiTheme={mvTheme}>
-          <Router
-            history={history}
-            routes={rootRoute}
-            render={
-              // Scroll to top when going to a new page, imitating default browser
-              // behaviour
-              applyRouterMiddleware(useScroll())
-            }
-          />
-        </MuiThemeProvider>
+      <LanguageProvider messages={messages}>
+        <Router
+          history={history}
+          routes={rootRoute}
+          render={
+            // Scroll to top when going to a new page, imitating default browser
+            // behaviour
+            applyRouterMiddleware(useScroll())
+          }
+        />
       </LanguageProvider>
     </Provider>,
     document.getElementById('app')
   );
 };
-
 
 // Hot reloadable translation json files
 if (module.hot) {
@@ -137,6 +103,7 @@ if (!window.Intl) {
     resolve(System.import('intl'));
   }))
     .then(() => Promise.all([
+      System.import('intl/locale-data/jsonp/en.js'),
       System.import('intl/locale-data/jsonp/de.js'),
     ]))
     .then(() => render(translationMessages))
@@ -145,4 +112,11 @@ if (!window.Intl) {
     });
 } else {
   render(translationMessages);
+}
+
+// Install ServiceWorker and AppCache in the end since
+// it's not most important operation and if main code fails,
+// we do not want it installed
+if (process.env.NODE_ENV === 'production') {
+  require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }

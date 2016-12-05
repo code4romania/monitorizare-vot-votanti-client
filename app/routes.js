@@ -2,7 +2,7 @@
 // They are all wrapped in the App component, which should contain the navbar etc
 // See http://blog.mxstbr.com/2016/01/react-apps-with-pages for more information
 // about the code splitting business
-import { getAsyncInjectors } from 'utils/asyncInjectors';
+import { getAsyncInjectors } from './utils/asyncInjectors';
 
 const errorLoading = (err) => {
   console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
@@ -13,13 +13,13 @@ const loadModule = (cb) => (componentModule) => {
 };
 
 export default function createRoutes(store) {
-  // Create reusable async injectors using getAsyncInjectors factory
-  const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
+  // create reusable async injectors using getAsyncInjectors factory
+  const { injectReducer, injectSagas } = getAsyncInjectors(store);
 
   return [
     {
       path: '/',
-      name: 'acasa',
+      name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/Acasa/reducer'),
@@ -30,104 +30,9 @@ export default function createRoutes(store) {
         const renderRoute = loadModule(cb);
 
         importModules.then(([reducer, sagas, component]) => {
-          injectReducer('acasa', reducer.default);
+          injectReducer('home', reducer.default);
           injectSagas(sagas.default);
 
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
-      path: '/acasa',
-      name: 'acasa',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/Acasa/reducer'),
-          System.import('containers/Acasa/sagas'),
-          System.import('containers/Acasa'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('acasa', reducer.default);
-          injectSagas(sagas.default);
-
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
-      path: '/statistici',
-      name: 'statistici',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/Statistici/reducer'),
-          System.import('containers/Statistici/sagas'),
-          System.import('containers/Statistici'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('statistici', reducer.default);
-          injectSagas(sagas.default);
-
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
-      path: '/sesizari',
-      name: 'sesizari',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/Sesizari/reducer'),
-          System.import('containers/Sesizari/sagas'),
-          System.import('containers/Sesizari'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('sesizari', reducer.default);
-          injectSagas(sagas.default);
-
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
-      path: '/reguli-vot',
-      name: 'reguli',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/ReguliVot'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component]) => {
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
-      path: '/despre-noi',
-      name: 'despre',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/DespreNoi'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component]) => {
           renderRoute(component);
         });
 
