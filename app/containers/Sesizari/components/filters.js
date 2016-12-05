@@ -4,6 +4,11 @@ import Maps from 'components/selectCountry';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { selectedCountyAction } from '../actions';
+import { cities } from '../selectors';
+import * as _ from 'lodash';
 
 const FiltersWrap = styled.section`
   background: #fdda44;
@@ -16,29 +21,11 @@ const overflowElipsisStyle = {
   whiteSpace: 'nowrap',
 };
 
-const mocks = {
-  judete: [
-    { text: 'Alba Iulia', value: 1 },
-    { text: 'Brasov', value: 2 },
-    { text: 'Bucuresti', value: 3 },
-    { text: 'Cluj', value: 4 },
-    { text: 'Iasi', value: 5 },
-    { text: 'Vaslui', value: 6 },
-  ],
-  incidentTypes: [
-    <MenuItem key={1} value={1} primaryText="Altele" />,
-    <MenuItem key={2} value={2} primaryText="Campanie electorală în ziua votului" />,
-    <MenuItem key={3} value={3} primaryText="Media & internet" />,
-    <MenuItem key={4} value={4} primaryText="Mită electorală" />,
-  ],
-};
-
 export class Filters extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       active: true,
-      dataSource: mocks.judete,
       value: null,
     };
   }
@@ -46,6 +33,12 @@ export class Filters extends React.PureComponent {
   setActiveOption = () => {
     this.setState({ active: !this.state.active });
   }
+
+  selectCounty = (searchText, citiesArray) => {
+    const getCity = _.find(citiesArray, (o) => o.text === searchText);
+    this.props.selectedCounty(getCity.id);
+    this.setState({ searchText });
+  };
 
   handleChange = (event, index, value) => this.setState({ value });
 
@@ -63,17 +56,18 @@ export class Filters extends React.PureComponent {
                 <div className="col-xs-12 col-sm-6 col-md-3">
                   <div className="types">
                     <SelectField floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.handleChange} hintText="Alege tipul sesizarii" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
-                      {mocks.incidentTypes}
+                      {this.props.incidentTypes.map((incident) =>
+                        <MenuItem key={incident.id} code={incident.code} value={incident.id} primaryText={incident.name} />,
+                      )}
                     </SelectField>
                   </div>
                 </div>
 
                 <div className="col-xs-12 col-sm-6 col-md-3">
-                  <AutoComplete hintText="Cauta judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                  <AutoComplete hintText="Cauta judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={5} dataSource={this.props.counties} onUpdateInput={this.selectCounty} />
                 </div>
-
                 <div className="col-xs-12 col-sm-6 col-md-3">
-                  <AutoComplete hintText="Cauta orasul" floatingLabelText="Orasul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                  <AutoComplete hintText="Cauta orasul" floatingLabelText="Orasul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={45} dataSource={this.props.citiesPerCounty} onUpdateInput={this.handleUpdateInput} />
                 </div>
               </div>
             </div>
@@ -84,4 +78,30 @@ export class Filters extends React.PureComponent {
   }
 }
 
-export default Filters;
+Filters.propTypes = {
+  counties: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
+  citiesPerCounty: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
+  incidentTypes: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
+  selectedCounty: React.PropTypes.func,
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    selectedCounty: (cityId) => dispatch(selectedCountyAction(cityId)),
+  };
+}
+
+const mapStateToProps = createStructuredSelector({
+  citiesPerCounty: cities(),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filters);

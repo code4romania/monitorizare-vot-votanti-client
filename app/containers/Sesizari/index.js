@@ -65,7 +65,7 @@ export class Sesizari extends React.PureComponent {
         onTouchTap={this.handleClose}
       />,
     ];
-    if (this.props.incidents.length > 0) {
+    if (this.props.incidents.length > 0 && this.props.counties.length > 0) {
       return (
         <div>
           <Helmet
@@ -75,7 +75,7 @@ export class Sesizari extends React.PureComponent {
             ]}
           />
           <Hero />
-          <Filters />
+          <Filters counties={this.props.counties} incidentTypes={this.props.incidentTypes} />
           <section className="container">
             <div className="row">
               <div className="col-xs-12 showIncidentsCount" style={{ textAlign: 'center' }}>
@@ -123,6 +123,14 @@ export class Sesizari extends React.PureComponent {
 
 Sesizari.propTypes = {
   incidents: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
+  counties: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
+  incidentTypes: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.array,
   ]),

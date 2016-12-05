@@ -17,8 +17,20 @@ const getNextPage = () => createSelector(
   (sesizariState) => sesizariState.get('nextPage')
 );
 
+const countyId = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('countyId')
+);
+
+const cities = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('cities')
+);
+
 export {
   getIncidents,
   getPagination,
   getNextPage,
+  countyId,
+  cities,
 };
