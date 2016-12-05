@@ -1,4 +1,4 @@
-import { INCIDENTS, INCIDENTS_LODADED, SET_CITIES } from './constants';
+import { INCIDENTS, INCIDENTS_LODADED, SET_CITIES, SET_ACTIVE_MAP } from './constants';
 import { GET_CITIES, GET_INCIDENT_TYPES } from 'containers/App/constants';
 import * as _ from 'lodash';
 
@@ -28,6 +28,13 @@ export function getIncidentTypesAction(cityId) {
   return {
     type: GET_INCIDENT_TYPES,
     cityId,
+  };
+}
+
+export function setActiveMapAction(map) {
+  return {
+    type: SET_ACTIVE_MAP,
+    map,
   };
 }
 

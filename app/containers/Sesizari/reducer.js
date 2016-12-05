@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { INCIDENTS_LODADED, SET_COUNTY, SET_CITIES } from './constants';
+import { INCIDENTS_LODADED, SET_COUNTY, SET_CITIES, SET_ACTIVE_MAP } from './constants';
 import { GET_CITIES } from 'containers/App/constants';
 import * as _ from 'lodash';
 
@@ -9,6 +9,7 @@ const initialState = fromJS({
   nextPage: 1,
   countyId: null,
   cities: [],
+  map: '',
 });
 
 function sesizariReducer(state = initialState, action) {
@@ -27,6 +28,9 @@ function sesizariReducer(state = initialState, action) {
     case SET_CITIES:
       return state
         .set('cities', action.cities);
+    case SET_ACTIVE_MAP:
+      return state
+        .set('activeMap', action.map);
     default:
       return state;
   }

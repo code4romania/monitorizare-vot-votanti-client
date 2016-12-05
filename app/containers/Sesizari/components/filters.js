@@ -6,7 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { selectedCountyAction } from '../actions';
+import { selectedCountyAction, setActiveMapAction } from '../actions';
 import { cities } from '../selectors';
 import * as _ from 'lodash';
 
@@ -30,8 +30,9 @@ export class Filters extends React.PureComponent {
     };
   }
 
-  setActiveOption = () => {
+  setActiveOption = (event) => {
     this.setState({ active: !this.state.active });
+    this.props.setActiveMap(event.currentTarget.dataset.name);
   }
 
   selectCounty = (searchText, citiesArray) => {
@@ -67,7 +68,7 @@ export class Filters extends React.PureComponent {
                   <AutoComplete hintText="Cauta judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={5} dataSource={this.props.counties} onUpdateInput={this.selectCounty} />
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-3">
-                  <AutoComplete hintText="Cauta orasul" floatingLabelText="Orasul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={45} dataSource={this.props.citiesPerCounty} onUpdateInput={this.handleUpdateInput} />
+                  <AutoComplete hintText="Cauta orasul" floatingLabelText="Orasul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={45} dataSource={this.props.citiesPerCounty.length > 0 ? this.props.citiesPerCounty : []} onUpdateInput={this.handleUpdateInput} />
                 </div>
               </div>
             </div>
@@ -92,11 +93,13 @@ Filters.propTypes = {
     React.PropTypes.array,
   ]),
   selectedCounty: React.PropTypes.func,
+  setActiveMap: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     selectedCounty: (cityId) => dispatch(selectedCountyAction(cityId)),
+    setActiveMap: (map) => dispatch(setActiveMapAction(map)),
   };
 }
 
