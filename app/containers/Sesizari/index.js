@@ -65,7 +65,7 @@ export class Sesizari extends React.PureComponent {
         onTouchTap={this.handleClose}
       />,
     ];
-    if (this.props.incidents.length > 0 && this.props.counties.length > 0) {
+    if (this.props.incidents.length > 0 && this.props.counties.length > 0 && this.props.incidentTypes.length > 0) {
       return (
         <div>
           <Helmet

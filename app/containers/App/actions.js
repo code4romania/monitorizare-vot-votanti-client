@@ -12,6 +12,7 @@ export function getIncidentTypesAction() {
     type: GET_INCIDENT_TYPES,
   };
 }
+
 export function getCountiesSuccess(counties) {
   const newArray = [];
   _.each(counties, (county) => {

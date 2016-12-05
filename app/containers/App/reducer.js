@@ -13,7 +13,7 @@ function AppReducer(state = initialState, action) {
         .set('counties', action.counties);
     case GET_INCIDENT_TYPES_SUCCESS:
       return state
-        .set('incidentTypes': action.incidentTypes);
+        .set('incidentTypes', action.incidentTypes);
     default:
       return state;
   }

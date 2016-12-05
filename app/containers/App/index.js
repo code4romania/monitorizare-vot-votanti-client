@@ -21,7 +21,7 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
 
   componentWillMount() {
     this.props.dispatchGetCounties();
-    this.props.getIncidentTypes();
+    this.props.dispatchIncidentTypes();
   }
 
   render() {
@@ -38,7 +38,7 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
 App.propTypes = {
   location: React.PropTypes.object,
   dispatchGetCounties: React.PropTypes.func,
-  getIncidentTypes: React.PropTypes.func,
+  dispatchIncidentTypes: React.PropTypes.func,
   counties: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.array,
@@ -53,7 +53,7 @@ App.propTypes = {
 export function mapDispatchToProps(dispatch) {
   return {
     dispatchGetCounties: () => dispatch(getCountiesAction()),
-    getIncidentTypes: () => getIncidentTypesAction(),
+    dispatchIncidentTypes: () => dispatch(getIncidentTypesAction()),
   };
 }
 
