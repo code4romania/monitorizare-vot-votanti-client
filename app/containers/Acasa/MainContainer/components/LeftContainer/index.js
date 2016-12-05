@@ -13,6 +13,7 @@ import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
 import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import FileUploader from 'components/FileUploader';
+import MenuItem from 'material-ui/MenuItem';
 
 const mocks = {
   judete: [
@@ -89,6 +90,7 @@ export class LeftContainer extends React.PureComponent {
     this.state = {
       form: {
         nume: '',
+        prenume: '',
         judet: {
           text: '',
           value: null,
@@ -102,16 +104,33 @@ export class LeftContainer extends React.PureComponent {
           value: null,
         },
         tipulDeProblema: {
-          value: null,
+          value: 'Alege tipul sesizarii',
+        },
+        description: {
+          characterCount: 0,
         },
       },
       dataSource: mocks.judete,
       active: true,
     };
+    this.getNumberOfCharacters = this.getNumberOfCharacters.bind(this);
   }
 
   setActiveOption = () => {
     this.setState({ active: !this.state.active });
+  }
+
+  getNumberOfCharacters = (event) => {
+    const input = event.target.value.length;
+
+    console.log(input);
+    // this.setState({
+    //   form: {
+    //     description: {
+    //       characterCount: input,
+    //     },
+    //   },
+    // });
   }
 
   handleOnChangeInput = (value) => {
@@ -121,12 +140,40 @@ export class LeftContainer extends React.PureComponent {
       },
     });
   }
+
   handleUpdateInput = (value) => {
     this.setState({
       form: {
         judet: {
           text: value.text,
           value: value.value,
+        },
+      },
+    });
+  }
+
+  handleChange = (event, index, value) => {
+    let updatedValue;
+
+    switch (value) {
+      case 1:
+        updatedValue = 'Altele';
+        break;
+      case 2:
+        updatedValue = 'Campanie electorala in ziua votului';
+        break;
+      case 3:
+        updatedValue = 'Media & Internet';
+        break;
+      case 4:
+        updatedValue = 'Mita electorala';
+        break;
+      default:
+    }
+    this.setState({
+      form: {
+        tipulDeProblema: {
+          value: updatedValue,
         },
       },
     });
@@ -173,16 +220,34 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 { /* TODO: character count */ }
-                <TextField hintText="Da-ne mai multe detalii despre ce s-a intamplat in maxim 300 de caractere" floatingLabelText="Sesizarea ta" floatingLabelFixed fullWidth multiLine rows={2} maxLength={300} />
+                <TextField
+                  hintText="Da-ne mai multe detalii despre ce s-a intamplat in maxim 300 de caractere"
+                  floatingLabelText="Sesizarea ta"
+                  floatingLabelFixed
+                  fullWidth
+                  multiLine
+                  rows={2}
+                  maxLength={300}
+                  onChange={this.getNumberOfCharacters}
+                />
+                <span></span>
               </div>
 
-              <div className="col-xs-12 col-sm-6">
-                <div className="types">
-                  <SelectField floatingLabelText="Tipul sesizarii" fullWidth floatingLabelFixed hintText="Alege tipul sesizarii" style={overflowElipsisStyle} />
-                </div>
-
+              <div className="col-xs-12 col-sm-6 types">
+                <SelectField
+                  floatingLabelText="Tipul sesizarii"
+                  fullWidth
+                  floatingLabelFixed
+                  hintText={this.state.form.tipulDeProblema.value}
+                  onChange={this.handleChange}
+                  style={overflowElipsisStyle}
+                >
+                  <MenuItem value={1} primaryText="Altele" />
+                  <MenuItem value={2} primaryText="Campanie electorala in ziua votului" />
+                  <MenuItem value={3} primaryText="Media & Internet" />
+                  <MenuItem value={4} primaryText="Mita electorala" />
+                </SelectField>
                 <FileUploader />
-
                 <RaisedButton
                   buttonStyle={buttonStyle}
                   overlayStyle={buttonOverlayStyle}

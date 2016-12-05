@@ -11,6 +11,15 @@ import IconMVCircle from './icons/icon-mv-circle';
 import IconPolice from './icons/icon-police';
 import IconSystem from './icons/icon-system';
 import IconVote from './icons/icon-vote';
+import IconItBribe from './icons/icon-it_bribe';
+import IconItElecTurism from './icons/icon-it_elec_turism';
+import IconItElectionDay from './icons/icon-it_election_day';
+import IconItMedia from './icons/icon-it_media';
+import IconItMultiple from './icons/icon-it_multiple';
+import IconItObservers from './icons/icon-it_observers';
+import IconItOffices from './icons/icon-it_offices';
+import IconItOther from './icons/icon-it_other';
+import IconItPublicFunds from './icons/icon-it_public_funds';
 
 const iconList = {
   box: <IconBox />,
@@ -23,6 +32,17 @@ const iconList = {
   police: <IconPolice />,
   system: <IconSystem />,
   vote: <IconVote />,
+  it_bribe: <IconItBribe />,
+  it_counting: <IconItOffices />,
+  it_election_day: <IconItElectionDay />,
+  it_elec_turism: <IconItElecTurism />,
+  it_media: <IconItMedia />,
+  it_multiple: <IconItMultiple />,
+  it_observers: <IconItObservers />,
+  it_offices: <IconItOffices />,
+  it_opening: <IconItOffices />,
+  it_other: <IconItOther />,
+  it_public_founds: <IconItPublicFunds />,
 };
 
 const Icon = styled.i`

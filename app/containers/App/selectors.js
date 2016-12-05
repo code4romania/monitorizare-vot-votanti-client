@@ -15,6 +15,20 @@ const selectLocationState = () => {
   };
 };
 
+const selectGlobal = () => (state) => state.get('global');
+import { createSelector } from 'reselect';
+
+const getCounties = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('counties')
+);
+
+const getIncidentTypes = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('incidentTypes')
+);
 export {
   selectLocationState,
+  getCounties,
+  getIncidentTypes,
 };

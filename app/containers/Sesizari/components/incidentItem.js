@@ -3,9 +3,9 @@ import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import styled from 'styled-components';
+import Icons from 'components/Icons';
 import RoomIcon from 'material-ui/svg-icons/action/room';
 import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
-import BusIcon from 'material-ui/svg-icons/maps/directions-bus';
 
 const muiTheme = getMuiTheme({
   fontFamily: '"Arimo", sans-serif',
@@ -48,19 +48,17 @@ const IncidentWrap = styled.div`
     width: 30px;
     height: 30px;
   }
+
+  .svg-icon {
+    color: #5F288D;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
 `;
 
-const cardHeaderIcon = {
-  background: '#5F288D',
-  padding: '5px',
-  borderRadius: '50%',
-  color: 'white',
-  width: '30px',
-  height: '30px',
-};
-
 const imageContainerIcon = {
-  color: 'white',
+  color: '#fff',
   cursor: 'pointer',
   opacity: '0.7',
 };
@@ -69,9 +67,11 @@ const imageContainerIcon = {
 function IncidentItem(props) {
   const Subtitle = (
     <div className="incident-subtitle">
-      <RoomIcon color={'#5F288D'} />
+      <RoomIcon style={{ color: 'rgba(45, 45, 45, 0.5)', width: '20px', height: '20px', marginRight: '5px' }} />
       <span>{props.city.name}, {props.county.name}</span>
     </div>);
+
+  const icon = props.incidentType.label.toLowerCase();
 
   return (
     <IncidentWrap>
@@ -80,7 +80,9 @@ function IncidentItem(props) {
 
           <CardHeader
             title={props.incidentType.name}
-            avatar={<BusIcon style={cardHeaderIcon} />}
+            avatar={<Icons icon={icon} />}
+            textStyle={{ verticalAlign: 'middle' }}
+            titleStyle={{ color: '#5F288D' }}
           />
 
           <div onTouchTap={props.handleOpen} className="incident-media">
