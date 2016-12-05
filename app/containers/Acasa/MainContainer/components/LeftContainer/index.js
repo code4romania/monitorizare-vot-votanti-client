@@ -90,6 +90,7 @@ export class LeftContainer extends React.PureComponent {
     this.state = {
       form: {
         nume: '',
+        prenume: '',
         judet: {
           text: '',
           value: null,
@@ -119,16 +120,18 @@ export class LeftContainer extends React.PureComponent {
     this.setState({ active: !this.state.active });
   }
 
-  // getNumberOfCharacters = (event) => {
-  //   // const input = event.target.value.length;
-  //   // this.setState({
-  //   //   form: {
-  //   //     description: {
-  //   //       characterCount: input,
-  //   //     },
-  //   //   },
-  //   // });
-  // }
+  getNumberOfCharacters = (event) => {
+    const input = event.target.value.length;
+
+    console.log(input);
+    // this.setState({
+    //   form: {
+    //     description: {
+    //       characterCount: input,
+    //     },
+    //   },
+    // });
+  }
 
   handleOnChangeInput = (value) => {
     this.setState({
@@ -230,7 +233,7 @@ export class LeftContainer extends React.PureComponent {
                 <span></span>
               </div>
 
-              <div className="col-xs-12 col-sm-6">
+              <div className="col-xs-12 col-sm-6 types">
                 <SelectField
                   floatingLabelText="Tipul sesizarii"
                   fullWidth
