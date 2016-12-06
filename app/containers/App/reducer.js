@@ -14,6 +14,8 @@ import {
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS,
   LOAD_REPOS_ERROR,
+  GET_COUNTIES_SUCCESS,
+  GET_INCIDENT_TYPES_SUCCESS,
 } from './constants';
 import { fromJS } from 'immutable';
 
@@ -25,9 +27,11 @@ const initialState = fromJS({
   userData: {
     repositories: false,
   },
+  counties: [],
+  incidentTypes: [],
 });
 
-function appReducer(state = initialState, action) {
+function AppReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_REPOS:
       return state
@@ -43,9 +47,15 @@ function appReducer(state = initialState, action) {
       return state
         .set('error', action.error)
         .set('loading', false);
+    case GET_COUNTIES_SUCCESS:
+      return state
+        .set('counties', action.counties);
+    case GET_INCIDENT_TYPES_SUCCESS:
+      return state
+        .set('incidentTypes', action.incidentTypes);
     default:
       return state;
   }
 }
 
-export default appReducer;
+export default AppReducer;
