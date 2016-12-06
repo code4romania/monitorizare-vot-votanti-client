@@ -42,6 +42,16 @@ const selectLocationState = () => {
   };
 };
 
+const getCounties = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('counties')
+);
+
+const getIncidentTypes = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('incidentTypes')
+);
+
 export {
   selectGlobal,
   selectCurrentUser,
@@ -49,4 +59,6 @@ export {
   selectError,
   selectRepos,
   selectLocationState,
+  getCounties,
+  getIncidentTypes,
 };
