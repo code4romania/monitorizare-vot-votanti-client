@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Map from 'components/selectCountry';
-import AffixWrapper from 'components/AffixWrapper';
+import { StickyContainer, Sticky } from 'react-sticky';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
@@ -173,9 +173,9 @@ export class LeftContainer extends React.PureComponent {
 
   render() {
     return (
-      <div className="col-xs-12 col-lg-6 form-col">
+      <StickyContainer className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="interact">
-          <AffixWrapper offset={438}>
+          <Sticky>
             <h2>Adauga o sesisare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
@@ -254,9 +254,9 @@ export class LeftContainer extends React.PureComponent {
               </div>
             </div>
 
-          </AffixWrapper>
+          </Sticky>
         </AddIncidentForm>
-      </div>);
+      </StickyContainer>);
   }
 }
 
