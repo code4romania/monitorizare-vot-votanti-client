@@ -1,24 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
-import Icons from 'components/Icons';
+import { FormattedMessage } from 'react-intl';
 
-const FooterWrap = styled.div`
-  background: #fff;
-  border-top: 4px solid #fdda44;
-  padding: 60px 0;
-`;
+import A from 'components/A';
+import Wrapper from './Wrapper';
+import messages from './messages';
 
-export default function Footer() {
+function Footer() {
   return (
-    <FooterWrap>
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12">
-            <Icons icon="mvCircle" />
-            some footer content here
-          </div>
-        </div>
-      </div>
-    </FooterWrap>
+    <Wrapper>
+      <section>
+        <FormattedMessage {...messages.licenseMessage} />
+      </section>
+      <section>
+        <FormattedMessage
+          {...messages.authorMessage}
+          values={{
+            author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
+          }}
+        />
+      </section>
+    </Wrapper>
   );
 }
+
+export default Footer;

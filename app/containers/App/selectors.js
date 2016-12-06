@@ -1,4 +1,31 @@
-// selectLocationState expects a plain JS object for the routing state
+/**
+ * The global state selectors
+ */
+
+import { createSelector } from 'reselect';
+
+const selectGlobal = () => (state) => state.get('global');
+
+const selectCurrentUser = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('currentUser')
+);
+
+const selectLoading = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('loading')
+);
+
+const selectError = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('error')
+);
+
+const selectRepos = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.getIn(['userData', 'repositories'])
+);
+
 const selectLocationState = () => {
   let prevRoutingState;
   let prevRoutingStateJS;
@@ -15,20 +42,11 @@ const selectLocationState = () => {
   };
 };
 
-const selectGlobal = () => (state) => state.get('global');
-import { createSelector } from 'reselect';
-
-const getCounties = () => createSelector(
-  selectGlobal(),
-  (globalState) => globalState.get('counties')
-);
-
-const getIncidentTypes = () => createSelector(
-  selectGlobal(),
-  (globalState) => globalState.get('incidentTypes')
-);
 export {
+  selectGlobal,
+  selectCurrentUser,
+  selectLoading,
+  selectError,
+  selectRepos,
   selectLocationState,
-  getCounties,
-  getIncidentTypes,
 };

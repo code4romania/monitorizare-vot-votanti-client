@@ -9,9 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
+export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
+export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
+export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 export const DEFAULT_LOCALE = 'en';
-export const GET_COUNTIES = 'GET_COUNTIES';
-export const GET_COUNTIES_SUCCESS = 'GET_COUNTIES_SUCCESS';
-export const GET_CITIES = 'GET_CITIES';
-export const GET_INCIDENT_TYPES = 'GET_INCIDENT_TYPES';
-export const GET_INCIDENT_TYPES_SUCCESS = 'GET_INCIDENT_TYPES_SUCCESS';

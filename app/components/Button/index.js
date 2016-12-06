@@ -6,29 +6,41 @@
  * otherwise it'll render a link with an onclick
  */
 
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Children } from 'react';
 
-const styles = {
-  general: {
-    width: '100%',
-    cursor: 'pointer',
-  },
-};
+import A from './A';
+import StyledButton from './StyledButton';
+import Wrapper from './Wrapper';
 
 function Button(props) {
+  // Render an anchor tag
+  let button = (
+    <A href={props.href} onClick={props.onClick}>
+      {Children.toArray(props.children)}
+    </A>
+  );
+
+  // If the Button has a handleRoute prop, we want to render a button
+  if (props.handleRoute) {
+    button = (
+      <StyledButton onClick={props.handleRoute}>
+        {Children.toArray(props.children)}
+      </StyledButton>
+    );
+  }
+
   return (
-    <div style={props.style}>
-      <button disabled={props.disabled} style={styles.general}>
-        {props.text}
-      </button>
-    </div>
+    <Wrapper>
+      {button}
+    </Wrapper>
   );
 }
 
 Button.propTypes = {
-  disabled: PropTypes.bool,
-  text: PropTypes.string,
-  style: PropTypes.object,
+  handleRoute: PropTypes.func,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node.isRequired,
 };
 
 export default Button;
