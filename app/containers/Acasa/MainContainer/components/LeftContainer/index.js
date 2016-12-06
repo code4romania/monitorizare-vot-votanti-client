@@ -79,12 +79,8 @@ const AddIncidentForm = styled.div`
     }
   }
 
-  .affix {
-    @media (min-width: 75em) {
-      position: fixed;
-      top: 0;
-      width: 593px;
-    }
+  .sticky {
+    padding-bottom: 30px;
   }
 `;
 
@@ -171,11 +167,15 @@ export class LeftContainer extends React.PureComponent {
     });
   }
 
+  shouldBeSticky() {
+    return document.documentElement.clientWidth > 1024;
+  }
+
   render() {
     return (
       <StickyContainer className="col-xs-12 col-lg-6 form-col">
         <AddIncidentForm className="interact">
-          <Sticky>
+          <Sticky isActive={this.shouldBeSticky()}>
             <h2>Adauga o sesisare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
