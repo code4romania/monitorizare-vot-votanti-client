@@ -51,6 +51,10 @@ const overflowElipsisStyle = {
   overflow: 'hidden',
   whiteSpace: 'nowrap',
 };
+const counterStyle = {
+  marginTop: '5px',
+  float: 'right',
+};
 
 const AddIncidentForm = styled.div`
   { // TODO: add variables to styled (colors, breakpoints etc.) }
@@ -88,32 +92,30 @@ export class LeftContainer extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      form: {
-        nume: '',
-        prenume: '',
-        judet: {
-          text: '',
-          value: null,
-        },
-        oras: {
-          text: '',
-          value: null,
-        },
-        sectie: {
-          text: '',
-          value: null,
-        },
-        tipulDeProblema: {
-          value: 'Alege tipul sesizarii',
-        },
-        description: {
-          characterCount: 0,
-        },
+      nume: '',
+      prenume: '',
+      judet: {
+        text: '',
+        value: null,
+      },
+      oras: {
+        text: '',
+        value: null,
+      },
+      sectie: {
+        text: '',
+        value: null,
+      },
+      tipulDeProblema: {
+        value: 'Alege tipul sesizarii',
+      },
+      description: {
+        value: '',
+        characterCount: 0,
       },
       dataSource: mocks.judete,
       active: true,
     };
-    this.getNumberOfCharacters = this.getNumberOfCharacters.bind(this);
   }
 
   setActiveOption = () => {
@@ -121,33 +123,25 @@ export class LeftContainer extends React.PureComponent {
   }
 
   getNumberOfCharacters = (event) => {
-    const input = event.target.value.length;
-
-    console.log(input);
-    // this.setState({
-    //   form: {
-    //     description: {
-    //       characterCount: input,
-    //     },
-    //   },
-    // });
+    this.setState({
+      description: {
+        value: event.target.value,
+        characterCount: event.target.value.length,
+      },
+    });
   }
 
   handleOnChangeInput = (value) => {
     this.setState({
-      form: {
-        nume: value,
-      },
+      nume: value,
     });
   }
 
   handleUpdateInput = (value) => {
     this.setState({
-      form: {
-        judet: {
-          text: value.text,
-          value: value.value,
-        },
+      judet: {
+        text: value.text,
+        value: value.value,
       },
     });
   }
@@ -171,10 +165,8 @@ export class LeftContainer extends React.PureComponent {
       default:
     }
     this.setState({
-      form: {
-        tipulDeProblema: {
-          value: updatedValue,
-        },
+      tipulDeProblema: {
+        value: updatedValue,
       },
     });
   }
@@ -219,7 +211,7 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                { /* TODO: character count */ }
+                { /* TODO: character count */}
                 <TextField
                   hintText="Da-ne mai multe detalii despre ce s-a intamplat in maxim 300 de caractere"
                   floatingLabelText="Sesizarea ta"
@@ -230,7 +222,7 @@ export class LeftContainer extends React.PureComponent {
                   maxLength={300}
                   onChange={this.getNumberOfCharacters}
                 />
-                <span></span>
+                <span style={counterStyle}>{this.state.description.characterCount}/300</span>
               </div>
 
               <div className="col-xs-12 col-sm-6 types">
@@ -238,7 +230,7 @@ export class LeftContainer extends React.PureComponent {
                   floatingLabelText="Tipul sesizarii"
                   fullWidth
                   floatingLabelFixed
-                  hintText={this.state.form.tipulDeProblema.value}
+                  hintText={this.state.tipulDeProblema.value}
                   onChange={this.handleChange}
                   style={overflowElipsisStyle}
                 >
