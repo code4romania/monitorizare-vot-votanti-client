@@ -21,6 +21,9 @@ import IconItOffices from './icons/icon-it_offices';
 import IconItOther from './icons/icon-it_other';
 import IconItPublicFunds from './icons/icon-it_public_funds';
 import IconCode from './icons/icon-code';
+import IconGithub from './icons/icon-github';
+import IconTwitter from './icons/icon-twitter';
+import IconFacebook from './icons/icon-facebook';
 
 const iconList = {
   box: <IconBox />,
@@ -45,6 +48,9 @@ const iconList = {
   it_other: <IconItOther />,
   it_public_founds: <IconItPublicFunds />,
   code4: <IconCode />,
+  github: <IconGithub />,
+  twitter: <IconTwitter />,
+  facebook: <IconFacebook />,
 };
 
 const Icon = styled.i`
