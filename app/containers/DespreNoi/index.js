@@ -7,7 +7,7 @@ const Content = styled.div`
   margin: 0 0 120px;
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     margin: 30px 0 60px;
   }
