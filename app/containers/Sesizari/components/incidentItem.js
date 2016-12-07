@@ -1,19 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import styled from 'styled-components';
 import Icons from 'components/Icons';
-import RoomIcon from 'material-ui/svg-icons/action/room';
-import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
-
-const muiTheme = getMuiTheme({
-  fontFamily: '"Arimo", sans-serif',
-
-  palette: {
-    textColor: '#2d2d2d',
-  },
-});
 
 const IncidentWrap = styled.div`
   .incident-card {
@@ -57,17 +45,17 @@ const IncidentWrap = styled.div`
   }
 `;
 
-const imageContainerIcon = {
-  color: '#fff',
-  cursor: 'pointer',
-  opacity: '0.7',
-};
+// const imageContainerIcon = {
+//   color: '#fff',
+//   cursor: 'pointer',
+//   opacity: '0.7',
+// };
 
 
 function IncidentItem(props) {
   const Subtitle = (
     <div className="incident-subtitle">
-      <RoomIcon style={{ color: 'rgba(45, 45, 45, 0.5)', width: '20px', height: '20px', marginRight: '5px' }} />
+      icon here
       <span>{props.city.name}, {props.county.name}</span>
     </div>);
 
@@ -75,32 +63,30 @@ function IncidentItem(props) {
 
   return (
     <IncidentWrap>
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Card className="incident-card">
+      <Card className="incident-card">
 
-          <CardHeader
-            title={props.incidentType.name}
-            avatar={<Icons icon={icon} />}
-            textStyle={{ verticalAlign: 'middle' }}
-            titleStyle={{ color: '#5F288D' }}
-          />
+        <CardHeader
+          title={props.incidentType.name}
+          avatar={<Icons icon={icon} />}
+          textStyle={{ verticalAlign: 'middle' }}
+          titleStyle={{ color: '#5F288D' }}
+        />
 
-          <div onTouchTap={props.handleOpen} className="incident-media">
-            <ZoomIcon style={imageContainerIcon} />
-          </div>
+        <div onTouchTap={props.handleOpen} className="incident-media">
+          icon here
+        </div>
 
-          <CardTitle
-            className="incident-title"
-            title={`Sectia ${props.precinct.precinctNumber}`}
-            subtitle={Subtitle}
-          />
+        <CardTitle
+          className="incident-title"
+          title={`Sectia ${props.precinct.precinctNumber}`}
+          subtitle={Subtitle}
+        />
 
-          <CardText>
-            {props.description}
-          </CardText>
+        <CardText>
+          {props.description}
+        </CardText>
 
-        </Card>
-      </MuiThemeProvider>
+      </Card>
     </IncidentWrap>
   );
 }

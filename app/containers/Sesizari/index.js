@@ -10,7 +10,6 @@ import IncidentItem from './components/incidentItem';
 import Loading from 'components/Loading';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
-import Refresh from 'material-ui/svg-icons/navigation/refresh';
 
 const buttonStyle = {
   height: '60px',
@@ -26,9 +25,9 @@ const buttonLabelStyle = {
   letterSpacing: '1px',
 };
 
-const buttonIconStyle = {
-  color: '#ffffff',
-};
+// const buttonIconStyle = {
+//   color: '#ffffff',
+// };
 
 export class Sesizari extends React.PureComponent {
   constructor() {
@@ -97,7 +96,7 @@ export class Sesizari extends React.PureComponent {
                 labelStyle={buttonLabelStyle}
                 labelPosition="after"
                 primary
-                icon={this.props.nextPage !== this.props.pagination.lastPage ? '' : <Refresh style={buttonIconStyle} />}
+                icon={this.props.nextPage !== this.props.pagination.lastPage ? '' : 'icon here'}
                 disabled={this.props.nextPage !== this.props.pagination.lastPage}
                 onClick={this.loadNextIncidents}
               />
