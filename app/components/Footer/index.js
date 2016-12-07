@@ -57,13 +57,13 @@ export default function Footer() {
 
             <ul className="social">
               <li>
-                <a className="icon-wrapper" href="#" target="_blank">
+                <a className="icon-wrapper" target="_blank">
                   <Icons icon="twitter" />
                 </a>
               </li>
 
               <li>
-                <a className="icon-wrapper" href="#" target="_blank">
+                <a className="icon-wrapper" target="_blank">
                   <Icons icon="facebook" />
                 </a>
               </li>
@@ -71,14 +71,14 @@ export default function Footer() {
 
             <ul className="social">
               <li>
-                <a className="icon-wrapper" href="#" target="_blank">
+                <a className="icon-wrapper" target="_blank">
                   <Icons icon="github" />
                   <span className="icon-text">/client</span>
                 </a>
               </li>
 
               <li>
-                <a className="icon-wrapper" href="#" target="_blank">
+                <a className="icon-wrapper" target="_blank">
                   <Icons icon="github" />
                   <span className="icon-text">/api</span>
                 </a>
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
 
           <div className="col-md-6 col-xs-12">
-            <a className="icon-wrapper" href="#" target="_blank">
+            <a className="icon-wrapper" target="_blank">
               <Icons icon="mvCircle" />
               <span className="icon-text">Monitorizare Vot</span>
             </a>
