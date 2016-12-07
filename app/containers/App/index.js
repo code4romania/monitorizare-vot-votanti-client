@@ -10,6 +10,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -35,11 +36,15 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
 
   render() {
     return (
-      <Wrapper className="wrap">
-        <Header {...this.props.location} />
-        {React.cloneElement(this.props.children, { counties: this.props.counties, incidentTypes: this.props.incidentTypes })}
-        <Footer />
-      </Wrapper>
+      <MuiThemeProvider>
+        <div>
+          <Wrapper>
+            <Header {...this.props.location} />
+            {React.cloneElement(this.props.children, { counties: this.props.counties, incidentTypes: this.props.incidentTypes })}
+            <Footer />
+          </Wrapper>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
