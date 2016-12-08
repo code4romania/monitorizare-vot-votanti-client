@@ -8,3 +8,4 @@ export const FILTERS_LODADED = 'FILTERS_LODADED';
 export const SET_TYPE = 'SET_TYPE';
 export const SET_CITY = 'SET_CITY';
 export const RESET_COUNTY = 'RESET_COUNTY';
+export const RESET_FILTERS = 'RESET_FILTERS';

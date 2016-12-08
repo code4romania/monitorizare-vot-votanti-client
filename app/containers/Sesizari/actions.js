@@ -1,4 +1,4 @@
-import { INCIDENTS, INCIDENTS_LODADED, SET_CITIES, SET_ACTIVE_MAP, FILTER, FILTERS_LODADED, SET_TYPE, SET_CITY, RESET_COUNTY } from './constants';
+import { INCIDENTS, INCIDENTS_LODADED, SET_CITIES, SET_ACTIVE_MAP, FILTER, FILTERS_LODADED, SET_TYPE, SET_CITY, RESET_COUNTY, RESET_FILTERS } from './constants';
 import { GET_CITIES, GET_INCIDENT_TYPES } from 'containers/App/constants';
 import * as _ from 'lodash';
 
@@ -11,6 +11,12 @@ export function getIncidentsAction() {
 export function filterIncidentsAction() {
   return {
     type: FILTER,
+  };
+}
+
+export function resetAllFiltersAction() {
+  return {
+    type: RESET_FILTERS,
   };
 }
 
