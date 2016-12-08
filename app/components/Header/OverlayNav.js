@@ -19,6 +19,11 @@ const StyledNav = styled.nav`
     align-items: center;
     justify-content: center;
     height: 100vh;
+
+    li[disabled] {
+      pointer-events: none;
+      opacity: 0.5;
+    }
   }
 
   ul {
@@ -50,8 +55,8 @@ export default function OverlayNav(props) {
       <div className="menu-wrapper">
         <ul>
           <li id="acasa"><MenuLink to="acasa">Monitorizare</MenuLink></li>
-          <li id="sesizari"><MenuLink to="sesizari">Sesizări</MenuLink></li>
-          <li id="statistici"><MenuLink to="statistici">Statistici</MenuLink></li>
+          <li id="sesizari" disabled><MenuLink>Sesizări</MenuLink></li>
+          <li id="statistici" disabled><MenuLink>Statistici</MenuLink></li>
           <li id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></li>
           <li id="despre-noi"><MenuLink to="despre-noi">Despre noi</MenuLink></li>
         </ul>

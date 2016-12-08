@@ -53,7 +53,7 @@ const IconsList = styled.ul`
 const IconWrap = styled.li`
   display: inline-block;
   list-style: inside none;
-  margin: 0 5px;
+  margin: 10px;
 
   .svg-icon {
     color: #5F288D;
