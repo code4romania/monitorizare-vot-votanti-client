@@ -30,6 +30,15 @@ const Stamp = styled.div`
   }
 `;
 
+const Legal = styled.blockquote`
+  margin: 0;
+  border-right: 5px solid rgba(95, 40, 141, 0.6);
+
+  p {
+    font-size: 14px;
+  }
+`;
+
 export default class DespreNoi extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -43,18 +52,21 @@ export default class DespreNoi extends React.PureComponent { // eslint-disable-l
               ]}
             />
             <div className="page-hero">
-              <h1>Află mai multe despre noi</h1>
+              <h1>Află mai multe<br /> despre noi</h1>
             </div>
             <Content>
               <Stamp>
                 <Icons icon="mvCircle" />
               </Stamp>
-              Monitorizare Vot este un proiect Code for Romania , realizat în parteneriat cu EFOR, Geeks for Democracy, Funky Citizens, Observatorul Electoral, CRC și CSD.
               <p>Monitorizare Vot este un proiect Code for Romania, realizat în parteneriat cu <a href="http://expertforum.ro/" target="_blank">EFOR</a>, <a href="https://www.facebook.com/groups/1591449631185716/" target="_blank">Geeks for Democracy</a>, <a href="http://www.funkycitizens.org/" target="_blank">Funky Citizens</a>, <a href="https://www.facebook.com/Observatorul-Electoral-307266686310878/" target="_blank">Observatorul Electoral</a>, <a href="http://resursecivice.ro/" target="_blank">Centrul pentru Resurse Civice</a> și <a href="http://www.democracycenter.ro/romana" target="_blank">Centrul pentru Studiul Democratiei</a>. Scopul nostru este dezvoltarea unui instrument IT  prin care observatorii electorali i   să poată transmite simplu și rapid sesizările lor către ONG-ul care i-a acreditat. În plus,oferim cetățenilor o platformă foarte ușor de folosit unde se pot face auziți atunci când au de semnalat o neregulă în desfășurarea  alegerilor. Ne dorim astfel să-i încurajăm pe oameni să se implice în procesul electoral, pentru alegeri corecte în toată țara.</p>
               <Stamp>
                 <a href="http://www.code4.ro/" target="_blank"><Icons icon="code4" /></a>
               </Stamp>
               <p>Code for Romania este o organizație neguvernamentală, neafiliată politic și apolitică, înființată în 2016. Code for Romania își propune să formeze o comunitate de profesioniști în IT care să creeze soluții digitale ce rezolvă probleme ale societății. Misiunea noastră este să dăm oamenilor informaţiile, mijloacele şi curajul să se implice mai mult în rezolvarea problemelor societăţii. Proiectele Code for Romania sunt dezvoltate pe bază de voluntariat și în format open-source.</p>
+              <Legal>
+                <h2>Nota:</h2>
+                <p>Toate informațiile prezentate pe acest website sunt bazate pe sesizările primite de la utilizatori. Echipa de administrare a website-ului face o minimă verificare a sesizărilor înainte de publicare, pentru a se asigura ca acestea au legatura cu subiectului alegerilor, dar nu își asumă responsabilitatea pentru conținutul și veridicitatea sesizărilor transmise de către utilizatori. Scopul platformei este acela de a informa cetățenii și de a oferi un spațiu de exprimare celor care doresc să sesizeze eventuale tentative de fraudă electorală. Platforma și statisticile aferente vor fi promovate către mass-media. Echipa Code for Romania nu își asumă responsabilitatea pentru transmiterea acestor sesizări mai departe către autoritățile competente și nici pentru oferirea de răspunsuri la sesizarile utilizatorilor. Pentru aceasta vă rugăm să va adresati Biroul Electoral de Circumscriptie sau Biroul Electoral Central.</p>
+              </Legal>
             </Content>
           </div>
         </div>
