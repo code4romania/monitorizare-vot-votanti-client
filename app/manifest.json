@@ -1,5 +1,5 @@
 {
-  "name": "React Boilerplate",
+  "name": "Monitorizare Vot",
   "icons": [
     {
       "src": "favicon.png",
@@ -29,5 +29,5 @@
   "start_url": "index.html",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#FFFFFF"
+  "background_color": "#F9F9F9"
 }
