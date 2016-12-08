@@ -20,4 +20,3 @@ export function MainContainer(props) { // eslint-disable-line react/prefer-state
 }
 
 export default MainContainer;
-
