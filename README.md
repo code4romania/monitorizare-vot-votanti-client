@@ -17,5 +17,5 @@ $ npm run start
 $ npm run build && cd biuld && http-server
 ```
 
-*Daca ai [Yarn](https://yarnpkg.com/), instaleaza-l si foloseste-l pentru instalarea dependintelor, este mult mai rapid.*
+*Daca ai [Yarn](https://yarnpkg.com/), foloseste-l pentru instalarea dependintelor, este mult mai rapid.*
 *http-server nu face parte din dependintele proiectului*
