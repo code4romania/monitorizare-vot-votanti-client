@@ -13,6 +13,7 @@ import '!file?name=[name].[ext]!./favicon.png';
 import '!file?name=[name].[ext]!./fb.png';
 import '!file?name=[name].[ext]!./manifest.json';
 import 'file?name=[name].[ext]!./.htaccess';
+import 'file?name=[name].[ext]!./web.config';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 // Import all the third party stuff
