@@ -109,6 +109,7 @@ export class LeftContainer extends React.PureComponent {
         value: '',
         characterCount: 0,
       },
+      prezenta: false,
       dataSource: mocks.judete,
       active: true,
     };
@@ -142,20 +143,26 @@ export class LeftContainer extends React.PureComponent {
     });
   }
 
+  handleToggle = () => {
+    this.setState({
+      prezenta: !this.state.prezenta,
+    });
+  }
+
   handleChange = (event, index, value) => {
     let updatedValue;
 
     switch (value) {
-      case 1:
+      case 'Altele':
         updatedValue = 'Altele';
         break;
-      case 2:
+      case 'Campanie electorala in ziua votului':
         updatedValue = 'Campanie electorala in ziua votului';
         break;
-      case 3:
+      case 'Media & Internet':
         updatedValue = 'Media & Internet';
         break;
-      case 4:
+      case 'Mita electorala':
         updatedValue = 'Mita electorala';
         break;
       default:
@@ -181,37 +188,90 @@ export class LeftContainer extends React.PureComponent {
 
             <div className="row">
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Popescu" floatingLabelText="Nume" floatingLabelFixed fullWidth onChange={this.handleOnChangeInput} />
+                <TextField
+                  hintText="Popescu"
+                  floatingLabelText="Nume"
+                  floatingLabelFixed
+                  fullWidth
+                  name={'Nume'}
+                  value={this.state.nume}
+                  onChange={this.handleOnChangeInput}
+                />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <TextField hintText="Andrei" floatingLabelText="Prenume" floatingLabelFixed fullWidth onChange={this.handleOnChangeInput} />
+                <TextField
+                  hintText="Andrei"
+                  floatingLabelText="Prenume"
+                  floatingLabelFixed
+                  fullWidth
+                  name={'Prenume'}
+                  value={this.state.prenume}
+                  onChange={this.handleOnChangeInput}
+                />
               </div>
 
               <div className="col-xs-12">
-                <Map half active={this.state.active} setActiveOption={this.setActiveOption} />
+                <Map
+                  half
+                  active={this.state.active}
+                  setActiveOption={this.setActiveOption}
+                />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Cauta judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete
+                  hintText="Cauta judetul"
+                  floatingLabelText="Judetul"
+                  floatingLabelFixed
+                  fullWidth
+                  openOnFocus
+                  name={'Judetul'}
+                  value={this.state.judet.text}
+                  dataSource={this.state.dataSource}
+                  onUpdateInput={this.handleUpdateInput}
+                />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Cauta orasul" floatingLabelText="Orasul" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete
+                  hintText="Cauta orasul"
+                  floatingLabelText="Orasul"
+                  fullWidth
+                  floatingLabelFixed
+                  openOnFocus
+                  name={'Orasul'}
+                  value={this.state.oras.text}
+                  dataSource={this.state.dataSource}
+                  onUpdateInput={this.handleUpdateInput}
+                />
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <AutoComplete hintText="Cauta sectia" floatingLabelText="Sectia" fullWidth floatingLabelFixed openOnFocus dataSource={this.state.dataSource} onUpdateInput={this.handleUpdateInput} />
+                <AutoComplete
+                  hintText="Cauta sectia"
+                  floatingLabelText="Sectia"
+                  fullWidth
+                  floatingLabelFixed
+                  openOnFocus
+                  name={'Sectia'}
+                  value={this.state.sectie.text}
+                  dataSource={this.state.dataSource}
+                  onUpdateInput={this.handleUpdateInput}
+                />
               </div>
 
               <div className="col-xs-12 col-sm-6">
                 <div className="presence">
-                  <Toggle label="Nu sunt in sectie" labelPosition="right" />
+                  <Toggle
+                    label={(this.state.prezenta) ? 'Sunt in sectie' : 'Nu sunt in sectie'}
+                    labelPosition="right"
+                    onToggle={this.handleToggle}
+                  />
                 </div>
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                { /* TODO: character count */}
                 <TextField
                   hintText="Da-ne mai multe detalii despre ce s-a intamplat in maxim 300 de caractere"
                   floatingLabelText="Sesizarea ta"
@@ -220,6 +280,8 @@ export class LeftContainer extends React.PureComponent {
                   multiLine
                   rows={2}
                   maxLength={300}
+                  name={'Text sesizare'}
+                  value={this.state.description.value}
                   onChange={this.getNumberOfCharacters}
                 />
                 <span style={counterStyle}>{this.state.description.characterCount}/300</span>
@@ -234,10 +296,26 @@ export class LeftContainer extends React.PureComponent {
                   onChange={this.handleChange}
                   style={overflowElipsisStyle}
                 >
-                  <MenuItem value={1} primaryText="Altele" />
-                  <MenuItem value={2} primaryText="Campanie electorala in ziua votului" />
-                  <MenuItem value={3} primaryText="Media & Internet" />
-                  <MenuItem value={4} primaryText="Mita electorala" />
+                  <MenuItem
+                    name={'Tipul sesizarii'}
+                    value={'Altele'}
+                    primaryText="Altele"
+                  />
+                  <MenuItem
+                    name={'Tipul sesizarii'}
+                    value={'Campanie electorala in ziua votului'}
+                    primaryText="Campanie electorala in ziua votului"
+                  />
+                  <MenuItem
+                    name={'Tipul sesizarii'}
+                    value={'Media & Internet'}
+                    primaryText="Media & Internet"
+                  />
+                  <MenuItem
+                    name={'Tipul sesizarii'}
+                    value={'Mita electorala'}
+                    primaryText="Mita electorala"
+                  />
                 </SelectField>
                 <FileUploader />
                 <RaisedButton
