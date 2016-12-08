@@ -11,7 +11,11 @@ const Timer = styled.div`
 
   .timer-col {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 5px;
+
+    @media (min-width: 36em) {
+      margin: 0 10px;
+    }
 
     @media (min-width: 48em) {
       margin: 0 20px;
