@@ -27,10 +27,28 @@ const cities = () => createSelector(
   (sesizariState) => sesizariState.get('cities')
 );
 
+const activeMap = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('activeMap')
+);
+
+const typeId = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('typeId')
+);
+
+const cityId = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('cityId')
+);
+
 export {
   getIncidents,
   getPagination,
   getNextPage,
   countyId,
   cities,
+  activeMap,
+  typeId,
+  cityId,
 };

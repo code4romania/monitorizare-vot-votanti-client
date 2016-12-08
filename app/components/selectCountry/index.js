@@ -42,13 +42,13 @@ export default function SelectCountry(props) { // eslint-disable-line react/nost
   return (
     <div className="row">
       <Map className="col-xs-6">
-        <button style={props.active ? active : inactive} onClick={props.setActiveOption} data-name="romania" >
+        <button style={props.active ? active : inactive} onClick={props.setActiveOption} data-name="country" >
           <img className="map-icon" height={40} src={MapRo} role="presentation" />
           <div className="map-label">In Romania</div>
         </button>
       </Map>
       <Map className="col-xs-6">
-        <button style={props.active ? inactive : active} onClick={props.setActiveOption} data-name="world" >
+        <button style={props.active ? inactive : active} onClick={props.setActiveOption} data-name="abroad" >
           <img className="map-icon" height={40} src={MapWorld} role="presentation" />
           <div className="map-label">In Disapora</div>
         </button>

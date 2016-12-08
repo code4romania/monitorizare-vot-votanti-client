@@ -1,4 +1,4 @@
-import { INCIDENTS, INCIDENTS_LODADED, SET_CITIES, SET_ACTIVE_MAP } from './constants';
+import { INCIDENTS, INCIDENTS_LODADED, SET_CITIES, SET_ACTIVE_MAP, FILTER, FILTERS_LODADED, SET_TYPE, SET_CITY, RESET_COUNTY } from './constants';
 import { GET_CITIES, GET_INCIDENT_TYPES } from 'containers/App/constants';
 import * as _ from 'lodash';
 
@@ -8,6 +8,17 @@ export function getIncidentsAction() {
   };
 }
 
+export function filterIncidentsAction() {
+  return {
+    type: FILTER,
+  };
+}
+
+export function resetCountyAction() {
+  return {
+    type: RESET_COUNTY,
+  };
+}
 export function incidentsLoaded(incidents) {
   return {
     type: INCIDENTS_LODADED,
@@ -16,6 +27,28 @@ export function incidentsLoaded(incidents) {
   };
 }
 
+export function setTypeAction(value) {
+  return {
+    type: SET_TYPE,
+    value,
+  };
+}
+
+export function setCityAction(value) {
+  return {
+    type: SET_CITY,
+    value,
+  };
+}
+
+
+export function filtersLoaded(incidents) {
+  return {
+    type: FILTERS_LODADED,
+    incidents: incidents.data,
+    pagination: incidents.paginator,
+  };
+}
 
 export function selectedCountyAction(cityId) {
   return {
