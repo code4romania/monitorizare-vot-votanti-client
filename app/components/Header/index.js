@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import styled from 'styled-components';
 import Menu from 'components/Menu';
 import Icons from 'components/Icons';
+import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import OverlayNav from './OverlayNav';
 
 const HeaderWrap = styled.div`
@@ -15,9 +16,7 @@ const HeaderWrap = styled.div`
 `;
 
 const LogoType = styled(Link)`
-  height: 30px;
   display: block;
-  width: auto;
   float: left;
   margin-left: 10px;
 
@@ -40,12 +39,18 @@ const Burger = styled.button`
   cursor: pointer;
   float: right;
   display: inline-block;
-  margin: 0 10px 0 0;
+  margin: 5px 10px 0 0;
+  padding: 0;
 
   @media (min-width: 64em) {
     display: none;
   }
 `;
+
+const burgerStyles = {
+  width: '30px',
+  height: '30px',
+};
 
 export default class Header extends React.PureComponent {
   constructor(props) {
@@ -71,7 +76,7 @@ export default class Header extends React.PureComponent {
               </LogoType>
               <Menu {...this.props} />
               { !this.state.showNav ? <Burger onClick={this.handleToggleNav}>
-                <i className="material-icons">&#xE5D2;</i>
+                <MenuIcon style={burgerStyles} />
               </Burger> : '' }
             </div>
           </div>

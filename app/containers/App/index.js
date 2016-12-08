@@ -12,6 +12,7 @@ import Websocket from 'react-websocket';
 const Wrapper = styled.div`
   // ceva e funky aici, n-ar trebui sa fie nevoie de asta
   overflow-x: hidden;
+  background: #f9f9f9;
 `;
 
 export class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

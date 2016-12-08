@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CountDown from 'react-simple-countdown';
+import Icons from 'components/Icons';
 
 const Timer = styled.div`
   .timer {
@@ -10,7 +11,11 @@ const Timer = styled.div`
 
   .timer-col {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 5px;
+
+    @media (min-width: 36em) {
+      margin: 0 10px;
+    }
 
     @media (min-width: 48em) {
       margin: 0 20px;
@@ -44,6 +49,22 @@ const Timer = styled.div`
   }
 `;
 
+const IconsList = styled.ul`
+  margin: 40px 0;
+  padding: 0;
+`;
+
+const IconWrap = styled.li`
+  display: inline-block;
+  list-style: inside none;
+  margin: 10px;
+
+  .svg-icon {
+    color: #5F288D;
+    padding: 5px;
+  }
+`;
+
 function HeroPre() {
   const messages = {
     days: {
@@ -68,9 +89,23 @@ function HeroPre() {
                 {...messages}
               />
             </Timer>
+
             <p>
-              Ai ajuns la secția de votare și ai sesizat o neregulă? Ai observat că un partid politic încă își face campanie în ziua votului pentru alegerile parlamentare? Ai observat autocare cu pasageri ce nu par a fi turiști? Cozile par interminabile la secția la care ai fost arondat?<br /><br />Pe 11 decembrie ajută România să aibă alegeri corecte!
+              Ai ajuns la secția de votare și ai sesizat o neregulă? Ai observat că un partid politic încă își face campanie în ziua votului pentru alegerile parlamentare? Ai observat autocare cu pasageri ce nu par a fi turiști? Cozile par interminabile la secția la care ai fost arondat?
             </p>
+
+            <IconsList>
+              <IconWrap><Icons icon="info" /></IconWrap>
+              <IconWrap><Icons icon="location" /></IconWrap>
+              <IconWrap><Icons icon="clock" /></IconWrap>
+              <IconWrap><Icons icon="system" /></IconWrap>
+              <IconWrap><Icons icon="vote" /></IconWrap>
+              <IconWrap><Icons icon="box" /></IconWrap>
+              <IconWrap><Icons icon="building" /></IconWrap>
+              <IconWrap><Icons icon="police" /></IconWrap>
+            </IconsList>
+
+            <p>Pe 11 decembrie ajută România să aibă alegeri corecte!</p>
           </div>
         </div>
       </div>

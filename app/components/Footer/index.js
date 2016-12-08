@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import styled from 'styled-components';
 import Icons from 'components/Icons';
 
@@ -6,45 +7,107 @@ const FooterWrap = styled.footer`
   background: #fff;
   border-top: 4px solid #fdda44;
   padding: 60px 0;
+`;
 
-  .text-right {
+const MV = styled(Link)`
+  float: left;
+  margin-top: -5px;
+
+  @media (min-width: 64em) {
+    float: none;
+  }
+
+  &:hover {
+    .svg-icon {
+      opacity: 1;
+    }
+  }
+
+  .svg-icon {
+    color: #5F288D;
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+  }
+`;
+
+const Repos = styled.ul`
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  float: right;
+  height: 30px;
+
+  @media (min-width: 64em) {
+    float: none;
+    text-align: left;
+    margin-top: 25px;
+    margin-left: 5px;
+  }
+
+  li {
+    margin-left: 15px;
+    display: inline;
+
+    @media (min-width: 48em) {
+      margin-left: 30px;
+    }
+
+    &:first-child {
+      margin: 0;
+    }
+
+    a {
+      font-family: "Source Code Pro", "Courier New", Courier, monospace;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      opacity: 0.6;
+      display: inline-block;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      span {
+        line-height: 30px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .svg-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+`;
+
+const Code4 = styled.div`
+  margin: 30px 0 0;
+
+  @media (min-width: 64em) {
+    margin: 0 15px 0 0;
     text-align: right;
   }
 
-  .icon-wrapper {
-    opacity: 0.6;
+  > a {
+    color: #757575;
 
-    .icon-text {
-      margin-left: 10px;
-      font-size: 14px;
+    &:hover {
+      color: #2d2d2d;
     }
   }
+`;
 
-  .icon-wrapper:hover {
-    opacity: 1;
-  }
+const Copyright = styled.p`
+  font-family: "Source Code Pro", "Courier New", Courier, monospace;
+  font-size: 12px;
+  opacity: 0.9;
 
-  .media-container {
-    margin-bottom: 30px;
-  }
-
-  .project-description {
-    font-family: monospace;
-  }
-
-  .social {
-    padding: 0;
-    list-style: none;
-
-    li {
-      margin-right: 35px;
-      display: inline;
-    }
-
-    .svg-icon {
-      width: 25px;
-      height: 25px;
-    }
+  @media (min-width: 64em) {
+    margin-top: 30px;
   }
 `;
 
@@ -53,59 +116,39 @@ export default function Footer() {
     <FooterWrap>
       <div className="container">
         <div className="row">
-          <div className="col-md-12 media-container">
+          <div className="col-xs-12 col-md-6">
 
-            <ul className="social">
-              <li>
-                <a className="icon-wrapper" target="_blank">
-                  <Icons icon="twitter" />
-                </a>
-              </li>
+            <MV to="acasa">
+              <Icons icon="mvCircle" />
+            </MV>
 
+            <Repos>
               <li>
-                <a className="icon-wrapper" target="_blank">
-                  <Icons icon="facebook" />
-                </a>
-              </li>
-            </ul>
-
-            <ul className="social">
-              <li>
-                <a className="icon-wrapper" target="_blank">
+                <a target="_blank" href="https://github.com/code4romania/monitorizare-vot-votanti-client/">
                   <Icons icon="github" />
                   <span className="icon-text">/client</span>
                 </a>
               </li>
 
               <li>
-                <a className="icon-wrapper" target="_blank">
+                <a target="_blank" href="https://github.com/code4romania/monitorizare-vot-votanti-api/">
                   <Icons icon="github" />
                   <span className="icon-text">/api</span>
                 </a>
               </li>
-            </ul>
+            </Repos>
 
           </div>
 
-          <div className="col-md-6 col-xs-12">
-            <a className="icon-wrapper" target="_blank">
-              <Icons icon="mvCircle" />
-              <span className="icon-text">Monitorizare Vot</span>
-            </a>
-            <p className="project-description">
-              © 2016 Code for Society / Code for Romania.<br />
-              Organizație neguvernamentală independentă,<br /> neafiliată politic și apolitică.
-            </p>
-          </div>
-
-          <div className="col-md-6 col-xs-12 text-right">
-            <a className="icon-wrapper" href="http://code4.ro/" target="_blank">
-              <Icons icon="code4" />
-            </a>
-            <p className="project-description">
-              © 2016 Code for Society / Code for Romania.<br />
-              Organizație neguvernamentală independentă,<br /> neafiliată politic și apolitică.
-            </p>
+          <div className="col-xs-12 col-md-6">
+            <Code4>
+              <a href="http://code4.ro/" target="_blank">
+                <Icons icon="code4" />
+              </a>
+              <Copyright>
+                &copy; 2016 Code for Society / Code for Romania.<br /> Organizație neguvernamentală independentă, neafiliată politic și apolitică.
+              </Copyright>
+            </Code4>
           </div>
         </div>
       </div>

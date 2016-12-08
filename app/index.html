@@ -4,22 +4,42 @@
     <!-- The first thing in any HTML file should be the charset -->
     <meta charset="utf-8">
     <!-- Make the page mobile compatible -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <!-- Allow installing the app to the homescreen -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <meta name="mobile-web-app-capable" content="yes">
     <title>Monitorizare Vot</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" type="text/css" >
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,700&amp;subset=latin-ext" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <meta property="og:url" content="http://monitorizarevot.ro/">
+    <meta property="og:title" content="Monitorizare Vot">
+    <meta property="og:description" content="Pe 11 decembrie ajută România să aibă alegeri corecte!">
+    <meta property="og:site_name" content="Monitorizare Vot">
+    <meta property="og:image" content="http://monitorizarevot.ro/fb.png">
+    <meta property="fb:app_id" content="1968528606707740">
+
+    <style>
+    .loading {
+        font-family: Helvetica;
+        color: #5f288d;
+        display: block;
+        font-size: 18px;
+        text-align: center;
+        line-height: 80px;
+    }
+    </style>
+
   </head>
   <body>
     <!-- Display a message if JS has been disabled on the browser. -->
-    <noscript>Salut! Aplicatia noastra foloseste <a href="https://ro.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>. E 2016, e ok.</noscript>
+    <noscript>Salut! Aplicația noastră folosește <a href="https://ro.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>. E 2016, e ok. Dacă ai ajuns aici poate te gândești că ai vrea să te implici, poate doar vrei să dezbatem împreuna acest subiect, scrie-ne <a href="contact@code4.ro" target="_blank">aici</a>.</noscript>
 
     <!-- The app hooks into this div -->
-    <div id="app"></div>
+    <div id="app">
+        <div class="loading">Monitorizare Vot se încarcă...</div>
+    </div>
 
     <!-- A lot of magic happens in this file. HtmlWebpackPlugin automatically includes all assets (e.g. bundle.js, main.css) with the correct HTML tags, which is why they are missing in this HTML file. Don't add any assets here! (Check out webpackconfig.js if you want to know more) -->
   </body>

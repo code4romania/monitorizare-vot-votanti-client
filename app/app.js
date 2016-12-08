@@ -8,8 +8,11 @@ import 'babel-polyfill';
 
 /* eslint-disable import/no-unresolved, import/extensions, no-unused-vars */
 // Load the manifest.json file and the .htaccess file
-import '!file?name=[name].[ext]!./manifest.json';
+import '!file?name=[name].[ext]!./favicon.ico';
+import '!file?name=[name].[ext]!./favicon.png';
+import '!file?name=[name].[ext]!./fb.png';
 import 'file?name=[name].[ext]!./.htaccess';
+import 'file?name=[name].[ext]!./web.config';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 // Import all the third party stuff
@@ -19,14 +22,24 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
+import ReactGA from 'react-ga';
+import configureStore from './store';
+
 import GlobalStyles from './global-styles';
+
 import LanguageProvider from 'containers/LanguageProvider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import configureStore from './store';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
+
+ReactGA.initialize('UA-88671753-1');
+
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+}
 
 // Import i18n messages
 import { translationMessages } from './i18n';
@@ -113,6 +126,7 @@ const render = (translatedMessages) => {
               // behaviour
               applyRouterMiddleware(useScroll())
             }
+            onUpdate={logPageView}
           />
         </MuiThemeProvider>
       </LanguageProvider>
