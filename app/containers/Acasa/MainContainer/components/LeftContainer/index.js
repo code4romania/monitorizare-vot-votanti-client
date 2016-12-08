@@ -115,6 +115,16 @@ export class LeftContainer extends React.PureComponent {
     };
   }
 
+  componentDidMount = () => {
+    fetch('http://portal-votanti-uat.azurewebsites.net/api/counties', {
+      method: 'get',
+    }).then((response) => {
+      console.log(response);
+    }).catch((err) => {
+      console.log(`${err} 'Error..:(`);
+    });
+  }
+
   setActiveOption = () => {
     this.setState({ active: !this.state.active });
   }
@@ -177,6 +187,19 @@ export class LeftContainer extends React.PureComponent {
   shouldBeSticky() {
     return document.documentElement.clientWidth > 1024;
   }
+
+  // fetchCounties = () => {
+  //   fetch('http://portal-votanti-uat.azurewebsites.net/api/counties', {
+  //     method: 'get',
+  //   }).then((response) => {
+  //     console.log(response);
+  //     this.setState({
+  //       dataSource: response,
+  //     });
+  //   }).catch((err) => {
+  //     console.log(`${err} 'Eroare..:(`);
+  //   });
+  // }
 
   render() {
     return (
