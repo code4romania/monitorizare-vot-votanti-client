@@ -1,15 +1,15 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.3.3",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "monitorizare-vot",
+  "version": "0.1.0",
+  "description": "Monitorizare Vot - Platforma pentru votanti.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mxstbr/react-boilerplate.git"
+    "url": "git://github.com/code4romania/monitorizare-vot-votanti-client.git"
   },
   "engines": {
     "npm": ">=3"
   },
-  "author": "Max Stoiber",
+  "author": "Code for Romania",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
