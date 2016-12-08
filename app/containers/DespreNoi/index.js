@@ -32,10 +32,13 @@ const Stamp = styled.div`
 
 const Legal = styled.blockquote`
   margin: 0;
-  border-right: 5px solid rgba(95, 40, 141, 0.6);
+  border-left: 5px solid rgba(95, 40, 141, 0.6);
+  padding: 0 0 0 20px;
 
   p {
     font-size: 14px;
+    margin: 20px 0;
+    text-align: left;
   }
 `;
 
@@ -64,7 +67,7 @@ export default class DespreNoi extends React.PureComponent { // eslint-disable-l
               </Stamp>
               <p>Code for Romania este o organizație neguvernamentală, neafiliată politic și apolitică, înființată în 2016. Code for Romania își propune să formeze o comunitate de profesioniști în IT care să creeze soluții digitale ce rezolvă probleme ale societății. Misiunea noastră este să dăm oamenilor informaţiile, mijloacele şi curajul să se implice mai mult în rezolvarea problemelor societăţii. Proiectele Code for Romania sunt dezvoltate pe bază de voluntariat și în format open-source.</p>
               <Legal>
-                <h2>Nota:</h2>
+                <h3>Notă:</h3>
                 <p>Toate informațiile prezentate pe acest website sunt bazate pe sesizările primite de la utilizatori. Echipa de administrare a website-ului face o minimă verificare a sesizărilor înainte de publicare, pentru a se asigura ca acestea au legatura cu subiectului alegerilor, dar nu își asumă responsabilitatea pentru conținutul și veridicitatea sesizărilor transmise de către utilizatori. Scopul platformei este acela de a informa cetățenii și de a oferi un spațiu de exprimare celor care doresc să sesizeze eventuale tentative de fraudă electorală. Platforma și statisticile aferente vor fi promovate către mass-media. Echipa Code for Romania nu își asumă responsabilitatea pentru transmiterea acestor sesizări mai departe către autoritățile competente și nici pentru oferirea de răspunsuri la sesizarile utilizatorilor. Pentru aceasta vă rugăm să va adresati Biroul Electoral de Circumscriptie sau Biroul Electoral Central.</p>
               </Legal>
             </Content>
