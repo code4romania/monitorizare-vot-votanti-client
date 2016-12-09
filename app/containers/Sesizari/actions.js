@@ -1,6 +1,5 @@
-import { INCIDENTS, INCIDENTS_LODADED, SET_CITIES, SET_ACTIVE_MAP, FILTER, FILTERS_LODADED, SET_TYPE, SET_CITY, RESET_COUNTY, RESET_FILTERS } from './constants';
+import { INCIDENTS, INCIDENTS_LODADED, SET_ACTIVE_MAP, FILTER, FILTERS_LODADED, SET_TYPE, RESET_COUNTY, RESET_FILTERS } from './constants';
 import { GET_CITIES, GET_INCIDENT_TYPES } from 'containers/App/constants';
-import * as _ from 'lodash';
 
 export function getIncidentsAction() {
   return {
@@ -40,13 +39,6 @@ export function setTypeAction(value) {
   };
 }
 
-export function setCityAction(value) {
-  return {
-    type: SET_CITY,
-    value,
-  };
-}
-
 
 export function filtersLoaded(incidents) {
   return {
@@ -74,29 +66,5 @@ export function setActiveMapAction(map) {
   return {
     type: SET_ACTIVE_MAP,
     map,
-  };
-}
-
-export function getCitiesSuccess(cities) {
-  const newCities = [];
-  _.each(cities, (city) => {
-    const newCounty = {
-      id: city.id,
-      value: city.id,
-      county: {
-        id: city.county.id,
-        name: city.county.name,
-        code: city.county.code,
-      },
-      name: city.name,
-      text: city.name,
-      sirutaCode: city.sirutaCode,
-      electoralCircleCode: city.electoralCircleCode,
-    };
-    newCities.push(newCounty);
-  });
-  return {
-    type: SET_CITIES,
-    cities: newCities,
   };
 }

@@ -322,8 +322,14 @@ LeftContainer.propTypes = {
   getCities: React.PropTypes.func,
   getPrecints: React.PropTypes.func,
   setCity: React.PropTypes.func,
-  counties: React.PropTypes.array,
-  cities: React.PropTypes.array,
+  counties: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
+  cities: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
   name: React.PropTypes.string,
   prenume: React.PropTypes.string,
 };
