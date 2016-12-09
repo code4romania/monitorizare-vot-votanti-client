@@ -6,8 +6,8 @@ import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { selectedCountyAction, setActiveMapAction, setTypeAction, setCityAction, resetCountyAction, resetAllFiltersAction } from '../actions';
-import { cities, activeMap } from '../selectors';
+import { selectedCountyAction, setActiveMapAction, setTypeAction, resetCountyAction, resetAllFiltersAction } from '../actions';
+import { activeMap } from '../selectors';
 import * as _ from 'lodash';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -77,7 +77,6 @@ export class Filters extends React.PureComponent {
   resetFilters = () => {
     this.setState({ value: null });
     this.countyRef.setState({ searchText: '' });
-    this.cityRef.setState({ searchText: '' });
     this.props.resetAllFilters();
     this.props.filterIncindents();
   }
@@ -106,7 +105,6 @@ export class Filters extends React.PureComponent {
                   <AutoComplete ref={(cb) => { this.countyRef = cb; }} style={this.props.map === 'abroad' ? { display: 'none' } : {}} hintText="Cauta judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={5} dataSource={this.props.counties.length > 0 ? this.props.counties : []} onUpdateInput={this.selectCounty} />
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-3">
-                  <AutoComplete ref={(cb) => { this.cityRef = cb; }} style={this.props.map === 'abroad' ? { display: 'none' } : {}} hintText="Cauta orasul" floatingLabelText="Orasul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={45} dataSource={this.props.citiesPerCounty.length > 0 ? this.props.citiesPerCounty : []} onUpdateInput={this.selectCity} />
                   <RaisedButton
                     label="Resetează"
                     buttonStyle={buttonStyle}
@@ -130,10 +128,6 @@ Filters.propTypes = {
     React.PropTypes.object,
     React.PropTypes.array,
   ]),
-  citiesPerCounty: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.array,
-  ]),
   incidentTypes: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.array,
@@ -153,14 +147,12 @@ export function mapDispatchToProps(dispatch) {
     selectedCounty: (cityId) => dispatch(selectedCountyAction(cityId)),
     setActiveMap: (map) => dispatch(setActiveMapAction(map)),
     setType: (id) => dispatch(setTypeAction(id)),
-    setCity: (id) => dispatch(setCityAction(id)),
     resetCounty: () => dispatch(resetCountyAction()),
     resetAllFilters: () => dispatch(resetAllFiltersAction()),
   };
 }
 
 const mapStateToProps = createStructuredSelector({
-  citiesPerCounty: cities(),
   map: activeMap(),
 });
 
