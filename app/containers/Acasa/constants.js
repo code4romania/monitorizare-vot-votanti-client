@@ -11,3 +11,5 @@ export const GET_PRECINTS = 'GET_PRECINTS';
 export const SET_CITY = 'SET_CITY';
 export const SET_PRESENCE = 'SET_PRESENCE';
 export const SET_DESCRIPTION = 'SET_DESCRIPTION';
+export const SET_IMAGE = 'SET_IMAGE';
+export const SUBMIT_FORM = 'SUBMIT_FORM';

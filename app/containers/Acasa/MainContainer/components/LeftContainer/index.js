@@ -11,9 +11,10 @@ import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import FileUploader from 'components/FileUploader';
 import MenuItem from 'material-ui/MenuItem';
 import { createStructuredSelector } from 'reselect';
-import { setNumeAction, setPrenumeAction, setActiveMapAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction } from '../../../actions';
+import { setNumeAction, setPrenumeAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, getCities, getPrecints, getDescription } from '../../../selectors';
 import * as _ from 'lodash';
+import Recaptcha from 'react-recaptcha';
 
 const buttonStyle = {
   height: '60px',
@@ -49,6 +50,7 @@ const counterStyle = {
 export class LeftContainer extends React.PureComponent {
   constructor(props) {
     super(props);
+    // this.uploadFile = this.uploadFile.bind(this);
     this.state = {
       nume: '',
       prenume: '',
@@ -61,6 +63,7 @@ export class LeftContainer extends React.PureComponent {
       },
       prezenta: false,
       active: true,
+      imag: '',
     };
   }
 
@@ -126,6 +129,22 @@ export class LeftContainer extends React.PureComponent {
       this.props.getPrecints();
     }
   }
+
+  upload = (file) => {
+    this.props.uploadImage(file.currentTarget.files[0]);
+  }
+
+  handleSubmit = () => {
+    this.props.submitForm();
+  }
+
+  callback = () => {
+    console.log('Done!!!!');
+  };
+
+  verifyCallback = (response) => {
+    console.log(response);
+  };
 
   render() {
     return (
@@ -239,6 +258,14 @@ export class LeftContainer extends React.PureComponent {
                 />
                 <span style={counterStyle}>{this.state.description.characterCount}/300</span>
               </div>
+              <div className="col-xs-12 col-sm-6">
+                <Recaptcha
+                  sitekey="6LdLYg4UAAAAAHv3w_o1ym8HHaLn-bwZRXk5IdNl"
+                  render="explicit"
+                  verifyCallback={this.verifyCallback}
+                  onloadCallback={this.callback}
+                />
+              </div>
 
               <div className="col-xs-12 col-sm-6 types">
                 <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizarii" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
@@ -247,7 +274,8 @@ export class LeftContainer extends React.PureComponent {
                     <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
                   )}
                 </SelectField>
-                <FileUploader />
+                <FileUploader upload={this.upload} />
+                <div>{this.state.image}</div>
                 <RaisedButton
                   buttonStyle={buttonStyle}
                   overlayStyle={buttonOverlayStyle}
@@ -294,6 +322,8 @@ LeftContainer.propTypes = {
   name: React.PropTypes.string,
   prenume: React.PropTypes.string,
   description: React.PropTypes.string,
+  uploadImage: React.PropTypes.func,
+  submitForm: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -308,6 +338,8 @@ export function mapDispatchToProps(dispatch) {
     setCity: (id) => dispatch(setCityAction(id)),
     setPresence: (active) => dispatch(setPresenceAction(active)),
     setDescription: (description) => dispatch(setDescriptionAction(description)),
+    uploadImage: (image) => dispatch(uploadImageAction(image)),
+    submitForm: () => dispatch(submitFormAction()),
   };
 }
 

@@ -41,6 +41,11 @@ const getDescription = () => createSelector(
   (homeState) => homeState.get('description')
 );
 
+const getImage = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('img')
+);
+
 export {
   getIncidents,
   getName,
@@ -50,4 +55,5 @@ export {
   getCities,
   getPrecints,
   getDescription,
+  getImage,
 };

@@ -1,4 +1,4 @@
-import { SHORT_INCIDENTS, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRESENCE, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
+import { SHORT_INCIDENTS, SUBMIT_FORM, SET_IMAGE, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRESENCE, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
 import * as _ from 'lodash';
 
 export function getIncidentsAction() {
@@ -78,6 +78,20 @@ export function setDescriptionAction(description) {
   return {
     type: SET_DESCRIPTION,
     description,
+  };
+}
+
+
+export function uploadImageAction(image) {
+  return {
+    type: SET_IMAGE,
+    image,
+  };
+}
+
+export function submitFormAction() {
+  return {
+    type: SUBMIT_FORM,
   };
 }
 

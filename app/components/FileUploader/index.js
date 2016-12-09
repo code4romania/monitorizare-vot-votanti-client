@@ -25,14 +25,18 @@ const textStyles = {
   color: '#9E6D53',
 };
 
-export default function FileUploader() {
+export default function FileUploader(props) {
   return (
     <label htmlFor="upload">
       <div style={wrapperStyles}>
-        <input type="file" id="upload" accept="image/*" style={inputStyles} />
+        <input type="file" id="upload" accept="image/jpeg, image/png" style={inputStyles} onChange={props.upload} />
         <CameraAlt style={iconStyles} />
         <span style={textStyles}>Incarca o poza</span>
       </div>
     </label>
   );
 }
+
+FileUploader.propTypes = {
+  upload: React.PropTypes.func,
+};

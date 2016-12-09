@@ -2,8 +2,8 @@ import { takeLatest } from 'redux-saga';
 import { take, call, put, fork, cancel, select } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { incidentsLoaded, getCitiesSuccess } from './actions';
-import { SHORT_INCIDENTS, GET_CITIES } from './constants';
-import { countyId } from './selectors';
+import { SHORT_INCIDENTS, GET_CITIES, SUBMIT_FORM } from './constants';
+import { countyId, getImage } from './selectors';
 import request from 'utils/request';
 
 export function* getIncidents() {
@@ -50,7 +50,51 @@ export function* cities() {
   yield cancel(watcher);
 }
 
+
+export function* submitForm() {
+  const image = yield select(getImage());
+  const data = new FormData();
+  data.firstName = 'Ion';
+  data.lastName = 'Vasile';
+  data.incidentType = '1';
+  data.description = 'description';
+  data.county_id = '2';
+  data.city = '2';
+  data.stationNumber = '3';
+  data.fromStation = true;
+  data.append('file', image);
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    body: data,
+  };
+
+  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+  const citiesData = yield call(request, requestURL, options);
+  if (citiesData.data) {
+    // yield put(getCitiesSuccess(citiesData.data));
+  } else {
+    // yield call(() => browserHistory.push('/notfound'));
+  }
+}
+
+export function* submitFormWatcher() {
+  yield fork(takeLatest, SUBMIT_FORM, submitForm);
+}
+
+export function* form() {
+  const watcher = yield fork(submitFormWatcher);
+
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}
+
 export default [
   shortIncidents,
   cities,
+  form,
 ];
+
