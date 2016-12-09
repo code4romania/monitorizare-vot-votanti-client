@@ -1,6 +1,7 @@
 /**
  * Created by dcorde on 08.11.2016.
  */
+import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -15,16 +16,18 @@ import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import FileUploader from 'components/FileUploader';
 import MenuItem from 'material-ui/MenuItem';
 
-const mocks = {
-  judete: [
-    { text: 'Alba Iulia', value: 1 },
-    { text: 'Brasov', value: 2 },
-    { text: 'Bucuresti', value: 3 },
-    { text: 'Cluj', value: 4 },
-    { text: 'Iasi', value: 5 },
-    { text: 'Vaslui', value: 6 },
-  ],
-};
+// const mocks = {
+//   judete: [
+//     { text: 'Alba Iulia', value: 1 },
+//     { text: 'Brasov', value: 2 },
+//     { text: 'Bucuresti', value: 3 },
+//     { text: 'Cluj', value: 4 },
+//     { text: 'Iasi', value: 5 },
+//     { text: 'Vaslui', value: 6 },
+//   ],
+// };
+
+const judeteData = [];
 
 const buttonStyle = {
   height: '60px',
@@ -111,9 +114,25 @@ export class LeftContainer extends React.PureComponent {
         characterCount: 0,
       },
       prezenta: false,
-      dataSource: mocks.judete,
+      dataSource: [],
       active: true,
     };
+  }
+
+  componentDidMount = () => {
+    axios.get('http://portal-votanti-uat.azurewebsites.net/api/counties')
+      .then((response) => {
+        const allData = response.data.data;
+        for (let i = 0; i < allData.length - 1; i += 1) {
+          judeteData.push({
+            name: allData[i].name,
+            value: allData[i].code,
+          });
+        }
+        this.setState({
+          dataSource: response.data.data,
+        });
+      });
   }
 
   setActiveOption = () => {
@@ -129,9 +148,15 @@ export class LeftContainer extends React.PureComponent {
     });
   }
 
-  handleOnChangeInput = (value) => {
+  handleOnChangeInputNume = (event, value) => {
     this.setState({
       nume: value,
+    });
+  }
+
+  handleOnChangeInputPrenume = (event, value) => {
+    this.setState({
+      prenume: value,
     });
   }
 
@@ -179,6 +204,19 @@ export class LeftContainer extends React.PureComponent {
     return document.documentElement.clientWidth > 1024;
   }
 
+  // fetchCounties = () => {
+  //   fetch('http://portal-votanti-uat.azurewebsites.net/api/counties', {
+  //     method: 'get',
+  //   }).then((response) => {
+  //     console.log(response);
+  //     this.setState({
+  //       dataSource: response,
+  //     });
+  //   }).catch((err) => {
+  //     console.log(`${err} 'Eroare..:(`);
+  //   });
+  // }
+
   render() {
     return (
       <StickyContainer className="col-xs-12 col-lg-6 form-col">
@@ -196,7 +234,7 @@ export class LeftContainer extends React.PureComponent {
                   fullWidth
                   name={'Nume'}
                   value={this.state.nume}
-                  onChange={this.handleOnChangeInput}
+                  onChange={this.handleOnChangeInputNume}
                 />
               </div>
 
@@ -208,7 +246,7 @@ export class LeftContainer extends React.PureComponent {
                   fullWidth
                   name={'Prenume'}
                   value={this.state.prenume}
-                  onChange={this.handleOnChangeInput}
+                  onChange={this.handleOnChangeInputPrenume}
                 />
               </div>
 
@@ -229,7 +267,7 @@ export class LeftContainer extends React.PureComponent {
                   openOnFocus
                   name={'Judetul'}
                   value={this.state.judet.text}
-                  dataSource={this.state.dataSource}
+                  dataSource={judeteData}
                   onUpdateInput={this.handleUpdateInput}
                 />
               </div>
