@@ -1,4 +1,4 @@
-import { SHORT_INCIDENTS, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
+import { SHORT_INCIDENTS, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRESENCE, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
 import * as _ from 'lodash';
 
 export function getIncidentsAction() {
@@ -66,6 +66,21 @@ export function getPrecintsAction() {
     type: GET_PRECINTS,
   };
 }
+
+export function setPresenceAction(active) {
+  return {
+    type: SET_PRESENCE,
+    active,
+  };
+}
+
+export function setDescriptionAction(description) {
+  return {
+    type: SET_DESCRIPTION,
+    description,
+  };
+}
+
 export function getCitiesSuccess(cities) {
   const newCities = [];
   _.each(cities, (city) => {

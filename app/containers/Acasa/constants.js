@@ -9,3 +9,5 @@ export const RESET_COUNTY = 'RESET_COUNTY_FORM';
 export const GET_CITIES = 'GET_CITIES_FORM';
 export const GET_PRECINTS = 'GET_PRECINTS';
 export const SET_CITY = 'SET_CITY';
+export const SET_PRESENCE = 'SET_PRESENCE';
+export const SET_DESCRIPTION = 'SET_DESCRIPTION';

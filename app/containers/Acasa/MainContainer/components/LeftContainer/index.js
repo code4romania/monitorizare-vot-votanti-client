@@ -11,8 +11,8 @@ import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import FileUploader from 'components/FileUploader';
 import MenuItem from 'material-ui/MenuItem';
 import { createStructuredSelector } from 'reselect';
-import { setNumeAction, setPrenumeAction, setActiveMapAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction } from '../../../actions';
-import { getName, getPrenume, getCities, getPrecints } from '../../../selectors';
+import { setNumeAction, setPrenumeAction, setActiveMapAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction } from '../../../actions';
+import { getName, getPrenume, getCities, getPrecints, getDescription } from '../../../selectors';
 import * as _ from 'lodash';
 
 const buttonStyle = {
@@ -76,6 +76,7 @@ export class LeftContainer extends React.PureComponent {
         characterCount: event.target.value.length,
       },
     });
+    this.props.setDescription();
   }
 
   handleOnChangeInputNume = (event, value) => {
@@ -95,35 +96,11 @@ export class LeftContainer extends React.PureComponent {
     });
   }
 
-  handleToggle = () => {
+  handleToggle = (proxy, isActive) => {
     this.setState({
       prezenta: !this.state.prezenta,
     });
-  }
-
-  handleChange = (event, index, value) => {
-    let updatedValue;
-
-    switch (value) {
-      case 'Altele':
-        updatedValue = 'Altele';
-        break;
-      case 'Campanie electorala in ziua votului':
-        updatedValue = 'Campanie electorala in ziua votului';
-        break;
-      case 'Media & Internet':
-        updatedValue = 'Media & Internet';
-        break;
-      case 'Mita electorala':
-        updatedValue = 'Mita electorala';
-        break;
-      default:
-    }
-    this.setState({
-      tipulDeProblema: {
-        value: updatedValue,
-      },
-    });
+    this.props.setPresence(isActive);
   }
 
   shouldBeSticky() {
@@ -238,7 +215,7 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <div className="presence">
+                <div style={{ marginTop: '5vh' }} className="presence">
                   <Toggle
                     label={(this.state.prezenta) ? 'Sunt in sectie' : 'Nu sunt in sectie'}
                     labelPosition="right"
@@ -257,41 +234,18 @@ export class LeftContainer extends React.PureComponent {
                   rows={2}
                   maxLength={300}
                   name={'Text sesizare'}
-                  value={this.state.description.value}
+                  defaultValue={this.props.description}
                   onChange={this.getNumberOfCharacters}
                 />
                 <span style={counterStyle}>{this.state.description.characterCount}/300</span>
               </div>
 
               <div className="col-xs-12 col-sm-6 types">
-                <SelectField
-                  floatingLabelText="Tipul sesizarii"
-                  fullWidth
-                  floatingLabelFixed
-                  hintText={this.state.tipulDeProblema.value}
-                  onChange={this.handleChange}
-                  style={overflowElipsisStyle}
-                >
-                  <MenuItem
-                    name={'Tipul sesizarii'}
-                    value={'Altele'}
-                    primaryText="Altele"
-                  />
-                  <MenuItem
-                    name={'Tipul sesizarii'}
-                    value={'Campanie electorala in ziua votului'}
-                    primaryText="Campanie electorala in ziua votului"
-                  />
-                  <MenuItem
-                    name={'Tipul sesizarii'}
-                    value={'Media & Internet'}
-                    primaryText="Media & Internet"
-                  />
-                  <MenuItem
-                    name={'Tipul sesizarii'}
-                    value={'Mita electorala'}
-                    primaryText="Mita electorala"
-                  />
+                <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizarii" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
+                  <MenuItem value="0" primaryText="Toate" />
+                  {this.props.incidentTypes.map((incident) =>
+                    <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
+                  )}
                 </SelectField>
                 <FileUploader />
                 <RaisedButton
@@ -323,6 +277,8 @@ LeftContainer.propTypes = {
   getCities: React.PropTypes.func,
   getPrecints: React.PropTypes.func,
   setCity: React.PropTypes.func,
+  setPresence: React.PropTypes.func,
+  setDescription: React.PropTypes.func,
   counties: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.array,
@@ -331,8 +287,13 @@ LeftContainer.propTypes = {
     React.PropTypes.object,
     React.PropTypes.array,
   ]),
+  incidentTypes: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
   name: React.PropTypes.string,
   prenume: React.PropTypes.string,
+  description: React.PropTypes.string,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -345,6 +306,8 @@ export function mapDispatchToProps(dispatch) {
     getCities: () => dispatch(getCitiesAction()),
     getPrecints: () => dispatch(getPrecintsAction()),
     setCity: (id) => dispatch(setCityAction(id)),
+    setPresence: (active) => dispatch(setPresenceAction(active)),
+    setDescription: (description) => dispatch(setDescriptionAction(description)),
   };
 }
 
@@ -353,6 +316,7 @@ const mapStateToProps = createStructuredSelector({
   prenume: getPrenume(),
   cities: getCities(),
   precint: getPrecints(),
+  description: getDescription(),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftContainer);

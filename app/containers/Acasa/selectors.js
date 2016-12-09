@@ -36,6 +36,11 @@ const getPrecints = () => createSelector(
   (homeState) => homeState.get('precints')
 );
 
+const getDescription = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('description')
+);
+
 export {
   getIncidents,
   getName,
@@ -44,4 +49,5 @@ export {
   countyId,
   getCities,
   getPrecints,
+  getDescription,
 };
