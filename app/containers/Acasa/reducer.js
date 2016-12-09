@@ -1,8 +1,15 @@
 import { fromJS } from 'immutable';
-import { SHORT_INCIDENTS_LODADED } from './constants';
+import { SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRENUME, SET_MAP, SET_COUNTY, SET_CITIES, SET_CITY } from './constants';
 
 const initialState = fromJS({
   incidents: [],
+  name: '',
+  prenume: '',
+  countyId: '',
+  cityId: '',
+  map: '',
+  cities: [],
+  precints: [],
 });
 
 function acasaReducer(state = initialState, action) {
@@ -10,6 +17,24 @@ function acasaReducer(state = initialState, action) {
     case SHORT_INCIDENTS_LODADED:
       return state
         .set('incidents', action.incidents);
+    case SET_NUME:
+      return state
+        .set('name', action.name);
+    case SET_PRENUME:
+      return state
+        .set('prenume', action.prenume);
+    case SET_MAP:
+      return state
+        .set('map', action.map);
+    case SET_COUNTY:
+      return state
+        .set('countyId', action.id);
+    case SET_CITY:
+      return state
+        .set('cityId', action.id);
+    case SET_CITIES:
+      return state
+        .set('cities', action.cities);
     default:
       return state;
   }
