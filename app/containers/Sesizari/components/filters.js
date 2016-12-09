@@ -22,6 +22,20 @@ const overflowElipsisStyle = {
   whiteSpace: 'nowrap',
 };
 
+const buttonStyle = {
+  height: '60px',
+};
+
+const buttonOverlayStyle = {
+  height: '60px',
+};
+
+const buttonLabelStyle = {
+  lineHeight: '60px',
+  fontSize: '16px',
+  letterSpacing: '1px',
+};
+
 export class Filters extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -69,20 +83,6 @@ export class Filters extends React.PureComponent {
   }
 
   render() {
-    const buttonStyle = {
-      height: '60px',
-    };
-
-    const buttonOverlayStyle = {
-      height: '60px',
-    };
-
-    const buttonLabelStyle = {
-      lineHeight: '60px',
-      fontSize: '16px',
-      letterSpacing: '1px',
-    };
-
     return (
       <FiltersWrap className="interact">
         <div className="container">
@@ -107,17 +107,16 @@ export class Filters extends React.PureComponent {
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-3">
                   <AutoComplete ref={(cb) => { this.cityRef = cb; }} style={this.props.map === 'abroad' ? { display: 'none' } : {}} hintText="Cauta orasul" floatingLabelText="Orasul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={45} dataSource={this.props.citiesPerCounty.length > 0 ? this.props.citiesPerCounty : []} onUpdateInput={this.selectCity} />
+                  <RaisedButton
+                    label="Resetează"
+                    buttonStyle={buttonStyle}
+                    overlayStyle={buttonOverlayStyle}
+                    labelStyle={buttonLabelStyle}
+                    primary
+                    onClick={this.resetFilters}
+                  />
                 </div>
               </div>
-              <RaisedButton
-                style={{ float: 'right' }}
-                label="Reseteaza filtrele"
-                buttonStyle={buttonStyle}
-                overlayStyle={buttonOverlayStyle}
-                labelStyle={buttonLabelStyle}
-                primary
-                onClick={this.resetFilters}
-              />
             </div>
           </div>
         </div>

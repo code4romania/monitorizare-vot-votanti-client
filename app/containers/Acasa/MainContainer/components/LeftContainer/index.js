@@ -39,6 +39,7 @@ const buttonOverlayStyle = {
 const buttonLabelStyle = {
   lineHeight: '60px',
   fontSize: '16px',
+  fontWeight: '700',
   letterSpacing: '1px',
 };
 
