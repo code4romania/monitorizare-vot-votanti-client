@@ -78,10 +78,13 @@ function IncidentItem(props) {
           titleStyle={{ color: '#5F288D' }}
         />
 
-        <div className="incident-media">
-          <img src={props.image} role="presentation" />
-          <ZoomIcon style={imageContainerIcon} />
-        </div>
+        { props.image ?
+          <div className="incident-media">
+            <img src={props.image} role="presentation" />
+            <ZoomIcon style={imageContainerIcon} />
+          </div>
+          : null
+        }
 
         <CardTitle
           className="incident-title"
