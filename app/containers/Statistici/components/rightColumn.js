@@ -11,7 +11,7 @@ export default function RightColumn(props) {
           <ItemStats
             key={index}
             title={item.count}
-            subtitle={item.type.name}
+            subtitle={item.type ? item.type.name : ''}
             columns="col-xs-12 col-sm-6"
           />
         )}

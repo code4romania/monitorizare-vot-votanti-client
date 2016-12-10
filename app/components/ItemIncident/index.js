@@ -60,13 +60,14 @@ const imageContainerIcon = {
 };
 
 function IncidentItem(props) {
+
   const Subtitle = (
     <div className="incident-subtitle">
       <RoomIcon style={{ color: 'rgba(45, 45, 45, 0.5)', width: '20px', height: '20px', marginRight: '5px' }} />
       <span>{props.city.name}, {props.county.name}</span>
     </div>);
 
-  const icon = props.incidentType.label.toLowerCase();
+  const icon = props.incidentType ? props.incidentType.label.toLowerCase() : '';
 
   return (
     <IncidentWrap>
@@ -74,7 +75,7 @@ function IncidentItem(props) {
       <Card className="incident-card" onTouchTap={props.handleOpen}>
 
         <CardHeader
-          title={props.incidentType.name}
+          title={props.incidentType ? props.incidentType.name : ''}
           avatar={<Icons icon={icon} />}
           textStyle={{ verticalAlign: 'middle' }}
           titleStyle={{ color: '#5F288D' }}
