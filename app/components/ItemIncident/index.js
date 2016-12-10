@@ -11,14 +11,17 @@ const IncidentWrap = styled.div`
   }
 
   .incident-media {
-    height: 100px;
+    max-height: 100px;
     overflow: hidden;
     cursor: pointer;
-    background: #000;
-    opacity: 0.3;
+    background: #fafafa;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    img {
+      opacity: 0.5;
+    }
   }
 
   .incident-subtitle {
@@ -47,11 +50,12 @@ const IncidentWrap = styled.div`
 `;
 
 const imageContainerIcon = {
-  color: '#fff',
+  color: '#5F288D',
   cursor: 'pointer',
-  opacity: '0.7',
+  position: 'absolute',
+  width: '32px',
+  height: '32px',
 };
-
 
 function IncidentItem(props) {
   const Subtitle = (
@@ -65,7 +69,7 @@ function IncidentItem(props) {
   return (
     <IncidentWrap>
 
-      <Card className="incident-card">
+      <Card className="incident-card" onTouchTap={props.handleOpen}>
 
         <CardHeader
           title={props.incidentType.name}
@@ -74,7 +78,7 @@ function IncidentItem(props) {
           titleStyle={{ color: '#5F288D' }}
         />
 
-        <div onTouchTap={props.handleOpen} className="incident-media">
+        <div className="incident-media">
           <img src={props.image} role="presentation" />
           <ZoomIcon style={imageContainerIcon} />
         </div>
