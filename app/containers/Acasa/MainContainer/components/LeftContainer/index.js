@@ -11,7 +11,7 @@ import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import FileUploader from 'components/FileUploader';
 import MenuItem from 'material-ui/MenuItem';
 import { createStructuredSelector } from 'reselect';
-import { setNumeAction, setPrenumeAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
+import { setNumeAction, setPrenumeAction, setIncidentIdAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, getCities, getPrecints, getDescription } from '../../../selectors';
 import * as _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
@@ -50,7 +50,7 @@ const counterStyle = {
 export class LeftContainer extends React.PureComponent {
   constructor(props) {
     super(props);
-    // this.uploadFile = this.uploadFile.bind(this);
+    this.verifyCallback = this.verifyCallback.bind(this);
     this.state = {
       nume: '',
       prenume: '',
@@ -64,6 +64,7 @@ export class LeftContainer extends React.PureComponent {
       prezenta: false,
       active: true,
       imag: '',
+      token: false,
     };
   }
 
@@ -79,9 +80,18 @@ export class LeftContainer extends React.PureComponent {
         characterCount: event.target.value.length,
       },
     });
-    this.props.setDescription();
+    this.props.setDescription(event.target.value);
   }
 
+  setIncindetType = (event, index, value) => {
+    this.setState({ value });
+    this.props.setIncidentId(value);
+  }
+
+  setPrecintId = (searchText, array) => {
+    const precint = _.find(array, (o) => o.text === searchText);
+    this.props.setPrecintId(precint.id);
+  }
   handleOnChangeInputNume = (event, value) => {
     this.props.setNume(value);
   }
@@ -143,7 +153,7 @@ export class LeftContainer extends React.PureComponent {
   };
 
   verifyCallback = (response) => {
-    console.log(response);
+    this.props.setValidationKey(response);
   };
 
   render() {
@@ -227,9 +237,11 @@ export class LeftContainer extends React.PureComponent {
                   floatingLabelFixed
                   openOnFocus
                   name={'Sectia'}
+                  filter={AutoComplete.fuzzyFilter}
+                  maxSearchResults={35}
                   value=""
-                  dataSource={this.props.counties.length > 0 ? this.props.counties : []}
-                  onUpdateInput={this.handleUpdateInput}
+                  dataSource={this.props.precints.length > 0 ? this.props.precints : []}
+                  onUpdateInput={this.setPrecintId}
                 />
               </div>
 
@@ -327,11 +339,18 @@ LeftContainer.propTypes = {
     React.PropTypes.object,
     React.PropTypes.array,
   ]),
+  precints: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
   name: React.PropTypes.string,
   prenume: React.PropTypes.string,
   description: React.PropTypes.string,
   uploadImage: React.PropTypes.func,
   submitForm: React.PropTypes.func,
+  setIncidentId: React.PropTypes.func,
+  setValidationKey: React.PropTypes.func,
+  setPrecintId: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -348,6 +367,9 @@ export function mapDispatchToProps(dispatch) {
     setDescription: (description) => dispatch(setDescriptionAction(description)),
     uploadImage: (image) => dispatch(uploadImageAction(image)),
     submitForm: () => dispatch(submitFormAction()),
+    setIncidentId: (id) => dispatch(setIncidentIdAction(id)),
+    setValidationKey: (key) => dispatch(setValidationKeyAction(key)),
+    setPrecintId: (id) => dispatch(setPrecintIdAction(id)),
   };
 }
 
@@ -355,7 +377,7 @@ const mapStateToProps = createStructuredSelector({
   name: getName(),
   prenume: getPrenume(),
   cities: getCities(),
-  precint: getPrecints(),
+  precints: getPrecints(),
   description: getDescription(),
 });
 

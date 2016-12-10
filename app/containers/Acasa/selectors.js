@@ -26,6 +26,12 @@ const countyId = () => createSelector(
   selectHome(),
   (homeState) => homeState.get('countyId')
 );
+
+const cityId = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('cityId')
+);
+
 const getCities = () => createSelector(
   selectHome(),
   (homeState) => homeState.get('cities')
@@ -46,14 +52,33 @@ const getImage = () => createSelector(
   (homeState) => homeState.get('img')
 );
 
+const getIncidentId = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('incidentId')
+);
+
+const getToken = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('token')
+);
+
+const getPrecintId = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('precintId')
+);
+
 export {
   getIncidents,
   getName,
   getPrenume,
   getSelectedCounty,
   countyId,
+  cityId,
   getCities,
   getPrecints,
   getDescription,
   getImage,
+  getIncidentId,
+  getToken,
+  getPrecintId,
 };

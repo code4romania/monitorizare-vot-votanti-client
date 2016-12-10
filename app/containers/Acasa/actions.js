@@ -1,4 +1,4 @@
-import { SHORT_INCIDENTS, SUBMIT_FORM, SET_IMAGE, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRESENCE, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
+import { SHORT_INCIDENTS, SET_PRECINT_ID, SET_CAPTCHA_KEY, GET_PRECINTS_SUCCESS, SET_INCIDENT_ID, SUBMIT_FORM, SET_IMAGE, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRESENCE, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
 import * as _ from 'lodash';
 
 export function getIncidentsAction() {
@@ -67,12 +67,45 @@ export function getPrecintsAction() {
   };
 }
 
+export function setPrecintIdAction(id) {
+  return {
+    type: SET_PRECINT_ID,
+    id,
+  };
+}
+
+export function getPrecintsSuccess(precints) {
+  const newPrecints = [];
+  _.each(precints, (precint) => {
+    const newPrecint = {
+      id: precint.id,
+      value: precint.id,
+      county: precint.county,
+      precinctNo: precint.precinctNo,
+      text: `Sectia Nr: ${precint.precinctNo}`,
+    };
+    newPrecints.push(newPrecint);
+  });
+  return {
+    type: GET_PRECINTS_SUCCESS,
+    precints: newPrecints,
+  };
+}
+
 export function setPresenceAction(active) {
   return {
     type: SET_PRESENCE,
     active,
   };
 }
+
+export function setValidationKeyAction(key) {
+  return {
+    type: SET_CAPTCHA_KEY,
+    key,
+  };
+}
+
 
 export function setDescriptionAction(description) {
   return {
@@ -92,6 +125,13 @@ export function uploadImageAction(image) {
 export function submitFormAction() {
   return {
     type: SUBMIT_FORM,
+  };
+}
+
+export function setIncidentIdAction(id) {
+  return {
+    type: SET_INCIDENT_ID,
+    id,
   };
 }
 

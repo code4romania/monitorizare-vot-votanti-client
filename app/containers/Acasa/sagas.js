@@ -1,9 +1,9 @@
 import { takeLatest } from 'redux-saga';
 import { take, call, put, fork, cancel, select } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { incidentsLoaded, getCitiesSuccess } from './actions';
-import { SHORT_INCIDENTS, GET_CITIES, SUBMIT_FORM } from './constants';
-import { countyId, getImage } from './selectors';
+import { incidentsLoaded, getCitiesSuccess, getPrecintsSuccess } from './actions';
+import { SHORT_INCIDENTS, GET_CITIES, SUBMIT_FORM, GET_PRECINTS } from './constants';
+import { countyId, getImage, cityId, getDescription, getToken, getIncidentId, getName, getPrenume, getPrecintId } from './selectors';
 import request from 'utils/request';
 
 export function* getIncidents() {
@@ -50,31 +50,62 @@ export function* cities() {
   yield cancel(watcher);
 }
 
+export function* getPrecintsPerCity() {
+  const cityIdValue = yield select(cityId());
+  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/${cityIdValue}/precincts`;
+  const precintsData = yield call(request, requestURL);
+  if (precintsData.data) {
+    yield put(getPrecintsSuccess(precintsData.data));
+  } else {
+    // yield call(() => browserHistory.push('/notfound'));
+  }
+}
+
+export function* precintsWatcher() {
+  yield fork(takeLatest, GET_PRECINTS, getPrecintsPerCity);
+}
+
+export function* precints() {
+  const watcher = yield fork(precintsWatcher);
+
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}
 
 export function* submitForm() {
+  const countyIdValue = yield select(countyId());
   const image = yield select(getImage());
+  const cityIdValue = yield select(cityId());
+  const getDescriptionValue = yield select(getDescription());
+  const token = yield select(getToken());
+  const firstName = yield select(getName());
+  const lastName = yield select(getPrenume());
+  const incidentId = yield select(getIncidentId());
+  const precintId = yield select(getPrecintId());
+
   const data = new FormData();
-  data.firstName = 'Ion';
-  data.lastName = 'Vasile';
-  data.incidentType = '1';
-  data.description = 'description';
-  data.county_id = '2';
-  data.city = '2';
-  data.stationNumber = '3';
+  data.firstName = firstName;
+  data.lastName = lastName;
+  data.incidentType = incidentId;
+  data.description = getDescriptionValue;
+  data.county_id = countyIdValue;
+  data.city = cityIdValue;
+  data.stationNumber = precintId;
   data.fromStation = true;
+  data.recaptchaResponse = token;
   data.append('file', image);
 
   const options = {
     method: 'POST',
     headers: {
-      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'multipart/form-data',
     },
     body: data,
   };
 
   const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
-  const citiesData = yield call(request, requestURL, options);
-  if (citiesData.data) {
+  const submitFormRequest = yield call(request, requestURL, options);
+  if (submitFormRequest) {
     // yield put(getCitiesSuccess(citiesData.data));
   } else {
     // yield call(() => browserHistory.push('/notfound'));
@@ -95,6 +126,7 @@ export function* form() {
 export default [
   shortIncidents,
   cities,
+  precints,
   form,
 ];
 
