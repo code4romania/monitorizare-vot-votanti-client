@@ -27,6 +27,12 @@ const Stamp = styled.div`
   a {
     color: #2d2d2d;
     display: inline-block;
+
+    &:hover {
+      svg {
+        color: rgba(95, 40, 141, 1);
+      }
+    }
   }
 `;
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Map from 'components/selectCountry';
 import { StickyContainer, Sticky } from 'react-sticky';
+import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
@@ -42,10 +43,22 @@ const overflowElipsisStyle = {
   overflow: 'hidden',
   whiteSpace: 'nowrap',
 };
-const counterStyle = {
-  marginTop: '5px',
-  float: 'right',
-};
+
+const AddIncident = styled.div`
+  padding-bottom: 60px;
+
+  .map {
+    margin-top: 10px;
+  }
+`;
+
+const Counter = styled.span`
+  margin-top: 5px;
+  float: right;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+`;
 
 export class LeftContainer extends React.PureComponent {
   constructor(props) {
@@ -59,7 +72,7 @@ export class LeftContainer extends React.PureComponent {
         characterCount: 0,
       },
       tipulDeProblema: {
-        value: 'Alege tipul sesizarii',
+        value: 'Alege tipul sesizării',
       },
       prezenta: false,
       active: true,
@@ -164,7 +177,7 @@ export class LeftContainer extends React.PureComponent {
             <h2>Adauga o sesisare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
-            <div className="row">
+            <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12 col-sm-6">
                 <TextField
                   hintText="Popescu"
@@ -199,12 +212,12 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <AutoComplete
-                  hintText="Cauta judetul"
-                  floatingLabelText="Judetul"
+                  hintText="Completează județul"
+                  floatingLabelText="Județul"
                   floatingLabelFixed
                   fullWidth
                   openOnFocus
-                  name={'Judetul'}
+                  name={'Județul'}
                   filter={AutoComplete.fuzzyFilter}
                   maxSearchResults={5}
                   value=""
@@ -215,12 +228,12 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <AutoComplete
-                  hintText="Cauta orasul"
-                  floatingLabelText="Orasul"
+                  hintText="Completează orașul"
+                  floatingLabelText="Orașul"
                   fullWidth
                   floatingLabelFixed
                   openOnFocus
-                  name={'Orasul'}
+                  name={'Orașul'}
                   filter={AutoComplete.fuzzyFilter}
                   maxSearchResults={35}
                   value=""
@@ -231,12 +244,12 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <AutoComplete
-                  hintText="Cauta sectia"
-                  floatingLabelText="Sectia"
+                  hintText="Caută secția"
+                  floatingLabelText="Secția"
                   fullWidth
                   floatingLabelFixed
                   openOnFocus
-                  name={'Sectia'}
+                  name={'Secția'}
                   filter={AutoComplete.fuzzyFilter}
                   maxSearchResults={35}
                   value=""
@@ -248,7 +261,7 @@ export class LeftContainer extends React.PureComponent {
               <div className="col-xs-12 col-sm-6">
                 <div style={{ marginTop: '37px' }} className="presence">
                   <Toggle
-                    label={(this.state.prezenta) ? 'Sunt in sectie' : 'Nu sunt in sectie'}
+                    label={(this.state.prezenta) ? 'Sunt în secție' : 'Nu sunt în secție'}
                     labelPosition="right"
                     onToggle={this.handleToggle}
                   />
@@ -257,23 +270,23 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <TextField
-                  hintText="Da-ne mai multe detalii despre ce s-a intamplat in maxim 300 de caractere"
+                  hintText="Da-ne mai multe detalii despre ce s-a întamplat, în maxim 300 de caractere"
                   floatingLabelText="Sesizarea ta"
                   floatingLabelFixed
                   fullWidth
                   multiLine
-                  rows={2}
+                  rows={3}
                   maxLength={300}
                   name={'Text sesizare'}
                   defaultValue={this.props.description}
                   onChange={this.getNumberOfCharacters}
                 />
-                <span style={counterStyle}>{this.state.description.characterCount}/300</span>
+                <Counter>{this.state.description.characterCount}/300</Counter>
               </div>
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizarii" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
+                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizării" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
                     <MenuItem value="0" primaryText="Toate" />
                     {this.props.incidentTypes.map((incident) =>
                       <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
@@ -300,7 +313,7 @@ export class LeftContainer extends React.PureComponent {
                   buttonStyle={buttonStyle}
                   overlayStyle={buttonOverlayStyle}
                   labelStyle={buttonLabelStyle}
-                  label="Adauga sesizarea"
+                  label="Adaugă sesizarea"
                   labelPosition="after"
                   icon={<AddCircleOutline style={buttonIconStyle} />}
                   fullWidth
@@ -308,7 +321,7 @@ export class LeftContainer extends React.PureComponent {
                   onClick={this.handleSubmit}
                 />
               </div>
-            </div>
+            </AddIncident>
 
           </Sticky>
         </div>

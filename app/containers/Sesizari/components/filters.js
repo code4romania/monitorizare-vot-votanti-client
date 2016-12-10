@@ -14,6 +14,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 const FiltersWrap = styled.section`
   background: #fdda44;
   padding: 30px 0;
+
+  .map {
+    margin-top: -10px;
+  }
+
+  .reset {
+    margin-top: 29px;
+  }
 `;
 
 const overflowElipsisStyle = {
@@ -23,16 +31,18 @@ const overflowElipsisStyle = {
 };
 
 const buttonStyle = {
-  height: '60px',
+  backgroundColor: '#2d2d2d',
+  height: '40px',
 };
 
 const buttonOverlayStyle = {
-  height: '60px',
+  height: '40px',
 };
 
 const buttonLabelStyle = {
-  lineHeight: '60px',
-  fontSize: '16px',
+  lineHeight: '40px',
+  fontSize: '14px',
+  fontWeight: '700',
   letterSpacing: '1px',
 };
 
@@ -87,7 +97,7 @@ export class Filters extends React.PureComponent {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <div className="row">
+              <div className="row interact-form">
                 <div className="col-xs-12 col-sm-6 col-md-3">
                   <Maps half={false} active={this.state.active} setActiveOption={this.setActiveOption} />
                 </div>
@@ -111,6 +121,7 @@ export class Filters extends React.PureComponent {
                     overlayStyle={buttonOverlayStyle}
                     labelStyle={buttonLabelStyle}
                     primary
+                    className="reset"
                     onClick={this.resetFilters}
                   />
                 </div>

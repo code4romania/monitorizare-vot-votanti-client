@@ -8,6 +8,7 @@ import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
 const IncidentWrap = styled.div`
   .incident-card {
     margin: 0 0 20px;
+    display: flex;
   }
 
   .incident-media {
@@ -21,6 +22,7 @@ const IncidentWrap = styled.div`
 
     img {
       opacity: 0.5;
+      width: 100%;
     }
   }
 
