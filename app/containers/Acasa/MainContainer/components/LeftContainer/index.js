@@ -44,6 +44,10 @@ const overflowElipsisStyle = {
   whiteSpace: 'nowrap',
 };
 
+const Interact = styled.div`
+  padding: 0 15px;
+`;
+
 const AddIncident = styled.div`
   padding-bottom: 60px;
 
@@ -171,13 +175,29 @@ export class LeftContainer extends React.PureComponent {
 
   render() {
     return (
-      <StickyContainer className="col-xs-12 col-lg-6 form-col">
-        <div className="interact">
+      <StickyContainer className="col-xs-12 col-lg-7 form-col">
+        <Interact className="interact">
           <Sticky isActive={this.shouldBeSticky()}>
-            <h2>Adauga o sesisare</h2>
+            <h2>Adaugă o sesizare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
             <AddIncident className="row interact-form add-incident">
+              <div className="col-xs-12">
+                <TextField
+                  hintText="Da-ne mai multe detalii despre ce s-a întamplat, în maxim 300 de caractere"
+                  floatingLabelText="Sesizarea ta"
+                  floatingLabelFixed
+                  fullWidth
+                  multiLine
+                  rows={3}
+                  maxLength={300}
+                  name={'Text sesizare'}
+                  defaultValue={this.props.description}
+                  onChange={this.getNumberOfCharacters}
+                />
+                <Counter>{this.state.description.characterCount}/300</Counter>
+              </div>
+
               <div className="col-xs-12 col-sm-6">
                 <TextField
                   hintText="Popescu"
@@ -202,12 +222,17 @@ export class LeftContainer extends React.PureComponent {
                 />
               </div>
 
-              <div className="col-xs-12">
+              <div className="col-xs-12 col-sm-6">
                 <Map
                   half
                   active={this.state.active}
                   setActiveOption={this.setActiveOption}
                 />
+              </div>
+
+              <div className="col-xs-12 col-sm-6">
+                <FileUploader upload={this.upload} />
+                <div>{this.state.image}</div>
               </div>
 
               <div className="col-xs-12 col-sm-6">
@@ -269,22 +294,6 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <TextField
-                  hintText="Da-ne mai multe detalii despre ce s-a întamplat, în maxim 300 de caractere"
-                  floatingLabelText="Sesizarea ta"
-                  floatingLabelFixed
-                  fullWidth
-                  multiLine
-                  rows={3}
-                  maxLength={300}
-                  name={'Text sesizare'}
-                  defaultValue={this.props.description}
-                  onChange={this.getNumberOfCharacters}
-                />
-                <Counter>{this.state.description.characterCount}/300</Counter>
-              </div>
-
-              <div className="col-xs-12 col-sm-6">
                 <div className="types">
                   <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizării" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
                     <MenuItem value="0" primaryText="Toate" />
@@ -296,19 +305,16 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <FileUploader upload={this.upload} />
-                <div>{this.state.image}</div>
-
                 <Recaptcha
                   sitekey="6LdLYg4UAAAAAHv3w_o1ym8HHaLn-bwZRXk5IdNl"
                   render="explicit"
-                  size="compact"
+                  size="normal"
                   verifyCallback={this.verifyCallback}
                   onloadCallback={this.callback}
                 />
               </div>
 
-              <div className="col-xs-12 col-sm-6">
+              <div className="col-xs-12 col-sm-offset-6 col-sm-6">
                 <RaisedButton
                   buttonStyle={buttonStyle}
                   overlayStyle={buttonOverlayStyle}
@@ -324,7 +330,7 @@ export class LeftContainer extends React.PureComponent {
             </AddIncident>
 
           </Sticky>
-        </div>
+        </Interact>
       </StickyContainer>);
   }
 }

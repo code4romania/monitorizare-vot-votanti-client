@@ -78,6 +78,10 @@ injectGlobal`
     font-weight: 700;
   }
 
+  #g-recaptcha {
+    margin: 20px 0;
+  }
+
   .interact {
     { /* stiluri care suprascriu TextInput si toate underline-urile material de form elements not proud of this.. ce alternative sunt? */ }
     hr {
