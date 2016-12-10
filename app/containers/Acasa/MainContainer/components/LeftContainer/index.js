@@ -234,7 +234,7 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <div style={{ marginTop: '5vh' }} className="presence">
+                <div style={{ marginTop: '37px' }} className="presence">
                   <Toggle
                     label={(this.state.prezenta) ? 'Sunt in sectie' : 'Nu sunt in sectie'}
                     labelPosition="right"
@@ -271,6 +271,9 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
+                <FileUploader upload={this.upload} />
+                <div>{this.state.image}</div>
+
                 <Recaptcha
                   sitekey="6LdLYg4UAAAAAHv3w_o1ym8HHaLn-bwZRXk5IdNl"
                   render="explicit"
@@ -281,9 +284,6 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-
-                <FileUploader upload={this.upload} />
-                <div>{this.state.image}</div>
                 <RaisedButton
                   buttonStyle={buttonStyle}
                   overlayStyle={buttonOverlayStyle}
