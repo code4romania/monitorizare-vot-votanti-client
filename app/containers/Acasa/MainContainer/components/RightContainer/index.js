@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as _ from 'lodash';
 import Loading from 'components/Loading';
 import CallToAction from 'components/CallToAction';
-import IncidentItem from './item';
+import ItemIncident from 'components/ItemIncident';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const IncidentWrap = styled.div`
@@ -25,7 +25,9 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
 
             <div className="row">
               {this.props.incidents.map((tile, index) => (
-                <IncidentItem {...tile} key={index} handleOpen={this.props.handleOpen} />
+                <div className="col-xs-12 col-sm-6" key={index} >
+                  <ItemIncident {...tile} key={index} handleOpen={this.props.handleOpen} />
+                </div>
               ))}
             </div>
 

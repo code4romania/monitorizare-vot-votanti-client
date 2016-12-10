@@ -262,6 +262,7 @@ export class LeftContainer extends React.PureComponent {
                 <Recaptcha
                   sitekey="6LdLYg4UAAAAAHv3w_o1ym8HHaLn-bwZRXk5IdNl"
                   render="explicit"
+                  size="compact"
                   verifyCallback={this.verifyCallback}
                   onloadCallback={this.callback}
                 />

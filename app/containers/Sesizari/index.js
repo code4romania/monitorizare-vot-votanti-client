@@ -4,9 +4,9 @@ import Helmet from 'react-helmet';
 import { getIncidentsAction, filterIncidentsAction } from './actions';
 import { getIncidents, getPagination, getNextPage } from './selectors';
 import { connect } from 'react-redux';
+import ItemIncident from 'components/ItemIncident';
 import Hero from './components/hero';
 import Filters from './components/filters';
-import IncidentItem from './components/incidentItem';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import Refresh from 'material-ui/svg-icons/navigation/refresh';
@@ -44,7 +44,7 @@ export class Sesizari extends React.PureComponent {
   handleOpen = (ev) => {
     this.setState({
       open: true,
-      imgSrc: ev.currentTarget.nextSibling.src,
+      imgSrc: ev.currentTarget.querySelector('img').src,
     });
   };
 
@@ -59,6 +59,7 @@ export class Sesizari extends React.PureComponent {
   filterIncindents = () => {
     this.props.filterIncidents();
   }
+
   render() {
     const actions = [
       <RaisedButton
@@ -87,7 +88,7 @@ export class Sesizari extends React.PureComponent {
               this.props.incidents.map((tile, index) => (
                 tile.createdAt ?
                   <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3" key={index} >
-                    <IncidentItem {...tile} key={index} handleOpen={this.handleOpen} />
+                    <ItemIncident {...tile} key={index} handleOpen={this.handleOpen} />
                   </div>
                 : null
               )) : <div>No incidents</div>}

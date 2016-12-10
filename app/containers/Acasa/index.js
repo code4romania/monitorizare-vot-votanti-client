@@ -7,7 +7,7 @@ import { getIncidentsAction } from './actions';
 import { getIncidents } from './selectors';
 import Hero from './MainContainer/components/hero';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export class Acasa extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -34,9 +34,10 @@ export class Acasa extends React.PureComponent { // eslint-disable-line react/pr
 
   render() {
     const actions = [
-      <FlatButton
+      <RaisedButton
         label="Cancel"
-        primary
+        secondary
+        className="button"
         onTouchTap={this.handleClose}
       />,
     ];

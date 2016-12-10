@@ -1,19 +1,9 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import styled from 'styled-components';
 import Icons from 'components/Icons';
 import RoomIcon from 'material-ui/svg-icons/action/room';
 import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
-
-const muiTheme = getMuiTheme({
-  fontFamily: '"Arimo", sans-serif',
-
-  palette: {
-    textColor: '#2d2d2d',
-  },
-});
 
 const IncidentWrap = styled.div`
   .incident-card {
@@ -36,7 +26,6 @@ const IncidentWrap = styled.div`
   }
 
   .incident-title {
-    padding: 16px;
     font-size: 24px;
   }
 
@@ -75,32 +64,33 @@ function IncidentItem(props) {
 
   return (
     <IncidentWrap>
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Card className="incident-card">
 
-          <CardHeader
-            title={props.incidentType.name}
-            avatar={<Icons icon={icon} />}
-            textStyle={{ verticalAlign: 'middle' }}
-            titleStyle={{ color: '#5F288D' }}
-          />
+      <Card className="incident-card">
 
-          <div onTouchTap={props.handleOpen} className="incident-media">
-            <ZoomIcon style={imageContainerIcon} />
-          </div>
+        <CardHeader
+          title={props.incidentType.name}
+          avatar={<Icons icon={icon} />}
+          textStyle={{ verticalAlign: 'middle' }}
+          titleStyle={{ color: '#5F288D' }}
+        />
 
-          <CardTitle
-            className="incident-title"
-            title={`Sectia ${props.precinct.precinctNumber}`}
-            subtitle={Subtitle}
-          />
+        <div onTouchTap={props.handleOpen} className="incident-media">
+          <img src={props.image} role="presentation" />
+          <ZoomIcon style={imageContainerIcon} />
+        </div>
 
-          <CardText>
-            {props.description}
-          </CardText>
+        <CardTitle
+          className="incident-title"
+          title={`Sectia ${props.precinct.precinctNumber}`}
+          subtitle={Subtitle}
+          style={{ paddingBottom: 0 }}
+        />
 
-        </Card>
-      </MuiThemeProvider>
+        <CardText>
+          {props.description}
+        </CardText>
+
+      </Card>
     </IncidentWrap>
   );
 }
@@ -109,6 +99,7 @@ IncidentItem.propTypes = {
   description: React.PropTypes.string,
   city: React.PropTypes.object,
   name: React.PropTypes.string,
+  image: React.PropTypes.string,
   incidentType: React.PropTypes.object,
   county: React.PropTypes.object,
   handleOpen: React.PropTypes.func,
