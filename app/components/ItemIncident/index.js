@@ -1,3 +1,5 @@
+/* eslint-disable padded-blocks */
+
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import styled from 'styled-components';
@@ -66,7 +68,6 @@ function IncidentItem(props) {
       <RoomIcon style={{ color: 'rgba(45, 45, 45, 0.5)', width: '20px', height: '20px', marginRight: '5px' }} />
       <span>{props.city.name}, {props.county.name}</span>
     </div>);
-
   const icon = props.incidentType ? props.incidentType.label.toLowerCase() : '';
 
   return (

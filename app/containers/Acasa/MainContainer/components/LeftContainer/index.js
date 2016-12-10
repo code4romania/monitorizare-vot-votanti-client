@@ -16,6 +16,7 @@ import { setNumeAction, setPrenumeAction, setIncidentIdAction, setPrecintIdActio
 import { getName, getPrenume, getCities, getPrecints, getDescription } from '../../../selectors';
 import * as _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
+import ThankYou from './thank-you';
 
 const buttonStyle = {
   height: '60px',
@@ -178,6 +179,7 @@ export class LeftContainer extends React.PureComponent {
       <StickyContainer className="col-xs-12 col-lg-7 form-col">
         <Interact className="interact">
           <Sticky isActive={this.shouldBeSticky()}>
+            <ThankYou name="George" />
             <h2>Adaugă o sesizare</h2>
             <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
 
