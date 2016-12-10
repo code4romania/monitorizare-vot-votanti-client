@@ -108,7 +108,9 @@ export class LeftContainer extends React.PureComponent {
 
   setPrecintId = (searchText, array) => {
     const precint = _.find(array, (o) => o.text === searchText);
-    this.props.setPrecintId(precint.id);
+    if (precint) {
+      this.props.setPrecintId(precint.id);
+    }
   }
   handleOnChangeInputNume = (event, value) => {
     this.props.setNume(value);
