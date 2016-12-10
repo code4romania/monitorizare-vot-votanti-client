@@ -3,13 +3,6 @@ import styled from 'styled-components';
 import LeftColumn from './leftColumn';
 import RightColumn from './rightColumn';
 
-const LastUpdate = styled.p`
-  font-size: 14px;
-  color: #999;
-  font-weight: 300;
-  text-align: center;
-`;
-
 const Wrapper = styled.div`
   h1 {
     font-size: 24px;
@@ -29,9 +22,6 @@ const Wrapper = styled.div`
 export default function ListStats(props) {
   return (
     <Wrapper className="row">
-      <LastUpdate className="col-xs-12">
-        Ultima actualizare a fos la 15:34:30 11 Decembrie 2016
-      </LastUpdate>
       <div className="col-xs-12 col-md-6">
         <LeftColumn {...props} />
       </div>
