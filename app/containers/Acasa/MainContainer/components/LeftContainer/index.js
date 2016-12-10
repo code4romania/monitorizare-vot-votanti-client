@@ -34,7 +34,7 @@ const buttonLabelStyle = {
 };
 
 const buttonIconStyle = {
-  color: '#ffffff',
+  fill: '#ffffff',
 };
 
 const overflowElipsisStyle = {
@@ -258,6 +258,18 @@ export class LeftContainer extends React.PureComponent {
                 />
                 <span style={counterStyle}>{this.state.description.characterCount}/300</span>
               </div>
+
+              <div className="col-xs-12 col-sm-6">
+                <div className="types">
+                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizarii" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
+                    <MenuItem value="0" primaryText="Toate" />
+                    {this.props.incidentTypes.map((incident) =>
+                      <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
+                    )}
+                  </SelectField>
+                </div>
+              </div>
+
               <div className="col-xs-12 col-sm-6">
                 <Recaptcha
                   sitekey="6LdLYg4UAAAAAHv3w_o1ym8HHaLn-bwZRXk5IdNl"
@@ -268,13 +280,8 @@ export class LeftContainer extends React.PureComponent {
                 />
               </div>
 
-              <div className="col-xs-12 col-sm-6 types">
-                <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizarii" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
-                  <MenuItem value="0" primaryText="Toate" />
-                  {this.props.incidentTypes.map((incident) =>
-                    <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
-                  )}
-                </SelectField>
+              <div className="col-xs-12 col-sm-6">
+
                 <FileUploader upload={this.upload} />
                 <div>{this.state.image}</div>
                 <RaisedButton
