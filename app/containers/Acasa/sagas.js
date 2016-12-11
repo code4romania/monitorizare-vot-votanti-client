@@ -100,7 +100,7 @@ export function* submitForm() {
 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', requestURL, true);
-  xhr.onload = function (req) {
+  xhr.onSuccess = function (req) {
     console.log(req.srcElement);
     // TODO: check to see if form valid and then send there?
     browserHistory.push('/multumim');
