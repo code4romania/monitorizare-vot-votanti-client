@@ -91,12 +91,19 @@ function IncidentItem(props) {
           : null
         }
 
-        <CardTitle
-          className="incident-title"
-          title={`Sectia ${props.precinct.precinctNumber}`}
-          subtitle={Subtitle}
-          style={{ paddingBottom: 0 }}
-        />
+        { props.precinct.precinctNumber
+          ? <CardTitle
+            className="incident-title"
+            title={`Sectia ${props.precinct.precinctNumber}`}
+            subtitle={Subtitle}
+            style={{ paddingBottom: 0 }}
+          />
+          : <CardTitle
+            className="incident-title"
+            subtitle={Subtitle}
+            style={{ paddingBottom: 0 }}
+          />
+        }
 
         <CardText>
           {props.description}
