@@ -22,12 +22,22 @@ const iconStyles = {
   color: '#5F288D',
   opacity: '0.6',
 };
-const textStyles = {
-  display: 'block',
-  textAlign: 'center',
-  color: '#5F288D',
-  opacity: '0.6',
-};
+const Label = styled.div`
+  display: block;
+  text-align: center;
+  color: #5F288D;
+  opacity: 0.6;
+  position: relative;
+
+  small {
+    position: absolute;
+    top: -36px;
+    right: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+`;
 
 export default function FileUploader(props) {
   return (
@@ -35,7 +45,10 @@ export default function FileUploader(props) {
       <Wrapper>
         <input type="file" id="upload" accept="image/jpeg, image/png" style={inputStyles} onChange={props.upload} />
         <CameraAlt style={iconStyles} />
-        <span style={textStyles}>Încarcă o poză</span>
+        <Label>
+          Încarcă o poză*
+          <small>* Optional</small>
+        </Label>
       </Wrapper>
     </label>
   );

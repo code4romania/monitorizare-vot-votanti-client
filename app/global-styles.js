@@ -97,6 +97,11 @@ injectGlobal`
     background: #fff !important;
   }
 
+  [required] {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
   .button svg {
     top: -2px;
     position: relative;
