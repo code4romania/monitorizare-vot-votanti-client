@@ -79,8 +79,8 @@ export function* submitForm() {
   const cityIdValue = yield select(cityId());
   const getDescriptionValue = yield select(getDescription());
   const token = yield select(getToken());
-  const firstName = yield select(getName());
-  const lastName = yield select(getPrenume());
+  const firstName = yield select(getPrenume());
+  const lastName = yield select(getName());
   const incidentId = yield select(getIncidentId());
   const precintId = yield select(getPrecintId());
 
