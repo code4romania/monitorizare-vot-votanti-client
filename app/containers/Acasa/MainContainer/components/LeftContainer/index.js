@@ -17,7 +17,6 @@ import Map from 'components/selectCountry';
 import FileUploader from 'components/FileUploader';
 import { setNumeAction, setPrenumeAction, setIncidentIdAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, map, getCities, getPrecints, getDescription } from '../../../selectors';
-import ThankYou from './thank-you';
 
 const buttonStyle = {
   height: '60px',
@@ -339,8 +338,6 @@ export class LeftContainer extends React.PureComponent {
                   onClick={this.handleSubmit}
                 />
               </div>
-
-              <ThankYou name="George" />
 
             </AddIncident>
 
