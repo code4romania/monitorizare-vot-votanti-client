@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import styled from 'styled-components';
 import FlatButton from 'material-ui/FlatButton';
 import Check from 'material-ui/svg-icons/navigation/check';
@@ -58,7 +59,7 @@ export default function ThankYou(props) {
         <Check style={{ width: '80px', height: '80px' }} />
         <h1>Mulțumim {props.name}!</h1>
         <h2>Sesizarea ta a fost înregistrată.</h2>
-        <Legal>Important: sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau Biroului Electoral Central. Mai multe detalii aici.</Legal>
+        <Legal>Important: sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau Biroului Electoral Central. <br />Mai multe <Link to="despre-noi">detalii aici</Link>.</Legal>
 
         <div className="continue">
           <div className="cta-wrap">
