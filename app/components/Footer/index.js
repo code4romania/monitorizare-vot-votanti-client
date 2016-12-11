@@ -14,11 +14,10 @@ const Repos = styled.ul`
   margin: 0;
   list-style: none;
   text-align: center;
-  float: right;
   height: 30px;
+  margin-bottom: 20px;
 
   @media (min-width: 64em) {
-    float: none;
     text-align: left;
     margin-left: 5px;
   }
@@ -84,7 +83,7 @@ const MV = styled(Link)`
 `;
 
 const Code4 = styled.div`
-  margin: 30px 0 0;
+  margin: 10px 0 0;
 
   @media (min-width: 64em) {
     margin: 0 15px 0 0;

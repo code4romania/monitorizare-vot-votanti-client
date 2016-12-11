@@ -55,7 +55,7 @@ export default class Menu extends React.PureComponent {
       document.getElementById(getLocation).parentNode.querySelector('.selected').classList.remove('selected');
       document.getElementById(getLocation).firstElementChild.classList.add('selected');
     } else {
-      document.querySelector('#menu-list .selected').classList.remove('selected');
+      // document.querySelector('#menu-list .selected').classList.remove('selected');
     }
   }
 
