@@ -13,7 +13,7 @@ import FileUploader from 'components/FileUploader';
 import MenuItem from 'material-ui/MenuItem';
 import { createStructuredSelector } from 'reselect';
 import { setNumeAction, setPrenumeAction, setIncidentIdAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
-import { getName, getPrenume, getCities, getPrecints, getDescription } from '../../../selectors';
+import { getName, getPrenume, map, getCities, getPrecints, getDescription } from '../../../selectors';
 import * as _ from 'lodash';
 import Recaptcha from 'react-recaptcha';
 import ThankYou from './thank-you';
@@ -86,7 +86,7 @@ export class LeftContainer extends React.PureComponent {
     };
   }
 
-  setActiveOption = () => {
+  setActiveOption = (event) => {
     this.setState({ active: !this.state.active });
     this.props.setActiveMap(event.currentTarget.dataset.name);
   }
@@ -101,7 +101,7 @@ export class LeftContainer extends React.PureComponent {
     this.props.setDescription(event.target.value);
   }
 
-  setIncindetType = (event, index, value) => {
+  setIncidentType = (event, index, value) => {
     this.setState({ value });
     this.props.setIncidentId(value);
   }
@@ -239,37 +239,43 @@ export class LeftContainer extends React.PureComponent {
                 <div>{this.state.image}</div>
               </div>
 
-              <div className="col-xs-12 col-sm-6">
-                <AutoComplete
-                  hintText="Completează județul"
-                  floatingLabelText="Județul"
-                  floatingLabelFixed
-                  fullWidth
-                  openOnFocus
-                  name={'Județul'}
-                  filter={AutoComplete.fuzzyFilter}
-                  maxSearchResults={5}
-                  value=""
-                  dataSource={this.props.counties.length > 0 ? this.props.counties : []}
-                  onUpdateInput={this.selectCounty}
-                />
-              </div>
+              { this.props.map === 'country' ?
+                <div>
+                  <div className="col-xs-12 col-sm-6">
+                    <AutoComplete
+                      hintText="Completează județul"
+                      floatingLabelText="Județul"
+                      floatingLabelFixed
+                      fullWidth
+                      openOnFocus
+                      name={'Județul'}
+                      filter={AutoComplete.fuzzyFilter}
+                      maxSearchResults={5}
+                      value=""
+                      dataSource={this.props.counties.length > 0 ? this.props.counties : []}
+                      onUpdateInput={this.selectCounty}
+                    />
+                  </div>
 
-              <div className="col-xs-12 col-sm-6">
-                <AutoComplete
-                  hintText="Completează orașul"
-                  floatingLabelText="Orașul"
-                  fullWidth
-                  floatingLabelFixed
-                  openOnFocus
-                  name={'Orașul'}
-                  filter={AutoComplete.fuzzyFilter}
-                  maxSearchResults={35}
-                  value=""
-                  dataSource={this.props.cities.length > 0 ? this.props.cities : []}
-                  onUpdateInput={this.selectCity}
-                />
-              </div>
+                  <div className="col-xs-12 col-sm-6">
+                    <AutoComplete
+                      hintText="Completează orașul"
+                      floatingLabelText="Orașul"
+                      fullWidth
+                      floatingLabelFixed
+                      openOnFocus
+                      name={'Orașul'}
+                      filter={AutoComplete.fuzzyFilter}
+                      maxSearchResults={35}
+                      value=""
+                      dataSource={this.props.cities.length > 0 ? this.props.cities : []}
+                      onUpdateInput={this.selectCity}
+                    />
+                  </div>
+                </div>
+                  :
+                    <div></div>
+              }
 
               <div className="col-xs-12 col-sm-6">
                 <AutoComplete
@@ -368,6 +374,7 @@ LeftContainer.propTypes = {
   ]),
   name: React.PropTypes.string,
   prenume: React.PropTypes.string,
+  map: React.PropTypes.string,
   description: React.PropTypes.string,
   uploadImage: React.PropTypes.func,
   submitForm: React.PropTypes.func,
@@ -380,7 +387,7 @@ export function mapDispatchToProps(dispatch) {
   return {
     setNume: (name) => dispatch(setNumeAction(name)),
     setPrenume: (prenume) => dispatch(setPrenumeAction(prenume)),
-    setActiveMap: (map) => dispatch(setActiveMapAction(map)),
+    setActiveMap: (activeMap) => dispatch(setActiveMapAction(activeMap)),
     setCounty: (id) => dispatch(setCountyAction(id)),
     resetCounty: () => dispatch(resetCountyAction()),
     getCities: () => dispatch(getCitiesAction()),
@@ -399,6 +406,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   name: getName(),
   prenume: getPrenume(),
+  map: map(),
   cities: getCities(),
   precints: getPrecints(),
   description: getDescription(),

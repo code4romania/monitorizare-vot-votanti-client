@@ -32,6 +32,11 @@ const cityId = () => createSelector(
   (homeState) => homeState.get('cityId')
 );
 
+const map = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('map')
+);
+
 const getCities = () => createSelector(
   selectHome(),
   (homeState) => homeState.get('cities')
@@ -74,6 +79,7 @@ export {
   getSelectedCounty,
   countyId,
   cityId,
+  map,
   getCities,
   getPrecints,
   getDescription,
