@@ -14,9 +14,13 @@ import Toggle from 'material-ui/Toggle';
 import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import MenuItem from 'material-ui/MenuItem';
 import Map from 'components/selectCountry';
-import FileUploader from 'components/FileUploader';
+// import FileUploader from 'components/FileUploader';
 import { setNumeAction, setPrenumeAction, setIncidentIdAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, map, getCities, getPrecints, getDescription } from '../../../selectors';
+
+const buttonWrapStyle = {
+  marginTop: '20px',
+};
 
 const buttonStyle = {
   height: '60px',
@@ -244,9 +248,19 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <FileUploader upload={this.upload} />
-                <div>{this.state.image}</div>
+                <div style={{ marginTop: '37px' }} className="presence">
+                  <Toggle
+                    label={(this.state.prezenta) ? 'Sunt în secție' : 'Nu sunt în secție'}
+                    labelPosition="right"
+                    onToggle={this.handleToggle}
+                  />
+                </div>
               </div>
+
+              {/* <div className="col-xs-12 col-sm-6">
+                //   <FileUploader upload={this.upload} />
+                //   <div>{this.state.image}</div>
+                // </div> */ }
 
               { this.props.map === 'country' ?
                 <div className="col-xs-12">
@@ -308,16 +322,6 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               <div className="col-xs-12 col-sm-6">
-                <div style={{ marginTop: '37px' }} className="presence">
-                  <Toggle
-                    label={(this.state.prezenta) ? 'Sunt în secție' : 'Nu sunt în secție'}
-                    labelPosition="right"
-                    onToggle={this.handleToggle}
-                  />
-                </div>
-              </div>
-
-              <div className="col-xs-12 col-sm-6">
                 <div className="types">
                   <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth required className="dropdown" labelStyle={overflowElipsisStyle}>
                     <MenuItem value="0" primaryText="Toate" />
@@ -338,18 +342,20 @@ export class LeftContainer extends React.PureComponent {
                 />
               </div>
 
-              <div className="col-xs-12 col-sm-offset-6 col-sm-6">
-                <RaisedButton
-                  buttonStyle={buttonStyle}
-                  overlayStyle={buttonOverlayStyle}
-                  labelStyle={buttonLabelStyle}
-                  label="Adaugă sesizarea"
-                  labelPosition="after"
-                  icon={<AddCircleOutline style={buttonIconStyle} />}
-                  fullWidth
-                  className="button"
-                  onClick={this.handleSubmit}
-                />
+              <div className="col-xs-12 col-sm-6">
+                <div style={buttonWrapStyle}>
+                  <RaisedButton
+                    buttonStyle={buttonStyle}
+                    overlayStyle={buttonOverlayStyle}
+                    labelStyle={buttonLabelStyle}
+                    label="Adaugă sesizarea"
+                    labelPosition="after"
+                    icon={<AddCircleOutline style={buttonIconStyle} />}
+                    fullWidth
+                    className="button"
+                    onClick={this.handleSubmit}
+                  />
+                </div>
               </div>
 
             </AddIncident>
