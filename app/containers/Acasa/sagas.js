@@ -5,6 +5,7 @@ import { incidentsLoaded, getCitiesSuccess, getPrecintsSuccess } from './actions
 import { SHORT_INCIDENTS, GET_CITIES, SUBMIT_FORM, GET_PRECINTS } from './constants';
 import { countyId, getImage, cityId, getDescription, getToken, getIncidentId, getName, getPrenume, getPrecintId } from './selectors';
 import request from 'utils/request';
+import { browserHistory } from 'react-router';
 
 export function* getIncidents() {
   const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
