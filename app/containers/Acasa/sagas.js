@@ -3,11 +3,7 @@ import { take, call, put, fork, cancel, select } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { incidentsLoaded, getCitiesSuccess, getPrecintsSuccess } from './actions';
 import { SHORT_INCIDENTS, GET_CITIES, SUBMIT_FORM, GET_PRECINTS } from './constants';
-import { countyId, cityId, getDescription, getToken, getIncidentId, getName, getPrenume, getPrecintId } from './selectors';
-
-// TODO: after we can actually add photos in composer
-// import { getImage } from './selectors';
-
+import { countyId, getImage, cityId, getDescription, getToken, getIncidentId, getName, getPrenume, getPrecintId } from './selectors';
 import request from 'utils/request';
 import { browserHistory } from 'react-router';
 
@@ -80,10 +76,8 @@ export function* precints() {
 export function* submitForm() {
   const countyIdValue = yield select(countyId());
 
-  // TODO: after we can actually add photos in composer
-  // const image = yield select(getImage());
-
   const cityIdValue = yield select(cityId());
+  const image = yield select(getImage());
   const getDescriptionValue = yield select(getDescription());
   const token = yield select(getToken());
   const firstName = yield select(getPrenume());
@@ -101,9 +95,7 @@ export function* submitForm() {
   formData.append('precinct_id', precintId);
   formData.append('fromStation', true);
   formData.append('recaptchaResponse', token);
-
-  // TODO: after we can actually add photos in composer
-  // formData.set('file', image, image);
+  formData.append('file', image);
 
   const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
 
