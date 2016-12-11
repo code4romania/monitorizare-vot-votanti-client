@@ -1,52 +1,38 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'react-router';
 import styled from 'styled-components';
-import Icons from 'components/Icons';
-import { browserHistory } from 'react-router';
+import CallToAction from 'components/CallToAction';
+import Check from 'material-ui/svg-icons/navigation/check';
+import ArrowForward from 'material-ui/svg-icons/navigation/arrow-forward';
 
 const Content = styled.div`
   margin: 0 0 120px;
-
-  p {
-    font-size: 16px;
-    text-align: center;
-    margin: 30px 0 60px;
-  }
 `;
 
-const Stamp = styled.div`
+const Wrapper = styled.div`
+  background: rgba(253, 218, 68, 0.9);
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  margin-top: 60px;
 
-  .svg-icon {
-    color: #2d2d2d;
-    width: 60px;
-    height: 60px;
-    display: block;
-    margin: 0 auto;
-  }
-
-  a {
-    color: #2d2d2d;
-    display: inline-block;
-
-    &:hover {
-      svg {
-        color: rgba(95, 40, 141, 1);
-      }
+  .continue {
+    .cta-wrap {
+      display: inline-block;
+      margin: 20px 10px 0;
     }
   }
+
+  .thanks {
+    padding: 20px 40px;
+    text-align: center;
+  }
 `;
 
-const Legal = styled.blockquote`
-  margin: 0;
-  border-left: 5px solid rgba(95, 40, 141, 0.6);
-  padding: 0 0 0 20px;
-
-  p {
-    font-size: 14px;
-    margin: 20px 0;
-    text-align: left;
-  }
+const Legal = styled.p`
+  margin: 20px 0;
+  font-size: 18px;
 `;
 
 export default class DespreNoi extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -54,22 +40,29 @@ export default class DespreNoi extends React.PureComponent { // eslint-disable-l
     return (
       <section className="container">
         <div className="row">
-          <div className="col-xs-12 col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6">
+          <div className="col-xs-12 col-sm-offset-2 col-sm-8">
             <Helmet
-              title="Multumimt - Monitorizare Vot"
+              title="Mulțumim - Monitorizare Vot"
               meta={[
-                { name: 'description', content: 'Multumimt' },
+                { name: 'description', content: 'Mulțumim' },
               ]}
             />
-            <div className="page-hero">
-              <h1>Multumim pentru sesizare</h1>
-            </div>
             <Content>
-              <Stamp>
-                <Icons icon="mvCircle" />
-              </Stamp>
-              <p>Daca descoperi alte nereglui nu ezita sa le trimit folosing formularul nostru. <br/>Fiecare actiune conteaza!</p>
-    
+              <Wrapper>
+                <div className="thanks">
+                  <Check style={{ width: '80px', height: '80px' }} />
+                  <h1>Mulțumim!</h1>
+                  <h2>Sesizarea ta a fost înregistrată.</h2>
+                  <Legal>Sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau Biroului Electoral Central. <br />Mai multe <Link to="despre-noi">detalii aici</Link>.</Legal>
+
+                  <div className="continue">
+                    <CallToAction
+                      label="Vezi toate sesizările"
+                      icon={<ArrowForward />}
+                    />
+                  </div>
+                </div>
+              </Wrapper>
             </Content>
           </div>
         </div>
