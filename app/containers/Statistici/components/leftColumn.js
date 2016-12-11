@@ -20,7 +20,7 @@ const iconStyle = {
 export default function LeftColumn(props) {
   return (
     <div>
-      <h1><strong>{props.stats.incidentsByCounty.length}</strong> sesizări de la votanți</h1>
+      <h1><strong>{props.stats.totalIncidents}</strong> sesizări de la votanți</h1>
       <TitleStats>
         <TrendingUp style={iconStyle} />
         Cele mai multe sesizări
