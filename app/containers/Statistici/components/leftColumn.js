@@ -20,15 +20,15 @@ const iconStyle = {
 export default function LeftColumn(props) {
   return (
     <div>
-      <h1><strong>{props.stats.incidentsByCounty.length}</strong> sesizari de la votanti</h1>
+      <h1><strong>{props.stats.incidentsByCounty.length}</strong> sesizări de la votanți</h1>
       <TitleStats>
         <TrendingUp style={iconStyle} />
-        Cele mai multe sesizari
+        Cele mai multe sesizări
       </TitleStats>
       <Counts counts={_.slice(_.reverse(_.sortBy(props.stats.incidentsByCounty, [(county) => county.incidentsCount])), 0, 5)} />
       <TitleStats>
         <TrendingDown style={iconStyle} />
-        Cele mai putine sesizari
+        Cele mai puține sesizări
       </TitleStats>
       <Counts counts={_.slice(_.sortBy(props.stats.incidentsByCounty, [(county) => county.incidentsCount]), 0, 5)} />
     </div>
