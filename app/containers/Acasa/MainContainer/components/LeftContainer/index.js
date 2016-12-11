@@ -179,9 +179,8 @@ export class LeftContainer extends React.PureComponent {
       <StickyContainer className="col-xs-12 col-lg-7 form-col">
         <Interact className="interact">
           <Sticky isActive={this.shouldBeSticky()}>
-            <ThankYou name="George" />
             <h2>Adaugă o sesizare</h2>
-            <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
+            <p>Mai jos găsești formularul prin care poți să trimiți o sesizare. Dacă nu ești sigur ce poate fi subiectul unei sesizări, verifică aici Regulile votului.</p>
 
             <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12">
@@ -329,6 +328,9 @@ export class LeftContainer extends React.PureComponent {
                   onClick={this.handleSubmit}
                 />
               </div>
+
+              <ThankYou name="George" />
+
             </AddIncident>
 
           </Sticky>

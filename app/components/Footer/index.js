@@ -144,7 +144,7 @@ export default function Footer() {
             </Repos>
 
             <Copyright className="vote">
-              Aici e nevoie de un text cu adresa de e-mail <a href="mailto:monitorizarevot@code4.ro">monitorizarevot@code4.ro</a>
+              Pentru întrebări, scrie-ne la <a href="mailto:monitorizarevot@code4.ro">monitorizarevot@code4.ro</a>.
             </Copyright>
 
           </div>

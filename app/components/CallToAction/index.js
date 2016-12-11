@@ -23,6 +23,7 @@ export default class CallToAction extends React.PureComponent {
   browseToSesizari() {
     browserHistory.push('/sesizari');
   }
+
   render() {
     return (
       <div className="cta-wrap">

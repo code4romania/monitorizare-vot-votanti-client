@@ -99,6 +99,12 @@ const mvTheme = getMuiTheme({
     fontSize: '14px',
   },
 
+  flatButton: {
+    textColor: 'rgba(95, 40, 141, 1)',
+    primaryTextColor: 'rgba(95, 40, 141, 1)',
+    secondaryTextColor: 'rgba(95, 40, 141, 1)',
+  },
+
   toggle: {
     thumbOnColor: 'rgba(95, 40, 141, 1)',
     thumbOffColor: 'rgba(255, 255, 255, 1)',

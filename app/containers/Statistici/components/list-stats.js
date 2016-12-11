@@ -13,10 +13,6 @@ const Wrapper = styled.div`
       color: #5F288D;
     }
   }
-
-  h2 {
-    font-weight: 300;
-  }
 `;
 
 export default function ListStats(props) {
