@@ -240,37 +240,39 @@ export class LeftContainer extends React.PureComponent {
               </div>
 
               { this.props.map === 'country' ?
-                <div>
-                  <div className="col-xs-12 col-sm-6">
-                    <AutoComplete
-                      hintText="Completează județul"
-                      floatingLabelText="Județul"
-                      floatingLabelFixed
-                      fullWidth
-                      openOnFocus
-                      name={'Județul'}
-                      filter={AutoComplete.fuzzyFilter}
-                      maxSearchResults={5}
-                      value=""
-                      dataSource={this.props.counties.length > 0 ? this.props.counties : []}
-                      onUpdateInput={this.selectCounty}
-                    />
-                  </div>
+                <div className="col-xs-12">
+                  <div className="row">
+                    <div className="col-xs-12 col-sm-6">
+                      <AutoComplete
+                        hintText="Completează județul"
+                        floatingLabelText="Județul"
+                        floatingLabelFixed
+                        fullWidth
+                        openOnFocus
+                        name={'Județul'}
+                        filter={AutoComplete.fuzzyFilter}
+                        maxSearchResults={5}
+                        value=""
+                        dataSource={this.props.counties.length > 0 ? this.props.counties : []}
+                        onUpdateInput={this.selectCounty}
+                      />
+                    </div>
 
-                  <div className="col-xs-12 col-sm-6">
-                    <AutoComplete
-                      hintText="Completează orașul"
-                      floatingLabelText="Orașul"
-                      fullWidth
-                      floatingLabelFixed
-                      openOnFocus
-                      name={'Orașul'}
-                      filter={AutoComplete.fuzzyFilter}
-                      maxSearchResults={35}
-                      value=""
-                      dataSource={this.props.cities.length > 0 ? this.props.cities : []}
-                      onUpdateInput={this.selectCity}
-                    />
+                    <div className="col-xs-12 col-sm-6">
+                      <AutoComplete
+                        hintText="Completează orașul"
+                        floatingLabelText="Orașul"
+                        fullWidth
+                        floatingLabelFixed
+                        openOnFocus
+                        name={'Orașul'}
+                        filter={AutoComplete.fuzzyFilter}
+                        maxSearchResults={35}
+                        value=""
+                        dataSource={this.props.cities.length > 0 ? this.props.cities : []}
+                        onUpdateInput={this.selectCity}
+                      />
+                    </div>
                   </div>
                 </div>
                   :
