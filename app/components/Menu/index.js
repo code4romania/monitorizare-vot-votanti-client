@@ -60,7 +60,7 @@ export default class Menu extends React.PureComponent {
   render() {
     return (
       <MenuList>
-        <MenuItem id="acasa"><MenuLink to="acasa" className="selected">Monitorizare vot</MenuLink></MenuItem>
+        <MenuItem id="acasa"><MenuLink to="acasa" className="selected">Adaugă o sesizare</MenuLink></MenuItem>
         <MenuItem id="sesizari"><MenuLink to="sesizari">Sesizări</MenuLink></MenuItem>
         <MenuItem id="statistici"><MenuLink to="statistici">Statistici</MenuLink></MenuItem>
         <MenuItem id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></MenuItem>

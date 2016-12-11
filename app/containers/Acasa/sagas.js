@@ -83,18 +83,28 @@ export function* submitForm() {
   const incidentId = yield select(getIncidentId());
   const precintId = yield select(getPrecintId());
 
-  const data = new FormData();
-  data.firstName = firstName;
-  data.lastName = lastName;
-  data.incidentType = incidentId;
-  data.description = getDescriptionValue;
-  data.county_id = countyIdValue;
-  data.city = cityIdValue;
-  data.stationNumber = precintId;
-  data.fromStation = true;
-  data.recaptchaResponse = token;
-  data.append('file', image);
+  const formData = new FormData();
+  formData.set('firstName', firstName);
+  formData.set('lastName', lastName);
+  formData.set('incidentType', incidentId);
+  formData.set('description', getDescriptionValue);
+  formData.set('county_id', countyIdValue);
+  formData.set('city', cityIdValue);
+  formData.set('stationNumber', precintId);
+  formData.set('fromStation', true);
+  formData.set('recaptchaResponse', token);
+  formData.set('file', image, image);
 
+  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', requestURL, true);
+  xhr.onload = function () {
+    console.log(this.responseText);
+  };
+  xhr.send(formData);
+
+  /*
   const options = {
     method: 'POST',
     headers: {
@@ -103,13 +113,12 @@ export function* submitForm() {
     body: data,
   };
 
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
   const submitFormRequest = yield call(request, requestURL, options);
   if (submitFormRequest) {
     // yield put(getCitiesSuccess(citiesData.data));
   } else {
     // yield call(() => browserHistory.push('/notfound'));
-  }
+  }*/
 }
 
 export function* submitFormWatcher() {

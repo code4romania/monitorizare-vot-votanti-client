@@ -49,7 +49,7 @@ export default function SelectCountry(props) { // eslint-disable-line react/nost
       <Map className="col-xs-6 map">
         <button style={props.active ? inactive : active} onClick={props.setActiveOption} data-name="abroad" >
           <img className="map-icon" height={40} src={MapWorld} role="presentation" />
-          <div className="map-label">În Disapora</div>
+          <div className="map-label">În diaspora</div>
         </button>
       </Map>
     </div>

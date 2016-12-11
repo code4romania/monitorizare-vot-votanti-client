@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import Loading from 'components/Loading';
 import CallToAction from 'components/CallToAction';
 import ItemIncident from 'components/ItemIncident';
-import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+import ArrowForward from 'material-ui/svg-icons/navigation/arrow-forward';
 
 const IncidentWrap = styled.div`
   padding: 10px 0 60px;
@@ -18,14 +18,14 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
           <IncidentWrap>
             <div className="row">
               <div className="col-xs-12">
-                <h2>Ultimele sesizari</h2>
+                <h2>Ultimele sesizări</h2>
                 { /* TODO: last updated @ time goes here */ }
               </div>
             </div>
 
             <div className="row">
               {this.props.incidents.map((tile, index) => (
-                <div className="col-xs-12 col-sm-6" key={index} >
+                <div className="col-xs-12 col-sm-6 col-md-12" key={index} >
                   <ItemIncident {...tile} key={index} handleOpen={this.props.handleOpen} />
                 </div>
               ))}
@@ -34,8 +34,8 @@ export class RightContainer extends React.PureComponent {// eslint-disable-line 
             <div className="row">
               <div className="col-xs-12">
                 <CallToAction
-                  label="Vezi toate sesizarile"
-                  icon={<ChevronRight />}
+                  label="Vezi toate sesizările"
+                  icon={<ArrowForward />}
                 />
               </div>
             </div>

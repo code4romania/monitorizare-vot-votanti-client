@@ -1,6 +1,6 @@
 import React from 'react';
 import CallToAction from 'components/CallToAction';
-import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+import ArrowForward from 'material-ui/svg-icons/navigation/arrow-forward';
 
 function Hero() {
   return (
@@ -15,7 +15,8 @@ function Hero() {
           </p>
           <CallToAction
             label="Vezi toate sesizările"
-            icon={<ChevronRight />}
+            icon={<ArrowForward />}
+            primary
           />
         </div>
       </div>

@@ -1,21 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Map from 'components/selectCountry';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { Link } from 'react-router';
+import { createStructuredSelector } from 'reselect';
+import * as _ from 'lodash';
 import styled from 'styled-components';
+import Recaptcha from 'react-recaptcha';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
 import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
-import FileUploader from 'components/FileUploader';
 import MenuItem from 'material-ui/MenuItem';
-import { createStructuredSelector } from 'reselect';
+import Map from 'components/selectCountry';
+import FileUploader from 'components/FileUploader';
 import { setNumeAction, setPrenumeAction, setIncidentIdAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, map, getCities, getPrecints, getDescription } from '../../../selectors';
-import * as _ from 'lodash';
-import Recaptcha from 'react-recaptcha';
 import ThankYou from './thank-you';
 
 const buttonStyle = {
@@ -181,9 +182,8 @@ export class LeftContainer extends React.PureComponent {
       <StickyContainer className="col-xs-12 col-lg-7 form-col">
         <Interact className="interact">
           <Sticky isActive={this.shouldBeSticky()}>
-            <ThankYou name="George" />
             <h2>Adaugă o sesizare</h2>
-            <p>Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat</p>
+            <p>Mai jos găsești formularul prin care poți să trimiți o sesizare. Dacă nu ești sigur ce poate fi subiectul unei sesizări, verifică aici <Link to="reguli-vot">Regulile votului</Link>.</p>
 
             <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12">
@@ -337,6 +337,9 @@ export class LeftContainer extends React.PureComponent {
                   onClick={this.handleSubmit}
                 />
               </div>
+
+              <ThankYou name="George" />
+
             </AddIncident>
 
           </Sticky>
