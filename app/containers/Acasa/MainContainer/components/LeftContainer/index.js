@@ -15,7 +15,7 @@ import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import MenuItem from 'material-ui/MenuItem';
 import Map from 'components/selectCountry';
 // import FileUploader from 'components/FileUploader';
-import { setNumeAction, setPrenumeAction, setIncidentIdAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
+import { setNumeAction, setPrenumeAction, setIncidentIdAction, resetFormAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, map, getCities, getPrecints, getDescription } from '../../../selectors';
 
 const buttonWrapStyle = {
@@ -90,6 +90,10 @@ export class LeftContainer extends React.PureComponent {
     };
   }
 
+  componentWillUnmount() {
+    this.props.resetForm();
+  }
+
   setActiveOption = (event) => {
     this.setState({ active: !this.state.active });
     this.props.setActiveMap(event.currentTarget.dataset.name);
@@ -116,12 +120,14 @@ export class LeftContainer extends React.PureComponent {
     this.props.setIncidentId(value);
   }
 
+
   setPrecintId = (searchText, array) => {
     const precint = _.find(array, (o) => o.text === searchText);
     if (precint) {
       this.props.setPrecintId(precint.id);
     }
   }
+
   handleOnChangeInputNume = (event, value) => {
     this.props.setNume(value);
   }
@@ -402,6 +408,7 @@ LeftContainer.propTypes = {
   setIncidentId: React.PropTypes.func,
   setValidationKey: React.PropTypes.func,
   setPrecintId: React.PropTypes.func,
+  resetForm: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -421,6 +428,7 @@ export function mapDispatchToProps(dispatch) {
     setIncidentId: (id) => dispatch(setIncidentIdAction(id)),
     setValidationKey: (key) => dispatch(setValidationKeyAction(key)),
     setPrecintId: (id) => dispatch(setPrecintIdAction(id)),
+    resetForm: () => dispatch(resetFormAction()),
   };
 }
 

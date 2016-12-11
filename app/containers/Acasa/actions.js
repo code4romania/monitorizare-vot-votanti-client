@@ -1,4 +1,4 @@
-import { SHORT_INCIDENTS, SET_PRECINT_ID, SET_CAPTCHA_KEY, GET_PRECINTS_SUCCESS, SET_INCIDENT_ID, SUBMIT_FORM, SET_IMAGE, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRESENCE, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
+import { SHORT_INCIDENTS, RESET_FORM, SET_PRECINT_ID, SET_CAPTCHA_KEY, GET_PRECINTS_SUCCESS, SET_INCIDENT_ID, SUBMIT_FORM, SET_IMAGE, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRESENCE, SET_PRENUME, SET_CITY, SET_MAP, RESET_COUNTY, GET_PRECINTS, SET_COUNTY, GET_CITIES, SET_CITIES } from './constants';
 import * as _ from 'lodash';
 
 export function getIncidentsAction() {
@@ -106,7 +106,6 @@ export function setValidationKeyAction(key) {
   };
 }
 
-
 export function setDescriptionAction(description) {
   return {
     type: SET_DESCRIPTION,
@@ -114,6 +113,11 @@ export function setDescriptionAction(description) {
   };
 }
 
+export function resetFormAction() {
+  return {
+    type: RESET_FORM,
+  };
+}
 
 export function uploadImageAction(image) {
   return {
