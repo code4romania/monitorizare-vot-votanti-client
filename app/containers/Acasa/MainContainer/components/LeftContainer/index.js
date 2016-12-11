@@ -16,7 +16,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Map from 'components/selectCountry';
 // import FileUploader from 'components/FileUploader';
 import { setNumeAction, setPrenumeAction, setIncidentIdAction, resetFormAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
-import { getName, getPrenume, map, getCities, getPrecints, getDescription } from '../../../selectors';
+import { getName, getPrenume, map, getCities, getPrecints, getDescription, countyId, cityId, getIncidentId, getToken } from '../../../selectors';
 
 const buttonWrapStyle = {
   marginTop: '20px',
@@ -25,6 +25,12 @@ const buttonWrapStyle = {
 const buttonStyle = {
   height: '60px',
   backgroundColor: '#5F288D',
+  color: '#ffffff',
+};
+
+const buttonStyleDisabled = {
+  height: '60px',
+  backgroundColor: 'grey',
   color: '#ffffff',
 };
 
@@ -129,10 +135,12 @@ export class LeftContainer extends React.PureComponent {
   }
 
   handleOnChangeInputNume = (event, value) => {
+    this.setState({ nume: value });
     this.props.setNume(value);
   }
 
   handleOnChangeInputPrenume = (event, value) => {
+    this.setState({ prenume: value });
     this.props.setPrenume(value);
   }
 
@@ -193,6 +201,7 @@ export class LeftContainer extends React.PureComponent {
   };
 
   render() {
+    const isValid = this.state.nume.length > 0 && this.state.prenume.length > 0 && this.props.countyId && this.props.cityId && this.state.description.characterCount && this.props.incidentId && this.props.token !== undefined;
     return (
       <StickyContainer className="col-xs-12 col-lg-7 form-col">
         <Interact className="interact">
@@ -350,17 +359,31 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <div style={buttonWrapStyle}>
-                  <RaisedButton
-                    buttonStyle={buttonStyle}
-                    overlayStyle={buttonOverlayStyle}
-                    labelStyle={buttonLabelStyle}
-                    label="Adaugă sesizarea"
-                    labelPosition="after"
-                    icon={<AddCircleOutline style={buttonIconStyle} />}
-                    fullWidth
-                    className="button"
-                    onClick={this.handleSubmit}
-                  />
+                  {isValid ?
+                    <RaisedButton
+                      buttonStyle={buttonStyle}
+                      overlayStyle={buttonOverlayStyle}
+                      labelStyle={buttonLabelStyle}
+                      label="Adaugă sesizarea"
+                      labelPosition="after"
+                      icon={<AddCircleOutline style={buttonIconStyle} />}
+                      fullWidth
+                      className="button"
+                      onClick={this.handleSubmit}
+                    />
+                    :
+                      <RaisedButton
+                        buttonStyle={buttonStyleDisabled}
+                        overlayStyle={buttonOverlayStyle}
+                        labelStyle={buttonLabelStyle}
+                        label="Adaugă sesizarea"
+                        labelPosition="after"
+                        icon={<AddCircleOutline style={buttonIconStyle} />}
+                        fullWidth
+                        className="button"
+
+                      />
+                  }
                 </div>
               </div>
 
@@ -409,6 +432,19 @@ LeftContainer.propTypes = {
   setValidationKey: React.PropTypes.func,
   setPrecintId: React.PropTypes.func,
   resetForm: React.PropTypes.func,
+  countyId: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]),
+  cityId: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]),
+  incidentId: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]),
+  token: React.PropTypes.string,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -439,6 +475,10 @@ const mapStateToProps = createStructuredSelector({
   cities: getCities(),
   precints: getPrecints(),
   description: getDescription(),
+  countyId: countyId(),
+  incidentId: getIncidentId(),
+  cityId: cityId(),
+  token: getToken(),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftContainer);
