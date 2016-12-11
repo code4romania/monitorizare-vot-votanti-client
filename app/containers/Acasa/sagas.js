@@ -100,7 +100,7 @@ export function* submitForm() {
   const xhr = new XMLHttpRequest();
   xhr.open('POST', requestURL, true);
   xhr.onload = function () {
-    console.log(this.responseText);
+    browserHistory.push('/multumim');
   };
   xhr.send(formData);
 
