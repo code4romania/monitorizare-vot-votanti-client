@@ -90,6 +90,11 @@ export class LeftContainer extends React.PureComponent {
   setActiveOption = (event) => {
     this.setState({ active: !this.state.active });
     this.props.setActiveMap(event.currentTarget.dataset.name);
+    if (this.state.active) {
+      // All diaspora precints belong to one city
+      this.props.setCity(3191);
+      this.props.getPrecints();
+    }
   }
 
   getNumberOfCharacters = (event) => {
