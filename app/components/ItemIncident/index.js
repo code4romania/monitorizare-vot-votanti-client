@@ -91,7 +91,7 @@ function IncidentItem(props) {
           : null
         }
 
-        { props.precinct.precinctNumber
+        { props.precinct && props.precinct.precinctNumber
           ? <CardTitle
             className="incident-title"
             title={`Sectia ${props.precinct.precinctNumber}`}
