@@ -30,6 +30,7 @@ const IncidentWrap = styled.div`
 
   .incident-subtitle {
     display: flex;
+    font-weight: 700;
   }
 
   .incident-title {
@@ -73,7 +74,7 @@ function IncidentItem(props) {
   return (
     <IncidentWrap>
 
-      <Card className="incident-card" onTouchTap={props.handleOpen}>
+      <Card className="incident-card">
 
         <CardHeader
           title={props.incidentType ? props.incidentType.name : ''}
@@ -113,7 +114,6 @@ IncidentItem.propTypes = {
   image: React.PropTypes.string,
   incidentType: React.PropTypes.object,
   county: React.PropTypes.object,
-  handleOpen: React.PropTypes.func,
   precinct: React.PropTypes.object,
   precinctNumber: React.PropTypes.number,
 };

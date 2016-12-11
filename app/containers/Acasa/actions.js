@@ -10,7 +10,7 @@ export function getIncidentsAction() {
 export function incidentsLoaded(incidents) {
   return {
     type: SHORT_INCIDENTS_LODADED,
-    incidents: _.slice(incidents.data, 0, 8),
+    incidents: _.slice(incidents.data, 0, 6),
   };
 }
 
