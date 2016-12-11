@@ -3,10 +3,15 @@ import styled from 'styled-components';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { getCountiesAction, getIncidentTypesAction } from './actions';
+import { getCounties, getIncidentTypes } from './selectors';
 
 const Wrapper = styled.div`
   // ceva e funky aici, n-ar trebui sa fie nevoie de asta
   overflow-x: hidden;
+  background: #f9f9f9;
 `;
 
 export class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -14,6 +19,11 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
   static propTypes = {
     children: React.PropTypes.node,
   };
+
+  componentWillMount() {
+    this.props.dispatchGetCounties();
+    this.props.dispatchIncidentTypes();
+  }
 
   render() {
     return (
@@ -28,6 +38,8 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
 
 App.propTypes = {
   location: React.PropTypes.object,
+  dispatchGetCounties: React.PropTypes.func,
+  dispatchIncidentTypes: React.PropTypes.func,
   counties: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.array,
@@ -38,4 +50,17 @@ App.propTypes = {
   ]),
 };
 
-export default App;
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    dispatchGetCounties: () => dispatch(getCountiesAction()),
+    dispatchIncidentTypes: () => dispatch(getIncidentTypesAction()),
+  };
+}
+
+const mapStateToProps = createStructuredSelector({
+  counties: getCounties(),
+  incidentTypes: getIncidentTypes(),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

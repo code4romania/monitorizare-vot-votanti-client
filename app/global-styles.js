@@ -33,7 +33,7 @@ injectGlobal`
 
     h1 {
       font-size: 32px;
-      line-height: 1.34;
+      line-height: 1.17;
 
       @media (min-width: 48em) {
         font-size: 42px;
@@ -74,6 +74,14 @@ injectGlobal`
     padding-right: 15px;
   }
 
+  .interact-form {
+    font-weight: 700;
+  }
+
+  #g-recaptcha {
+    margin: 15px 0 20px;
+  }
+
   .interact {
     { /* stiluri care suprascriu TextInput si toate underline-urile material de form elements not proud of this.. ce alternative sunt? */ }
     hr {
@@ -85,8 +93,18 @@ injectGlobal`
     }
   }
 
+  button {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+  }
+
   span[type="button"] > div {
     background: #fff !important;
+  }
+
+  [required] {
+    box-shadow: none !important;
+    outline: none !important;
   }
 
   .button svg {

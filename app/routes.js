@@ -60,6 +60,48 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/statistici',
+      name: 'statistici',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Statistici/reducer'),
+          System.import('containers/Statistici/sagas'),
+          System.import('containers/Statistici'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('statistici', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/sesizari',
+      name: 'sesizari',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Sesizari/reducer'),
+          System.import('containers/Sesizari/sagas'),
+          System.import('containers/Sesizari'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('sesizari', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '/reguli-vot',
       name: 'reguli',
       getComponent(nextState, cb) {
@@ -81,6 +123,22 @@ export default function createRoutes(store) {
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/DespreNoi'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/multumim',
+      name: 'multumim',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/ThankYou'),
         ]);
 
         const renderRoute = loadModule(cb);

@@ -1,14 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
 import CameraAlt from 'material-ui/svg-icons/image/camera-alt';
 
-const wrapperStyles = {
-  width: '100%',
-  padding: '20px 0',
-  border: '1px dashed #D7A323',
-  borderRadius: '4px',
-  margin: '20px 0px 30px',
-  cursor: 'pointer',
-};
+const Wrapper = styled.div`
+  width: 100%;
+  padding: 10px 0;
+  border: 1px dashed #D7A323;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 13px 0 0;
+`;
+
 const inputStyles = {
   width: 0,
   opacity: 0,
@@ -17,22 +19,41 @@ const inputStyles = {
 const iconStyles = {
   width: '100%',
   height: '32px',
-  color: '#9E6D53',
+  color: '#5F288D',
+  opacity: '0.6',
 };
-const textStyles = {
-  display: 'block',
-  textAlign: 'center',
-  color: '#9E6D53',
-};
+const Label = styled.div`
+  display: block;
+  text-align: center;
+  color: #5F288D;
+  opacity: 0.6;
+  position: relative;
 
-export default function FileUploader() {
+  small {
+    position: absolute;
+    top: -36px;
+    right: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+`;
+
+export default function FileUploader(props) {
   return (
     <label htmlFor="upload">
-      <div style={wrapperStyles}>
-        <input type="file" id="upload" accept="image/*" style={inputStyles} />
+      <Wrapper>
+        <input type="file" id="upload" accept="image/jpeg, image/png" style={inputStyles} onChange={props.upload} />
         <CameraAlt style={iconStyles} />
-        <span style={textStyles}>Incarca o poza</span>
-      </div>
+        <Label>
+          Încarcă o poză*
+          <small>* Optional</small>
+        </Label>
+      </Wrapper>
     </label>
   );
 }
+
+FileUploader.propTypes = {
+  upload: React.PropTypes.func,
+};

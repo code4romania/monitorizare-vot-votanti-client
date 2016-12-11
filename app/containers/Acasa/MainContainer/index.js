@@ -11,7 +11,7 @@ export function MainContainer(props) { // eslint-disable-line react/prefer-state
 
     <section className="container">
       <div className="row">
-        <LeftContainer />
+        <LeftContainer {...props} />
         <RightContainer {...props} />
       </div>
     </section>
@@ -20,4 +20,3 @@ export function MainContainer(props) { // eslint-disable-line react/prefer-state
 }
 
 export default MainContainer;
-

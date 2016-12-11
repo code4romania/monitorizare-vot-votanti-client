@@ -78,13 +78,13 @@ const mvTheme = getMuiTheme({
   },
 
   textField: {
-    textColor: 'rgba(95, 40, 141, 1)',
+    textColor: 'rgba(45, 45, 45, 1)',
     hintColor: 'rgba(95, 40, 141, 0.6)',
-    floatingLabelColor: 'rgba(95, 40, 141, 0.6)',
-    disabledTextColor: 'rgba(95, 40, 141, 0.6)',
+    floatingLabelColor: 'rgba(95, 40, 141, 1)',
+    disabledTextColor: 'rgba(45, 45, 45, 0.6)',
     errorColor: 'rgba(200, 0, 0, 1)',
     focusColor: 'rgba(95, 40, 141, 1)',
-    borderColor: 'rgba(95, 40, 141, 0.4)',
+    borderColor: 'rgba(45, 45, 45, 0.4)',
   },
 
   raisedButton: {
@@ -97,6 +97,12 @@ const mvTheme = getMuiTheme({
     disabledColor: 'rgba(95, 40, 141, 0.1)',
     disabledTextColor: 'rgba(95, 40, 141, 1)',
     fontSize: '14px',
+  },
+
+  flatButton: {
+    textColor: 'rgba(95, 40, 141, 1)',
+    primaryTextColor: 'rgba(95, 40, 141, 1)',
+    secondaryTextColor: 'rgba(95, 40, 141, 1)',
   },
 
   toggle: {

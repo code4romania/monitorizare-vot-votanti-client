@@ -6,10 +6,10 @@ function Hero() {
       <div className="row">
         <div className="col-xs-12 col-md-offset-2 col-md-8 page-hero">
           <h1>
-            Sesizari
+            Sesizări
           </h1>
           <p>
-            Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective.
+            România pe care toți ne-o dorim are nevoie de cetățeni responsabili. Iată aici care sunt sesizările raportate de români în țară și în diaspora în ziua alegerilor parlamentare. Află ce se întâmplă în orașul tău de la oameni ca tine, direct de la sursă.
           </p>
         </div>
       </div>

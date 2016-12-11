@@ -54,9 +54,9 @@ export default function OverlayNav(props) {
 
       <div className="menu-wrapper">
         <ul>
-          <li id="acasa"><MenuLink to="acasa">Monitorizare</MenuLink></li>
-          <li id="sesizari" disabled><MenuLink>Sesizări</MenuLink></li>
-          <li id="statistici" disabled><MenuLink>Statistici</MenuLink></li>
+          <li id="acasa"><MenuLink to="acasa">Adaugă o sesizare</MenuLink></li>
+          <li id="sesizari"><MenuLink to="sesizari">Sesizări</MenuLink></li>
+          <li id="statistici"><MenuLink to="statistici">Statistici</MenuLink></li>
           <li id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></li>
           <li id="despre-noi"><MenuLink to="despre-noi">Despre noi</MenuLink></li>
         </ul>

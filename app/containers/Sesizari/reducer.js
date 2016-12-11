@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { INCIDENTS_LODADED, SET_COUNTY, SET_CITIES, SET_ACTIVE_MAP } from './constants';
+import { INCIDENTS_LODADED, SET_COUNTY, SET_ACTIVE_MAP, FILTERS_LODADED, SET_TYPE, RESET_COUNTY, RESET_FILTERS } from './constants';
 import { GET_CITIES } from 'containers/App/constants';
 import * as _ from 'lodash';
 
@@ -7,9 +7,9 @@ const initialState = fromJS({
   incidents: [],
   pagination: {},
   nextPage: 1,
-  countyId: null,
-  cities: [],
-  map: '',
+  countyId: '',
+  activeMap: 'country',
+  typeId: '',
 });
 
 function sesizariReducer(state = initialState, action) {
@@ -19,18 +19,32 @@ function sesizariReducer(state = initialState, action) {
         .set('incidents', _.concat(state.get('incidents'), action.incidents))
         .set('pagination', action.pagination)
         .set('nextPage', action.pagination.currentPage + 1);
+    case FILTERS_LODADED:
+      return state
+        .set('incidents', action.incidents)
+        .set('pagination', action.pagination);
     case SET_COUNTY:
       return state
         .set('countyId', action.value);
     case GET_CITIES:
       return state
         .set('countyId', action.cityId);
-    case SET_CITIES:
+    case SET_TYPE:
       return state
-        .set('cities', action.cities);
+        .set('typeId', action.value);
     case SET_ACTIVE_MAP:
       return state
         .set('activeMap', action.map);
+    case RESET_COUNTY:
+      return state
+        .set('countyId', '')
+        .set('cities', []);
+    case RESET_FILTERS:
+      return state
+        .set('typeId', '')
+        .set('countyId', '')
+        .set('cities', [])
+        .set('activeMap', 'country');
     default:
       return state;
   }

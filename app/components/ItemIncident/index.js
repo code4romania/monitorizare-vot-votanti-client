@@ -1,42 +1,39 @@
+/* eslint-disable padded-blocks */
+
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import styled from 'styled-components';
 import Icons from 'components/Icons';
 import RoomIcon from 'material-ui/svg-icons/action/room';
 import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
 
-const muiTheme = getMuiTheme({
-  fontFamily: '"Arimo", sans-serif',
-
-  palette: {
-    textColor: '#2d2d2d',
-  },
-});
-
 const IncidentWrap = styled.div`
   .incident-card {
     margin: 0 0 20px;
+    display: flex;
   }
 
   .incident-media {
-    height: 100px;
+    max-height: 100px;
     overflow: hidden;
     cursor: pointer;
-    background: #000;
-    opacity: 0.3;
+    background: #fafafa;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    img {
+      opacity: 0.5;
+      width: 100%;
+    }
   }
 
   .incident-subtitle {
     display: flex;
+    font-weight: 700;
   }
 
   .incident-title {
-    padding: 16px;
     font-size: 24px;
   }
 
@@ -58,49 +55,54 @@ const IncidentWrap = styled.div`
 `;
 
 const imageContainerIcon = {
-  color: '#fff',
+  color: '#5F288D',
   cursor: 'pointer',
-  opacity: '0.7',
+  position: 'absolute',
+  width: '32px',
+  height: '32px',
 };
 
-
 function IncidentItem(props) {
+
   const Subtitle = (
     <div className="incident-subtitle">
       <RoomIcon style={{ color: 'rgba(45, 45, 45, 0.5)', width: '20px', height: '20px', marginRight: '5px' }} />
-      <span>{props.city.name}, {props.county.name}</span>
+      <span>{props.city ? props.city.name : ''}, {props.county ? props.county.name : ''}</span>
     </div>);
-
-  const icon = props.incidentType.label.toLowerCase();
+  const icon = props.incidentType ? props.incidentType.label.toLowerCase() : '';
 
   return (
     <IncidentWrap>
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Card className="incident-card">
 
-          <CardHeader
-            title={props.incidentType.name}
-            avatar={<Icons icon={icon} />}
-            textStyle={{ verticalAlign: 'middle' }}
-            titleStyle={{ color: '#5F288D' }}
-          />
+      <Card className="incident-card">
 
-          <div onTouchTap={props.handleOpen} className="incident-media">
+        <CardHeader
+          title={props.incidentType ? props.incidentType.name : ''}
+          avatar={<Icons icon={icon} />}
+          textStyle={{ verticalAlign: 'middle' }}
+          titleStyle={{ color: '#5F288D' }}
+        />
+
+        { props.image ?
+          <div className="incident-media">
+            <img src={props.image} role="presentation" />
             <ZoomIcon style={imageContainerIcon} />
           </div>
+          : null
+        }
 
-          <CardTitle
-            className="incident-title"
-            title={`Sectia ${props.precinct.precinctNumber}`}
-            subtitle={Subtitle}
-          />
+        <CardTitle
+          className="incident-title"
+          title={`Sectia ${props.precinct.precinctNumber}`}
+          subtitle={Subtitle}
+          style={{ paddingBottom: 0 }}
+        />
 
-          <CardText>
-            {props.description}
-          </CardText>
+        <CardText>
+          {props.description}
+        </CardText>
 
-        </Card>
-      </MuiThemeProvider>
+      </Card>
     </IncidentWrap>
   );
 }
@@ -109,9 +111,9 @@ IncidentItem.propTypes = {
   description: React.PropTypes.string,
   city: React.PropTypes.object,
   name: React.PropTypes.string,
+  image: React.PropTypes.string,
   incidentType: React.PropTypes.object,
   county: React.PropTypes.object,
-  handleOpen: React.PropTypes.func,
   precinct: React.PropTypes.object,
   precinctNumber: React.PropTypes.number,
 };

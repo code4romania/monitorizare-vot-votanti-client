@@ -15,6 +15,7 @@ const buttonOverlayStyle = {
 const buttonLabelStyle = {
   lineHeight: '60px',
   fontSize: '16px',
+  fontWeight: '700',
   letterSpacing: '1px',
 };
 
@@ -22,6 +23,7 @@ export default class CallToAction extends React.PureComponent {
   browseToSesizari() {
     browserHistory.push('/sesizari');
   }
+
   render() {
     return (
       <div className="cta-wrap">

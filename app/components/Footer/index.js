@@ -9,40 +9,16 @@ const FooterWrap = styled.footer`
   padding: 60px 0;
 `;
 
-const MV = styled(Link)`
-  float: left;
-  margin-top: -5px;
-
-  @media (min-width: 64em) {
-    float: none;
-  }
-
-  &:hover {
-    .svg-icon {
-      opacity: 1;
-    }
-  }
-
-  .svg-icon {
-    color: #5F288D;
-    width: 40px;
-    height: 40px;
-    opacity: 0.6;
-  }
-`;
-
 const Repos = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
   text-align: center;
-  float: right;
   height: 30px;
+  margin-bottom: 20px;
 
   @media (min-width: 64em) {
-    float: none;
     text-align: left;
-    margin-top: 25px;
     margin-left: 5px;
   }
 
@@ -61,6 +37,7 @@ const Repos = styled.ul`
     a {
       font-family: "Source Code Pro", "Courier New", Courier, monospace;
       font-size: 12px;
+      font-weight: 700;
       letter-spacing: 1px;
       text-decoration: none;
       opacity: 0.6;
@@ -84,8 +61,29 @@ const Repos = styled.ul`
   }
 `;
 
+const MV = styled(Link)`
+  float: left;
+  margin-top: -5px;
+
+  @media (min-width: 64em) {
+    float: none;
+  }
+
+  &:hover {
+    .svg-icon {
+      opacity: 1;
+    }
+  }
+
+  .svg-icon {
+    color: #5F288D;
+    width: 40px;
+    height: 40px;
+  }
+`;
+
 const Code4 = styled.div`
-  margin: 30px 0 0;
+  margin: 10px 0 0;
 
   @media (min-width: 64em) {
     margin: 0 15px 0 0;
@@ -104,10 +102,15 @@ const Code4 = styled.div`
 const Copyright = styled.p`
   font-family: "Source Code Pro", "Courier New", Courier, monospace;
   font-size: 12px;
-  opacity: 0.9;
+  font-weight: 700;
+  opacity: 0.6;
 
   @media (min-width: 64em) {
     margin-top: 30px;
+  }
+
+  &.vote {
+    color: #5F288D;
   }
 `;
 
@@ -116,13 +119,14 @@ export default function Footer() {
     <FooterWrap>
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-md-6">
-
-            <MV to="acasa">
-              <Icons icon="mvCircle" />
-            </MV>
+          <div className="col-xs-12 col-md-5">
 
             <Repos>
+              <li>
+                <MV to="acasa">
+                  <Icons icon="mvCircle" />
+                </MV>
+              </li>
               <li>
                 <a target="_blank" href="https://github.com/code4romania/monitorizare-vot-votanti-client/">
                   <Icons icon="github" />
@@ -138,9 +142,13 @@ export default function Footer() {
               </li>
             </Repos>
 
+            <Copyright className="vote">
+              Pentru întrebări, scrie-ne la <a href="mailto:monitorizarevot@code4.ro">monitorizarevot@code4.ro</a>.
+            </Copyright>
+
           </div>
 
-          <div className="col-xs-12 col-md-6">
+          <div className="col-xs-12 col-md-offset-1 col-md-6">
             <Code4>
               <a href="http://code4.ro/" target="_blank">
                 <Icons icon="code4" />
