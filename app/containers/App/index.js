@@ -7,7 +7,6 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { getCountiesAction, getIncidentTypesAction } from './actions';
 import { getCounties, getIncidentTypes } from './selectors';
-import Websocket from 'react-websocket';
 
 const Wrapper = styled.div`
   // ceva e funky aici, n-ar trebui sa fie nevoie de asta
@@ -26,20 +25,12 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
     this.props.dispatchIncidentTypes();
   }
 
-  handleData = (state) => {
-    console.log('state', state);
-  }
-
   render() {
     return (
       <Wrapper className="wrap">
         <Header {...this.props.location} />
         {React.cloneElement(this.props.children, { counties: this.props.counties, incidentTypes: this.props.incidentTypes })}
         <Footer />
-        <Websocket
-          url="ws://portal-votanti-uat.azurewebsites.net:8889"
-          onMessage={this.handleData}
-        />
       </Wrapper>
     );
   }
