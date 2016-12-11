@@ -66,9 +66,7 @@ function IncidentItem(props) {
   const Subtitle = (
     <div className="incident-subtitle">
       <RoomIcon style={{ color: 'rgba(45, 45, 45, 0.5)', width: '20px', height: '20px', marginRight: '5px' }} />
-      <span>
-        {props.city ? props.city.name : ''}, 
-        {props.county ? props.county.name : ''}</span>
+      <span>{props.city ? props.city.name : ''}, {props.county ? props.county.name : ''}</span>
     </div>);
   const icon = props.incidentType ? props.incidentType.label.toLowerCase() : '';
 
