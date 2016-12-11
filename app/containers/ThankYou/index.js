@@ -2,7 +2,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import Icons from 'components/Icons';
-import { browserHistory } from 'react-router';
 
 const Content = styled.div`
   margin: 0 0 120px;
@@ -37,18 +36,6 @@ const Stamp = styled.div`
   }
 `;
 
-const Legal = styled.blockquote`
-  margin: 0;
-  border-left: 5px solid rgba(95, 40, 141, 0.6);
-  padding: 0 0 0 20px;
-
-  p {
-    font-size: 14px;
-    margin: 20px 0;
-    text-align: left;
-  }
-`;
-
 export default class DespreNoi extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -68,8 +55,8 @@ export default class DespreNoi extends React.PureComponent { // eslint-disable-l
               <Stamp>
                 <Icons icon="mvCircle" />
               </Stamp>
-              <p>Daca descoperi alte nereglui nu ezita sa le trimit folosing formularul nostru. <br/>Fiecare actiune conteaza!</p>
-    
+              <p>Daca descoperi alte nereguli, nu ezita sa le trimiti folosind formularul nostru. <br />Fiecare actiune conteaza!</p>
+
             </Content>
           </div>
         </div>
