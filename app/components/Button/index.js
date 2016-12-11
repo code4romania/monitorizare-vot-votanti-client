@@ -12,6 +12,8 @@ const styles = {
   general: {
     width: '100%',
     cursor: 'pointer',
+    webkitBorderRadius: '0px',
+    webkitAppearance: 'none',
   },
 };
 

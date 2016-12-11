@@ -93,6 +93,11 @@ injectGlobal`
     }
   }
 
+  button {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+  }
+
   span[type="button"] > div {
     background: #fff !important;
   }

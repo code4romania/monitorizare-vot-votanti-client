@@ -197,6 +197,7 @@ export class LeftContainer extends React.PureComponent {
                   floatingLabelText="Sesizarea ta"
                   floatingLabelFixed
                   fullWidth
+                  required
                   multiLine
                   rows={3}
                   maxLength={300}
@@ -214,7 +215,7 @@ export class LeftContainer extends React.PureComponent {
                   floatingLabelText="Nume"
                   floatingLabelFixed
                   fullWidth
-
+                  required
                   name={'Nume'}
                   value={this.props.name}
                   onChange={this.handleOnChangeInputNume}
@@ -227,7 +228,7 @@ export class LeftContainer extends React.PureComponent {
                   floatingLabelText="Prenume"
                   floatingLabelFixed
                   fullWidth
-
+                  required
                   name={'Prenume'}
                   value={this.props.prenume}
                   onChange={this.handleOnChangeInputPrenume}
@@ -256,7 +257,7 @@ export class LeftContainer extends React.PureComponent {
                         floatingLabelText="Județul"
                         floatingLabelFixed
                         fullWidth
-
+                        required
                         openOnFocus
                         name={'Județul'}
                         filter={AutoComplete.fuzzyFilter}
@@ -272,13 +273,13 @@ export class LeftContainer extends React.PureComponent {
                         hintText="Completează orașul"
                         floatingLabelText="Orașul"
                         fullWidth
+                        required
                         floatingLabelFixed
                         openOnFocus
                         name={'Orașul'}
                         filter={AutoComplete.fuzzyFilter}
                         maxSearchResults={35}
                         value=""
-
                         dataSource={this.props.cities.length > 0 ? this.props.cities : []}
                         onUpdateInput={this.selectCity}
                       />
@@ -294,7 +295,7 @@ export class LeftContainer extends React.PureComponent {
                   hintText="Caută secția"
                   floatingLabelText="Secția"
                   fullWidth
-
+                  required
                   floatingLabelFixed
                   openOnFocus
                   name={'Secția'}
@@ -318,7 +319,7 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
+                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth required className="dropdown" labelStyle={overflowElipsisStyle}>
                     <MenuItem value="0" primaryText="Toate" />
                     {this.props.incidentTypes.map((incident) =>
                       <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />

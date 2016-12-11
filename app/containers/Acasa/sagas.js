@@ -85,12 +85,12 @@ export function* submitForm() {
   const precintId = yield select(getPrecintId());
 
   const formData = new FormData();
-  formData.set('firstName', firstName);
-  formData.set('lastName', lastName);
-  formData.set('incidentType', incidentId);
+  formData.set('first_name', firstName);
+  formData.set('last_name', lastName);
+  formData.set('incident_type_id', incidentId);
   formData.set('description', getDescriptionValue);
   formData.set('county_id', countyIdValue);
-  formData.set('city', cityIdValue);
+  formData.set('city_id', cityIdValue);
   formData.set('precinct_id', precintId);
   formData.set('fromStation', true);
   formData.set('recaptchaResponse', token);
@@ -100,9 +100,16 @@ export function* submitForm() {
 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', requestURL, true);
-  xhr.onload = function () {
+  xhr.onload = function (req) {
+    console.log(req.srcElement);
+    // TODO: check to see if form valid and then send there?
     browserHistory.push('/multumim');
   };
+
+  xhr.error = function (err) {
+    console.log(err);
+  };
+
   xhr.send(formData);
 
   /*
