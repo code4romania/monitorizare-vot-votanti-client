@@ -91,7 +91,7 @@ export function* submitForm() {
   formData.set('description', getDescriptionValue);
   formData.set('county_id', countyIdValue);
   formData.set('city', cityIdValue);
-  formData.set('stationNumber', precintId);
+  formData.set('precinct_id', precintId);
   formData.set('fromStation', true);
   formData.set('recaptchaResponse', token);
   formData.set('file', image, image);

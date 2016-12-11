@@ -91,7 +91,7 @@ export class Sesizari extends React.PureComponent {
                     <ItemIncident {...tile} key={index} handleOpen={this.handleOpen} />
                   </div>
                 : null
-              )) : <div>No incidents</div>}
+              )) : <div className="col-xs-12"><h3 style={{ textAlign: 'center', display: 'block' }}>Pentru filtrarea selectată nu s-au găsit sesizări.</h3></div>}
           </div>
           <div className="bottom-cta">
             <RaisedButton
