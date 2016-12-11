@@ -82,9 +82,9 @@ export class Sesizari extends React.PureComponent {
         <section className="container">
           <div className="row">
             <div className="col-xs-12 showIncidentsCount" style={{ textAlign: 'center' }}>
-              <h2 style={{ color: '#2D2D2D' }}>{this.props.pagination.total !== 1 ? `${this.props.pagination.total} sesizări înregistrate` : 'O sesizare înregistrată'} </h2>
+              <h2 style={{ color: '#2D2D2D' }}>{this.props.pagination.total > 0 ? `${this.props.pagination.total} sesizări înregistrate` : 'O sesizare înregistrată'} </h2>
             </div>
-            {this.props.incidents.length > 0 && this.props.counties.length > 0 && this.props.incidentTypes.length > 0 ?
+            {this.props.incidents.length > 0 ?
               this.props.incidents.map((tile, index) => (
                 tile.createdAt ?
                   <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3" key={index} >
