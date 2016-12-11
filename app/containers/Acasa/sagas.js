@@ -95,8 +95,8 @@ export function* submitForm() {
   formData.set('recaptchaResponse', token);
   formData.set('file', image, image);
   
-  const requestURL = 'http://localhost:8000/api/incidents';
   //const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
   
   var xhr = new XMLHttpRequest();
   xhr.open('POST', requestURL, true);
