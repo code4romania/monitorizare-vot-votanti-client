@@ -307,7 +307,7 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizării" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
+                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
                     <MenuItem value="0" primaryText="Toate" />
                     {this.props.incidentTypes.map((incident) =>
                       <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
