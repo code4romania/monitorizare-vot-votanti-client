@@ -28,6 +28,8 @@ const overflowElipsisStyle = {
   textOverflow: 'ellipsis',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
+  position: 'absolute',
+  width: '100%',
 };
 
 const buttonStyle = {
