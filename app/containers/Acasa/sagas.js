@@ -75,8 +75,9 @@ export function* precints() {
 
 export function* submitForm() {
   const countyIdValue = yield select(countyId());
-  const image = yield select(getImage());
+
   const cityIdValue = yield select(cityId());
+  const image = yield select(getImage());
   const getDescriptionValue = yield select(getDescription());
   const token = yield select(getToken());
   const firstName = yield select(getPrenume());
@@ -85,16 +86,16 @@ export function* submitForm() {
   const precintId = yield select(getPrecintId());
 
   const formData = new FormData();
-  formData.set('first_name', firstName);
-  formData.set('last_name', lastName);
-  formData.set('incident_type_id', incidentId);
-  formData.set('description', getDescriptionValue);
-  formData.set('county_id', countyIdValue);
-  formData.set('city_id', cityIdValue);
-  formData.set('precinct_id', precintId);
-  formData.set('fromStation', true);
-  formData.set('recaptchaResponse', token);
-  formData.set('file', image, image);
+  formData.append('first_name', firstName);
+  formData.append('last_name', lastName);
+  formData.append('incident_type_id', incidentId);
+  formData.append('description', getDescriptionValue);
+  formData.append('county_id', countyIdValue);
+  formData.append('city_id', cityIdValue);
+  formData.append('precinct_id', precintId);
+  formData.append('fromStation', true);
+  formData.append('recaptchaResponse', token);
+  formData.append('file', image);
 
   const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
 
