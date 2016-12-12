@@ -37,6 +37,10 @@ const IncidentWrap = styled.div`
     font-size: 24px;
   }
 
+  .incident-description {
+    word-break: break-word;
+  }
+
   .incident-header-icon {
     background: #5F288D;
     padding: 5px;
@@ -105,7 +109,7 @@ function IncidentItem(props) {
           />
         }
 
-        <CardText>
+        <CardText className="incident-description">
           {props.description}
         </CardText>
 
