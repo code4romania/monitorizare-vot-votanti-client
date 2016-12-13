@@ -10,6 +10,7 @@ import Filters from './components/filters';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import Refresh from 'material-ui/svg-icons/navigation/refresh';
+import styled from 'styled-components';
 
 const buttonStyle = {
   height: '60px',
@@ -28,6 +29,10 @@ const buttonLabelStyle = {
 const buttonIconStyle = {
   color: '#ffffff',
 };
+
+const IncidentColWrap = styled.div`
+  display: flex;
+ `;
 
 export class Sesizari extends React.PureComponent {
   constructor() {
@@ -87,9 +92,9 @@ export class Sesizari extends React.PureComponent {
             {this.props.incidents.length > 0 ?
               this.props.incidents.map((tile, index) => (
                 tile.createdAt ?
-                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3" key={index} >
+                  <IncidentColWrap className="col-xs-12 col-sm-6 col-md-4 col-lg-3" key={index} >
                     <ItemIncident {...tile} key={index} handleOpen={this.handleOpen} />
-                  </div>
+                  </IncidentColWrap>
                 : null
               )) : <div className="col-xs-12"><h3 style={{ textAlign: 'center', display: 'block' }}>Pentru filtrarea selectată nu s-au găsit sesizări.</h3></div>}
           </div>

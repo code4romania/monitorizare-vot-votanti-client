@@ -8,6 +8,8 @@ import RoomIcon from 'material-ui/svg-icons/action/room';
 import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
 
 const IncidentWrap = styled.div`
+  display: flex;
+
   .incident-card {
     margin: 0 0 20px;
     display: flex;
