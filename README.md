@@ -1,21 +1,81 @@
-# Monitorizare Vot - Platforma pentru votanti
+# Monitorizare Vot - Web platform for elections observers
 
-Monitorizare Vot este un proiect Code for Romania, realizat în parteneriat cu EFOR, Geeks for Democracy, Funky Citizens, Observatorul Electoral, Centrul pentru Resurse Civice și Centrul pentru Studiul Democratiei. Scopul nostru este dezvoltarea unui instrument IT prin care observatorii electorali să poată transmite simplu și rapid sesizările lor către ONG-ul care i-a acreditat.
+[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/monitorizare-vot-votanti-client.svg?style=for-the-badge)]() [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/monitorizare-vot-votanti-client.svg?style=for-the-badge)]() [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
 
-Platforma de fata ofera cetățenilor o interfata foarte ușor de folosit unde se pot face auziți atunci când au de semnalat o neregulă în desfășurarea alegerilor. Ne dorim astfel să-i încurajăm pe oameni să se implice în procesul electoral, pentru alegeri corecte în toată țara.
+[See the project live](http://monitorizarevot.ro/)
 
-## Tehnologie
+Monitorizare Vot is a mobile app for monitoring elections by authorized observers. They can use the app in order to offer a real-time snapshot on what is going on at polling stations and they can report on any noticeable irregularities. 
 
-Aplicatia are la baza [React Boilerplate](https://github.com/mxstbr/react-boilerplate/), foloseste [Styled components](https://github.com/styled-components/styled-components) si [Material-UI](https://github.com/callemall/material-ui) pentru elementele de interfata.
+The NGO-s with authorized observers for monitoring elections have real time access to the data the observers are transmitting therefore they can report on how voting is evolving and they can quickly signal to the authorities where issues need to be solved. 
 
-## Instalare
-In primul rand ai nevoie de o versiune recenta de Node.js. Am dezvoltat pe `node 7.0.0`, va recomandam [nvm](https://github.com/creationix/nvm) pentru o viata mai usoara si sanatoasa.
+Moreover, where it is allowed, observers can also photograph and film specific situations and send the images to the NGO they belong to. 
+
+The app also has a web version, available for every citizen who wants to report on election irregularities. Monitorizare Vot was launched in 2016 and it has been used for the Romanian parliamentary elections so far, but it is available for further use, regardless of the type of elections or voting process. 
+
+[Built with](#built-with) | [Repos and projects](#repos-and-projects) | [Deployment](#deployment) | [Contributing](#contributing) | [Feedback](#feedback) | [License](#license) | [About Code4Ro](#about-code4ro)
+
+## Built With
+
+The app is based on [React Boilerplate](https://github.com/mxstbr/react-boilerplate/), uses [Styled components](https://github.com/styled-components/styled-components) and [Material-UI](https://github.com/callemall/material-ui) for the UI elements.
+
+## Repos and projects
+
+Related projects:
+
+https://github.com/code4romania/monitorizare-vot-votanti-api/
+
+https://github.com/code4romania/monitorizare-vot
+
+https://github.com/code4romania/monitorizare-vot-admin
+
+https://github.com/code4romania/monitorizare-vot-ong
+
+https://github.com/code4romania/monitorizare-vot-android
+
+https://github.com/code4romania/monitorizare-vot-ios
+
+https://github.com/code4romania/monitorizare-vot-docs
+
+https://github.com/code4romania/monitorizare-vot-votanti-admin
+
+## Deployment
+
+First, you need a recent version on Node.js. We used `node 7.0.0` for development and we recommend [nvm](https://github.com/creationix/nvm).
 
 ```
 $ npm install
 $ npm run start
-$ npm run build && cd biuld && http-server
+$ npm run build && cd build && http-server
 ```
 
-*Daca ai [Yarn](https://yarnpkg.com/), foloseste-l pentru instalarea dependintelor, este mult mai rapid.*
-*http-server nu face parte din dependintele proiectului*
+*If you have [Yarn](https://yarnpkg.com/), you it to install the dependencies, it's much faster.*
+*http-server is not part of the projects dependencies*
+
+## Contributing
+
+If you would like to contribute to one of our repositories, first identify the scale of what you would like to contribute. If it is small (grammar/spelling or a bug fix) feel free to start working on a fix. If you are submitting a feature or substantial code contribution, please discuss it with the team and ensure it follows the product roadmap.
+
+* Fork it (https://github.com/code4romania/monitorizare-vot-votanti-client/fork)
+* Create your feature branch (git checkout -b feature/fooBar)
+* Commit your changes (git commit -am 'Add some fooBar')
+* Push to the branch (git push origin feature/fooBar)
+* Create a new Pull Request
+
+[Pending issues](https://github.com/code4romania/monitorizare-vot-votanti-client/issues)
+
+## Feedback
+
+* Request a new feature on GitHub.
+* Vote for popular feature requests.
+* File a bug in GitHub Issues.
+* Email us with other feedback contact@code4.ro
+
+## License
+
+This project is licensed under the MPL 2.0 License - see the [LICENSE](LICENSE) file for details
+
+## About Code4Ro
+
+Started in 2016, Code for Romania is a civic tech NGO, official member of the Code for All network. We have a community of over 500 volunteers (developers, ux/ui, communications, data scientists, graphic designers, devops, it security and more) who work pro-bono for developing digital solutions to solve social problems. #techforsocialgood. If you want to learn more details about our projects [visit our site](https://www.code4.ro/en/) or if you want to talk to one of our staff members, please e-mail us at contact@code4.ro.
+
+Last, but not least, we rely on donations to ensure the infrastructure, logistics and management of our community that is widely spread accross 11 timezones, coding for social change to make Romania and the world a better place. If you want to support us, [you can do it here](https://code4.ro/en/donate/).
