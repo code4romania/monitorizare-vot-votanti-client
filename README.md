@@ -22,21 +22,17 @@ The app is based on [React Boilerplate](https://github.com/mxstbr/react-boilerpl
 
 Related projects:
 
-https://github.com/code4romania/monitorizare-vot-votanti-api/
+- repo for the API - https://github.com/code4romania/monitorizare-vot-votanti-api/
+- repo for admin app - https://github.com/code4romania/monitorizare-vot-votanti-admin
 
-https://github.com/code4romania/monitorizare-vot
+Other MV related repos:
 
-https://github.com/code4romania/monitorizare-vot-admin
-
-https://github.com/code4romania/monitorizare-vot-ong
-
-https://github.com/code4romania/monitorizare-vot-android
-
-https://github.com/code4romania/monitorizare-vot-ios
-
-https://github.com/code4romania/monitorizare-vot-docs
-
-https://github.com/code4romania/monitorizare-vot-votanti-admin
+- https://github.com/code4romania/monitorizare-vot
+- https://github.com/code4romania/monitorizare-vot-android
+- https://github.com/code4romania/monitorizare-vot-ios
+- https://github.com/code4romania/monitorizare-vot-admin
+- https://github.com/code4romania/monitorizare-vot-ong
+- https://github.com/code4romania/monitorizare-vot-docs
 
 ## Deployment
 
