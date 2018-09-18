@@ -69,14 +69,6 @@ const AddIncident = styled.div`
   }
 `;
 
-const Counter = styled.span`
-  margin-top: 5px;
-  float: right;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 1px;
-`;
-
 export class LeftContainer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -84,10 +76,7 @@ export class LeftContainer extends React.PureComponent {
     this.state = {
       nume: '',
       prenume: '',
-      description: {
-        value: '',
-        characterCount: 0,
-      },
+      description: '',
       tipulDeProblema: {
         value: 'Alege tipul sesizării',
       },
@@ -113,16 +102,6 @@ export class LeftContainer extends React.PureComponent {
     }
   }
 
-  getNumberOfCharacters = (event) => {
-    this.setState({
-      description: {
-        value: event.target.value,
-        characterCount: event.target.value.length,
-      },
-    });
-    this.props.setDescription(event.target.value);
-  }
-
   setIncidentType = (event, index, value) => {
     this.setState({ value });
     this.props.setIncidentId(value);
@@ -134,6 +113,11 @@ export class LeftContainer extends React.PureComponent {
     if (precint) {
       this.props.setPrecintId(precint.id);
     }
+  }
+
+  handleOnChangeDescription = (event, value) => {
+    this.setState({ description: value });
+    this.props.setDescription(value);
   }
 
   handleOnChangeInputNume = (event, value) => {
@@ -203,7 +187,7 @@ export class LeftContainer extends React.PureComponent {
   };
 
   render() {
-    const isValid = this.state.nume.length > 0 && this.state.prenume.length > 0 && this.props.countyId && this.props.cityId && this.state.description.characterCount && this.props.incidentId && this.props.token !== undefined;
+    const isValid = this.state.nume.length > 0 && this.state.prenume.length > 0 && this.props.countyId && this.props.cityId && this.state.description && this.props.incidentId && this.props.token !== undefined;
     return (
       <StickyContainer className="col-xs-12 col-lg-7 form-col">
         <Interact className="interact">
@@ -214,20 +198,18 @@ export class LeftContainer extends React.PureComponent {
             <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12">
                 <TextField
-                  hintText="Da-ne mai multe detalii despre ce s-a întamplat, în maxim 300 de caractere"
+                  hintText="Da-ne mai multe detalii despre ce s-a întamplat"
                   floatingLabelText="Sesizarea ta"
                   floatingLabelFixed
                   fullWidth
                   required
                   multiLine
                   rows={3}
-                  maxLength={300}
 
                   name={'Text sesizare'}
                   defaultValue={this.props.description}
-                  onChange={this.getNumberOfCharacters}
+                  onChange={this.handleOnChangeDescription}
                 />
-                <Counter>{this.state.description.characterCount}/300</Counter>
               </div>
 
               <div className="col-xs-12 col-sm-6">
