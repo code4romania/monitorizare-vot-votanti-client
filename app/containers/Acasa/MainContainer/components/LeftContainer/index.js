@@ -198,7 +198,7 @@ export class LeftContainer extends React.PureComponent {
             <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12">
                 <TextField
-                  hintText="Da-ne mai multe detalii despre ce s-a întamplat"
+                  hintText="Dă-ne mai multe detalii despre ce s-a întâmplat"
                   floatingLabelText="Sesizarea ta"
                   floatingLabelFixed
                   fullWidth
