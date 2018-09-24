@@ -9,7 +9,14 @@ function Hero() {
             Cum fac o sesizare?
           </h1>
           <p>
-            Vrei să trimiți o sesizare, dar nu ești sigur dacă s-a încălcat o regulă? Verifică mai jos, în ghidul alegătorului, care sunt regulile de vot, pentru a transmite informații corecte și utile.<br />Pentru a ne asigura ca sesizările privesc exact subiectul alegerilor, acestea vor fi postate pe site după o verificare făcută de echipa proiectului.
+            Vrei să trimiți o sesizare, dar nu ești sigur dacă s-a încălcat o
+            regulă? Verifică mai jos, în ghidul alegătorului, care sunt regulile
+            de vot la referendum, pentru a transmite informații corecte și
+            utile.<br />
+
+            Pentru a ne asigura ca sesizările privesc exact subiectul
+            referendumului pentru familie din 2018, acestea vor fi postate pe
+            site după o verificare făcută de echipa proiectului.
           </p>
         </div>
       </div>
