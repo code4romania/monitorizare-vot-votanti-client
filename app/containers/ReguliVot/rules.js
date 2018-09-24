@@ -6,18 +6,11 @@ const rules = [
     id: 1,
     icon: 'info',
     content: '<h1>Informații generale</h1>\n\
-      <h2>Cine are dreptul de a vota la secțiile de votare din țară?</h2>\n\
-      <p>Pot vota în țară cetățenii români care îndeplinesc următoarele condiţii:</p>\n\
-      <ul>\n\
-        <li>au domiciliul sau reședința în România;</li>\n\
-        <li>au vârsta de cel puţin 18 ani, dacă această vârstă a fost împlinită până în ziua alegerilor inclusiv. [Art. 2 alin. (4) din Legea nr. 208/2015]</li>\n\
-      </ul>\n\
-      <h2>Cine nu are dreptul de a alege?</h2>\n\
-      <p>Nu pot alege:</p>\n\
-      <ul>\n\
-        <li>debilii sau alienații mintal, puși sub interdicție;</li>\n\
-        <li>persoanele cărora li s-a interzis exercitarea dreptului de a alege, pe durata stabilită prin hotărâre judecătorească definitivă. [Art. 2 alin. (5) lit. a) și b) din Legea nr. 208/2015]</li>\n\
-      </ul>',
+      <h2>Cine are dreptul de a vota la referendumul pentru familie 2018?</h2>\n\
+      <p>\n\
+        Au dreptul de a participa la referendum toți cetățenii români care au împlinit vârsta de 18 ani până în ziua referendumului inclusiv, cu excepția debililor sau a alienaților mintal puși sub interdicție, precum și a persoanelor condamnate prin hotărâre judecătorească definitivă la pierderea drepturilor electorale.<br/>\n\
+        Art 4 din Legea 3/2000\n\
+      </p>',
   },
   {
     titlu: 'Unde votăm',
