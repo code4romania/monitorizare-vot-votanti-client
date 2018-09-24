@@ -40,9 +40,7 @@ const rules = [
     id: 3,
     icon: 'clock',
     content: '<h1>Programul de votare</h1>\n\
-      <p>Votarea se desfășoară duminică, 11 decembrie 2016, între orele 7.00 şi 21.00.</p>\n\
-      <p>La ora 21.00, preşedintele biroului electoral al secţiei de votare declară votarea încheiată şi dispune închiderea localului secţiei de vot. [Art. 88 alin. (1) din Legea nr. 208/2015]</p>\n\
-      <p>Alegătorilor care la ora 21.00 se află în sala unde se votează li se permite să îşi exercite dreptul de vot. [Art. 88 alin. (2) din Legea nr. 208/2015]</p>',
+      <p>Referendumul pentru familie se desfășoară pe parcursul a două zile - pe 6 și 7 octombrie 2018, iar secțiile de votare sunt deschise între orele 7:00 și 21:00. La ora 21:00 mai pot vota doar alegătorii care se află în sala unde se votează.</p>',
   },
   {
     titlu: 'Sistemul informatic',
