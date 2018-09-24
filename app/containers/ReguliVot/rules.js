@@ -43,35 +43,20 @@ const rules = [
       <p>Referendumul pentru familie se desfășoară pe parcursul a două zile - pe 6 și 7 octombrie 2018, iar secțiile de votare sunt deschise între orele 7:00 și 21:00. La ora 21:00 mai pot vota doar alegătorii care se află în sala unde se votează.</p>',
   },
   {
-    titlu: 'Sistemul informatic',
+    titlu: 'Buletinul de vot',
     id: 4,
     icon: 'system',
-    content: '<h1>Sistemul informatic (SIMPV)</h1>\n\
-      <p>Accesul alegătorilor în sala de votare are loc în serii corespunzătoare numărului cabinelor. Fiecare alegător prezintă actul de identitate şi, după caz, documentul care dovedeşte reşedinţa operatorului de calculator al biroului electoral al secţiei de votare, care înscrie codul numeric personal al alegătorului în Sistemul informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal. [Art. 84 alin. (2) din Legea nr. 208/2015]</p>\n\
-      <p>În cazul în care alegătorul nu figurează în lista electorală permanentă existentă în secţia de votare respectivă.</p>\n\
-      <p>Sistemul informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal semnalează dacă:</p>\n\
+    content: '<h2>Cum arată un buletin de vot nul</h2>\n\
+      <p>Sunt nule buletinele de vot care:</p>\n\
       <ul>\n\
-        <li>persoana care s-a prezentat la vot a împlinit vârsta de 18 ani până în ziua votării inclusiv;</li>\n\
-        <li>persoana care s-a prezentat la vot şi-a pierdut drepturile electorale;</li>\n\
-        <li>persoana care s-a prezentat la vot este arondată la altă secţie de votare;</li>\n\
-        <li>persoana care s-a prezentat la vot este omisă din lista electorală permanentă, are domiciliul sau reşedinţa în raza teritorială a secţiei de votare respective şi dacă a formulat o solicitare de a fi înscrisă în Registrul electoral cu adresa de reşedinţă;</li>\n\
-        <li>persoana care s-a prezentat la vot şi-a mai exercitat dreptul de vot la acelaşi scrutin.</li>\n\
+        <li>nu poartă ștampila de control a secției de votare</li>\n\
+        <li>buletinele de un alt model decât cel legal aprobat,</li>\n\
+        <li>cele pe care ștampila „Votat” a fost aplicată în ambele pătrate sau nu a fost aplicată pe nici unul dintre ele.</li>\n\
       </ul>\n\
-      <p>În baza rezultatelor generate de Sistemul informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal, a comunicărilor efectuate prin intermediul acestuia şi a verificării actului de identitate, preşedintele biroului electoral al secţiei de votare:</p>\n\
-      <ul>\n\
-        <li>opreşte de la votare persoana care nu a împlinit vârsta de 18 ani până în ziua votării, persoana care şi-a pierdut drepturile electorale şi persoana care a optat să voteze prin corespondenţă;</li>\n\
-        <li>îndrumă alegătorul să voteze la secţia de votare la care este arondat, în cazul în care este arondat la altă secţie de votare;</li>\n\
-        <li>îndrumă alegătorul să voteze la secţia de votare unde a fost arondat conform reşedinţei, în cazul în care acesta a fost înscris în Registrul electoral cu adresa de reşedinţă; Ghidul alegătorului român cu domiciliul sau reşedinţa în ţară</li>\n\
-        <li>înscrie în lista electorală suplimentară persoana care s-a prezentat la vot, este omisă din lista electorală permanentă, are domiciliul sau reşedinţa în raza teritorială a secţiei de votare respective; în cazul în care persoana omisă este înscrisă în lista electorală permanentă existentă la altă secţie de votare, preşedintele biroului electoral al acelei secţii de votare va fi notificat de către sistemul informatic în acest sens şi va radia persoana respectivă din lista electorală permanentă; după ce alegătorul semnează în lista electorală suplimentară îi încredinţează buletinele de vot şi ştampila cu menţiunea "VOTAT";</li>\n\
-        <li>înscrie în lista electorală suplimentară persoana care s-a prezentat la vot, are domiciliul sau reşedinţa în altă unitate administrativ-teritorială din cadrul aceleiaşi circumscripţii electorale;</li>\n\
-        <li>permite alegătorului care îndeplineşte condiţiile prevăzute de lege şi este înscris în lista electorală permanentă să voteze; în acest sens, după ce alegătorul semnează în lista electorală permanentă îi încredinţează buletinele de vot şi ştampila cu menţiunea "VOTAT". [Art. 84 alin. (3) – (4) din Legea nr. 208/2015]</li>\n\
-      </ul>\n\
-      <h2>Ce se întâmplă în cazul unei disfuncționalități a SIMPV?</h2>\n\
-      <p>Disfuncţionalitatea Sistemului informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal nu poate determina suspendarea sau întreruperea votării. În această situaţie, alegătorii prezintă actul de identitate operatorului de calculator sau membrului biroului electoral al secţiei de votare desemnat de preşedintele acestuia, care consemnează pe suport electronic sau de hârtie, după caz, codurile numerice personale ale alegătorilor şi ora la care s-au prezentat la vot. [Art. 87 alin. (1) din Legea nr. 208/2015]</p>\n\
-      <p>Pe perioada disfuncţionalităţii SIMPV, în cazul în care terminalul informatic este funcţional, alegătorii prezintă actele de identitate operatorului de calculator care consemnează în ADV, în modul off-line, codurile numerice personale ale alegătorilor care se prezintă la vot.</p>\n\
-      <p>Pe perioada disfuncţionalităţii SIMPV, în cazul în care terminalul informatic nu este funcţional, alegătorii prezintă actele de identitate membrului biroului electoral al secţiei de votare desemnat de preşedintele acestuia, care consemnează într-un formular codurile numerice personale ale alegătorilor şi ora la care s-au prezentat la vot.</p>\n\
-      <p>După încetarea disfuncţionalităţii terminalului informatic sau după înlocuirea acestuia de către Serviciul de Telecomunicaţii Speciale, până la ora 21.00 a zilei votării, operatorul de calculator va introduce codurile numerice personale ale alegătorilor care s-au prezentat la vot pe perioada disfuncţionalităţii acestuia.</p>\n\
-      <p>După încetarea disfuncţionalităţii SIMPV, în cazul în care terminalul informatic este funcţional, datele înscrise în ADV în modul off-line sunt transmise automat către Sistemul informatic central. [Art. 25 alin. (1) – (4) din Hotărârea AEP nr. 9/2015, cu modificările și completările ulterioare]</p>',
+      <p>\n\
+        Dacă ștampila depășește laturile pătratului, însă opțiunea este evidentă, buletinul nu va fi socotit nul.<br/>\n\
+        Buletinele nule nu intră în calculul voturilor valabil exprimate.\n\
+      </p>',
   },
   {
     titlu: 'Votarea',
