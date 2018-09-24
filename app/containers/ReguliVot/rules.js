@@ -105,18 +105,25 @@ const rules = [
       </p>',
   },
   {
-    titlu: 'Organismele electorale',
+    titlu: 'Documente necesare',
     id: 7,
     icon: 'building',
-    content: '<h1>Organismele electorale</h1>\n\
-      <p>În perioada alegerilor organizate în țară se formează următoarele organisme electorale:</p>\n\
+    content: '<h2>De ce documente am nevoie ca sa pot vota</h2>\n\
+      <p>În ţară, alegătorii votează în baza</p>\n\
       <ul>\n\
-        <li>Biroul Electoral Central;</li>\n\
-        <li>birourile electorale de circumscripţie, la nivel judeţean și al municipiului Bucureşti;</li>\n\
-        <li>oficiile electorale ale sectoarelor municipiului Bucureşti;</li>\n\
-        <li>birourile electorale ale secţiilor de votare.</li>\n\
+        <li>cărţii de identitate</li>\n\
+        <li>a cărţii de identitate provizorie</li>\n\
+        <li>buletinului de identitate.</li>\n\
+        <li>nu se poate vota cu pașaportul în țară</li>\n\
+        <li>Elevii din şcolile militare votează în baza carnetului de serviciu militar.</li>\n\
       </ul>\n\
-      <p>[Art. 7 alin. (1) din Legea nr. 208/2015]</p>',
+      <p>\n\
+        În străinătate:\n\
+      </p>\n\
+      <ul>\n\
+        <li>Cetățenii români cu domiciul în străinătate votează pe baza pașaportului simplu, cu mențiunea privind stabilirea domiciului în străinătate</li>\n\
+        <li>Cetățenii români cu domiciul în România votează pe baza paşaportului simplu, a paşaportului de serviciu, a paşaportului diplomatic sau a cărţii de identitate</li>\n\
+      </ul>',
   },
   {
     titlu: 'Infracțiuni electorale',
