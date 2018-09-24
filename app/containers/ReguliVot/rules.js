@@ -126,40 +126,59 @@ const rules = [
       </ul>',
   },
   {
-    titlu: 'Infracțiuni electorale',
+    titlu: 'Tipuri de infracțiuni',
     id: 8,
     icon: 'police',
-    content: '<h1>Infracțiuni electorale</h1>\n\
-      <h2>Cine și unde poate sesiza comiterea unei infracțiuni electorale? </h2>\n\
-      <p>Orice persoană poate sesiza organele de cercetare penală sau organele de urmărire penală, după regulile generale de sesizare, prevăzute în art. 289 și art. 290 din Codul de procedură penală.</p>\n\
-      <h2>Cine și în ce condiții poate cere anularea alegerilor pentru fraudă electorală?</h2>\n\
-      <p>Cererea de anulare a alegerilor dintr-o secţie de votare sau circumscripţie electorală pentru fraudă electorală se poate face numai de către competitorii electorali care au participat la alegeri în circumscripţia electorală respectivă. Cererea se depune la Biroul Electoral Central în termen de cel mult 48 de ore de la data încheierii votării, sub sancţiunea decăderii. Cererea trebuie temeinic motivată şi însoţită de dovezile pe care se întemeiază. Lipsa probelor atrage respingerea cererii. [Art. 12 alin. (3) din Legea nr. 208/2015]</p>\n\
-      <h3>INFRACŢIUNI CONFORM CODULUI PENAL</h3>\n\
-      <h2>ART. 385 - Împiedicarea exercitării drepturilor electorale</h2>\n\
-      <p>(1) Împiedicarea, prin orice mijloace, a liberului exerciţiu al dreptului de a alege sau de a fi ales se pedepseşte cu închisoarea de la 6 luni la 3 ani.</p>\n\
-      <p>(2) Atacul, prin orice mijloace, asupra localului secţiei de votare se pedepseşte cu închisoarea de la 2 la 7 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <h2>ART. 386 – Coruperea alegătorilor</h2>\n\
-      <p>(1) Oferirea sau darea de bani, de bunuri ori de alte foloase în scopul determinării alegătorului să voteze sau să nu voteze o anumită listă de candidaţi ori un anumit candidat se pedepseşte cu închisoarea de la 6 luni la 3 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Nu intră în categoria bunurilor prevăzute în alin. (1) bunurile cu valoare simbolică, inscripţionate cu însemnele unei formaţiuni politice.</p>\n\
-      <h2>ART. 387 – Frauda la vot</h2>\n\
-      <p>(1) Fapta persoanei care votează:</p>\n\
-      <p>a) fără a avea acest drept;<br/>\n\
-      b) de două sau mai multe ori;<br/>\n\
-      c) prin introducerea în urnă a mai multor buletine de vot decât are dreptul un alegător se pedepseşte cu închisoare de la 6 luni la 3 ani sau cu amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Cu aceeaşi pedeapsă se sancţionează utilizarea unei cărţi de alegător sau a unui act de identitate nul ori fals sau a unui buletin de vot fals.</p>\n\
-      <h2>ART. 389 – Violarea confidenţialităţii votului</h2>\n\
-      <p>(1) Violarea prin orice mijloace a secretului votului se pedepseşte cu amendă.</p>\n\
-      <p>(2) Dacă fapta a fost comisă de un membru al biroului electoral al secţiei de votare, pedeapsa este închisoare de la 6 luni la 3 ani sau amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <h2>ART. 390 – Nerespectarea regimului urnei de vot</h2>\n\
-      <p>(1) Deschiderea urnelor, înainte de ora stabilită pentru închiderea votării, se pedepseşte cu închisoare de la unu la 3 ani sau cu amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Încredinţarea urnei speciale altor persoane decât membrilor biroului electoral al secţiei de votare ori transportarea acesteia de către alte persoane sau în alte condiţii decât cele prevăzute de lege se pedepseşte cu închisoare de la 3 luni la 2 ani sau cu amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <h2>ART. 391 – Falsificarea documentelor şi evidenţelor electorale</h2>\n\
-      <p>(1) Falsificarea prin orice mijloace a înscrisurilor de la birourile electorale se pedepseşte cu închisoarea de la unu la 5 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Cu aceeaşi pedeapsă se sancţionează şi înscrierea în copia de pe lista electorală permanentă ori de pe lista electorală complementară a unor persoane care nu figurează în această listă.</p>\n\
-      <p>(3) Introducerea în uz sau folosirea unui program informatic cu vicii care alterează înregistrarea ori însumarea rezultatelor obţinute în secţiile de votare sau determină repartizarea mandatelor în afara prevederilor legii se pedepseşte cu închisoarea de la 2 la 7 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(4) Cu aceeaşi pedeapsă se sancţionează introducerea de date, informaţii sau proceduri care duc la alterarea sistemului informaţional naţional necesar stabilirii rezultatelor alegerilor.</p>\n\
-      <h2>ART. 393 – Sancţionarea tentativei</h2>\n\
-      <p>Tentativa la infracţiunile prevăzute în art. 385 şi art. 387 – 391 se pedepseşte.</p>',
+    content: '<p>În timpul campaniei pentru referendum, probabil cea mai frecventă problemă întâlnită va fi cea legată de utilizarea unor mesaje instigatoare la ură sau care promovează valori care încalcă principiile democrației și drepturile omului. Dacă auzi de astfel de incidente, de campanie în școli sau în instituții publice, de presiuni ale angajatorilor sau ale autorităților locale, te rugăm să ne informezi cât mai rapid. Problemele legate de campanie le poți reclama la birourile electorale de circumscripție județeană.</p>\n\
+      <h2>Care sunt cele mai frecvente nereguli care pot apărea pe parcursul votului la referendum: Presiuni ale administrației locale sau ale altor instituții / aglomerație la secția de votare</h2>\n\
+      <ul>\n\
+        <li>Prezenţa reprezentanţilor poliţiei sau autorităţilor locale în vecinătatea secţiei de votare poate fi un instrument de intimidare, deoarece poate sugera că autorităţile monitorizează prezentarea sau neprezentarea alegătorilor la vot.</li>\n\
+        <li>Acţiuni inoportune din partea forţelor de ordine şi/sau poliţiei, ca de exemplu notarea sau raportarea prin telefon a datelor privind prezenţa la vot sau rezultatelor.</li>\n\
+        <li>Prezenţa unor grupuri numeroase de alegători în vecinătatea secţiilor de votare poate indica faptul că participarea acestora la vot este coordonată şi/sau nu rezultă din voinţa proprie;</li>\n\
+      </ul>\n\
+      <h2>Indicii pentru potențiale fraude/abuzuri</h2>\n\
+      <ul>\n\
+        <li>Votarea în grup, votul multiplu</li>\n\
+        <li>Introducerea în urnă a mai multor buletine de vot decât cele la care au dreptul alegătorii</li>\n\
+        <li>Buletine de vot dinainte marcate</li>\n\
+        <li>Invalidarea arbitrară sau inconsecventă a buletinelor de vot</li>\n\
+        <li>Pierderea unor buletine sau urne de vot</li>\n\
+        <li>Utilizarea neregulamentară sau abuzivă a urnelor mobile; număr semnificativ de cereri privind urna mobilă; presiuni privind votul cu urna mobilă în spitale sau închisori</li>\n\
+        <li>Cazurile în care secretul votului nu este asigurat, cabine de vot deschise</li>\n\
+        <li>Limitarea dreptului alegătorilor de a-şi exprima votul din motive nejustificate</li>\n\
+        <li>Înlocuirea urnei de vot cu o altă urnă de vot</li>\n\
+        <li>Numărarea voturilor sau înregistrarea rezultatelor intenţionat incorectă</li>\n\
+        <li>Adăugarea unor buletine de vot după deschiderea urnei de vot</li>\n\
+        <li>Procesele verbale ce conţin rezultatele referendumului nu sunt completate la secţia de votare sau sunt completate cu creionul şi nu cu cerneală</li>\n\
+        <li>Falsificarea sau înlocuirea proceselor verbale</li>\n\
+      </ul>\n\
+      <h2>Listele electorale</h2>\n\
+      <ul>\n\
+        <li>Înscrieri fictive în listele suplimentare sau înscrierea unui număr anormal de mare de persoane</li>\n\
+        <li>Inadvertenţe în listele de alegători</li>\n\
+      </ul>\n\
+      <h2>Legate de secția de votare/ziua votului</h2>\n\
+      <ul>\n\
+        <li>Deschiderea cu întârziere a secţiilor de votare, întârzieri excesive în administrarea votării</li>\n\
+        <li>Absenţa materialelor electorale necesare (tuș, ștampile, urna mobilă, cabine de vot etc)</li>\n\
+        <li>Urnă nesigilată sau sigilată necorespunzător (nu există un model standard pentru sigiliu, deci fiecare secție de votare are propriile metode; în general este o bandă albă, peste care se aplică ștampila de control a secției de votare)</li>\n\
+        <li>Confuzie sau lipsă de organizare, cazuri în care membrii comisiilor de votare nu urmează procedurile</li>\n\
+        <li>Prezenţa persoanelor neautorizate în secţiile de votare (primari, consilieri locali, membri de partid etc)</li>\n\
+        <li>Cazurile în care identitatea alegătorilor nu este verificată</li>\n\
+        <li>Activităţi inoportune din partea reprezentanţilor candidaţilor sau partidelor politice, imixtiuni în activitatea birourilor electorale sau observatorilor</li>\n\
+        <li>Păstrarea în condiţii precare a buletinelor de vot neutilizate</li>\n\
+        <li>Excluderea unor membri ai comisiilor de votare sau unor observatori pe motive nejustificate</li>\n\
+        <li>Însoțirea frecventă de către membri ai birourilor electorale, observatori sau alte persoane a unor persoane care au dificultăți în a vota</li>\n\
+      </ul>\n\
+      <h2>Numărarea voturilor (pentru persoanele acreditate)</h2>\n\
+      <ul>\n\
+        <li>Proceduri dezordonate de numărare a voturilor</li>\n\
+        <li>Personal insuficient pentru efectuarea şi supravegherea numărării voturilor</li>\n\
+        <li>Transportarea materialelor electorale la biroul electoral de circumscriptie nu se efectuează în condiţii de siguranţă</li>\n\
+        <li>Lipsa transparenţei sau proceduri nereglementare constatate în cursul centralizării voturilor</li>\n\
+        <li>Participarea la numărarea voturilor a persoanelor neautorizate (membri de partid, primar, parlamentari, observatori etc)</li>\n\
+      </ul>\n\
+      <p>Informații preluate parțial din <a href="https://www.osce.org/ro/odihr/elections/70293?download=true" target="_blank">Manualul de observare a alegerilor, OSCE/ODIHR</a>; completate cu informații din experiențele anterioare de observare. Vezi și <a href="https://votcorect.ro/wp-content/uploads/2016/12/Manualul-Observatorului.pdf" target="_blank">Manualul Observatorului</a>.</p>',
   },
 ];
 
