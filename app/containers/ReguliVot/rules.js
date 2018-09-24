@@ -91,9 +91,18 @@ const rules = [
     titlu: 'Urna specială',
     id: 6,
     icon: 'box',
-    content: '<h1>Urna specială</h1>\n\
-      <p>Cetăţenii cu drept de vot din circumscripţia electorală respectivă care nu se pot deplasa la sediul secţiei de votare din cauză de boală sau invaliditate. Preşedintele biroului electoral al secţiei de votare poate aproba, la cererea scrisă a acestora, însoţită de copii ale actelor din care rezultă starea de sănătate ori de invaliditate, înregistrată la cea mai apropiată secţie de votare de locul în care se află în ziua votării, ca o echipă formată din cel puţin 2 membri ai biroului electoral să se deplaseze cu o urnă specială şi cu materialul necesar votării – ştampilă cu menţiunea "VOTAT" şi buletine de vot – la locul unde se află alegătorul, pentru a se efectua votarea. În cazul cetăţenilor care nu se pot deplasa la sediul secţiei de votare, cererile scrise se pot transmite prin intermediul altor persoane sau prin intermediul personalului de specialitate din unităţile medicale unde se află internaţi, după caz. [Art. 85 alin. (10) din Legea nr. 208/2015] </p>\n\
-      <p>Persoanele reţinute, deţinute în baza unui mandat de arestare preventivă ori asupra cărora s-a dispus măsura preventivă a arestului la domiciliu sau persoanele care execută o pedeapsă privativă de libertate, dar care nu şi-au pierdut drepturile electorale. Procedura de exercitare a dreptului de vot de către această categorie de alegători este stabilită prin decizie a Biroului Electoral Central. În aceste condiții pot vota numai persoanele care sunt înscrise în listele electorale permanente ale circumscripţiei electorale în care au loc alegeri. [Art. 117 alin. (2) și (3) din Legea nr. 208/2015]</p>',
+    content: '<h1>Solicitarea urnei speciale</h1>\n\
+      <p>\n\
+        Alegătorii care nu se pot deplasa la secția de votare din cauză de boală sau invaliditate pot solicita urna specială (mobilă) de la secţia de votare cea mai apropiată de locul în care se află în ziua alegerilor printr-o cerere scrisă însoțită de documente justificative. În ziua alegerilor, o echipă formată din doi membri ai biroului electoral se va deplasa sub paza personalului MAI la locul unde se află alegătorul, cu urna specială și materialele necesare votării. Fiecare secție de votare are o singură urnă specială, care trebuie să fie la ora 21:00 înapoi la secția de votare. Alegătorii care nu se pot deplasa la sediul secţiei de votare pot trimite cererile scrise prin intermediul altor persoane sau prin intermediul personalului de specialitate din unităţile medicale unde se află internaţi.\n\
+      </p>\n\
+      <p>\n\
+        Având în vedere că legea nu specifică clar termenele limită pentru depunerea cererilor pentru urna specială, vă sfătuim să le depuneți pe 5 octombrie, seara, între 18 și 20, când membrii biroului electoral al secției de votare se întrunesc la sediul acesteia. Din experiențele trecute, unii președinți de secții de votare nu acceptă cereri în ziua votului.\n\
+      </p>\n\
+      <p>\n\
+        Art 31 (4) din Legea 3/2000<br/>\n\
+        Pentru persoanele netransportabile din cauză de boală sau invaliditate, la cererea celor aflați în această situație sau la cererea organelor de conducere ale instituțiilor sanitare sau de ocrotiri sociale, în care cei netransportabili se află internați, președintele biroului electoral al secției de votare desemnează din cadrul biroului un număr de membri care se deplasează cu o urnă specială și cu materialul necesar votării la locul unde se află cel în cauză, pentru a se efectua votarea.<br/>\n\
+        Art 40 din Legea 3/2000\n\
+      </p>',
   },
   {
     titlu: 'Organismele electorale',
