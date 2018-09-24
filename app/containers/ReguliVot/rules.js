@@ -62,14 +62,30 @@ const rules = [
     titlu: 'Votarea',
     id: 5,
     icon: 'vote',
-    content: '<h1>Votarea</h1>\n\
-      <p>Alegătorii votează separat, în cabine închise, aplicând ştampila cu menţiunea "VOTAT" în patrulaterul care cuprinde lista de candidaţi sau numele candidatului pe care îl votează.</p>\n\
-      <p>Ştampila cu menţiunea "VOTAT" trebuie să fie rotundă şi astfel dimensionată încât să fie mai mică decât patrulaterul în care se aplică.</p>\n\
-      <p>După ce au votat, alegătorii îndoaie buletinele de vot astfel ca pagina albă care poartă ştampila de control să rămână în afară şi le introduc în urnă, având grijă să nu se deschidă. Îndoirea greşită a buletinului de vot nu atrage nulitatea votului, dacă secretul votului este asigurat. </p>\n\
-      <p>În cazul în care buletinul de vot se deschide în aşa fel încât secretul votului nu mai este asigurat, acesta se anulează şi se dă alegătorului, numai o singură dată, un nou buletin de vot, făcându-se menţiune despre aceasta în procesul verbal al operaţiunilor de votare.</p>\n\
-      <p>Ştampila cu menţiunea "VOTAT", încredinţată pentru votare, se restituie preşedintelui, care o aplică pe actul de identitate, menţionând şi data scrutinului. În cazul alegătorilor care votează pe baza cărţii de identitate, pe versoul acesteia se aplică un timbru autocolant cu menţiunea "VOTAT" şi data scrutinului. [Art. 84 alin. (6) – (10) din Legea nr. 208/2015]</p>\n\
-      <h2>Ce se întâmplă dacă alegătorul nu poate să semneze în lista electorală?</h2>\n\
-      <p>În situaţia în care alegătorul, din motive bine întemeiate, constatate de către preşedintele biroului electoral al secţiei de votare, nu poate semna în lista electorală permanentă, preşedintele face o menţiune în lista electorală, confirmată prin semnătura sa şi a unui alt membru al biroului electoral. [Art. 84 alin. (5) din Legea nr. 208/2015]</p>',
+    content: '<h2>Cum votezi?</h2>\n\
+      <ul>\n\
+        <li>În secția de votare vei prezenta actul de identitate sau adeverința înlocuitoare membrilor secției de votare</li>\n\
+        <li>După verificarea prezenței pe lista permanentă sau înscrierea în lista suplimentară va înmâna un buletin de vot</li>\n\
+        <li>Înainte de a intra în cabina de vot, asiguraţi-vă că pe spatele buletinului de vot este aplicată ștampila de control a secției de votare. Dacă aceasta lipsește, votul va fi declarat nul!</li>\n\
+        <li>Dacă este aglomerație și credeţi că secretul votului dumneavoastră poate fi violat, mai bine mai așteptaţi sau înștiințaţi președintele secției de votare. Accesul alegătorilor în sala de votare trebuie să aibă loc în serii corespunzătoare numărului cabinelor.</li>\n\
+        <li>Aplicaţi ştampila cu menţiunea “VOTAT” înăuntrul unuia dintre cele 2 patrulatere</li>\n\
+        <li>Îndoiţi buletinul, astfel încât pagina goală care poartă ştampila de control a secției de votare [vezi model] să rămână în afară, și introduceţi-l apoi în urnă astfel încât să nu se deschidă; îndoirea greşită a buletinului de vot nu atrage nulitatea votului, dacă secretul votului este asigurat.</li>\n\
+        <li>Restituiţi ștampila și primiţi înapoi actul de identitate, pe care trebuie să fie aplicată ştampila cu menţiunea “VOTAT” (buletine) sau un timbru autocolant (cărțile de identitate) – <a href="http://www.roaep.ro/legislatie/wp-content/uploads/2018/09/Hot_AEP_441.pdf" target="_blank">vezi aici modelul timbrului</a></li>\n\
+      </ul>\n\
+      <p>\n\
+        Art 37 din Legea 3/2000<br/>\n\
+        Alegătorul care din motive temeinice nu poate vota singur poate fi însoțit în cabina de vot. Însoțitorul nu ar trebuie să fie din rândul persoanelor acreditate, al membrilor biroului electoral al secţiei de votare sau al candidaţilor.<br/>\n\
+        Art 39 (2) din Legea 3/2000\n\
+      </p>\n\
+      <h2>Rețineți că:</h2>\n\
+      <ul>\n\
+        <li>Preşedintele biroului electoral al secţiei de votare este obligat să ia măsurile necesare pentru ca alegerile să decurgă în bune condiţii. Atribuţiile acestuia, în această privinţă, se întind și în afara localului de vot, în curtea acestuia, la intrările în curte, în jurul localului de vot, precum și pe străzi și în piețe publice, până la o distanță de 500 de metri – Art 33 (2)</li>\n\
+        <li>Pentru motive întemeiate votarea se poate suspenda la decizia preşedintelui BESV. Suspendarea nu poate depăşi o oră în total şi trebuie afişată pe uşa secţiei de votare imediat. În timpul suspendării urnele de votare, ștampilele, buletinele de vot și toate lucrările biroului electoral vor rămâne sub pază permanentă. Art 38</li>\n\
+        <li>În afară de membrii biroului electoral al secției de votare și de delegații acreditați de Biroul Electoral Central nici o altă persoană nu poate staționa în locurile publice din zona de votare sau în localul de vot peste timpul necesar pentru efectuarea operațiunii de votare. – Art 33 (3)</li>\n\
+        <li>Comercializarea şi consumul băuturilor alcoolice în jurul secției de votare sunt interzise</li>\n\
+        <li>Campania în ziua referendumului este interzisă sub orice formă, în special în secția de votare. Dacă găsiţi afișe electorale în secția de votare sau pe clădirea unde este amplasată, raportaţi președintelui biroului electoral al secției de votare. Acesta dispune îndepărtarea materialelor de propagandă electorală de orice tip din şi de pe clădirea sediului secţiei de votare.</li>\n\
+        <li>Votul este secret; nu dezvăluţi cu cine aţi votat și nici nu permiteţi nimănui să violeze secretul opțiunii dumneavoastră. Nu fotografiaţi buletinul de vot și evitaţi fotografierea sau filmarea în secția de votare.</li>\n\
+      </ul>',
   },
   {
     titlu: 'Urna specială',
