@@ -17,31 +17,23 @@ const rules = [
     id: 2,
     icon: 'location',
     content: '<h1>Unde votăm</h1>\n\
-      <h2>Unde votează alegătorii români cu domiciliul sau reședința în țară?</h2>\n\
+      <h2>Dacă vă aflați pe teritoriul României în timpul referendumului pentru familie 2018:</h2>\n\
       <ul>\n\
-        <li>Alegătorii votează numai la secţia de votare la care este arondată strada sau localitatea unde îşi au domiciliul ori reşedinţa.</li>\n\
-        <li>În cazul în care, în ziua votării, alegătorii se află în altă unitate administrativ-teritorială din cadrul aceleiaşi circumscripţii electorale, aceştia pot vota la orice secţie de votare din cadrul circumscripţiei electorale unde îşi au domiciliul sau reşedinţa. [Art. 84 alin. (1) din Legea nr. 208/2015]</li>\n\
-        <li>Fiecare alegător are dreptul la un singur vot pentru alegerea Senatului şi la un singur vot pentru alegerea Camerei Deputaţilor. Fiecare alegător îşi exprimă votul personal. Exercitarea votului în numele altui alegător este interzisă. [Art. 3 alin. (1) și (2) din Legea nr. 208/2015]</li>\n\
+        <li>Veţi vota la secția unde sunteţi arondat, pe care o puteți afla pe de pagina web <a href="http://www.registrulelectoral.ro" target="_blank">www.registrulelectoral.ro</a>. Dacă nu vă aflaţi în localitatea de domiciliu în ziua alegerilor, puteți vota la orice secție, pe lista suplimentară.</li>\n\
+        <li>Cetățeanul care, în ziua referendumului național, se află într-o altă localitate decât cea în care este înscris în lista electorală poate să își exercite dreptul de vot în localitatea respectivă, la orice secție de votare, urmând a fi înscris într-o listă suplimentară de către președintele biroului electoral al secției de votare, pe baza actului de identitate sau a adeverinței care ține loc de act de identitate.</li>\n\
       </ul>\n\
-      <h2>Cu ce acte de identitate se poate vota la secțiile de votare organizate în România?</h2>\n\
-      <p>Cetăţenii români cu domiciliul sau reşedinţa în România care în ziua votării se află în ţară îşi pot exercita dreptul de vot la secţiile de votare organizate în România în baza unuia dintre următoarele acte de identitate, valabile în ziua votării:</p>\n\
-      <ul>\n\
-        <li>cartea de identitate;</li>\n\
-        <li>cartea electronică de identitate;</li>\n\
-        <li>cartea de identitate provizorie;</li>\n\
-        <li>buletinul de identitate;</li>\n\
-        <li>paşaportul diplomatic;</li>\n\
-        <li>paşaportul diplomatic electronic;</li>\n\
-        <li>paşaportul de serviciu;</li>\n\
-        <li>paşaportul de serviciu electronic;</li>\n\
-        <li>carnetul de serviciu militar, în cazul elevilor din şcolile militare. [Art. 83 alin. (1) din Legea nr. 208/2015]</li>\n\
-      </ul>\n\
-      <h2>Unde pot vota membrii birourilor electorale ale secţiilor de votare şi operatorii de calculator?</h2>\n\
-      <p>Membrii birourilor electorale ale secţiilor de votare şi operatorii de calculator pot vota în secția de votare în care activează, dacă au domiciliul sau reşedinţa pe raza circumscripţiei electorale în care se află secţia de votare respectivă. [Art. 51 alin. (2) lit. d) din Legea nr. 208/2015]</p>\n\
-      <h2>Unde pot vota candidații?</h2>\n\
-      <p>Candidaţii pot vota în orice secție de votare de pe raza circumscripției electorale în care candidează. [Art. 51 alin. (2) lit. f) din Legea nr. 208/2015]</p>\n\
-      <h2>Cum puteți afla la ce secție de votare sunteți arondat?</h2>\n\
-      <p>Accesați <a href="http://www.registrulelectoral.ro" target="_blank">www.registrulelectoral.ro</a> și introduceți datele personale solicitate pentru a afla secția de votare la care ați fost arondați, inclusiv adresa acesteia.</p>',
+      <p>\n\
+        Art 21, Legea 3/2000<br/>\n\
+        Dacă sunteţi omis/ă din lista permanentă, veţi fi înscris/ă pe lista suplimentară.<br/>\n\
+        Lista cu secțiile de votare poate fi <a href="http://www.roaep.ro/logistica/geografie-electorala/registrul-sectiilor-de-votare/" target="_blank">găsită aici.</a>\n\
+      </p>\n\
+      <h2>Dacă vă aflați în diaspora în timpul referendumului pentru familie 2018:</h2>\n\
+      <p>\n\
+        Puteți vota la oricare din secțiile de votare deschise pe lângă ambasade, consulate sau institute culturale, pe liste suplimentare. Votul nu este condiționat de înscrierea în Registrul electoral și nu vor exista liste permanente. Conform OUG 86/2018 se pot înființa și alte secții de votare, cu acordul autorităților străine.\n\
+      </p>\n\
+      <p>\n\
+        Harta secțiilor de votare din străinătate poate fi <a href="http://www.mae.ro/locatiile_sec%C5%A3iilor_de_votare" target="_blank">consultată aici</a>.\n\
+      </p>',
   },
   {
     titlu: 'Programul de votare',
