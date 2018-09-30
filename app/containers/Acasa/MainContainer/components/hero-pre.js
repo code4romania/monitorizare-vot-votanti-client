@@ -81,7 +81,7 @@ function HeroPre() {
       <div className="row">
         <div className="col-xs-12 col-md-offset-2 col-md-8">
           <div className="page-hero">
-            <h1>Pe 11 decembrie<br /> sesizează orice incident.</h1>
+            <h1>Sesizează orice neregulă ai remarcat în campania electorală sau în ziua votului.</h1>
             <Timer>
               <CountDown
                 date="2016-12-11T07:00:00.000Z"
@@ -105,7 +105,7 @@ function HeroPre() {
               <IconWrap><Icons icon="police" /></IconWrap>
             </IconsList>
 
-            <p>Pe 11 decembrie ajută România să aibă alegeri corecte!</p>
+            <p>Ajută România să aibă alegeri corecte!</p>
           </div>
         </div>
       </div>
