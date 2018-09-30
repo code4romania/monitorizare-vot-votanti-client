@@ -47,6 +47,15 @@ const MenuLink = styled(Link)`
   }
 `;
 
+const DonateMenuLink = styled(MenuLink)`
+  color: #22B968;
+
+  &:active,
+  &:focus {
+    color: #22B968;
+  }
+`;
+
 export default function OverlayNav(props) {
   return (
     <StyledNav show={props.show}>
@@ -59,6 +68,7 @@ export default function OverlayNav(props) {
           <li id="statistici"><MenuLink to="statistici">Statistici</MenuLink></li>
           <li id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></li>
           <li id="despre-noi"><MenuLink to="despre-noi">Despre noi</MenuLink></li>
+          <li id="doneaza"><DonateMenuLink href="https://code4.ro/doneaza/" target="_blank">Donează</DonateMenuLink></li>
         </ul>
       </div>
     </StyledNav>

@@ -46,6 +46,15 @@ const MenuLink = styled(Link)`
   }
 `;
 
+const DonateMenuLink = styled(MenuLink)`
+  color: #22B968;
+
+  &:active,
+  &:focus {
+    color: #22B968;
+  }
+`;
+
 export default class Menu extends React.PureComponent {
   componentDidMount() {
     const path = this.props.pathname.split('/');
@@ -67,6 +76,7 @@ export default class Menu extends React.PureComponent {
         <MenuItem id="statistici"><MenuLink to="statistici">Statistici</MenuLink></MenuItem>
         <MenuItem id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></MenuItem>
         <MenuItem id="despre-noi"><MenuLink to="despre-noi">Despre noi</MenuLink></MenuItem>
+        <MenuItem id="doneaza"><DonateMenuLink href="https://code4.ro/doneaza/" target="_blank">Donează</DonateMenuLink></MenuItem>
       </MenuList>
     );
   }
