@@ -154,7 +154,7 @@ export default function Footer() {
                 <Icons icon="code4" />
               </a>
               <Copyright>
-                &copy; 2016 Code for Society / Code for Romania.<br /> Organizație neguvernamentală independentă, neafiliată politic și apolitică.
+                &copy; 2018 Code for Romania.<br /> Organizație neguvernamentală independentă, neafiliată politic și apolitică.
               </Copyright>
             </Code4>
           </div>

@@ -6,160 +6,179 @@ const rules = [
     id: 1,
     icon: 'info',
     content: '<h1>Informații generale</h1>\n\
-      <h2>Cine are dreptul de a vota la secțiile de votare din țară?</h2>\n\
-      <p>Pot vota în țară cetățenii români care îndeplinesc următoarele condiţii:</p>\n\
-      <ul>\n\
-        <li>au domiciliul sau reședința în România;</li>\n\
-        <li>au vârsta de cel puţin 18 ani, dacă această vârstă a fost împlinită până în ziua alegerilor inclusiv. [Art. 2 alin. (4) din Legea nr. 208/2015]</li>\n\
-      </ul>\n\
-      <h2>Cine nu are dreptul de a alege?</h2>\n\
-      <p>Nu pot alege:</p>\n\
-      <ul>\n\
-        <li>debilii sau alienații mintal, puși sub interdicție;</li>\n\
-        <li>persoanele cărora li s-a interzis exercitarea dreptului de a alege, pe durata stabilită prin hotărâre judecătorească definitivă. [Art. 2 alin. (5) lit. a) și b) din Legea nr. 208/2015]</li>\n\
-      </ul>',
+      <h2>Cine are dreptul de a vota la referendumul pentru familie 2018?</h2>\n\
+      <p>\n\
+        Au dreptul de a participa la referendum toți cetățenii români care au împlinit vârsta de 18 ani până în ziua referendumului inclusiv, cu excepția debililor sau a alienaților mintal puși sub interdicție, precum și a persoanelor condamnate prin hotărâre judecătorească definitivă la pierderea drepturilor electorale.<br/>\n\
+        Art 4 din Legea 3/2000\n\
+      </p>',
   },
   {
     titlu: 'Unde votăm',
     id: 2,
     icon: 'location',
     content: '<h1>Unde votăm</h1>\n\
-      <h2>Unde votează alegătorii români cu domiciliul sau reședința în țară?</h2>\n\
+      <h2>Dacă vă aflați pe teritoriul României în timpul referendumului pentru familie 2018:</h2>\n\
       <ul>\n\
-        <li>Alegătorii votează numai la secţia de votare la care este arondată strada sau localitatea unde îşi au domiciliul ori reşedinţa.</li>\n\
-        <li>În cazul în care, în ziua votării, alegătorii se află în altă unitate administrativ-teritorială din cadrul aceleiaşi circumscripţii electorale, aceştia pot vota la orice secţie de votare din cadrul circumscripţiei electorale unde îşi au domiciliul sau reşedinţa. [Art. 84 alin. (1) din Legea nr. 208/2015]</li>\n\
-        <li>Fiecare alegător are dreptul la un singur vot pentru alegerea Senatului şi la un singur vot pentru alegerea Camerei Deputaţilor. Fiecare alegător îşi exprimă votul personal. Exercitarea votului în numele altui alegător este interzisă. [Art. 3 alin. (1) și (2) din Legea nr. 208/2015]</li>\n\
+        <li>Veţi vota la secția unde sunteţi arondat, pe care o puteți afla pe de pagina web <a href="http://www.registrulelectoral.ro" target="_blank">www.registrulelectoral.ro</a>. Dacă nu vă aflaţi în localitatea de domiciliu în ziua alegerilor, puteți vota la orice secție, pe lista suplimentară.</li>\n\
+        <li>Cetățeanul care, în ziua referendumului național, se află într-o altă localitate decât cea în care este înscris în lista electorală poate să își exercite dreptul de vot în localitatea respectivă, la orice secție de votare, urmând a fi înscris într-o listă suplimentară de către președintele biroului electoral al secției de votare, pe baza actului de identitate sau a adeverinței care ține loc de act de identitate.</li>\n\
       </ul>\n\
-      <h2>Cu ce acte de identitate se poate vota la secțiile de votare organizate în România?</h2>\n\
-      <p>Cetăţenii români cu domiciliul sau reşedinţa în România care în ziua votării se află în ţară îşi pot exercita dreptul de vot la secţiile de votare organizate în România în baza unuia dintre următoarele acte de identitate, valabile în ziua votării:</p>\n\
-      <ul>\n\
-        <li>cartea de identitate;</li>\n\
-        <li>cartea electronică de identitate;</li>\n\
-        <li>cartea de identitate provizorie;</li>\n\
-        <li>buletinul de identitate;</li>\n\
-        <li>paşaportul diplomatic;</li>\n\
-        <li>paşaportul diplomatic electronic;</li>\n\
-        <li>paşaportul de serviciu;</li>\n\
-        <li>paşaportul de serviciu electronic;</li>\n\
-        <li>carnetul de serviciu militar, în cazul elevilor din şcolile militare. [Art. 83 alin. (1) din Legea nr. 208/2015]</li>\n\
-      </ul>\n\
-      <h2>Unde pot vota membrii birourilor electorale ale secţiilor de votare şi operatorii de calculator?</h2>\n\
-      <p>Membrii birourilor electorale ale secţiilor de votare şi operatorii de calculator pot vota în secția de votare în care activează, dacă au domiciliul sau reşedinţa pe raza circumscripţiei electorale în care se află secţia de votare respectivă. [Art. 51 alin. (2) lit. d) din Legea nr. 208/2015]</p>\n\
-      <h2>Unde pot vota candidații?</h2>\n\
-      <p>Candidaţii pot vota în orice secție de votare de pe raza circumscripției electorale în care candidează. [Art. 51 alin. (2) lit. f) din Legea nr. 208/2015]</p>\n\
-      <h2>Cum puteți afla la ce secție de votare sunteți arondat?</h2>\n\
-      <p>Accesați <a href="http://www.registrulelectoral.ro" target="_blank">www.registrulelectoral.ro</a> și introduceți datele personale solicitate pentru a afla secția de votare la care ați fost arondați, inclusiv adresa acesteia.</p>',
+      <p>\n\
+        Art 21, Legea 3/2000<br/>\n\
+        Dacă sunteţi omis/ă din lista permanentă, veţi fi înscris/ă pe lista suplimentară.<br/>\n\
+        Lista cu secțiile de votare poate fi <a href="http://www.roaep.ro/logistica/geografie-electorala/registrul-sectiilor-de-votare/" target="_blank">găsită aici.</a>\n\
+      </p>\n\
+      <h2>Dacă vă aflați în diaspora în timpul referendumului pentru familie 2018:</h2>\n\
+      <p>\n\
+        Puteți vota la oricare din secțiile de votare deschise pe lângă ambasade, consulate sau institute culturale, pe liste suplimentare. Votul nu este condiționat de înscrierea în Registrul electoral și nu vor exista liste permanente. Conform OUG 86/2018 se pot înființa și alte secții de votare, cu acordul autorităților străine.\n\
+      </p>\n\
+      <p>\n\
+        Harta secțiilor de votare din străinătate poate fi <a href="http://www.mae.ro/locatiile_sec%C5%A3iilor_de_votare" target="_blank">consultată aici</a>.\n\
+      </p>',
   },
   {
     titlu: 'Programul de votare',
     id: 3,
     icon: 'clock',
     content: '<h1>Programul de votare</h1>\n\
-      <p>Votarea se desfășoară duminică, 11 decembrie 2016, între orele 7.00 şi 21.00.</p>\n\
-      <p>La ora 21.00, preşedintele biroului electoral al secţiei de votare declară votarea încheiată şi dispune închiderea localului secţiei de vot. [Art. 88 alin. (1) din Legea nr. 208/2015]</p>\n\
-      <p>Alegătorilor care la ora 21.00 se află în sala unde se votează li se permite să îşi exercite dreptul de vot. [Art. 88 alin. (2) din Legea nr. 208/2015]</p>',
+      <p>Referendumul pentru familie se desfășoară pe parcursul a două zile - pe 6 și 7 octombrie 2018, iar secțiile de votare sunt deschise între orele 7:00 și 21:00. La ora 21:00 mai pot vota doar alegătorii care se află în sala unde se votează.</p>',
   },
   {
-    titlu: 'Sistemul informatic',
+    titlu: 'Buletinul de vot',
     id: 4,
     icon: 'system',
-    content: '<h1>Sistemul informatic (SIMPV)</h1>\n\
-      <p>Accesul alegătorilor în sala de votare are loc în serii corespunzătoare numărului cabinelor. Fiecare alegător prezintă actul de identitate şi, după caz, documentul care dovedeşte reşedinţa operatorului de calculator al biroului electoral al secţiei de votare, care înscrie codul numeric personal al alegătorului în Sistemul informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal. [Art. 84 alin. (2) din Legea nr. 208/2015]</p>\n\
-      <p>În cazul în care alegătorul nu figurează în lista electorală permanentă existentă în secţia de votare respectivă.</p>\n\
-      <p>Sistemul informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal semnalează dacă:</p>\n\
+    content: '<h2>Cum arată un buletin de vot nul</h2>\n\
+      <p>Sunt nule buletinele de vot care:</p>\n\
       <ul>\n\
-        <li>persoana care s-a prezentat la vot a împlinit vârsta de 18 ani până în ziua votării inclusiv;</li>\n\
-        <li>persoana care s-a prezentat la vot şi-a pierdut drepturile electorale;</li>\n\
-        <li>persoana care s-a prezentat la vot este arondată la altă secţie de votare;</li>\n\
-        <li>persoana care s-a prezentat la vot este omisă din lista electorală permanentă, are domiciliul sau reşedinţa în raza teritorială a secţiei de votare respective şi dacă a formulat o solicitare de a fi înscrisă în Registrul electoral cu adresa de reşedinţă;</li>\n\
-        <li>persoana care s-a prezentat la vot şi-a mai exercitat dreptul de vot la acelaşi scrutin.</li>\n\
+        <li>nu poartă ștampila de control a secției de votare</li>\n\
+        <li>buletinele de un alt model decât cel legal aprobat,</li>\n\
+        <li>cele pe care ștampila „Votat” a fost aplicată în ambele pătrate sau nu a fost aplicată pe nici unul dintre ele.</li>\n\
       </ul>\n\
-      <p>În baza rezultatelor generate de Sistemul informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal, a comunicărilor efectuate prin intermediul acestuia şi a verificării actului de identitate, preşedintele biroului electoral al secţiei de votare:</p>\n\
-      <ul>\n\
-        <li>opreşte de la votare persoana care nu a împlinit vârsta de 18 ani până în ziua votării, persoana care şi-a pierdut drepturile electorale şi persoana care a optat să voteze prin corespondenţă;</li>\n\
-        <li>îndrumă alegătorul să voteze la secţia de votare la care este arondat, în cazul în care este arondat la altă secţie de votare;</li>\n\
-        <li>îndrumă alegătorul să voteze la secţia de votare unde a fost arondat conform reşedinţei, în cazul în care acesta a fost înscris în Registrul electoral cu adresa de reşedinţă; Ghidul alegătorului român cu domiciliul sau reşedinţa în ţară</li>\n\
-        <li>înscrie în lista electorală suplimentară persoana care s-a prezentat la vot, este omisă din lista electorală permanentă, are domiciliul sau reşedinţa în raza teritorială a secţiei de votare respective; în cazul în care persoana omisă este înscrisă în lista electorală permanentă existentă la altă secţie de votare, preşedintele biroului electoral al acelei secţii de votare va fi notificat de către sistemul informatic în acest sens şi va radia persoana respectivă din lista electorală permanentă; după ce alegătorul semnează în lista electorală suplimentară îi încredinţează buletinele de vot şi ştampila cu menţiunea "VOTAT";</li>\n\
-        <li>înscrie în lista electorală suplimentară persoana care s-a prezentat la vot, are domiciliul sau reşedinţa în altă unitate administrativ-teritorială din cadrul aceleiaşi circumscripţii electorale;</li>\n\
-        <li>permite alegătorului care îndeplineşte condiţiile prevăzute de lege şi este înscris în lista electorală permanentă să voteze; în acest sens, după ce alegătorul semnează în lista electorală permanentă îi încredinţează buletinele de vot şi ştampila cu menţiunea "VOTAT". [Art. 84 alin. (3) – (4) din Legea nr. 208/2015]</li>\n\
-      </ul>\n\
-      <h2>Ce se întâmplă în cazul unei disfuncționalități a SIMPV?</h2>\n\
-      <p>Disfuncţionalitatea Sistemului informatic de monitorizare a prezenţei la vot şi de prevenire a votului ilegal nu poate determina suspendarea sau întreruperea votării. În această situaţie, alegătorii prezintă actul de identitate operatorului de calculator sau membrului biroului electoral al secţiei de votare desemnat de preşedintele acestuia, care consemnează pe suport electronic sau de hârtie, după caz, codurile numerice personale ale alegătorilor şi ora la care s-au prezentat la vot. [Art. 87 alin. (1) din Legea nr. 208/2015]</p>\n\
-      <p>Pe perioada disfuncţionalităţii SIMPV, în cazul în care terminalul informatic este funcţional, alegătorii prezintă actele de identitate operatorului de calculator care consemnează în ADV, în modul off-line, codurile numerice personale ale alegătorilor care se prezintă la vot.</p>\n\
-      <p>Pe perioada disfuncţionalităţii SIMPV, în cazul în care terminalul informatic nu este funcţional, alegătorii prezintă actele de identitate membrului biroului electoral al secţiei de votare desemnat de preşedintele acestuia, care consemnează într-un formular codurile numerice personale ale alegătorilor şi ora la care s-au prezentat la vot.</p>\n\
-      <p>După încetarea disfuncţionalităţii terminalului informatic sau după înlocuirea acestuia de către Serviciul de Telecomunicaţii Speciale, până la ora 21.00 a zilei votării, operatorul de calculator va introduce codurile numerice personale ale alegătorilor care s-au prezentat la vot pe perioada disfuncţionalităţii acestuia.</p>\n\
-      <p>După încetarea disfuncţionalităţii SIMPV, în cazul în care terminalul informatic este funcţional, datele înscrise în ADV în modul off-line sunt transmise automat către Sistemul informatic central. [Art. 25 alin. (1) – (4) din Hotărârea AEP nr. 9/2015, cu modificările și completările ulterioare]</p>',
+      <p>\n\
+        Dacă ștampila depășește laturile pătratului, însă opțiunea este evidentă, buletinul nu va fi socotit nul.<br/>\n\
+        Buletinele nule nu intră în calculul voturilor valabil exprimate.\n\
+      </p>',
   },
   {
     titlu: 'Votarea',
     id: 5,
     icon: 'vote',
-    content: '<h1>Votarea</h1>\n\
-      <p>Alegătorii votează separat, în cabine închise, aplicând ştampila cu menţiunea "VOTAT" în patrulaterul care cuprinde lista de candidaţi sau numele candidatului pe care îl votează.</p>\n\
-      <p>Ştampila cu menţiunea "VOTAT" trebuie să fie rotundă şi astfel dimensionată încât să fie mai mică decât patrulaterul în care se aplică.</p>\n\
-      <p>După ce au votat, alegătorii îndoaie buletinele de vot astfel ca pagina albă care poartă ştampila de control să rămână în afară şi le introduc în urnă, având grijă să nu se deschidă. Îndoirea greşită a buletinului de vot nu atrage nulitatea votului, dacă secretul votului este asigurat. </p>\n\
-      <p>În cazul în care buletinul de vot se deschide în aşa fel încât secretul votului nu mai este asigurat, acesta se anulează şi se dă alegătorului, numai o singură dată, un nou buletin de vot, făcându-se menţiune despre aceasta în procesul verbal al operaţiunilor de votare.</p>\n\
-      <p>Ştampila cu menţiunea "VOTAT", încredinţată pentru votare, se restituie preşedintelui, care o aplică pe actul de identitate, menţionând şi data scrutinului. În cazul alegătorilor care votează pe baza cărţii de identitate, pe versoul acesteia se aplică un timbru autocolant cu menţiunea "VOTAT" şi data scrutinului. [Art. 84 alin. (6) – (10) din Legea nr. 208/2015]</p>\n\
-      <h2>Ce se întâmplă dacă alegătorul nu poate să semneze în lista electorală?</h2>\n\
-      <p>În situaţia în care alegătorul, din motive bine întemeiate, constatate de către preşedintele biroului electoral al secţiei de votare, nu poate semna în lista electorală permanentă, preşedintele face o menţiune în lista electorală, confirmată prin semnătura sa şi a unui alt membru al biroului electoral. [Art. 84 alin. (5) din Legea nr. 208/2015]</p>',
+    content: '<h2>Cum votezi?</h2>\n\
+      <ul>\n\
+        <li>În secția de votare vei prezenta actul de identitate sau adeverința înlocuitoare membrilor secției de votare</li>\n\
+        <li>După verificarea prezenței pe lista permanentă sau înscrierea în lista suplimentară va înmâna un buletin de vot</li>\n\
+        <li>Înainte de a intra în cabina de vot, asiguraţi-vă că pe spatele buletinului de vot este aplicată ștampila de control a secției de votare. Dacă aceasta lipsește, votul va fi declarat nul!</li>\n\
+        <li>Dacă este aglomerație și credeţi că secretul votului dumneavoastră poate fi violat, mai bine mai așteptaţi sau înștiințaţi președintele secției de votare. Accesul alegătorilor în sala de votare trebuie să aibă loc în serii corespunzătoare numărului cabinelor.</li>\n\
+        <li>Aplicaţi ştampila cu menţiunea “VOTAT” înăuntrul unuia dintre cele 2 patrulatere</li>\n\
+        <li>Îndoiţi buletinul, astfel încât pagina goală care poartă ştampila de control a secției de votare [vezi model] să rămână în afară, și introduceţi-l apoi în urnă astfel încât să nu se deschidă; îndoirea greşită a buletinului de vot nu atrage nulitatea votului, dacă secretul votului este asigurat.</li>\n\
+        <li>Restituiţi ștampila și primiţi înapoi actul de identitate, pe care trebuie să fie aplicată ştampila cu menţiunea “VOTAT” (buletine) sau un timbru autocolant (cărțile de identitate) – <a href="http://www.roaep.ro/legislatie/wp-content/uploads/2018/09/Hot_AEP_441.pdf" target="_blank">vezi aici modelul timbrului</a></li>\n\
+      </ul>\n\
+      <p>\n\
+        Art 37 din Legea 3/2000<br/>\n\
+        Alegătorul care din motive temeinice nu poate vota singur poate fi însoțit în cabina de vot. Însoțitorul nu ar trebuie să fie din rândul persoanelor acreditate, al membrilor biroului electoral al secţiei de votare sau al candidaţilor.<br/>\n\
+        Art 39 (2) din Legea 3/2000\n\
+      </p>\n\
+      <h2>Rețineți că:</h2>\n\
+      <ul>\n\
+        <li>Preşedintele biroului electoral al secţiei de votare este obligat să ia măsurile necesare pentru ca alegerile să decurgă în bune condiţii. Atribuţiile acestuia, în această privinţă, se întind și în afara localului de vot, în curtea acestuia, la intrările în curte, în jurul localului de vot, precum și pe străzi și în piețe publice, până la o distanță de 500 de metri – Art 33 (2)</li>\n\
+        <li>Pentru motive întemeiate votarea se poate suspenda la decizia preşedintelui BESV. Suspendarea nu poate depăşi o oră în total şi trebuie afişată pe uşa secţiei de votare imediat. În timpul suspendării urnele de votare, ștampilele, buletinele de vot și toate lucrările biroului electoral vor rămâne sub pază permanentă. Art 38</li>\n\
+        <li>În afară de membrii biroului electoral al secției de votare și de delegații acreditați de Biroul Electoral Central nici o altă persoană nu poate staționa în locurile publice din zona de votare sau în localul de vot peste timpul necesar pentru efectuarea operațiunii de votare. – Art 33 (3)</li>\n\
+        <li>Comercializarea şi consumul băuturilor alcoolice în jurul secției de votare sunt interzise</li>\n\
+        <li>Campania în ziua referendumului este interzisă sub orice formă, în special în secția de votare. Dacă găsiţi afișe electorale în secția de votare sau pe clădirea unde este amplasată, raportaţi președintelui biroului electoral al secției de votare. Acesta dispune îndepărtarea materialelor de propagandă electorală de orice tip din şi de pe clădirea sediului secţiei de votare.</li>\n\
+        <li>Votul este secret; nu dezvăluţi cu cine aţi votat și nici nu permiteţi nimănui să violeze secretul opțiunii dumneavoastră. Nu fotografiaţi buletinul de vot și evitaţi fotografierea sau filmarea în secția de votare.</li>\n\
+      </ul>',
   },
   {
     titlu: 'Urna specială',
     id: 6,
     icon: 'box',
-    content: '<h1>Urna specială</h1>\n\
-      <p>Cetăţenii cu drept de vot din circumscripţia electorală respectivă care nu se pot deplasa la sediul secţiei de votare din cauză de boală sau invaliditate. Preşedintele biroului electoral al secţiei de votare poate aproba, la cererea scrisă a acestora, însoţită de copii ale actelor din care rezultă starea de sănătate ori de invaliditate, înregistrată la cea mai apropiată secţie de votare de locul în care se află în ziua votării, ca o echipă formată din cel puţin 2 membri ai biroului electoral să se deplaseze cu o urnă specială şi cu materialul necesar votării – ştampilă cu menţiunea "VOTAT" şi buletine de vot – la locul unde se află alegătorul, pentru a se efectua votarea. În cazul cetăţenilor care nu se pot deplasa la sediul secţiei de votare, cererile scrise se pot transmite prin intermediul altor persoane sau prin intermediul personalului de specialitate din unităţile medicale unde se află internaţi, după caz. [Art. 85 alin. (10) din Legea nr. 208/2015] </p>\n\
-      <p>Persoanele reţinute, deţinute în baza unui mandat de arestare preventivă ori asupra cărora s-a dispus măsura preventivă a arestului la domiciliu sau persoanele care execută o pedeapsă privativă de libertate, dar care nu şi-au pierdut drepturile electorale. Procedura de exercitare a dreptului de vot de către această categorie de alegători este stabilită prin decizie a Biroului Electoral Central. În aceste condiții pot vota numai persoanele care sunt înscrise în listele electorale permanente ale circumscripţiei electorale în care au loc alegeri. [Art. 117 alin. (2) și (3) din Legea nr. 208/2015]</p>',
+    content: '<h1>Solicitarea urnei speciale</h1>\n\
+      <p>\n\
+        Alegătorii care nu se pot deplasa la secția de votare din cauză de boală sau invaliditate pot solicita urna specială (mobilă) de la secţia de votare cea mai apropiată de locul în care se află în ziua alegerilor printr-o cerere scrisă însoțită de documente justificative. În ziua alegerilor, o echipă formată din doi membri ai biroului electoral se va deplasa sub paza personalului MAI la locul unde se află alegătorul, cu urna specială și materialele necesare votării. Fiecare secție de votare are o singură urnă specială, care trebuie să fie la ora 21:00 înapoi la secția de votare. Alegătorii care nu se pot deplasa la sediul secţiei de votare pot trimite cererile scrise prin intermediul altor persoane sau prin intermediul personalului de specialitate din unităţile medicale unde se află internaţi.\n\
+      </p>\n\
+      <p>\n\
+        Având în vedere că legea nu specifică clar termenele limită pentru depunerea cererilor pentru urna specială, vă sfătuim să le depuneți pe 5 octombrie, seara, între 18 și 20, când membrii biroului electoral al secției de votare se întrunesc la sediul acesteia. Din experiențele trecute, unii președinți de secții de votare nu acceptă cereri în ziua votului.\n\
+      </p>\n\
+      <p>\n\
+        Art 31 (4) din Legea 3/2000<br/>\n\
+        Pentru persoanele netransportabile din cauză de boală sau invaliditate, la cererea celor aflați în această situație sau la cererea organelor de conducere ale instituțiilor sanitare sau de ocrotiri sociale, în care cei netransportabili se află internați, președintele biroului electoral al secției de votare desemnează din cadrul biroului un număr de membri care se deplasează cu o urnă specială și cu materialul necesar votării la locul unde se află cel în cauză, pentru a se efectua votarea.<br/>\n\
+        Art 40 din Legea 3/2000\n\
+      </p>',
   },
   {
-    titlu: 'Organismele electorale',
+    titlu: 'Documente necesare',
     id: 7,
     icon: 'building',
-    content: '<h1>Organismele electorale</h1>\n\
-      <p>În perioada alegerilor organizate în țară se formează următoarele organisme electorale:</p>\n\
+    content: '<h2>De ce documente am nevoie ca sa pot vota</h2>\n\
+      <p>În ţară, alegătorii votează în baza</p>\n\
       <ul>\n\
-        <li>Biroul Electoral Central;</li>\n\
-        <li>birourile electorale de circumscripţie, la nivel judeţean și al municipiului Bucureşti;</li>\n\
-        <li>oficiile electorale ale sectoarelor municipiului Bucureşti;</li>\n\
-        <li>birourile electorale ale secţiilor de votare.</li>\n\
+        <li>cărţii de identitate</li>\n\
+        <li>a cărţii de identitate provizorie</li>\n\
+        <li>buletinului de identitate.</li>\n\
+        <li>nu se poate vota cu pașaportul în țară</li>\n\
+        <li>Elevii din şcolile militare votează în baza carnetului de serviciu militar.</li>\n\
       </ul>\n\
-      <p>[Art. 7 alin. (1) din Legea nr. 208/2015]</p>',
+      <p>\n\
+        În străinătate:\n\
+      </p>\n\
+      <ul>\n\
+        <li>Cetățenii români cu domiciul în străinătate votează pe baza pașaportului simplu, cu mențiunea privind stabilirea domiciului în străinătate</li>\n\
+        <li>Cetățenii români cu domiciul în România votează pe baza paşaportului simplu, a paşaportului de serviciu, a paşaportului diplomatic sau a cărţii de identitate</li>\n\
+      </ul>',
   },
   {
-    titlu: 'Infracțiuni electorale',
+    titlu: 'Tipuri de infracțiuni',
     id: 8,
     icon: 'police',
-    content: '<h1>Infracțiuni electorale</h1>\n\
-      <h2>Cine și unde poate sesiza comiterea unei infracțiuni electorale? </h2>\n\
-      <p>Orice persoană poate sesiza organele de cercetare penală sau organele de urmărire penală, după regulile generale de sesizare, prevăzute în art. 289 și art. 290 din Codul de procedură penală.</p>\n\
-      <h2>Cine și în ce condiții poate cere anularea alegerilor pentru fraudă electorală?</h2>\n\
-      <p>Cererea de anulare a alegerilor dintr-o secţie de votare sau circumscripţie electorală pentru fraudă electorală se poate face numai de către competitorii electorali care au participat la alegeri în circumscripţia electorală respectivă. Cererea se depune la Biroul Electoral Central în termen de cel mult 48 de ore de la data încheierii votării, sub sancţiunea decăderii. Cererea trebuie temeinic motivată şi însoţită de dovezile pe care se întemeiază. Lipsa probelor atrage respingerea cererii. [Art. 12 alin. (3) din Legea nr. 208/2015]</p>\n\
-      <h3>INFRACŢIUNI CONFORM CODULUI PENAL</h3>\n\
-      <h2>ART. 385 - Împiedicarea exercitării drepturilor electorale</h2>\n\
-      <p>(1) Împiedicarea, prin orice mijloace, a liberului exerciţiu al dreptului de a alege sau de a fi ales se pedepseşte cu închisoarea de la 6 luni la 3 ani.</p>\n\
-      <p>(2) Atacul, prin orice mijloace, asupra localului secţiei de votare se pedepseşte cu închisoarea de la 2 la 7 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <h2>ART. 386 – Coruperea alegătorilor</h2>\n\
-      <p>(1) Oferirea sau darea de bani, de bunuri ori de alte foloase în scopul determinării alegătorului să voteze sau să nu voteze o anumită listă de candidaţi ori un anumit candidat se pedepseşte cu închisoarea de la 6 luni la 3 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Nu intră în categoria bunurilor prevăzute în alin. (1) bunurile cu valoare simbolică, inscripţionate cu însemnele unei formaţiuni politice.</p>\n\
-      <h2>ART. 387 – Frauda la vot</h2>\n\
-      <p>(1) Fapta persoanei care votează:</p>\n\
-      <p>a) fără a avea acest drept;<br/>\n\
-      b) de două sau mai multe ori;<br/>\n\
-      c) prin introducerea în urnă a mai multor buletine de vot decât are dreptul un alegător se pedepseşte cu închisoare de la 6 luni la 3 ani sau cu amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Cu aceeaşi pedeapsă se sancţionează utilizarea unei cărţi de alegător sau a unui act de identitate nul ori fals sau a unui buletin de vot fals.</p>\n\
-      <h2>ART. 389 – Violarea confidenţialităţii votului</h2>\n\
-      <p>(1) Violarea prin orice mijloace a secretului votului se pedepseşte cu amendă.</p>\n\
-      <p>(2) Dacă fapta a fost comisă de un membru al biroului electoral al secţiei de votare, pedeapsa este închisoare de la 6 luni la 3 ani sau amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <h2>ART. 390 – Nerespectarea regimului urnei de vot</h2>\n\
-      <p>(1) Deschiderea urnelor, înainte de ora stabilită pentru închiderea votării, se pedepseşte cu închisoare de la unu la 3 ani sau cu amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Încredinţarea urnei speciale altor persoane decât membrilor biroului electoral al secţiei de votare ori transportarea acesteia de către alte persoane sau în alte condiţii decât cele prevăzute de lege se pedepseşte cu închisoare de la 3 luni la 2 ani sau cu amendă şi interzicerea exercitării unor drepturi.</p>\n\
-      <h2>ART. 391 – Falsificarea documentelor şi evidenţelor electorale</h2>\n\
-      <p>(1) Falsificarea prin orice mijloace a înscrisurilor de la birourile electorale se pedepseşte cu închisoarea de la unu la 5 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(2) Cu aceeaşi pedeapsă se sancţionează şi înscrierea în copia de pe lista electorală permanentă ori de pe lista electorală complementară a unor persoane care nu figurează în această listă.</p>\n\
-      <p>(3) Introducerea în uz sau folosirea unui program informatic cu vicii care alterează înregistrarea ori însumarea rezultatelor obţinute în secţiile de votare sau determină repartizarea mandatelor în afara prevederilor legii se pedepseşte cu închisoarea de la 2 la 7 ani şi interzicerea exercitării unor drepturi.</p>\n\
-      <p>(4) Cu aceeaşi pedeapsă se sancţionează introducerea de date, informaţii sau proceduri care duc la alterarea sistemului informaţional naţional necesar stabilirii rezultatelor alegerilor.</p>\n\
-      <h2>ART. 393 – Sancţionarea tentativei</h2>\n\
-      <p>Tentativa la infracţiunile prevăzute în art. 385 şi art. 387 – 391 se pedepseşte.</p>',
+    content: '<p>În timpul campaniei pentru referendum, probabil cea mai frecventă problemă întâlnită va fi cea legată de utilizarea unor mesaje instigatoare la ură sau care promovează valori care încalcă principiile democrației și drepturile omului. Dacă auzi de astfel de incidente, de campanie în școli sau în instituții publice, de presiuni ale angajatorilor sau ale autorităților locale, te rugăm să ne informezi cât mai rapid. Problemele legate de campanie le poți reclama la birourile electorale de circumscripție județeană.</p>\n\
+      <h2>Care sunt cele mai frecvente nereguli care pot apărea pe parcursul votului la referendum: Presiuni ale administrației locale sau ale altor instituții / aglomerație la secția de votare</h2>\n\
+      <ul>\n\
+        <li>Prezenţa reprezentanţilor poliţiei sau autorităţilor locale în vecinătatea secţiei de votare poate fi un instrument de intimidare, deoarece poate sugera că autorităţile monitorizează prezentarea sau neprezentarea alegătorilor la vot.</li>\n\
+        <li>Acţiuni inoportune din partea forţelor de ordine şi/sau poliţiei, ca de exemplu notarea sau raportarea prin telefon a datelor privind prezenţa la vot sau rezultatelor.</li>\n\
+        <li>Prezenţa unor grupuri numeroase de alegători în vecinătatea secţiilor de votare poate indica faptul că participarea acestora la vot este coordonată şi/sau nu rezultă din voinţa proprie;</li>\n\
+      </ul>\n\
+      <h2>Indicii pentru potențiale fraude/abuzuri</h2>\n\
+      <ul>\n\
+        <li>Votarea în grup, votul multiplu</li>\n\
+        <li>Introducerea în urnă a mai multor buletine de vot decât cele la care au dreptul alegătorii</li>\n\
+        <li>Buletine de vot dinainte marcate</li>\n\
+        <li>Invalidarea arbitrară sau inconsecventă a buletinelor de vot</li>\n\
+        <li>Pierderea unor buletine sau urne de vot</li>\n\
+        <li>Utilizarea neregulamentară sau abuzivă a urnelor mobile; număr semnificativ de cereri privind urna mobilă; presiuni privind votul cu urna mobilă în spitale sau închisori</li>\n\
+        <li>Cazurile în care secretul votului nu este asigurat, cabine de vot deschise</li>\n\
+        <li>Limitarea dreptului alegătorilor de a-şi exprima votul din motive nejustificate</li>\n\
+        <li>Înlocuirea urnei de vot cu o altă urnă de vot</li>\n\
+        <li>Numărarea voturilor sau înregistrarea rezultatelor intenţionat incorectă</li>\n\
+        <li>Adăugarea unor buletine de vot după deschiderea urnei de vot</li>\n\
+        <li>Procesele verbale ce conţin rezultatele referendumului nu sunt completate la secţia de votare sau sunt completate cu creionul şi nu cu cerneală</li>\n\
+        <li>Falsificarea sau înlocuirea proceselor verbale</li>\n\
+      </ul>\n\
+      <h2>Listele electorale</h2>\n\
+      <ul>\n\
+        <li>Înscrieri fictive în listele suplimentare sau înscrierea unui număr anormal de mare de persoane</li>\n\
+        <li>Inadvertenţe în listele de alegători</li>\n\
+      </ul>\n\
+      <h2>Legate de secția de votare/ziua votului</h2>\n\
+      <ul>\n\
+        <li>Deschiderea cu întârziere a secţiilor de votare, întârzieri excesive în administrarea votării</li>\n\
+        <li>Absenţa materialelor electorale necesare (tuș, ștampile, urna mobilă, cabine de vot etc)</li>\n\
+        <li>Urnă nesigilată sau sigilată necorespunzător (nu există un model standard pentru sigiliu, deci fiecare secție de votare are propriile metode; în general este o bandă albă, peste care se aplică ștampila de control a secției de votare)</li>\n\
+        <li>Confuzie sau lipsă de organizare, cazuri în care membrii comisiilor de votare nu urmează procedurile</li>\n\
+        <li>Prezenţa persoanelor neautorizate în secţiile de votare (primari, consilieri locali, membri de partid etc)</li>\n\
+        <li>Cazurile în care identitatea alegătorilor nu este verificată</li>\n\
+        <li>Activităţi inoportune din partea reprezentanţilor candidaţilor sau partidelor politice, imixtiuni în activitatea birourilor electorale sau observatorilor</li>\n\
+        <li>Păstrarea în condiţii precare a buletinelor de vot neutilizate</li>\n\
+        <li>Excluderea unor membri ai comisiilor de votare sau unor observatori pe motive nejustificate</li>\n\
+        <li>Însoțirea frecventă de către membri ai birourilor electorale, observatori sau alte persoane a unor persoane care au dificultăți în a vota</li>\n\
+      </ul>\n\
+      <h2>Numărarea voturilor (pentru persoanele acreditate)</h2>\n\
+      <ul>\n\
+        <li>Proceduri dezordonate de numărare a voturilor</li>\n\
+        <li>Personal insuficient pentru efectuarea şi supravegherea numărării voturilor</li>\n\
+        <li>Transportarea materialelor electorale la biroul electoral de circumscriptie nu se efectuează în condiţii de siguranţă</li>\n\
+        <li>Lipsa transparenţei sau proceduri nereglementare constatate în cursul centralizării voturilor</li>\n\
+        <li>Participarea la numărarea voturilor a persoanelor neautorizate (membri de partid, primar, parlamentari, observatori etc)</li>\n\
+      </ul>\n\
+      <p>Informații preluate parțial din <a href="https://www.osce.org/ro/odihr/elections/70293?download=true" target="_blank">Manualul de observare a alegerilor, OSCE/ODIHR</a>; completate cu informații din experiențele anterioare de observare. Vezi și <a href="https://votcorect.ro/wp-content/uploads/2016/12/Manualul-Observatorului.pdf" target="_blank">Manualul Observatorului</a>.</p>',
   },
 ];
 
