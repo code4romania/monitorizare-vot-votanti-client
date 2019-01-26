@@ -1,165 +1,190 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Icons from 'components/Icons';
+import Code4RoLogo from './code4ro-logo.svg';
 
-const FooterWrap = styled.footer`
-  background: #fff;
-  border-top: 4px solid #fdda44;
-  padding: 60px 0;
+const Nav = ({ className }) => (
+  <nav className={className}>
+    <ul>
+      <li>
+        <a href="https://code4.ro/ro/legal/" rel="nooperner noreferrer">
+          Legal
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://code4.ro/ro/codul-de-conduita/"
+          rel="nooperner noreferrer"
+        >
+          Codul de Conduită
+        </a>
+      </li>
+      <li>
+        <a href="https://code4.ro/ro/implica-te/" rel="nooperner noreferrer">
+          Implică-te
+        </a>
+      </li>
+      <li>
+        <a
+          className="cta"
+          href="https://code4.ro/ro/doneaza/"
+          rel="nooperner noreferrer"
+        >
+          Donează
+        </a>
+      </li>
+    </ul>
+  </nav>
+);
+
+Nav.propTypes = {
+  className: PropTypes.string,
+};
+
+const NavLinks = styled(Nav)`
+  flex: 1;
+  opacity: 1;
+  ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    li {
+      a {
+        margin: 0 1rem;
+        padding: 0.5rem;
+        opacity: 0.8;
+        &.cta {
+          background-color: #ffda44;
+          color: #5f288d;
+          border-radius: 2px;
+          opacity: 1;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 `;
 
-const Repos = styled.ul`
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-align: center;
-  height: 30px;
-  margin-bottom: 20px;
+const SocialIconList = ({ className }) => (
+  <ul className={className}>
+    <li>
+      <a
+        href="https://www.facebook.com/code4romania/"
+        rel="noopener noreferrer"
+      >
+        <Icons icon="facebook" />
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/Code4Romania/" rel="noopener noreferrer">
+        <Icons icon="twitter" />
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://github.com/code4romania/">
+        <Icons icon="github" />
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/Code4Romania/" rel="noopener noreferrer">
+        <Icons icon="linkedin" />
+      </a>
+    </li>
+  </ul>
+);
 
-  @media (min-width: 64em) {
-    text-align: left;
-    margin-left: 5px;
-  }
+SocialIconList.propTypes = {
+  className: PropTypes.string,
+};
 
+const SocialLinks = styled(SocialIconList)`
+  flex: 1;
+  margin: 2.125rem 0 3.25rem;
+  display: flex;
+  justify-content: center;
   li {
-    margin-left: 15px;
-    display: inline;
-
-    @media (min-width: 48em) {
-      margin-left: 30px;
-    }
-
-    &:first-child {
-      margin: 0;
-    }
-
-    a {
-      font-family: "Source Code Pro", "Courier New", Courier, monospace;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-decoration: none;
-      opacity: 0.6;
-      display: inline-block;
-
-      &:hover {
-        opacity: 1;
-      }
-
-      span {
-        line-height: 30px;
-        display: inline-block;
-      }
-    }
-  }
-
-  .svg-icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-  }
-`;
-
-const MV = styled(Link)`
-  float: left;
-  margin-top: -5px;
-
-  @media (min-width: 64em) {
-    float: none;
-  }
-
-  &:hover {
-    .svg-icon {
-      opacity: 1;
-    }
-  }
-
-  .svg-icon {
-    color: #5F288D;
-    width: 40px;
-    height: 40px;
-  }
-`;
-
-const Code4 = styled.div`
-  margin: 10px 0 0;
-
-  @media (min-width: 64em) {
-    margin: 0 15px 0 0;
-    text-align: right;
-  }
-
-  > a {
-    color: #757575;
-
-    &:hover {
-      color: #2d2d2d;
+    display: inline-block;
+    margin: 0 1rem;
+    i {
+      height: 2rem;
+      width: 2rem;
     }
   }
 `;
 
-const Copyright = styled.p`
-  font-family: "Source Code Pro", "Courier New", Courier, monospace;
+const Logo = ({ className }) => (
+  <a href="https://code4.ro/ro/" target="_blank" rel="noopener noreferrer">
+    <img src={Code4RoLogo} className={className} alt="code for Romania" />
+  </a>
+);
+
+Logo.propTypes = {
+  className: PropTypes.string,
+};
+
+const Branding = styled(Logo)`
+  width: 7rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+`;
+
+const CopyText = styled.p`
+  font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
   font-size: 12px;
   font-weight: 700;
   opacity: 0.6;
+  line-height: 1.7;
+`;
 
-  @media (min-width: 64em) {
-    margin-top: 30px;
+const CopyWrapper = ({ className }) => (
+  <div className={className}>
+    <Branding />
+    <CopyText>
+      &copy; {new Date().getFullYear()} Code for Romania.
+      <br />
+      Organizație neguvernamentală independentă, neafiliată politic și
+      apolitică.
+    </CopyText>
+  </div>
+);
+
+CopyWrapper.propTypes = {
+  className: PropTypes.string,
+};
+
+const CopyInfo = styled(CopyWrapper)`
+  flex: 1;
+  text-align: center;
+`;
+
+const FooterWrapper = styled.footer`
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  padding: 3rem 1.5rem 6rem;
+  border-top: 2px solid #ffda44;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  li {
+    list-style-type: none;
   }
-
-  &.vote {
-    color: #5F288D;
+  img,
+  svg {
+    opacity: 0.6;
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
 
-export default function Footer() {
-  return (
-    <FooterWrap>
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12 col-md-5">
+const Footer = () => (
+  <FooterWrapper>
+    <NavLinks />
+    <SocialLinks />
+    <CopyInfo />
+  </FooterWrapper>
+);
 
-            <Repos>
-              <li>
-                <MV to="acasa">
-                  <Icons icon="mvCircle" />
-                </MV>
-              </li>
-              <li>
-                <a target="_blank" href="https://github.com/code4romania/monitorizare-vot-votanti-client/">
-                  <Icons icon="github" />
-                  <span className="icon-text">/client</span>
-                </a>
-              </li>
-
-              <li>
-                <a target="_blank" href="https://github.com/code4romania/monitorizare-vot-votanti-api/">
-                  <Icons icon="github" />
-                  <span className="icon-text">/api</span>
-                </a>
-              </li>
-            </Repos>
-
-            <Copyright className="vote">
-              Pentru întrebări, scrie-ne la <a href="mailto:monitorizarevot@code4.ro">monitorizarevot@code4.ro</a>.
-            </Copyright>
-
-          </div>
-
-          <div className="col-xs-12 col-md-offset-1 col-md-6">
-            <Code4>
-              <a href="http://code4.ro/" target="_blank">
-                <Icons icon="code4" />
-              </a>
-              <Copyright>
-                &copy; 2018 Code for Romania.<br /> Organizație neguvernamentală independentă, neafiliată politic și apolitică.
-              </Copyright>
-            </Code4>
-          </div>
-        </div>
-      </div>
-    </FooterWrap>
-  );
-}
+export default Footer;
