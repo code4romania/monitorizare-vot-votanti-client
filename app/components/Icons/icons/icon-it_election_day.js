@@ -1,9 +1,12 @@
 import React from 'react';
 
 function IconItElectionDay(props) {
-  const createdAtDate = props.createdAt ? props.createdAt.split(' ')[0] : '';
-  const month = createdAtDate && createdAtDate.split('-')[1];
-  const day = createdAtDate && createdAtDate.split('-')[2];
+  const createdAtDate = new Date(props.createdAt);
+  let day = createdAtDate.getDate().toString();
+  let month = (createdAtDate.getMonth() + 1).toString();
+
+  if (day.length === 1) day = '0' + day;
+  if (month.length === 1) month = '0' + month;
 
   return (
     <svg version="1.1" id="icon-it_election_day" x="0px" y="0px" viewBox="0 0 502 502">
