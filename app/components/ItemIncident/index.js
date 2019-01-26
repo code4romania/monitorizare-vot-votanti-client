@@ -84,7 +84,7 @@ function IncidentItem(props) {
 
         <CardHeader
           title={props.incidentType ? props.incidentType.name : ''}
-          avatar={<Icons icon={icon} />}
+          avatar={<Icons icon={icon} createdAt={props.createdAt} />}
           textStyle={{ verticalAlign: 'middle' }}
           titleStyle={{ color: '#5F288D' }}
         />
@@ -129,6 +129,7 @@ IncidentItem.propTypes = {
   county: React.PropTypes.object,
   precinct: React.PropTypes.object,
   precinctNumber: React.PropTypes.number,
+  createdAt: React.PropTypes.string,
 };
 
 export default IncidentItem;

@@ -61,12 +61,23 @@ const Icon = styled.i`
 
 function Icons(props) {
   return (
-    <Icon className="svg-icon">{iconList[props.icon]}</Icon>
+    <Icon className="svg-icon">
+      {
+        props.icon === 'it_election_day'
+          ? <IconItElectionDay createdAt={props.createdAt} />
+          : iconList[props.icon]
+      }
+    </Icon>
   );
 }
 
 Icons.propTypes = {
   icon: React.PropTypes.string,
+  createdAt: React.PropTypes.string,
+};
+
+Icon.defaultProps = {
+  createdAt: '',
 };
 
 export default Icons;
