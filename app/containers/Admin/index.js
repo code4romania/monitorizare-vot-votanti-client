@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import withAdminWrapper from '../../wrappers/withAdminWrapper';
 
 const Content = styled.div`
   margin: 0 0 120px;
@@ -12,7 +13,7 @@ const Content = styled.div`
   }
 `;
 
-export default class Admin extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class Admin extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <section className="container">
@@ -28,6 +29,7 @@ export default class Admin extends React.PureComponent { // eslint-disable-line 
               <h1>Admin</h1>
             </div>
             <Content>
+              x
             </Content>
           </div>
         </div>
@@ -35,3 +37,5 @@ export default class Admin extends React.PureComponent { // eslint-disable-line 
     );
   }
 }
+
+export default withAdminWrapper(Admin);

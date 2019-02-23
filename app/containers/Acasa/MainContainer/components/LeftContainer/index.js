@@ -15,38 +15,66 @@ import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import MenuItem from 'material-ui/MenuItem';
 import Map from 'components/selectCountry';
 // import FileUploader from 'components/FileUploader';
-import { setNumeAction, setPrenumeAction, setIncidentIdAction, resetFormAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
-import { getName, getPrenume, map, getCities, getPrecints, getDescription, countyId, cityId, getIncidentId, getToken } from '../../../selectors';
+import {
+  setNumeAction,
+  setPrenumeAction,
+  setIncidentIdAction,
+  resetFormAction,
+  setPrecintIdAction,
+  setValidationKeyAction,
+  setActiveMapAction,
+  submitFormAction,
+  setDescriptionAction,
+  resetCountyAction,
+  setCountyAction,
+  getCitiesAction,
+  getPrecintsAction,
+  setCityAction,
+  setPresenceAction,
+  uploadImageAction
+} from '../../../actions';
+import {
+  getName,
+  getPrenume,
+  map,
+  getCities,
+  getPrecints,
+  getDescription,
+  countyId,
+  cityId,
+  getIncidentId,
+  getToken
+} from '../../../selectors';
 
 const buttonWrapStyle = {
-  marginTop: '20px',
+  marginTop: '20px'
 };
 
 const buttonStyle = {
   height: '60px',
   backgroundColor: '#5F288D',
-  color: '#ffffff',
+  color: '#ffffff'
 };
 
 const buttonStyleDisabled = {
   height: '60px',
   backgroundColor: 'grey',
-  color: '#ffffff',
+  color: '#ffffff'
 };
 
 const buttonOverlayStyle = {
-  height: '60px',
+  height: '60px'
 };
 
 const buttonLabelStyle = {
   lineHeight: '60px',
   fontSize: '16px',
   fontWeight: '700',
-  letterSpacing: '1px',
+  letterSpacing: '1px'
 };
 
 const buttonIconStyle = {
-  fill: '#ffffff',
+  fill: '#ffffff'
 };
 
 const overflowElipsisStyle = {
@@ -54,7 +82,7 @@ const overflowElipsisStyle = {
   overflow: 'hidden',
   whiteSpace: 'nowrap',
   position: 'absolute',
-  width: '100%',
+  width: '100%'
 };
 
 const Interact = styled.div`
@@ -78,12 +106,12 @@ export class LeftContainer extends React.PureComponent {
       prenume: '',
       description: '',
       tipulDeProblema: {
-        value: 'Alege tipul sesizării',
+        value: 'Alege tipul sesizării'
       },
       prezenta: false,
       active: true,
       imag: '',
-      token: false,
+      token: false
     };
   }
 
@@ -91,7 +119,7 @@ export class LeftContainer extends React.PureComponent {
     this.props.resetForm();
   }
 
-  setActiveOption = (event) => {
+  setActiveOption = event => {
     this.setState({ active: !this.state.active });
     this.props.setActiveMap(event.currentTarget.dataset.name);
     if (this.state.active) {
@@ -100,100 +128,118 @@ export class LeftContainer extends React.PureComponent {
       this.props.setCity(3191);
       this.props.getPrecints();
     }
-  }
+  };
 
   setIncidentType = (event, index, value) => {
     this.setState({ value });
     this.props.setIncidentId(value);
-  }
-
+  };
 
   setPrecintId = (searchText, array) => {
-    const precint = _.find(array, (o) => o.text === searchText);
+    const precint = _.find(array, o => o.text === searchText);
     if (precint) {
       this.props.setPrecintId(precint.id);
     }
-  }
+  };
 
   handleOnChangeDescription = (event, value) => {
     this.setState({ description: value });
     this.props.setDescription(value);
-  }
+  };
 
   handleOnChangeInputNume = (event, value) => {
     this.setState({ nume: value });
     this.props.setNume(value);
-  }
+  };
 
   handleOnChangeInputPrenume = (event, value) => {
     this.setState({ prenume: value });
     this.props.setPrenume(value);
-  }
+  };
 
-  handleUpdateInput = (value) => {
+  handleUpdateInput = value => {
     this.setState({
       judet: {
         text: value.text,
-        value: value.value,
-      },
+        value: value.value
+      }
     });
-  }
+  };
 
   handleToggle = (proxy, isActive) => {
     this.setState({
-      prezenta: !this.state.prezenta,
+      prezenta: !this.state.prezenta
     });
     this.props.setPresence(isActive);
-  }
+  };
 
   shouldBeSticky() {
     return document.documentElement.clientWidth > 1024;
   }
 
   selectCounty = (searchText, countiesArray) => {
-    const getCounty = _.find(countiesArray, (o) => o.text === searchText);
+    const getCounty = _.find(countiesArray, o => o.text === searchText);
     if (_.isUndefined(getCounty)) {
       this.props.resetCounty();
     } else {
       this.props.setCounty(getCounty.id);
       this.props.getCities();
     }
-  }
+  };
 
   selectCity = (searchText, citiesArray) => {
-    const getCity = _.find(citiesArray, (o) => o.text === searchText);
+    const getCity = _.find(citiesArray, o => o.text === searchText);
     if (_.isUndefined(getCity)) {
       this.props.resetCounty();
     } else {
       this.props.setCity(getCity.id);
       this.props.getPrecints();
     }
-  }
+  };
 
-  upload = (file) => {
+  upload = file => {
     this.props.uploadImage(file.currentTarget.files[0]);
-  }
+  };
 
   handleSubmit = () => {
     this.props.submitForm();
-  }
+  };
 
   callback = () => {
     console.log('Done!!!!');
   };
 
-  verifyCallback = (response) => {
+  verifyCallback = response => {
     this.props.setValidationKey(response);
   };
 
   render() {
-    const isValid = this.state.nume.length > 0 && this.state.prenume.length > 0 && this.props.countyId && this.props.cityId && this.state.description && this.props.incidentId && this.props.token !== undefined;
+    const isValid =
+      this.state.nume.length > 0 &&
+      this.state.prenume.length > 0 &&
+      this.props.countyId &&
+      this.props.cityId &&
+      this.state.description &&
+      this.props.incidentId &&
+      this.props.token !== undefined;
     return (
       <StickyContainer className="col-xs-12 col-lg-7 form-col">
         <Interact className="interact">
           <Sticky isActive={this.shouldBeSticky()}>
             <h2>Adaugă o sesizare</h2>
-            <p>Mai jos găsești formularul prin care poți să trimiți o sesizare. Dacă nu ești sigur ce poate fi subiectul unei sesizări, verifică aici <Link to="reguli-vot">Regulile votului</Link>. <small><span style={{ fontWeight: 700 }}>Important:</span> sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau Biroului Electoral Central. Mai multe detalii <Link to="despre-noi">aici.</Link></small></p>
+            <p>
+              Mai jos găsești formularul prin care poți să trimiți o sesizare.
+              Dacă nu ești sigur ce poate fi subiectul unei sesizări, verifică
+              aici <Link to="reguli-vot">Regulile votului</Link>.{' '}
+              <small>
+                <span style={{ fontWeight: 700 }}>Important:</span> sesizările
+                trimise vor fi promovate în scop informativ în social media și
+                către mass-media. Dacă dorești un răspuns direct de la
+                autorități, te rugăm să te adresezi Biroului Electoral de
+                Circumscripție sau Biroului Electoral Central. Mai multe detalii{' '}
+                <Link to="despre-noi">aici.</Link>
+              </small>
+            </p>
 
             <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12">
@@ -205,7 +251,6 @@ export class LeftContainer extends React.PureComponent {
                   required
                   multiLine
                   rows={3}
-
                   name={'Text sesizare'}
                   defaultValue={this.props.description}
                   onChange={this.handleOnChangeDescription}
@@ -249,7 +294,11 @@ export class LeftContainer extends React.PureComponent {
               <div className="col-xs-12 col-sm-6">
                 <div style={{ marginTop: '37px' }} className="presence">
                   <Toggle
-                    label={(this.state.prezenta) ? 'Sunt în secție' : 'Nu sunt în secție'}
+                    label={
+                      this.state.prezenta
+                        ? 'Sunt în secție'
+                        : 'Nu sunt în secție'
+                    }
                     labelPosition="right"
                     onToggle={this.handleToggle}
                   />
@@ -259,9 +308,9 @@ export class LeftContainer extends React.PureComponent {
               {/* <div className="col-xs-12 col-sm-6">
                 //   <FileUploader upload={this.upload} />
                 //   <div>{this.state.image}</div>
-                // </div> */ }
+                // </div> */}
 
-              { this.props.map === 'country' ?
+              {this.props.map === 'country' ? (
                 <div className="col-xs-12">
                   <div className="row">
                     <div className="col-xs-12 col-sm-6">
@@ -276,7 +325,11 @@ export class LeftContainer extends React.PureComponent {
                         filter={AutoComplete.fuzzyFilter}
                         maxSearchResults={5}
                         value=""
-                        dataSource={this.props.counties.length > 0 ? this.props.counties : []}
+                        dataSource={
+                          this.props.counties.length > 0
+                            ? this.props.counties
+                            : []
+                        }
                         onUpdateInput={this.selectCounty}
                       />
                     </div>
@@ -293,15 +346,17 @@ export class LeftContainer extends React.PureComponent {
                         filter={AutoComplete.fuzzyFilter}
                         maxSearchResults={35}
                         value=""
-                        dataSource={this.props.cities.length > 0 ? this.props.cities : []}
+                        dataSource={
+                          this.props.cities.length > 0 ? this.props.cities : []
+                        }
                         onUpdateInput={this.selectCity}
                       />
                     </div>
                   </div>
                 </div>
-                  :
-                    <div></div>
-              }
+              ) : (
+                <div />
+              )}
 
               <div className="col-xs-12 col-sm-6">
                 <AutoComplete
@@ -315,18 +370,37 @@ export class LeftContainer extends React.PureComponent {
                   filter={AutoComplete.fuzzyFilter}
                   maxSearchResults={35}
                   value=""
-                  dataSource={this.props.precints.length > 0 ? this.props.precints : []}
+                  dataSource={
+                    this.props.precints.length > 0 ? this.props.precints : []
+                  }
                   onUpdateInput={this.setPrecintId}
                 />
               </div>
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth required className="dropdown" labelStyle={overflowElipsisStyle}>
+                  <SelectField
+                    ref={cb => {
+                      this.typeRef = cb;
+                    }}
+                    floatingLabelText="Tipul sesizării"
+                    floatingLabelFixed
+                    value={this.state.value}
+                    onChange={this.setIncidentType}
+                    hintText="Alege tipul sesizării"
+                    fullWidth
+                    required
+                    className="dropdown"
+                    labelStyle={overflowElipsisStyle}
+                  >
                     <MenuItem value="0" primaryText="Toate" />
-                    {this.props.incidentTypes.map((incident) =>
-                      <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
-                    )}
+                    {this.props.incidentTypes.map(incident => (
+                      <MenuItem
+                        key={incident.id}
+                        value={incident.id}
+                        primaryText={incident.name}
+                      />
+                    ))}
                   </SelectField>
                 </div>
               </div>
@@ -343,7 +417,7 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <div style={buttonWrapStyle}>
-                  {isValid ?
+                  {isValid ? (
                     <RaisedButton
                       buttonStyle={buttonStyle}
                       overlayStyle={buttonOverlayStyle}
@@ -355,27 +429,25 @@ export class LeftContainer extends React.PureComponent {
                       className="button"
                       onClick={this.handleSubmit}
                     />
-                    :
-                      <RaisedButton
-                        buttonStyle={buttonStyleDisabled}
-                        overlayStyle={buttonOverlayStyle}
-                        labelStyle={buttonLabelStyle}
-                        label="Adaugă sesizarea"
-                        labelPosition="after"
-                        icon={<AddCircleOutline style={buttonIconStyle} />}
-                        fullWidth
-                        className="button"
-
-                      />
-                  }
+                  ) : (
+                    <RaisedButton
+                      buttonStyle={buttonStyleDisabled}
+                      overlayStyle={buttonOverlayStyle}
+                      labelStyle={buttonLabelStyle}
+                      label="Adaugă sesizarea"
+                      labelPosition="after"
+                      icon={<AddCircleOutline style={buttonIconStyle} />}
+                      fullWidth
+                      className="button"
+                    />
+                  )}
                 </div>
               </div>
-
             </AddIncident>
-
           </Sticky>
         </Interact>
-      </StickyContainer>);
+      </StickyContainer>
+    );
   }
 }
 
@@ -392,19 +464,19 @@ LeftContainer.propTypes = {
   setDescription: React.PropTypes.func,
   counties: React.PropTypes.oneOfType([
     React.PropTypes.object,
-    React.PropTypes.array,
+    React.PropTypes.array
   ]),
   cities: React.PropTypes.oneOfType([
     React.PropTypes.object,
-    React.PropTypes.array,
+    React.PropTypes.array
   ]),
   incidentTypes: React.PropTypes.oneOfType([
     React.PropTypes.object,
-    React.PropTypes.array,
+    React.PropTypes.array
   ]),
   precints: React.PropTypes.oneOfType([
     React.PropTypes.object,
-    React.PropTypes.array,
+    React.PropTypes.array
   ]),
   name: React.PropTypes.string,
   prenume: React.PropTypes.string,
@@ -418,37 +490,37 @@ LeftContainer.propTypes = {
   resetForm: React.PropTypes.func,
   countyId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number,
+    React.PropTypes.number
   ]),
   cityId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number,
+    React.PropTypes.number
   ]),
   incidentId: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.number,
+    React.PropTypes.number
   ]),
-  token: React.PropTypes.string,
+  token: React.PropTypes.string
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
-    setNume: (name) => dispatch(setNumeAction(name)),
-    setPrenume: (prenume) => dispatch(setPrenumeAction(prenume)),
-    setActiveMap: (activeMap) => dispatch(setActiveMapAction(activeMap)),
-    setCounty: (id) => dispatch(setCountyAction(id)),
+    setNume: name => dispatch(setNumeAction(name)),
+    setPrenume: prenume => dispatch(setPrenumeAction(prenume)),
+    setActiveMap: activeMap => dispatch(setActiveMapAction(activeMap)),
+    setCounty: id => dispatch(setCountyAction(id)),
     resetCounty: () => dispatch(resetCountyAction()),
     getCities: () => dispatch(getCitiesAction()),
     getPrecints: () => dispatch(getPrecintsAction()),
-    setCity: (id) => dispatch(setCityAction(id)),
-    setPresence: (active) => dispatch(setPresenceAction(active)),
-    setDescription: (description) => dispatch(setDescriptionAction(description)),
-    uploadImage: (image) => dispatch(uploadImageAction(image)),
+    setCity: id => dispatch(setCityAction(id)),
+    setPresence: active => dispatch(setPresenceAction(active)),
+    setDescription: description => dispatch(setDescriptionAction(description)),
+    uploadImage: image => dispatch(uploadImageAction(image)),
     submitForm: () => dispatch(submitFormAction()),
-    setIncidentId: (id) => dispatch(setIncidentIdAction(id)),
-    setValidationKey: (key) => dispatch(setValidationKeyAction(key)),
-    setPrecintId: (id) => dispatch(setPrecintIdAction(id)),
-    resetForm: () => dispatch(resetFormAction()),
+    setIncidentId: id => dispatch(setIncidentIdAction(id)),
+    setValidationKey: key => dispatch(setValidationKeyAction(key)),
+    setPrecintId: id => dispatch(setPrecintIdAction(id)),
+    resetForm: () => dispatch(resetFormAction())
   };
 }
 
@@ -462,7 +534,10 @@ const mapStateToProps = createStructuredSelector({
   countyId: countyId(),
   incidentId: getIncidentId(),
   cityId: cityId(),
-  token: getToken(),
+  token: getToken()
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LeftContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LeftContainer);
