@@ -117,7 +117,7 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, { 
+    }, {
       path: '/despre-noi',
       name: 'despre',
       getComponent(nextState, cb) {

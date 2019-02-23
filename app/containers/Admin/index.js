@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
-import Icons from 'components/Icons';
 
 const Content = styled.div`
   margin: 0 0 120px;
@@ -29,7 +28,6 @@ export default class Admin extends React.PureComponent { // eslint-disable-line 
               <h1>Admin</h1>
             </div>
             <Content>
-             
             </Content>
           </div>
         </div>
