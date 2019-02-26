@@ -42,7 +42,6 @@ class Login extends React.PureComponent {
   onSubmit = () => {
     const { email, password } = this.state;
     this.props.login(email, password);
-    // store.dispatch(login({ email, password }));
   };
 
   getErrors = () => {
