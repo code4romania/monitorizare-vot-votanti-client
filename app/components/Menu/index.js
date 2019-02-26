@@ -80,27 +80,28 @@ const DonateMenuLink = styled(MenuLink)`
     color: #22b968;
   }
 `;
+
 const Menu = ({ pathname }) => {
   const currentPath = pathname.replace(/\//, '');
+  const selected = (path) => path === currentPath && 'selected';
+
+  const MenuItemWithLink = ({ item }) => (
+    <MenuItem>
+      <MenuLink to={item.path} className={selected(item.path)}>
+        {item.title}
+      </MenuLink>
+    </MenuItem>
+  );
+
+
+  const { ACASA, SESIZARI, STATISTICI, REGULI_VOT, DESPRE_NOI } = MENU_ITEMS;
   return (
     <MenuList>
-      <MenuItem>
-        <MenuLink to={MENU_ITEMS.ACASA.path} className={MENU_ITEMS.ACASA.path === currentPath && 'selected'}>
-          {MENU_ITEMS.ACASA.title}
-        </MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink to={MENU_ITEMS.SESIZARI.path} className={MENU_ITEMS.SESIZARI.path === currentPath && 'selected'}>{MENU_ITEMS.SESIZARI.title}</MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink to={MENU_ITEMS.STATISTICI.path} className={MENU_ITEMS.STATISTICI.path === currentPath && 'selected'}>{MENU_ITEMS.STATISTICI.title}</MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink to={MENU_ITEMS.REGULI_VOT.path} className={MENU_ITEMS.REGULI_VOT.path === currentPath && 'selected'}>{MENU_ITEMS.REGULI_VOT.title}</MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink to={MENU_ITEMS.DESPRE_NOI.path} className={MENU_ITEMS.DESPRE_NOI.path === currentPath && 'selected'}>{MENU_ITEMS.DESPRE_NOI.title}</MenuLink>
-      </MenuItem>
+      <MenuItemWithLink item={ACASA} />
+      <MenuItemWithLink item={SESIZARI} />
+      <MenuItemWithLink item={STATISTICI} />
+      <MenuItemWithLink item={REGULI_VOT} />
+      <MenuItemWithLink item={DESPRE_NOI} />
       <MenuItem>
         <DonateMenuLink to={MENU_ITEMS.DONEAZA.href} target="_blank">
           {MENU_ITEMS.DONEAZA.title}
