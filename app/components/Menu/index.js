@@ -2,6 +2,33 @@ import React from 'react';
 import { Link } from 'react-router';
 import styled from 'styled-components';
 
+const MENU_ITEMS = {
+  ACASA: {
+    title: 'Adaugă o sesizare',
+    path: 'acasa',
+  },
+  SESIZARI: {
+    title: 'Sesizări',
+    path: 'sesizari',
+  },
+  STATISTICI: {
+    title: 'Statistici',
+    path: 'statistici',
+  },
+  REGULI_VOT: {
+    title: 'Reguli vot',
+    path: 'reguli-vot',
+  },
+  DESPRE_NOI: {
+    title: 'Despre noi',
+    path: 'despre-noi',
+  },
+  DONEAZA: {
+    title: 'Donează',
+    href: 'https://code4.ro/doneaza/',
+  },
+};
+
 const MenuList = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -53,50 +80,39 @@ const DonateMenuLink = styled(MenuLink)`
     color: #22b968;
   }
 `;
-
-export default class Menu extends React.PureComponent {
-  componentDidMount() {
-    const path = this.props.pathname.split('/');
-    const getLocation = path[1] || path[0];
-
-    // if (this.props.pathname.length > 1 && this.props.pathname !== '/multumim') {
-    //   document.getElementById(getLocation).parentNode.querySelector('.selected').classList.remove('selected');
-    //   document.getElementById(getLocation).firstElementChild.classList.add('selected');
-    // } else {
-    //   // document.querySelector('#menu-list .selected').classList.remove('selected');
-    // }
-  }
-
-  render() {
-    return (
-      <MenuList id="menu-list">
-        <MenuItem id="acasa">
-          <MenuLink to="acasa" className="selected">
-            Adaugă o sesizare
-          </MenuLink>
-        </MenuItem>
-        <MenuItem id="sesizari">
-          <MenuLink to="sesizari">Sesizări</MenuLink>
-        </MenuItem>
-        <MenuItem id="statistici">
-          <MenuLink to="statistici">Statistici</MenuLink>
-        </MenuItem>
-        <MenuItem id="reguli-vot">
-          <MenuLink to="reguli-vot">Reguli vot</MenuLink>
-        </MenuItem>
-        <MenuItem id="despre-noi">
-          <MenuLink to="despre-noi">Despre noi</MenuLink>
-        </MenuItem>
-        <MenuItem id="doneaza">
-          <DonateMenuLink href="https://code4.ro/doneaza/" target="_blank">
-            Donează
-          </DonateMenuLink>
-        </MenuItem>
-      </MenuList>
-    );
-  }
+const Menu = ({ pathname }) => {
+  const currentPath = pathname.replace(/\//, '');
+  return (
+    <MenuList>
+      <MenuItem>
+        <MenuLink to={MENU_ITEMS.ACASA.path} className={MENU_ITEMS.ACASA.path === currentPath && 'selected'}>
+          {MENU_ITEMS.ACASA.title}
+        </MenuLink>
+      </MenuItem>
+      <MenuItem>
+        <MenuLink to={MENU_ITEMS.SESIZARI.path} className={MENU_ITEMS.SESIZARI.path === currentPath && 'selected'}>{MENU_ITEMS.SESIZARI.title}</MenuLink>
+      </MenuItem>
+      <MenuItem>
+        <MenuLink to={MENU_ITEMS.STATISTICI.path} className={MENU_ITEMS.STATISTICI.path === currentPath && 'selected'}>{MENU_ITEMS.STATISTICI.title}</MenuLink>
+      </MenuItem>
+      <MenuItem>
+        <MenuLink to={MENU_ITEMS.REGULI_VOT.path} className={MENU_ITEMS.REGULI_VOT.path === currentPath && 'selected'}>{MENU_ITEMS.REGULI_VOT.title}</MenuLink>
+      </MenuItem>
+      <MenuItem>
+        <MenuLink to={MENU_ITEMS.DESPRE_NOI.path} className={MENU_ITEMS.DESPRE_NOI.path === currentPath && 'selected'}>{MENU_ITEMS.DESPRE_NOI.title}</MenuLink>
+      </MenuItem>
+      <MenuItem>
+        <DonateMenuLink to={MENU_ITEMS.DONEAZA.href} target="_blank">
+          {MENU_ITEMS.DONEAZA.title}
+        </DonateMenuLink>
+      </MenuItem>
+    </MenuList>
+  );
 }
+
 
 Menu.propTypes = {
   pathname: React.PropTypes.string
 };
+
+export default Menu;

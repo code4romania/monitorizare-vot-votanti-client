@@ -29,7 +29,7 @@ class Admin extends React.PureComponent { // eslint-disable-line react/prefer-st
               <h1>Admin</h1>
             </div>
             <Content>
-              x
+              <div>Mock content, please ignore.</div>
             </Content>
           </div>
         </div>
