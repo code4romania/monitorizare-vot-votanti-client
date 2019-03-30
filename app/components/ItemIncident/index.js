@@ -76,15 +76,13 @@ function IncidentItem(props) {
     </div>);
 
   const CalendarWrap = styled.div`
-    border: 2px solid #000;
-    border-radius: 6px;
+    border: 2px solid #5f288d;
     text-align: center;
     font-weight: 900;
     display: inline-block;
     margin-right: 10px;
     .month {
-      border-radius: 5px;
-      background-color: red;
+      background-color: #5f288d;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       color: #fff;
