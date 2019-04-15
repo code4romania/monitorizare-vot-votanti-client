@@ -27,6 +27,8 @@ const getIncidentTypes = () => createSelector(
   selectGlobal(),
   (globalState) => globalState.get('incidentTypes')
 );
+
+
 export {
   selectLocationState,
   getCounties,
