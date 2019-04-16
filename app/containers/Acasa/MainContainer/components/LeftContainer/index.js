@@ -69,6 +69,10 @@ const AddIncident = styled.div`
   }
 `;
 
+const listStyle = {
+  display: 'block',
+};
+
 export class LeftContainer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -106,7 +110,6 @@ export class LeftContainer extends React.PureComponent {
     this.setState({ value });
     this.props.setIncidentId(value);
   }
-
 
   setPrecintId = (searchText, array) => {
     const precint = _.find(array, (o) => o.text === searchText);
@@ -205,7 +208,6 @@ export class LeftContainer extends React.PureComponent {
                   required
                   multiLine
                   rows={3}
-
                   name={'Text sesizare'}
                   defaultValue={this.props.description}
                   onChange={this.handleOnChangeDescription}
@@ -322,11 +324,17 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth required className="dropdown" labelStyle={overflowElipsisStyle}>
+                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth required className="dropdown" labelStyle={overflowElipsisStyle} listStyle={listStyle}>
                     <MenuItem value="0" primaryText="Toate" />
-                    {this.props.incidentTypes.map((incident) =>
-                      <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
-                    )}
+                    {this.props.incidentTypes.map((incident) => (
+                      <MenuItem
+                        key={incident.id}
+                        value={incident.id}
+                        label={incident.name}
+                      >
+                        <span className="menu-item">{incident.name}</span>
+                      </MenuItem>
+                    ))}
                   </SelectField>
                 </div>
               </div>
@@ -365,14 +373,11 @@ export class LeftContainer extends React.PureComponent {
                         icon={<AddCircleOutline style={buttonIconStyle} />}
                         fullWidth
                         className="button"
-
                       />
                   }
                 </div>
               </div>
-
             </AddIncident>
-
           </Sticky>
         </Interact>
       </StickyContainer>);

@@ -135,7 +135,11 @@ export class Filters extends React.PureComponent {
                     >
                       <MenuItem value="0" primaryText="Toate" />
                       {this.props.incidentTypes.map((incident) => (
-                        <MenuItem key={incident.id} value={incident.id}>
+                        <MenuItem
+                          key={incident.id}
+                          value={incident.id}
+                          label={incident.name}
+                        >
                           <span className="menu-item">{incident.name}</span>
                         </MenuItem>
                       ))}
