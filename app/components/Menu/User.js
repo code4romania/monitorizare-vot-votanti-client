@@ -54,31 +54,36 @@ const DonateMenuLink = styled(MenuLink)`
   }
 `;
 
-const User = (menuItem) => (
+const User = ({ menuItems, path }) => (
   <MenuList id="menu-list">
-    <MenuItem id={menuItem.ACASA.path}>
-      <MenuLink to={menuItem.ACASA.path} className="selected">
-        {menuItem.ACASA.title}
+    <MenuItem id={menuItems.ACASA.path}>
+      <MenuLink to={menuItems.ACASA.path} className={path === menuItems.ACASA.path ? 'selected' : ''}>
+        {menuItems.ACASA.title}
       </MenuLink>
     </MenuItem>
-    <MenuItem id={menuItem.SESIZARI.path}>
-      <MenuLink to={menuItem.SESIZARI.path}>{menuItem.SESIZARI.title}</MenuLink>
+    <MenuItem id={menuItems.SESIZARI.path}>
+      <MenuLink to={menuItems.SESIZARI.path} className={path === menuItems.SESIZARI.path ? 'selected' : ''}>{menuItems.SESIZARI.title}</MenuLink>
     </MenuItem>
-    <MenuItem id={menuItem.STATISTICI.path}>
-      <MenuLink to={menuItem.STATISTICI.path}>{menuItem.STATISTICI.title}</MenuLink>
+    <MenuItem id={menuItems.STATISTICI.path}>
+      <MenuLink to={menuItems.STATISTICI.path} className={path === menuItems.STATISTICI.path ? 'selected' : ''}>{menuItems.STATISTICI.title}</MenuLink>
     </MenuItem>
-    <MenuItem id={menuItem.REGULI_VOT.path}>
-      <MenuLink to={menuItem.REGULI_VOT.path}>{menuItem.REGULI_VOT.title}</MenuLink>
+    <MenuItem id={menuItems.REGULI_VOT.path}>
+      <MenuLink to={menuItems.REGULI_VOT.path} className={path === menuItems.REGULI_VOT.path ? 'selected' : ''}>{menuItems.REGULI_VOT.title}</MenuLink>
     </MenuItem>
-    <MenuItem id={menuItem.DESPRE_NOI.path}>
-      <MenuLink to={menuItem.DESPRE_NOI.path}>{menuItem.DESPRE_NOI.title}</MenuLink>
+    <MenuItem id={menuItems.DESPRE_NOI.path}>
+      <MenuLink to={menuItems.DESPRE_NOI.path} className={path === menuItems.DESPRE_NOI.path ? 'selected' : ''}>{menuItems.DESPRE_NOI.title}</MenuLink>
     </MenuItem>
     <MenuItem id="doneaza">
-      <DonateMenuLink href={menuItem.DONEAZA.href} target="_blank">
-        {menuItem.DONEAZA.title}
+      <DonateMenuLink href={menuItems.DONEAZA.href} target="_blank">
+        {menuItems.DONEAZA.title}
       </DonateMenuLink>
     </MenuItem>
   </MenuList>
 );
+
+User.propTypes = {
+  menuItems: React.PropTypes.object,
+  path: React.PropTypes.string,
+};
 
 export default User;

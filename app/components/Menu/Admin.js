@@ -44,15 +44,20 @@ const MenuLink = styled(Link)`
   }
 `;
 
-const Admin = (menuItem) => (
+const Admin = ({ menuItems, path }) => (
   <MenuList id="menu-list">
-    <MenuItem id={menuItem.SESIZARI.path}>
-      <MenuLink to={menuItem.SESIZARI.path}>{menuItem.SESIZARI.title}</MenuLink>
+    <MenuItem id={menuItems.SESIZARI.path}>
+      <MenuLink to={menuItems.SESIZARI.path} className={path === menuItems.SESIZARI.path ? 'selected' : ''}>{menuItems.SESIZARI.title}</MenuLink>
     </MenuItem>
-    <MenuItem id={menuItem.STATISTICI.path}>
-      <MenuLink to={menuItem.STATISTICI.path}>{menuItem.STATISTICI.title}</MenuLink>
+    <MenuItem id={menuItems.STATISTICI.path}>
+      <MenuLink to={menuItems.STATISTICI.path} className={path === menuItems.STATISTICI.path ? 'selected' : ''}>{menuItems.STATISTICI.title}</MenuLink>
     </MenuItem>
   </MenuList>
 );
+
+Admin.propTypes = {
+  menuItems: React.PropTypes.object,
+  path: React.PropTypes.string,
+};
 
 export default Admin;

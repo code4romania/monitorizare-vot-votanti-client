@@ -2,7 +2,7 @@ import React from 'react';
 import User from './User';
 import Admin from './Admin';
 
-const isAuthenticated = sessionStorage.getItem("token");
+const isAuthenticated = sessionStorage.getItem('token');
 
 const MENU_ITEMS = {
   ACASA: {
@@ -33,17 +33,14 @@ const MENU_ITEMS = {
 
 const Menu = ({ pathname }) => {
   const currentPath = pathname.replace(/\//, '');
-  const selected = (path) => path === currentPath && 'selected';
 
-  render() {
-    return (
-      (isAuthenticated ? <Admin menuItems={MENU_ITEMS} /> : <User menuItems={MENU_ITEMS} />)
-    );
-  }
+  return (
+    (isAuthenticated ? <Admin menuItems={MENU_ITEMS} path={currentPath} /> : <User menuItems={MENU_ITEMS} path={currentPath} />)
+  );
 };
 
 Menu.propTypes = {
-  pathname: React.PropTypes.string
+  pathname: React.PropTypes.string,
 };
 
 export default Menu;
