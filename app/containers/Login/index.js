@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const Content = styled.div`
   margin: 0 0 120px;
@@ -12,7 +15,49 @@ const Content = styled.div`
   }
 `;
 
-export default class Admin extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class Login extends React.PureComponent {
+  static propTypes = {
+    authenticated: PropTypes.bool
+  };
+
+  state = {
+    email: '',
+    password: ''
+  };
+
+  componentWillMount() {
+    if (this.props.authenticated) {
+      history.push({ pathname: '/' });
+    }
+  }
+
+  onEmailChange = event => {
+    this.setState({ email: event.target.value });
+  };
+
+  onPasswordChange = event => {
+    this.setState({ password: event.target.value });
+  };
+
+  onSubmit = () => {
+    const { email, password } = this.state;
+    this.props.login(email, password);
+  };
+
+  getErrors = () => {
+    const { error } = this.props;
+
+    if (error && error.errors) {
+      return (
+        <ul>
+          {error.errors.map(e => {
+            return <li>{e[0]}</li>;
+          })}
+        </ul>
+      );
+    }
+  };
+
   render() {
     return (
       <section className="container">
@@ -20,14 +65,45 @@ export default class Admin extends React.PureComponent { // eslint-disable-line 
           <div className="col-xs-12 col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6">
             <Helmet
               title="Login - Monitorizare Vot"
-              meta={[
-                { name: 'login', content: 'Login' },
-              ]}
+              meta={[{ name: 'login', content: 'Login' }]}
             />
-            <div className="page-hero">
-              <h1>Login</h1>
-            </div>
             <Content>
+              <h3>Login</h3>
+              <div>
+                {this.getErrors()}
+
+                <form>
+                  <div className="col-xs-12 col-sm-6">
+                    <TextField
+                      floatingLabelText="Email"
+                      floatingLabelFixed
+                      fullWidth
+                      required
+                      name={'Email'}
+                      onChange={this.onEmailChange}
+                    />
+                  </div>
+                  <div className="col-xs-12 col-sm-6">
+                    <TextField
+                      floatingLabelText="Password"
+                      floatingLabelFixed
+                      fullWidth
+                      required
+                      name={'Password'}
+                      type="password"
+                      onChange={this.onPasswordChange}
+                    />
+                  </div>
+                  <div className="col-xs-12 col-sm-6">
+                    <RaisedButton
+                      label="Login"
+                      secondary
+                      className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                      onClick={this.onSubmit}
+                    />
+                  </div>
+                </form>
+              </div>
             </Content>
           </div>
         </div>
@@ -35,3 +111,21 @@ export default class Admin extends React.PureComponent { // eslint-disable-line 
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: (email, password) =>
+      dispatch({
+        type: 'LOGIN',
+        credentials: {
+          email,
+          password
+        }
+      })
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Login);
