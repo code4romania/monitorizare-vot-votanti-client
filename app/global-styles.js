@@ -111,4 +111,10 @@ injectGlobal`
     top: -2px;
     position: relative;
   }
+
+  .menu-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
 `;
