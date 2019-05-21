@@ -17,10 +17,10 @@ const MENU_ITEMS = {
     title: 'Statistici',
     path: 'statistici',
   },
-  REGULI_VOT: {
-    title: 'Reguli vot',
-    path: 'reguli-vot',
-  },
+  // REGULI_VOT: {
+  //   title: 'Reguli vot',
+  //   path: 'reguli-vot',
+  // },
   DESPRE_NOI: {
     title: 'Despre noi',
     path: 'despre-noi',

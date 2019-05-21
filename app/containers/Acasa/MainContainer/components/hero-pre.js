@@ -91,7 +91,10 @@ function HeroPre() {
             </Timer>
 
             <p>
-              Dacă ai sesizat nereguli în timpul campaniei pentru referendum sau în ziua votului postează aici. Ai văzut mesaje care instigă la ură, ai văzut campanii derulate în mod ilegal sau alte comunicări care contravin principiilor democratice și care atacă drepturile fundamentale ale omului?
+              Pe 26 mai 2019 au loc alegerile europarlamentare și referendumul național pe justiție. Dacă ai sesizat
+              nereguli în timpul campaniei sau în ziua votului postează aici. Ai văzut mesaje care instigă la ură, ai
+              văzut campanii derulate în mod ilegal sau alte comunicări care contravin principiilor democratice,
+              probleme în secția în care ai votat etc? Trimite o sesizare folosind formularul de mai jos.
             </p>
 
             <IconsList>

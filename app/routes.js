@@ -101,23 +101,25 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, {
-      path: '/reguli-vot',
-      name: 'reguli',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/ReguliVot'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component]) => {
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
+    },
+    // {
+    //   path: '/reguli-vot',
+    //   name: 'reguli',
+    //   getComponent(nextState, cb) {
+    //     const importModules = Promise.all([
+    //       System.import('containers/ReguliVot'),
+    //     ]);
+    //
+    //     const renderRoute = loadModule(cb);
+    //
+    //     importModules.then(([component]) => {
+    //       renderRoute(component);
+    //     });
+    //
+    //     importModules.catch(errorLoading);
+    //   },
+    // },
+    {
       path: '/despre-noi',
       name: 'despre',
       getComponent(nextState, cb) {

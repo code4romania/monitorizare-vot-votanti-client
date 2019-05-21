@@ -196,7 +196,11 @@ export class LeftContainer extends React.PureComponent {
         <Interact className="interact">
           <Sticky isActive={this.shouldBeSticky()}>
             <h2>Adaugă o sesizare</h2>
-            <p>Mai jos găsești formularul prin care poți să trimiți o sesizare. Dacă nu ești sigur ce poate fi subiectul unei sesizări, verifică aici <Link to="reguli-vot">Regulile votului</Link>. <small><span style={{ fontWeight: 700 }}>Important:</span> sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau Biroului Electoral Central. Mai multe detalii <Link to="despre-noi">aici.</Link></small></p>
+            <p>
+              Sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești
+              un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau
+              Biroului Electoral Central. Mai multe detalii <Link to="despre-noi">aici.</Link>.
+            </p>
 
             <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12">
