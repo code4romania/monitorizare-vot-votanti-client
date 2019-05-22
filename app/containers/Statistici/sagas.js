@@ -6,7 +6,7 @@ import request from 'utils/request';
 import { statsLoaded } from './actions';
 
 export function* getStatsData() {
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/reports';
+  const requestURL = 'https://portal-votanti-uat.azurewebsites.net/api/reports';
 
   try {
     const stats = yield call(request, requestURL);
