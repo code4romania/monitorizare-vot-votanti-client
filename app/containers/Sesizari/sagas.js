@@ -8,7 +8,7 @@ import request from 'utils/request';
 
 export function* getIncidents() {
   const nextPage = yield select(getNextPage());
-  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/incidents?limit=20&page=${nextPage}`;
+  const requestURL = `https://portal-votanti-uat.azurewebsites.net/api/incidents?limit=20&page=${nextPage}`;
 
   try {
     const incidentsResponse = yield call(request, requestURL);
@@ -34,7 +34,7 @@ export function* newFilter() {
   const county = yield select(countyId());
   const type = yield select(typeId());
 
-  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/incidents?status=Approved&type=${type}&map=${country}&county=${county}`;
+  const requestURL = `https://portal-votanti-uat.azurewebsites.net/api/incidents?status=Approved&type=${type}&map=${country}&county=${county}`;
 
   try {
     const filters = yield call(request, requestURL);

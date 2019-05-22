@@ -3,7 +3,7 @@ import { getIncidentTypesSuccess } from '../actions';
 import request from 'utils/request';
 
 export function* getIncidentTypes() {
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents/types';
+  const requestURL = 'https://portal-votanti-uat.azurewebsites.net/api/incidents/types';
   const incidentTypes = yield call(request, requestURL);
   if (incidentTypes.data) {
     yield put(getIncidentTypesSuccess(incidentTypes.data));

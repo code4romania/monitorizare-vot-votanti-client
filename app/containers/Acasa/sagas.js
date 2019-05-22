@@ -8,7 +8,7 @@ import request from 'utils/request';
 import { browserHistory } from 'react-router';
 
 export function* getIncidents() {
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+  const requestURL = 'https://portal-votanti-uat.azurewebsites.net/api/incidents';
 
   try {
     const incidentsResponse = yield call(request, requestURL);
@@ -31,7 +31,7 @@ export function* shortIncidents() {
 
 export function* getAllCitiesPerCountry() {
   const countyIdValue = yield select(countyId());
-  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/counties/${countyIdValue}/cities`;
+  const requestURL = `https://portal-votanti-uat.azurewebsites.net/api/counties/${countyIdValue}/cities`;
   const citiesData = yield call(request, requestURL);
   if (citiesData.data) {
     yield put(getCitiesSuccess(citiesData.data));
@@ -53,7 +53,7 @@ export function* cities() {
 
 export function* getPrecintsPerCity() {
   const cityIdValue = yield select(cityId());
-  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/${cityIdValue}/precincts`;
+  const requestURL = `https://portal-votanti-uat.azurewebsites.net/api/${cityIdValue}/precincts`;
   const precintsData = yield call(request, requestURL);
   if (precintsData.data) {
     yield put(getPrecintsSuccess(precintsData.data));
@@ -97,7 +97,7 @@ export function* submitForm() {
   formData.append('recaptchaResponse', token);
   formData.append('file', image);
 
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+  const requestURL = 'https://portal-votanti-uat.azurewebsites.net/api/incidents';
 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', requestURL, true);
