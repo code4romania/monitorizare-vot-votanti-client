@@ -97,7 +97,7 @@ function IncidentItem(props) {
       font-size: 14px;
     }`;
   const Calendar = ({ createdAt }) => {
-    const createdAtFormatted = new Date(createdAt);
+    const createdAtFormatted = new Date(createdAt.replace(' ', 'T'));
     return (<CalendarWrap>
       <div className="month">
         {createdAtFormatted.toLocaleString('en-us', { month: 'short' })}
