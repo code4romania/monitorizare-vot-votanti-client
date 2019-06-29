@@ -1,8 +1,7 @@
 import React from 'react';
 import User from './User';
 import Admin from './Admin';
-
-const isAuthenticated = sessionStorage.getItem('token');
+import {isLoggedIn} from '../../utils/authUtils';
 
 const MENU_ITEMS = {
   ACASA: {
@@ -29,13 +28,29 @@ const MENU_ITEMS = {
     title: 'Donează',
     href: 'https://code4.ro/doneaza/',
   },
+  MESSAGES: {
+    title: 'Mesages',
+    href: 'https://code4.ro/doneaza/',
+  },
+  USERS: {
+    title: 'Users',
+    href: 'https://code4.ro/doneaza/',
+  },
+  FORMS: {
+    title: 'Forms',
+    href: 'https://code4.ro/doneaza/',
+  },
+  PAGES: {
+    title: 'Pages',
+    href: 'https://code4.ro/doneaza/',
+  },
 };
 
 const Menu = ({ pathname }) => {
   const currentPath = pathname.replace(/\//, '');
 
   return (
-    (isAuthenticated ? <Admin menuItems={MENU_ITEMS} path={currentPath} /> : <User menuItems={MENU_ITEMS} path={currentPath} />)
+    (isLoggedIn() ? <Admin menuItems={MENU_ITEMS} path={currentPath} /> : <User menuItems={MENU_ITEMS} path={currentPath} />)
   );
 };
 

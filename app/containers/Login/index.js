@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import {LOGIN} from '../App/constants';
 
 const Content = styled.div`
   margin: 0 0 120px;
@@ -116,7 +117,7 @@ function mapDispatchToProps(dispatch) {
   return {
     login: (email, password) =>
       dispatch({
-        type: 'LOGIN',
+        type: LOGIN,
         credentials: {
           email,
           password
