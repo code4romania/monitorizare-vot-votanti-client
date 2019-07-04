@@ -1,7 +1,7 @@
 import React from 'react';
 import User from './User';
 import Admin from './Admin';
-import {isLoggedIn} from '../../utils/authUtils';
+import { isLoggedIn } from '../../utils/authUtils';
 
 const MENU_ITEMS = {
   ACASA: {
@@ -29,20 +29,20 @@ const MENU_ITEMS = {
     href: 'https://code4.ro/doneaza/',
   },
   MESSAGES: {
-    title: 'Mesages',
-    href: 'https://code4.ro/doneaza/',
+    title: 'Messages',
+    path: 'messages',
   },
   USERS: {
     title: 'Users',
-    href: 'https://code4.ro/doneaza/',
+    path: 'users',
   },
   FORMS: {
     title: 'Forms',
-    href: 'https://code4.ro/doneaza/',
+    path: 'forms',
   },
   PAGES: {
     title: 'Pages',
-    href: 'https://code4.ro/doneaza/',
+    path: 'pages',
   },
 };
 

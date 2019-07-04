@@ -74,8 +74,8 @@ const Admin = ({ menuItems, path }) => (
       <MenuLink to={menuItems.PAGES.path} className={path === menuItems.PAGES.path ? 'selected' : ''}>{menuItems.PAGES.title}</MenuLink>
     </MenuItem>
     <RightSide>
-      <UserLogo src={UserIcon} alt="User icon"/>
-      <UserName>Adrian Popescu</UserName>
+      <UserLogo src={UserIcon} alt="User icon" />
+      <UserName>Admin user</UserName>
     </RightSide>
   </MenuList>
 );
