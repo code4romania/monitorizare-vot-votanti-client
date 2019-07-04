@@ -2,11 +2,12 @@ import React from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { isLoggedIn } from '../containers/App/selectors';
+import { isLoggedIn } from '../utils/authUtils';
+
 
 const withAdminWrapper = (WrappedComponent) => {
   const HOC = (props) => (
-    sessionStorage.getItem('jwtToken') ? <WrappedComponent
+    isLoggedIn() ? <WrappedComponent
       {...this.props}
     /> : <div>Nu esti autorizat.</div>
   );

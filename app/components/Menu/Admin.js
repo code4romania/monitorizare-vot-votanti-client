@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router';
+import UserIcon from './user_icon.svg';
 
 const MenuList = styled.ul`
   list-style-type: none;
@@ -44,14 +45,38 @@ const MenuLink = styled(Link)`
   }
 `;
 
+const RightSide = styled.div`
+  float: right;
+`;
+
+const UserLogo = styled.img`
+  display: inline-block;
+`;
+
+const UserName = styled.p`
+  display: inline-block;
+  padding: 5px;
+  padding-left: 10px;
+`;
+
 const Admin = ({ menuItems, path }) => (
   <MenuList id="menu-list">
-    <MenuItem id={menuItems.SESIZARI.path}>
-      <MenuLink to={menuItems.SESIZARI.path} className={path === menuItems.SESIZARI.path ? 'selected' : ''}>{menuItems.SESIZARI.title}</MenuLink>
+    <MenuItem id={menuItems.MESSAGES.path}>
+      <MenuLink to={menuItems.MESSAGES.path} className={path === menuItems.MESSAGES.path ? 'selected' : ''}>{menuItems.MESSAGES.title}</MenuLink>
     </MenuItem>
-    <MenuItem id={menuItems.STATISTICI.path}>
-      <MenuLink to={menuItems.STATISTICI.path} className={path === menuItems.STATISTICI.path ? 'selected' : ''}>{menuItems.STATISTICI.title}</MenuLink>
+    <MenuItem id={menuItems.USERS.path}>
+      <MenuLink to={menuItems.USERS.path} className={path === menuItems.USERS.path ? 'selected' : ''}>{menuItems.USERS.title}</MenuLink>
     </MenuItem>
+    <MenuItem id={menuItems.FORMS.path}>
+      <MenuLink to={menuItems.FORMS.path} className={path === menuItems.FORMS.path ? 'selected' : ''}>{menuItems.FORMS.title}</MenuLink>
+    </MenuItem>
+    <MenuItem id={menuItems.PAGES.path}>
+      <MenuLink to={menuItems.PAGES.path} className={path === menuItems.PAGES.path ? 'selected' : ''}>{menuItems.PAGES.title}</MenuLink>
+    </MenuItem>
+    <RightSide>
+      <UserLogo src={UserIcon} alt="User icon" />
+      <UserName>Admin user</UserName>
+    </RightSide>
   </MenuList>
 );
 

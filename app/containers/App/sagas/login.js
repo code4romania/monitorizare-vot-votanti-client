@@ -1,4 +1,5 @@
 import { put } from 'redux-saga/effects';
+import { push } from 'react-router-redux';
 import authApi from '../../../api/authApi';
 
 function loginApi(data) {
@@ -26,6 +27,7 @@ export function* login(data) {
       }.
     */
     yield put({ type: 'AUTHENTICATION_SUCCESFUL', response });
+    yield put(push('/admin'));
   } else {
     yield put({ type: 'AUTHENTICATION_FAILED', error });
   }
