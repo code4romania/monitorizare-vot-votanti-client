@@ -5,10 +5,11 @@ import { incidentsLoaded, filtersLoaded } from './actions';
 import { INCIDENTS, FILTER } from './constants';
 import { getNextPage, activeMap, countyId, typeId } from './selectors';
 import request from 'utils/request';
+import config from '../../api/config';
 
 export function* getIncidents() {
   const nextPage = yield select(getNextPage());
-  const requestURL = `https://portal-votanti-uat.azurewebsites.net/api/incidents?limit=20&page=${nextPage}`;
+  const requestURL = `${config.api.baseURL}/incidents?limit=20&page=${nextPage}`;
 
   try {
     const incidentsResponse = yield call(request, requestURL);
@@ -34,7 +35,7 @@ export function* newFilter() {
   const county = yield select(countyId());
   const type = yield select(typeId());
 
-  const requestURL = `https://portal-votanti-uat.azurewebsites.net/api/incidents?status=Approved&type=${type}&map=${country}&county=${county}`;
+  const requestURL = `${config.api.baseURL}/incidents?status=Approved&type=${type}&map=${country}&county=${county}`;
 
   try {
     const filters = yield call(request, requestURL);
