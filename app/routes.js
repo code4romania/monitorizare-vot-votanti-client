@@ -167,7 +167,30 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, {
+    },
+    {
+      path: '/messages',
+      name: 'messages',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Sesizari/reducer'),
+          System.import('containers/Sesizari/sagas'),
+          System.import('containers/Sesizari/admin'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('sesizari', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },
+    {
       path: '/multumim',
       name: 'multumim',
       getComponent(nextState, cb) {

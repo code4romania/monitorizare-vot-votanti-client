@@ -1,26 +1,37 @@
-import { takeLatest } from 'redux-saga';
+import { takeEvery, takeLatest } from 'redux-saga';
 import { take, call, put, fork, cancel, select } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { incidentsLoaded, filtersLoaded } from './actions';
-import { INCIDENTS, FILTER } from './constants';
+import { GET_INCIDENTS, FILTER } from './constants';
 import { getNextPage, activeMap, countyId, typeId } from './selectors';
-import request from 'utils/request';
+import request from '../../utils/request';
 import config from '../../api/config';
 
-export function* getIncidents() {
-  const nextPage = yield select(getNextPage());
-  const requestURL = `${config.api.baseURL}/incidents?limit=20&page=${nextPage}`;
+export function* getNextIncidents(data, pageNumber) {
+  const status = data.status;
+  let nextPage = yield select(getNextPage());
+  if (pageNumber != null) {
+    nextPage = pageNumber;
+  }
+  let requestURL = `${config.api.baseURL}/incidents?limit=20&page=${nextPage}`;
+  if (status != null) {
+    requestURL += `&status=${status}`;
+  }
 
   try {
     const incidentsResponse = yield call(request, requestURL);
-    yield put(incidentsLoaded(incidentsResponse));
+    yield put(incidentsLoaded(incidentsResponse, status));
   } catch (err) {
-    // to do when failed
+    // eslint-disable-next-line no-console
+    console.log('error while setting data', err);
   }
 }
 
+export function* getIncidents(data) {
+  yield call(getNextIncidents, data, 0);
+}
 export function* getIncidentsWatcher() {
-  yield fork(takeLatest, INCIDENTS, getIncidents);
+  yield fork(takeEvery, GET_INCIDENTS, getIncidents);
 }
 
 export function* incidents() {

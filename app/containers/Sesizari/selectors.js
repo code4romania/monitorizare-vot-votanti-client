@@ -6,15 +6,57 @@ const getIncidents = () => createSelector(
   selectSesizari(),
   (sesizariState) => sesizariState.get('incidents')
 );
+const getPendingIncidents = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('pendingIncidents')
+);
+const getApprovedIncidents = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('approvedIncidents')
+);
+const getRejectedIncidents = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('rejectedIncidents')
+);
 
 const getPagination = () => createSelector(
   selectSesizari(),
   (sesizariState) => sesizariState.get('pagination')
 );
 
+const getApprovedPagination = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('approvedIncidentsPagination')
+);
+
+const getPendingPagination = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('pendingIncidentsPagination')
+);
+
+const getRejectedPagination = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('rejectedIncidentsPagination')
+);
+
 const getNextPage = () => createSelector(
   selectSesizari(),
   (sesizariState) => sesizariState.get('nextPage')
+);
+
+const getApprovedNextPage = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('approvedIncidentsNextPage')
+);
+
+const getPendingNextPage = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('pendingIncidentsNextPage')
+);
+
+const getRejectedNextPage = () => createSelector(
+  selectSesizari(),
+  (sesizariState) => sesizariState.get('rejectedIncidentsNextPage')
 );
 
 const countyId = () => createSelector(
@@ -44,6 +86,15 @@ const cityId = () => createSelector(
 
 export {
   getIncidents,
+  getApprovedIncidents,
+  getPendingIncidents,
+  getRejectedIncidents,
+  getApprovedNextPage,
+  getPendingNextPage,
+  getRejectedNextPage,
+  getApprovedPagination,
+  getPendingPagination,
+  getRejectedPagination,
   getPagination,
   getNextPage,
   countyId,

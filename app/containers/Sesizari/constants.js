@@ -1,5 +1,9 @@
-export const INCIDENTS = 'INCIDENTS';
+export const GET_INCIDENTS = 'GET_INCIDENTS';
+export const GET_NEXT_INCIDENTS = 'GET_NEXT_INCIDENTS';
 export const INCIDENTS_LODADED = 'INCIDENTS_LODADED';
+export const APPROVED_INCIDENTS_LODADED = 'APPROVED_INCIDENTS_LODADED';
+export const REJECTED_INCIDENTS_LODADED = 'REJECTED_INCIDENTS_LODADED';
+export const PENDING_INCIDENTS_LODADED = 'PENDING_INCIDENTS_LODADED';
 export const SET_COUNTY = 'SET_COUNTY';
 export const SET_ACTIVE_MAP = 'SET_ACTIVE_MAP';
 export const FILTER = 'FILTER';
@@ -7,3 +11,6 @@ export const FILTERS_LODADED = 'FILTERS_LODADED';
 export const SET_TYPE = 'SET_TYPE';
 export const RESET_COUNTY = 'RESET_COUNTY';
 export const RESET_FILTERS = 'RESET_FILTERS';
+export const APPROVED = 'Approved';
+export const REJECTED = 'Rejected';
+export const PENDING = 'Pending';
