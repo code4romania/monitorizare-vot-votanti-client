@@ -1,35 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const ButtonBackground = styled.div`
-	display: inline-block;
-	margin: 10px;
-	border-radius: 2px;
-	background: #E5E5E5;
-`;
-
-const ClickedButtonBackground = styled(ButtonBackground)`
-	background: #FFFFFF;
-`;
-
-const ButtonText = styled.div`
-	font-family: Open Sans;
-	padding: 10px;
-	padding-left: 80px;
-	padding-right: 80px;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 14px;
-	line-height: 19px;
-	display: flex;
-	align-items: center;
-	text-align: center;
-
-	color: #5F288D;
-`;
+import { PendingMessagesList, ApprovedMessagesList, RejectedMessagesList } from '../MessagesList';
+import { Button } from '../Button';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { getIncidentsAction, getIncidentsByStatusAction } from '../../../../Sesizari/actions';
+import { getApprovedIncidents, getPendingIncidents, getRejectedIncidents } from '../../../../Sesizari/selectors';
+import { APPROVED, PENDING, REJECTED } from '../../../../Sesizari/constants';
 
 export class MessageTypeSelector extends React.Component {
-	options = ["Unread", "Accepted", "Rejected"];
+	options = [
+		{
+			text: 'Unread', 
+			valuesName: 'pendingIncidents',
+			prepareFunctionName: 'dispatchGetPendingIncidents',
+			componentCreator: this.createPendingListComponent
+		}, 
+		{
+			text: 'Accepted',
+			valuesName: 'approvedIncidents',
+			prepareFunctionName: 'dispatchGetApprovedIncidents',
+			componentCreator: this.createApprovedListComponent
+		}, 
+		{
+			text: 'Rejected',
+			valuesName: 'rejectedIncidents',
+			prepareFunctionName: 'dispatchGetRejectedIncidents',
+			componentCreator: this.createRejectedListComponent
+		}
+	];
 
 	constructor(props) {
     super(props);
@@ -44,42 +43,75 @@ export class MessageTypeSelector extends React.Component {
 	handleClick(index) {
 		const newTabSelected = [false, false, false];
 		newTabSelected[index] = true;
+		this.props[this.options[index].prepareFunctionName]();
 		this.setState({tabSelected: newTabSelected});
 	}
 
+  componentDidMount() {
+    this.props.dispatchGetPendingIncidents();
+  }
+
+  createApprovedListComponent(incidents) {
+  	return (
+				<ApprovedMessagesList incidents={incidents} />
+		);
+  }
+
+  createRejectedListComponent(incidents) {
+		return (
+				<RejectedMessagesList incidents={incidents} />
+		);
+  }
+
+  createPendingListComponent(incidents) {
+		return (
+				<PendingMessagesList incidents={incidents} />
+		);
+  }
+
 	render() {
-		const buttons = this.options.map((value, index) => 
-					<Button key={index} isSelected={this.state.tabSelected[index]}
+		const buttons = this.options
+			.map(value => value.text)
+			.map((value, index) => 
+					<Button key={index} 
+							backgroundColor={this.state.tabSelected[index] ? '#FFFFFF' : '#E5E5E5'}
+							textColor={'#5F288D'}
 							onClick={() => this.handleClick(index)}>
 								{value}
 					</Button>);
+
+		const targetTab = this.state.tabSelected.indexOf(true);	
+		const incidents = this.props[this.options[targetTab].valuesName];
+		const wellDescribedIncidents = incidents
+			.filter(incident => incident)
+			.filter(incident => incident.name)
+			.filter(incident => incident.city)
+			.filter(incident => incident.precinct);
 		return (
-			<div className="row">
-				{buttons}
+			<div >
+				<div className="row">
+					{buttons}
+				</div>
+
+				{this.options[targetTab].componentCreator(wellDescribedIncidents)}
 			</div>
 		);
 	}
 }
 
-class Button extends React.Component {
-	
-	constructor(props) {
-        super(props);
-  }
+export function mapDispatchToProps(dispatch) {
+  return {
+    dispatchGetPendingIncidents: () => dispatch(getIncidentsByStatusAction(PENDING)),
+    dispatchGetApprovedIncidents: () => dispatch(getIncidentsByStatusAction(APPROVED)),
+    dispatchGetRejectedIncidents: () => dispatch(getIncidentsByStatusAction(REJECTED)),
 
-	render() {
-		if (this.props.isSelected) {
-			return (
-				<ClickedButtonBackground onClick={this.props.onClick}>
-					<ButtonText>{this.props.children}</ButtonText>
-				</ClickedButtonBackground>
-			);
-		}
-
-		return (
-				<ButtonBackground onClick={this.props.onClick}>
-					<ButtonText>{this.props.children}</ButtonText>
-				</ButtonBackground>
-		);
-	}
+  };
 }
+
+const mapStateToProps = createStructuredSelector({
+  pendingIncidents: getPendingIncidents(),
+  approvedIncidents: getApprovedIncidents(), 
+  rejectedIncidents: getRejectedIncidents() 
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageTypeSelector);

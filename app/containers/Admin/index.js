@@ -5,7 +5,7 @@ import {Messages} from './Messages';
 import withAdminWrapper from '../../wrappers/withAdminWrapper';
 
 const Content = styled.div`
-  margin: 0 0 120px;
+  margin: 0 -10em 120px -10em;
 
   p {
     font-size: 16px;
@@ -18,14 +18,14 @@ class Admin extends React.PureComponent { // eslint-disable-line react/prefer-st
   render() {
     return (
       <section className="container">
-        <div className="row">
+        <div className="wrap">
             <Helmet
               title="Admin - Monitorizare Vot"
               meta={[
                 { name: 'admin', content: 'Admin' },
               ]}
             />
-            <Content>
+            <Content className="wrap">
               <Messages />
             </Content>
         </div>

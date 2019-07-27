@@ -1,5 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getIncidentsAction, getIncidentsByStatusAction } from '../../../../Sesizari/actions';
+import { getApprovedIncidents, getPendingIncidents, getRejectedIncidents } from '../../../../Sesizari/selectors';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { APPROVED, PENDING, REJECTED } from '../../../../Sesizari/constants';
 
 const MessageStatText = styled.p`
   display: inline-block;
@@ -34,16 +39,51 @@ const Ellipse = styled.div`
 	float: left;
 `;
 
-export function MessagesStats() {
-	return (
-		<div className="row"> 
-			<GrayMessageStatText>1298 messages</GrayMessageStatText>
-			<Ellipse />
-			<MessageStatText>325 unread</MessageStatText>
-			<Ellipse />
-			<GreenMessageStatText>600 approved</GreenMessageStatText>
-			<Ellipse />
-			<RedMessageStatText>373 rejected</RedMessageStatText>
-		</div>
-	);
+export class MessagesStats extends React.Component {
+	
+	constructor(props) {
+		super(props);
+	}
+
+	componentDidMount() {
+		this.props.dispatchGetPendingIncidents();
+		this.props.dispatchGetApprovedIncidents();
+		this.props.dispatchGetRejectedIncidents();
+	}
+
+	render() {
+		const pendingCount = this.props.pendingIncidents.length;
+		const approvedCount = this.props.approvedIncidents.length;
+		const rejectedCount = this.props.rejectedIncidents.length;
+		const totalCount = pendingCount + approvedCount + rejectedCount;
+
+		return (
+			<div className="row"> 
+				<GrayMessageStatText>{totalCount} messages</GrayMessageStatText>
+				<Ellipse />
+				<MessageStatText>{pendingCount} unread</MessageStatText>
+				<Ellipse />
+				<GreenMessageStatText>{approvedCount} approved</GreenMessageStatText>
+				<Ellipse />
+				<RedMessageStatText>{rejectedCount} rejected</RedMessageStatText>
+			</div>
+		);
+	}
 }
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    dispatchGetPendingIncidents: () => dispatch(getIncidentsByStatusAction(PENDING)),
+    dispatchGetApprovedIncidents: () => dispatch(getIncidentsByStatusAction(APPROVED)),
+    dispatchGetRejectedIncidents: () => dispatch(getIncidentsByStatusAction(REJECTED)),
+
+  };
+}
+
+const mapStateToProps = createStructuredSelector({
+  pendingIncidents: getPendingIncidents(),
+  approvedIncidents: getApprovedIncidents(), 
+  rejectedIncidents: getRejectedIncidents() 
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesStats);
