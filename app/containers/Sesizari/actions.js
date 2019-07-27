@@ -12,7 +12,7 @@ import {
   REJECTED,
   REJECTED_INCIDENTS_LODADED,
   PENDING,
-  PENDING_INCIDENTS_LODADED,
+  PENDING_INCIDENTS_LODADED, APPROVE_INCIDENT, REJECT_INCIDENT,
 } from './constants';
 import { GET_CITIES, GET_INCIDENT_TYPES } from 'containers/App/constants';
 
@@ -72,6 +72,18 @@ export function setTypeAction(value) {
   return {
     type: SET_TYPE,
     value,
+  };
+}
+export function approveIncidentAction(value) {
+  return {
+    type: APPROVE_INCIDENT,
+    id: value,
+  };
+}
+export function rejectIncidentAction(value) {
+  return {
+    type: REJECT_INCIDENT,
+    id: value,
   };
 }
 

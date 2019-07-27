@@ -11,11 +11,15 @@ const MessageWrapper = styled.div`
   color: purple;
   font-family: 'Open Sans', sans-serif;
   cursor: pointer;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 `;
 function MessageType(props) {
-  let classNames = 'col-sm-2 col-lg-1';
+  let classNames = 'col-sm-2 col-lg-2';
   if (props.id === props.activeTab) {
-    classNames = classNames.concat(' selected');
+    classNames = classNames.concat(' activeTab');
   }
   return (
     <MessageWrapper className={classNames} onClick={props.selectItem} id={props.id}>
