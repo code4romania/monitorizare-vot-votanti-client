@@ -9,5 +9,5 @@ export default {
   },
   rejectIncident(incidentId, cb, errorCb) {
     api.post(`/incidents/${incidentId}/reject`, {}, cb, errorCb);
-  }
+  },
 };

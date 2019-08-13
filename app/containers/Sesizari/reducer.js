@@ -56,7 +56,6 @@ function sesizariReducer(state = initialState, action) {
         .set('rejectedIncidentsPagination', action.pagination)
         .set('rejectedIncidentsNextPage', action.pagination.currentPage + 1);
     case PENDING_INCIDENTS_LODADED:
-      console.log(action.incidents);
       return state
         .set('pendingIncidents', _.concat(state.get('pendingIncidents'), action.incidents))
         .set('pendingIncidentsPagination', action.pagination)

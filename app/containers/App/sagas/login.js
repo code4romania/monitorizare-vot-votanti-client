@@ -5,8 +5,8 @@ import authApi from '../../../api/authApi';
 function loginApi(data) {
   return authApi
     .login(data.credentials)
-    .then(response => ({ response }))
-    .catch(error => ({ error }));
+    .then((response) => ({ response }))
+    .catch((error) => ({ error }));
 }
 export function* login(data) {
   const { response, error } = yield loginApi(data);

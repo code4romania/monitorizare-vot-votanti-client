@@ -59,11 +59,11 @@ export class Sesizari extends React.PureComponent {
 
   loadNextIncidents = () => {
     this.props.dispatchGetIncidents();
-  }
+  };
 
   filterIncindents = () => {
     this.props.filterIncidents();
-  }
+  };
 
   render() {
     const actions = [
@@ -120,7 +120,7 @@ export class Sesizari extends React.PureComponent {
             open={this.state.open}
             onRequestClose={this.handleClose}
           >
-            <img role="presentation" src={this.state.imgSrc} />
+            <img alt="media" role="presentation" src={this.state.imgSrc} />
           </Dialog>
         </div>
       </div>
