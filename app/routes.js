@@ -156,12 +156,16 @@ export default function createRoutes(store) {
       name: 'admin',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+          System.import('containers/Sesizari/reducer'),
+          System.import('containers/Sesizari/sagas'),
           System.import('containers/Admin'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('sesizari', reducer.default);
+          injectSagas(sagas.default);
           renderRoute(component);
         });
 
