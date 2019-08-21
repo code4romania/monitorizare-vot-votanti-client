@@ -67,9 +67,9 @@ const User = ({ menuItems, path }) => (
     <MenuItem id={menuItems.STATISTICI.path}>
       <MenuLink to={menuItems.STATISTICI.path} className={path === menuItems.STATISTICI.path ? 'selected' : ''}>{menuItems.STATISTICI.title}</MenuLink>
     </MenuItem>
-    {/*<MenuItem id={menuItems.REGULI_VOT.path}>*/}
-      {/*<MenuLink to={menuItems.REGULI_VOT.path} className={path === menuItems.REGULI_VOT.path ? 'selected' : ''}>{menuItems.REGULI_VOT.title}</MenuLink>*/}
-    {/*</MenuItem>*/}
+    {/* <MenuItem id={menuItems.REGULI_VOT.path}> */}
+    {/* <MenuLink to={menuItems.REGULI_VOT.path} className={path === menuItems.REGULI_VOT.path ? 'selected' : ''}>{menuItems.REGULI_VOT.title}</MenuLink> */}
+    {/* </MenuItem> */}
     <MenuItem id={menuItems.DESPRE_NOI.path}>
       <MenuLink to={menuItems.DESPRE_NOI.path} className={path === menuItems.DESPRE_NOI.path ? 'selected' : ''}>{menuItems.DESPRE_NOI.title}</MenuLink>
     </MenuItem>

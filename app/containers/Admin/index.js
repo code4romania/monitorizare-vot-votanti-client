@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
-import {Messages} from './Messages';
+import { Messages } from './Messages';
 import withAdminWrapper from '../../wrappers/withAdminWrapper';
 
 const Content = styled.div`
@@ -19,15 +19,15 @@ class Admin extends React.PureComponent { // eslint-disable-line react/prefer-st
     return (
       <section className="container">
         <div className="wrap">
-            <Helmet
-              title="Admin - Monitorizare Vot"
-              meta={[
+          <Helmet
+            title="Admin - Monitorizare Vot"
+            meta={[
                 { name: 'admin', content: 'Admin' },
-              ]}
-            />
-            <Content className="wrap">
-              <Messages />
-            </Content>
+            ]}
+          />
+          <Content className="wrap">
+            <Messages />
+          </Content>
         </div>
       </section>
     );
