@@ -53,10 +53,11 @@ width: 100%;
 `;
 
 export default class MessagesList extends React.Component {
-
   static get propTypes() {
     return {
       incidents: PropTypes.any,
+      hasMoreIncidents: PropTypes.bool,
+      loader: PropTypes.func,
     };
   }
 
@@ -66,15 +67,40 @@ export default class MessagesList extends React.Component {
     this.state = {
       messagesType: 1,
     };
+
+    this.provideIncidentComponents = this.provideIncidentComponents.bind(this);
+  }
+
+  provideIncidentComponents() {
+    return this.props.incidents.map((value) =>
+      <MessageInformation key={value.id} data={value} />
+    );
   }
 
   render() {
-    const incidentComponents = this.props.incidents.map((value) =>
-      <MessageInformation key={value.id} data={value} />);
-    return (
-      <div className="row">{incidentComponents}</div>);
-  }
+    const incidentComponents = this.provideIncidentComponents();
 
+    let buttonLoadMore = <div></div>;
+    if (this.props.hasMoreIncidents) {
+      buttonLoadMore = (
+        <div className="row">
+          <Button
+            backgroundColor="#969590"
+            textColor="#FFFFFF"
+            onClick={this.props.loader}
+          >Load more</Button>
+        </div>);
+    }
+    return (
+      <div>
+        <div className="row">
+          {incidentComponents}
+        </div>
+
+        {buttonLoadMore}
+      </div>
+    );
+  }
 }
 
 class MessageInformation extends React.Component {
@@ -131,20 +157,18 @@ class MessageInformation extends React.Component {
               <TextStyle>{data.description}</TextStyle>
             </TextLine>
           </BigColumn>
-        </InfoCard>{buttons}
+        </InfoCard>
+
+        {buttons}
       </MessageContainer>
     );
   }
 }
 
 export class RejectedMessagesList extends MessagesList {
-  render() {
-    const incidentComponents = this.props.incidents.map((value) =>
-      <RejectedMessageInformation key={value.id} data={value} />
-      );
-    return (
-      <div className="row">{incidentComponents}</div>
-    );
+  provideIncidentComponents() {
+    return this.props.incidents.map((value) =>
+      <RejectedMessageInformation key={value.id} data={value} />);
   }
 }
 
@@ -159,13 +183,9 @@ class RejectedMessageInformation extends MessageInformation {
 }
 
 export class ApprovedMessagesList extends MessagesList {
-  render() {
-    const incidentComponents = this.props.incidents.map((value) =>
-      <ApprovedMessageInformation key={value.id} data={value} />
-      );
-    return (
-      <div className="row">{incidentComponents}</div>
-    );
+  provideIncidentComponents() {
+    return this.props.incidents.map((value) =>
+      <ApprovedMessageInformation key={value.id} data={value} />);
   }
 }
 
