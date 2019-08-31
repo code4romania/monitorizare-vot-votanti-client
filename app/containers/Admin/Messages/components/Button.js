@@ -6,18 +6,18 @@ const ButtonBackground = styled.div`
 	margin: 10px;
 	border-radius: 2px;
 	background: #E5E5E5;
+	text-align: center;
+	width: 100%;
 `;
 
 const ButtonText = styled.div`
 	font-family: Open Sans;
 	padding: 10px;
-	padding-left: 80px;
-	padding-right: 80px;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 19px;
-	display: flex;
+	display: inline-block;
 	align-items: center;
 	text-align: center;
 
