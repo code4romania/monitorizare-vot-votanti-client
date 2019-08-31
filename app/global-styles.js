@@ -117,4 +117,8 @@ injectGlobal`
     text-overflow: ellipsis;
     display: block;
   }
+  
+  .activeTab {
+    background: white !important;
+  }
 `;

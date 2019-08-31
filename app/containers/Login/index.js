@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import {LOGIN} from '../App/constants';
+import { LOGIN } from '../App/constants';
 
 const Content = styled.div`
   margin: 0 0 120px;
@@ -18,12 +18,12 @@ const Content = styled.div`
 
 class Login extends React.PureComponent {
   static propTypes = {
-    authenticated: PropTypes.bool
+    authenticated: PropTypes.bool,
   };
 
   state = {
     email: '',
-    password: ''
+    password: '',
   };
 
   componentWillMount() {
@@ -32,11 +32,11 @@ class Login extends React.PureComponent {
     }
   }
 
-  onEmailChange = event => {
+  onEmailChange = (event) => {
     this.setState({ email: event.target.value });
   };
 
-  onPasswordChange = event => {
+  onPasswordChange = (event) => {
     this.setState({ password: event.target.value });
   };
 
@@ -51,12 +51,11 @@ class Login extends React.PureComponent {
     if (error && error.errors) {
       return (
         <ul>
-          {error.errors.map(e => {
-            return <li>{e[0]}</li>;
-          })}
+          {error.errors.map((e) => <li>{e[0]}</li>)}
         </ul>
       );
     }
+    return null;
   };
 
   render() {
@@ -113,6 +112,11 @@ class Login extends React.PureComponent {
   }
 }
 
+Login.propTypes = {
+  error: PropTypes.element.isRequired,
+  login: PropTypes.element.isRequired,
+};
+
 function mapDispatchToProps(dispatch) {
   return {
     login: (email, password) =>
@@ -120,9 +124,9 @@ function mapDispatchToProps(dispatch) {
         type: LOGIN,
         credentials: {
           email,
-          password
-        }
-      })
+          password,
+        },
+      }),
   };
 }
 
