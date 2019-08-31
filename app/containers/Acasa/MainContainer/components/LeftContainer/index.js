@@ -181,10 +181,6 @@ export class LeftContainer extends React.PureComponent {
     this.props.submitForm();
   }
 
-  callback = () => {
-    console.log('Done!!!!');
-  };
-
   verifyCallback = (response) => {
     this.props.setValidationKey(response);
   };
