@@ -14,7 +14,7 @@ import Toggle from 'material-ui/Toggle';
 import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import MenuItem from 'material-ui/MenuItem';
 import Map from 'components/selectCountry';
-// import FileUploader from 'components/FileUploader';
+import FileUploader from 'components/FileUploader';
 import { setNumeAction, setPrenumeAction, setIncidentIdAction, resetFormAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, map, getCities, getPrecints, getDescription, countyId, cityId, getIncidentId, getToken } from '../../../selectors';
 
@@ -262,11 +262,6 @@ export class LeftContainer extends React.PureComponent {
                 </div>
               </div>
 
-              {/* <div className="col-xs-12 col-sm-6">
-                //   <FileUploader upload={this.upload} />
-                //   <div>{this.state.image}</div>
-                // </div> */ }
-
               { this.props.map === 'country' ?
                 <div className="col-xs-12">
                   <div className="row">
@@ -341,6 +336,11 @@ export class LeftContainer extends React.PureComponent {
                     ))}
                   </SelectField>
                 </div>
+              </div>
+
+              <div className="col-xs-12 col-sm-6">
+                <FileUploader upload={this.upload} />
+                <div>{this.state.image}</div>
               </div>
 
               <div className="col-xs-12 col-sm-6">

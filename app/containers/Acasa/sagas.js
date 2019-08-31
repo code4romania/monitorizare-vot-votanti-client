@@ -94,7 +94,7 @@ export function* submitForm() {
   formData.append('precinct_id', precintId);
   formData.append('fromStation', true);
   formData.append('recaptchaResponse', token);
-  formData.append('file', image);
+  formData.append('image', image);
 
   const requestURL = `${config.api.baseURL}/incidents`;
 
