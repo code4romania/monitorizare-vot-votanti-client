@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 import { PendingMessagesList, ApprovedMessagesList, RejectedMessagesList } from '../MessagesList';
 import { Button } from '../Button';
 import { createStructuredSelector } from 'reselect';
@@ -17,10 +18,8 @@ width: 10%
 margin-right: 20px`;
 
 export class MessageTypeSelector extends React.Component {
-
   static get propTypes() {
     return {
-      dispatchGetPendingIncidents: PropTypes.func,
     };
   }
 
@@ -31,76 +30,96 @@ export class MessageTypeSelector extends React.Component {
       tabSelected: [true, false, false],
     };
 
-	  this.handleClick = this.handleClick.bind(this);
-	}
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-	handleClick(index) {
-	  const newTabSelected = [false, false, false];
-	  newTabSelected[index] = true;
-	  this.setState({ tabSelected: newTabSelected });
-	}
+  options = [
+    {
+      text: 'Unread',
+      valuesName: 'pendingIncidents',
+      componentCreator: this.createPendingListComponent,
+      parentComponent: this,
+    },
+    {
+      text: 'Accepted',
+      valuesName: 'approvedIncidents',
+      componentCreator: this.createApprovedListComponent,
+      parentComponent: this,
+    },
+    {
+      text: 'Rejected',
+      valuesName: 'rejectedIncidents',
+      componentCreator: this.createRejectedListComponent,
+      parentComponent: this,
+    },
+  ];
 
-	createApprovedListComponent(incidents) {
-	  const paginationInfo = this.parentComponent.props.approvedIncidentsPagination;
-	  const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
-	  console.log(paginationInfo);
-  	return (
-  		<ApprovedMessagesList incidents={incidents}
-  			loader={this.parentComponent.props.dispatchGetApprovedIncidents}
-  			hasMoreIncidents={hasMoreIncidents}/>
-	  );
-	}
+  handleClick(index) {
+    const newTabSelected = [false, false, false];
+    newTabSelected[index] = true;
+    this.setState({ tabSelected: newTabSelected });
+  }
 
-	createRejectedListComponent(incidents) {
-	  const paginationInfo = this.parentComponent.props.rejectedIncidentsPagination;
-	  const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
-	  console.log(paginationInfo);
-	  return (
-	  	<RejectedMessagesList incidents={incidents}
-  			loader={this.parentComponent.props.dispatchGetRejectedIncidents}
-  			hasMoreIncidents={hasMoreIncidents}/>
-	  );
-	}
+  createApprovedListComponent(incidents) {
+    const paginationInfo = this.parentComponent.props.approvedIncidentsPagination;
+    const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
+    return (
+      <ApprovedMessagesList
+        incidents={incidents}
+        loader={this.parentComponent.props.dispatchGetApprovedIncidents}
+        hasMoreIncidents={hasMoreIncidents}
+      />);
+  }
 
-	createPendingListComponent(incidents) {
-	  const paginationInfo = this.parentComponent.props.pendingIncidentsPagination;
-	  const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
-	  console.log(paginationInfo);
-	  return (
-	  	<PendingMessagesList incidents={incidents}
-	      loader={this.parentComponent.props.dispatchGetPendingIncidents}
-  			hasMoreIncidents={hasMoreIncidents}/>
-	  );
-	}
+  createRejectedListComponent(incidents) {
+    const paginationInfo = this.parentComponent.props.rejectedIncidentsPagination;
+    const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
+    return (
+      <RejectedMessagesList
+        incidents={incidents}
+        loader={this.parentComponent.props.dispatchGetRejectedIncidents}
+        hasMoreIncidents={hasMoreIncidents}
+      />);
+  }
 
-	render() {
-	  const buttons = this.options
-	    .map((value) => value.text)
-	    .map((value, index) =>
-		        <ButtonContainer key={value}>
-		          <Button key={index} 
-		          	backgroundColor={this.state.tabSelected[index] ? '#FFFFFF' : '#E5E5E5'}
-  							textColor={'#5F288D'}
-  							onClick={() => this.handleClick(index)}>{value}</Button>
-	      		</ButtonContainer>);
+  createPendingListComponent(incidents) {
+    const paginationInfo = this.parentComponent.props.pendingIncidentsPagination;
+    const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
+    return (
+      <PendingMessagesList
+        incidents={incidents}
+        loader={this.parentComponent.props.dispatchGetPendingIncidents}
+        hasMoreIncidents={hasMoreIncidents}
+      />);
+  }
 
-	  const targetTab = this.state.tabSelected.indexOf(true);
-	  const incidents = this.props[this.options[targetTab].valuesName];
-	  const wellDescribedIncidents = incidents
-	    .filter((incident) => incident)
-	    .filter((incident) => incident.name)
-	    .filter((incident) => incident.city)
-	    .filter((incident) => incident.precinct);
-	  return (
+  render() {
+    const buttons = this.options
+      .map((value) => value.text)
+      .map((value, index) =>
+        <ButtonContainer key={value}>
+          <Button
+            backgroundColor={this.state.tabSelected[index] ? '#FFFFFF' : '#E5E5E5'}
+            textColor={'#5F288D'}
+            onClick={() => this.handleClick(index)}
+          >{value}</Button>
+        </ButtonContainer>);
+
+    const targetTab = this.state.tabSelected.indexOf(true);
+    const incidents = this.props[this.options[targetTab].valuesName];
+    const wellDescribedIncidents = incidents
+      .filter((incident) => incident)
+      .filter((incident) => incident.name)
+      .filter((incident) => incident.city)
+  .filter((incident) => incident.precinct);
+    return (
       <div >
         <div className="row">
           {buttons}
-	      </div>
-        
+        </div>
         {this.options[targetTab].componentCreator(wellDescribedIncidents)}
-	    </div>
-	  );
-	}
+      </div>);
+  }
 }
 
 export function mapDispatchToProps(dispatch) {

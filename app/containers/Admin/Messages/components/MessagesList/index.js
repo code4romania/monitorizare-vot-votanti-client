@@ -53,10 +53,11 @@ width: 100%;
 `;
 
 export default class MessagesList extends React.Component {
-
   static get propTypes() {
     return {
       incidents: PropTypes.any,
+      hasMoreIncidents: PropTypes.bool,
+      loader: PropTypes.func,
     };
   }
 
@@ -83,7 +84,8 @@ export default class MessagesList extends React.Component {
     if (this.props.hasMoreIncidents) {
       buttonLoadMore = (
         <div className="row">
-          <Button backgroundColor="#969590"
+          <Button
+            backgroundColor="#969590"
             textColor="#FFFFFF"
             onClick={this.props.loader}
           >Load more</Button>
