@@ -6,8 +6,8 @@ export class Messages extends React.PureComponent { // eslint-disable-line react
   render() {
     return (
       <div>
-      	<MessagesStats />
-      	<MessageTypeSelector />
+        <MessagesStats />
+        <MessageTypeSelector />
       </div>
     );
   }

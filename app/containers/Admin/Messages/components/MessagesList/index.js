@@ -1,62 +1,65 @@
-import React from 'react';
+/* eslint-disable react/no-multi-comp */
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 
 const SmallColumn = styled.div`
-	width: 15%;
-	display: inline-block;
-	padding: 15px;
-	vertical-align: top;
+width: 15%;
+display: inline-block;
+padding: 15px;
+vertical-align: top;
 `;
 
 const BigColumn = styled(SmallColumn)`
-	width: 70%;
+width: 70%;
 `;
 
 const ButtonsColumn = styled(SmallColumn)`
-	background-color: inherit;
-	width: 20%;
+background-color: inherit;
+width: 20%;
 `;
 
 const InfoCard = styled.div`
-	background-color: white !important;
-	border-radius: 8px;
-	width: 80%;
-`;
-
-const AcceptButton = styled(Button)`
-	background: green !important;
-	border-radius: 8px;
+background-color: white !important;
+border-radius: 8px;
+width: 80%;
 `;
 
 const TextLine = styled.div`
-	padding: 5px;
-	float: left;
-	display: contents;
+padding: 5px;
+float: left;
+display: contents;
 `;
 
 const TextStyle = styled.p`
-	display: block;
-	text-align: left !important;
-	font-family: Open Sans;
-	font-style: normal;
-	font-size: 14px;
-	line-height: 19px;
-	word-break: break-all;
+display: block;
+text-align: left !important;
+font-family: Open Sans;
+font-style: normal;
+font-size: 14px;
+line-height: 19px;
+word-break: break-all;
 `;
 
 const LabelTextStyle = styled(TextStyle)`
-	font-weight: bold;
-	padding: 0px;
-	padding-right: 10px;
+font-weight: bold;
+padding: 0px;
+padding-right: 10px;
 `;
 
 const MessageContainer = styled.div`
-	margin-bottom: 15px;
-	width: 100%;
+margin-bottom: 15px;
+width: 100%;
 `;
 
 export default class MessagesList extends React.Component {
+
+  static get propTypes() {
+    return {
+      incidents: PropTypes.any,
+    };
+  }
+
   constructor(props) {
     super(props);
 
@@ -99,26 +102,17 @@ export default class MessagesList extends React.Component {
 }
 
 class MessageInformation extends React.Component {
-  constructor(props) {
-    super(props);
+  static get propTypes() {
+    return {
+      data: PropTypes.any,
+    };
   }
 
   createButtons() {
-    return (
-      <ButtonsColumn>
-        <Button backgroundColor="#27AE60"
-          textColor={'#FFFFFF'}
-        >
-								Accept
-        </Button>
-        <Button backgroundColor="#EB5757"
-          textColor={'#FFFFFF'}
-        >
-								Reject
-        </Button>
-      </ButtonsColumn>
-
-    );
+    return (<ButtonsColumn>
+      <Button backgroundColor="#27AE60" textColor={'#FFFFFF'}>Accept</Button>
+      <Button backgroundColor="#EB5757" textColor={'#FFFFFF'}>Reject</Button>
+    </ButtonsColumn>);
   }
 
   render() {
@@ -141,7 +135,6 @@ class MessageInformation extends React.Component {
               <TextStyle>{data.county === null ? '-' : data.county.name}</TextStyle>
             </TextLine>
           </SmallColumn>
-
           <SmallColumn>
             <TextLine className="row">
               <LabelTextStyle>Oras:</LabelTextStyle>
@@ -156,7 +149,6 @@ class MessageInformation extends React.Component {
               <TextStyle>{data.incidentType === null ? '-' : data.incidentType.name}</TextStyle>
             </TextLine>
           </SmallColumn>
-
           <BigColumn>
             <TextLine className="row">
               <LabelTextStyle>Sesizare:</LabelTextStyle>
@@ -174,8 +166,7 @@ class MessageInformation extends React.Component {
 export class RejectedMessagesList extends MessagesList {
   provideIncidentComponents() {
     return this.props.incidents.map((value) =>
-      <RejectedMessageInformation key={value.id} data={value} />
-    );
+      <RejectedMessageInformation key={value.id} data={value} />);
   }
 }
 
@@ -183,11 +174,7 @@ class RejectedMessageInformation extends MessageInformation {
   createButtons() {
     return (
       <ButtonsColumn>
-        <Button backgroundColor="#27AE60"
-          textColor={'#FFFFFF'}
-        >
-								Accept
-        </Button>
+        <Button backgroundColor="#27AE60" textColor={'#FFFFFF'}>Accept</Button>
       </ButtonsColumn>
     );
   }
@@ -196,8 +183,7 @@ class RejectedMessageInformation extends MessageInformation {
 export class ApprovedMessagesList extends MessagesList {
   provideIncidentComponents() {
     return this.props.incidents.map((value) =>
-      <ApprovedMessageInformation key={value.id} data={value} />
-    );
+      <ApprovedMessageInformation key={value.id} data={value} />);
   }
 }
 
@@ -205,11 +191,7 @@ class ApprovedMessageInformation extends MessageInformation {
   createButtons() {
     return (
       <ButtonsColumn>
-        <Button backgroundColor="#EB5757"
-          textColor={'#FFFFFF'}
-        >
-								Reject
-        </Button>
+        <Button backgroundColor="#EB5757" textColor={'#FFFFFF'}>Reject</Button>
       </ButtonsColumn>
     );
   }

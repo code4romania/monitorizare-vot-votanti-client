@@ -1,10 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { PropTypes } from 'react';
 import { PendingMessagesList, ApprovedMessagesList, RejectedMessagesList } from '../MessagesList';
 import { Button } from '../Button';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { getIncidentsAction, getIncidentsByStatusAction } from '../../../../Sesizari/actions';
+import { getIncidentsByStatusAction } from '../../../../Sesizari/actions';
 import { getApprovedIncidents,
   getPendingIncidents,
   getRejectedIncidents,
@@ -18,33 +17,19 @@ width: 10%
 margin-right: 20px`;
 
 export class MessageTypeSelector extends React.Component {
-	options = [
-	  {
-	    text: 'Unread',
-	    valuesName: 'pendingIncidents',
-	    componentCreator: this.createPendingListComponent,
-	    parentComponent: this,
-	  },
-	  {
-	    text: 'Accepted',
-	    valuesName: 'approvedIncidents',
-	    componentCreator: this.createApprovedListComponent,
-	    parentComponent: this,
-	  },
-	  {
-	    text: 'Rejected',
-	    valuesName: 'rejectedIncidents',
-	    componentCreator: this.createRejectedListComponent,
-	    parentComponent: this,
-	  },
-	];
 
-	constructor(props) {
-	  super(props);
+  static get propTypes() {
+    return {
+      dispatchGetPendingIncidents: PropTypes.func,
+    };
+  }
 
-	  this.state = {
-	    tabSelected: [true, false, false],
-	  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tabSelected: [true, false, false],
+    };
 
 	  this.handleClick = this.handleClick.bind(this);
 	}
@@ -60,10 +45,9 @@ export class MessageTypeSelector extends React.Component {
 	  const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
 	  console.log(paginationInfo);
   	return (
-	                                                                                                                        <ApprovedMessagesList incidents={incidents}
-  loader={this.parentComponent.props.dispatchGetApprovedIncidents}
-  hasMoreIncidents={hasMoreIncidents}
-                                                                                                                     />
+  		<ApprovedMessagesList incidents={incidents}
+  			loader={this.parentComponent.props.dispatchGetApprovedIncidents}
+  			hasMoreIncidents={hasMoreIncidents}/>
 	  );
 	}
 
@@ -72,10 +56,9 @@ export class MessageTypeSelector extends React.Component {
 	  const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
 	  console.log(paginationInfo);
 	  return (
-	                                                              <RejectedMessagesList incidents={incidents}
-  loader={this.parentComponent.props.dispatchGetRejectedIncidents}
-  hasMoreIncidents={hasMoreIncidents}
-                                                             />
+	  	<RejectedMessagesList incidents={incidents}
+  			loader={this.parentComponent.props.dispatchGetRejectedIncidents}
+  			hasMoreIncidents={hasMoreIncidents}/>
 	  );
 	}
 
@@ -84,10 +67,9 @@ export class MessageTypeSelector extends React.Component {
 	  const hasMoreIncidents = paginationInfo.currentPage !== paginationInfo.lastPage;
 	  console.log(paginationInfo);
 	  return (
-	                                                              <PendingMessagesList incidents={incidents}
+	  	<PendingMessagesList incidents={incidents}
 	      loader={this.parentComponent.props.dispatchGetPendingIncidents}
-  hasMoreIncidents={hasMoreIncidents}
-                                                             />
+  			hasMoreIncidents={hasMoreIncidents}/>
 	  );
 	}
 
@@ -95,15 +77,12 @@ export class MessageTypeSelector extends React.Component {
 	  const buttons = this.options
 	    .map((value) => value.text)
 	    .map((value, index) =>
-	                                                                <ButtonContainer key={value}>
-	                                                                  <Button key={index}
-  backgroundColor={this.state.tabSelected[index] ? '#FFFFFF' : '#E5E5E5'}
-  textColor={'#5F288D'}
-  onClick={() => this.handleClick(index)}
-                                                                 >
-	                                                                    {value}
-	        </Button>
-	      </ButtonContainer>);
+		        <ButtonContainer key={value}>
+		          <Button key={index} 
+		          	backgroundColor={this.state.tabSelected[index] ? '#FFFFFF' : '#E5E5E5'}
+  							textColor={'#5F288D'}
+  							onClick={() => this.handleClick(index)}>{value}</Button>
+	      		</ButtonContainer>);
 
 	  const targetTab = this.state.tabSelected.indexOf(true);
 	  const incidents = this.props[this.options[targetTab].valuesName];
@@ -113,12 +92,12 @@ export class MessageTypeSelector extends React.Component {
 	    .filter((incident) => incident.city)
 	    .filter((incident) => incident.precinct);
 	  return (
-	                                                              <div >
-	                                                                <div className="row">
-	                                                                  {buttons}
+      <div >
+        <div className="row">
+          {buttons}
 	      </div>
-
-	                                                                {this.options[targetTab].componentCreator(wellDescribedIncidents)}
+        
+        {this.options[targetTab].componentCreator(wellDescribedIncidents)}
 	    </div>
 	  );
 	}
