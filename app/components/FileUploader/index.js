@@ -39,6 +39,8 @@ const Label = styled.div`
   }
 `;
 
+const getFileName = (file) => file && file.name;
+
 export default function FileUploader(props) {
   return (
     <label htmlFor="upload">
@@ -46,7 +48,7 @@ export default function FileUploader(props) {
         <input type="file" id="upload" accept="image/jpeg, image/png" style={inputStyles} onChange={props.upload} />
         <CameraAlt style={iconStyles} />
         <Label>
-          Încarcă o poză*
+          { getFileName(props.file) || 'Încarcă o poză*' }
           <small>* Optional</small>
         </Label>
       </Wrapper>
@@ -56,4 +58,5 @@ export default function FileUploader(props) {
 
 FileUploader.propTypes = {
   upload: React.PropTypes.func,
+  file: React.PropTypes.object,
 };
