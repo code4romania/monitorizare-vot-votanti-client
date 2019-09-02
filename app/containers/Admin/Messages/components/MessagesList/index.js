@@ -2,6 +2,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
+import { Lightbox } from 'react-modal-image';
 
 const SmallColumn = styled.div`
 width: 15%;
@@ -51,6 +52,11 @@ const MessageContainer = styled.div`
 margin-bottom: 15px;
 width: 100%;
 `;
+const Thumbnail = styled.img`
+max-height: 100px;
+width: auto;
+cursor: pointer;
+`;
 
 export default class MessagesList extends React.Component {
   static get propTypes() {
@@ -66,14 +72,20 @@ export default class MessagesList extends React.Component {
 
     this.state = {
       messagesType: 1,
+      lightboxImage: null,
     };
 
     this.provideIncidentComponents = this.provideIncidentComponents.bind(this);
+    this.setLightboxImage = this.setLightboxImage.bind(this);
+  }
+
+  setLightboxImage(img) {
+    this.setState({ lightboxImage: img });
   }
 
   provideIncidentComponents() {
     return this.props.incidents.map((value) =>
-      <MessageInformation key={value.id} data={value} />
+      <MessageInformation key={value.id} data={value} setLightboxImage={this.setLightboxImage} />
     );
   }
 
@@ -98,6 +110,15 @@ export default class MessagesList extends React.Component {
         </div>
 
         {buttonLoadMore}
+        { this.state.lightboxImage && (
+        <Lightbox
+          small={this.state.lightboxImage}
+          large={this.state.lightboxImage}
+          onClose={() => this.setLightboxImage(null)}
+          alt="Imaginea atasata sesizarii"
+        />
+        ) }
+
       </div>
     );
   }
@@ -107,6 +128,7 @@ class MessageInformation extends React.Component {
   static get propTypes() {
     return {
       data: PropTypes.any,
+      setLightboxImage: PropTypes.func,
     };
   }
 
@@ -118,7 +140,7 @@ class MessageInformation extends React.Component {
   }
 
   render() {
-    const data = this.props.data;
+    const { data, setLightboxImage } = this.props;
     const buttons = this.createButtons();
     return (
       <MessageContainer className="row">
@@ -155,6 +177,12 @@ class MessageInformation extends React.Component {
             <TextLine className="row">
               <LabelTextStyle>Sesizare:</LabelTextStyle>
               <TextStyle>{data.description}</TextStyle>
+            </TextLine>
+            <TextLine className="row">
+              <LabelTextStyle>Imagine:</LabelTextStyle>
+              { data.image &&
+                <Thumbnail src={data.image} onClick={() => setLightboxImage(data.image)} />
+              }
             </TextLine>
           </BigColumn>
         </InfoCard>
