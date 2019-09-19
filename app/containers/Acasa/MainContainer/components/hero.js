@@ -11,7 +11,10 @@ function Hero() {
             Sesizează orice incident
           </h1>
           <p>
-            Dacă ai sesizat nereguli în timpul campaniei pentru referendum sau în ziua votului postează aici. Ai văzut mesaje care instigă la ură, ai văzut campanii derulate în mod ilegal sau alte comunicări care contravin principiilor democratice și care atacă drepturile fundamentale ale omului? Trimite o sesizare folosind formularul de mai jos. Mesajul tău va fi astfel public și va putea fi văzut de toți utilizatorii și preluat de autorități sau jurnaliști și investigată mai departe.
+            Pe 26 mai 2019 au loc alegerile europarlamentare și referendumul național pe justiție. Dacă ai sesizat
+            nereguli în timpul campaniei sau în ziua votului postează aici. Ai văzut mesaje care instigă la ură, ai
+            văzut campanii derulate în mod ilegal sau alte comunicări care contravin principiilor democratice, probleme
+            în secția în care ai votat etc? Trimite o sesizare folosind formularul de mai jos.
           </p>
           <CallToAction
             label="Vezi toate sesizările"

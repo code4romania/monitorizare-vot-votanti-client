@@ -6,9 +6,10 @@ import { SHORT_INCIDENTS, GET_CITIES, SUBMIT_FORM, GET_PRECINTS } from './consta
 import { countyId, getImage, cityId, getDescription, getToken, getIncidentId, getName, getPrenume, getPrecintId } from './selectors';
 import request from 'utils/request';
 import { browserHistory } from 'react-router';
+import config from '../../api/config';
 
 export function* getIncidents() {
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+  const requestURL = `${config.api.baseURL}/incidents`;
 
   try {
     const incidentsResponse = yield call(request, requestURL);
@@ -31,7 +32,7 @@ export function* shortIncidents() {
 
 export function* getAllCitiesPerCountry() {
   const countyIdValue = yield select(countyId());
-  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/counties/${countyIdValue}/cities`;
+  const requestURL = `${config.api.baseURL}/counties/${countyIdValue}/cities`;
   const citiesData = yield call(request, requestURL);
   if (citiesData.data) {
     yield put(getCitiesSuccess(citiesData.data));
@@ -53,12 +54,10 @@ export function* cities() {
 
 export function* getPrecintsPerCity() {
   const cityIdValue = yield select(cityId());
-  const requestURL = `http://portal-votanti-uat.azurewebsites.net/api/${cityIdValue}/precincts`;
+  const requestURL = `${config.api.baseURL}/${cityIdValue}/precincts`;
   const precintsData = yield call(request, requestURL);
   if (precintsData.data) {
     yield put(getPrecintsSuccess(precintsData.data));
-  } else {
-    // yield call(() => browserHistory.push('/notfound'));
   }
 }
 
@@ -95,9 +94,9 @@ export function* submitForm() {
   formData.append('precinct_id', precintId);
   formData.append('fromStation', true);
   formData.append('recaptchaResponse', token);
-  formData.append('file', image);
+  formData.append('image', image);
 
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/incidents';
+  const requestURL = `${config.api.baseURL}/incidents`;
 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', requestURL, true);
@@ -107,27 +106,12 @@ export function* submitForm() {
     }
   };
 
-  xhr.error = function (err) {
+  xhr.error = (err) => {
+    // eslint-disable-next-line no-console
     console.log(err);
   };
 
   xhr.send(formData);
-
-  /*
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-    body: data,
-  };
-
-  const submitFormRequest = yield call(request, requestURL, options);
-  if (submitFormRequest) {
-    // yield put(getCitiesSuccess(citiesData.data));
-  } else {
-    // yield call(() => browserHistory.push('/notfound'));
-  }*/
 }
 
 export function* submitFormWatcher() {

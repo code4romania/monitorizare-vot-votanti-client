@@ -6,7 +6,13 @@ import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { selectedCountyAction, setActiveMapAction, setTypeAction, resetCountyAction, resetAllFiltersAction } from '../actions';
+import {
+  selectedCountyAction,
+  setActiveMapAction,
+  setTypeAction,
+  resetCountyAction,
+  resetAllFiltersAction,
+} from '../actions';
 import { activeMap } from '../selectors';
 import * as _ from 'lodash';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -48,6 +54,10 @@ const buttonLabelStyle = {
   letterSpacing: '1px',
 };
 
+const listStyle = {
+  display: 'block',
+};
+
 export class Filters extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -62,13 +72,13 @@ export class Filters extends React.PureComponent {
     this.setState({ active: !this.state.active });
     this.props.setActiveMap(event.currentTarget.dataset.name);
     this.props.filterIncindents();
-  }
+  };
 
   setIncindetType = (event, index, value) => {
     this.setState({ value });
     this.props.setType(value);
     this.props.filterIncindents();
-  }
+  };
 
   selectCounty = (searchText, citiesArray) => {
     const getCity = _.find(citiesArray, (o) => o.text === searchText);
@@ -91,7 +101,7 @@ export class Filters extends React.PureComponent {
     this.countyRef.setState({ searchText: '' });
     this.props.resetAllFilters();
     this.props.filterIncindents();
-  }
+  };
 
   render() {
     return (
@@ -101,20 +111,61 @@ export class Filters extends React.PureComponent {
             <div className="col-xs-12">
               <div className="row interact-form">
                 <div className="col-xs-12 col-sm-6 col-md-3">
-                  <Maps half={false} active={this.state.active} setActiveOption={this.setActiveOption} />
+                  <Maps
+                    half={false}
+                    active={this.state.active}
+                    setActiveOption={this.setActiveOption}
+                  />
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-3">
                   <div className="types">
-                    <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizarii" floatingLabelFixed value={this.state.value} onChange={this.setIncindetType} hintText="Alege tipul sesizarii" fullWidth className="dropdown" labelStyle={overflowElipsisStyle}>
+                    <SelectField
+                      ref={(cb) => {
+                        this.typeRef = cb;
+                      }}
+                      floatingLabelText="Tipul sesizarii"
+                      floatingLabelFixed
+                      value={this.state.value}
+                      onChange={this.setIncindetType}
+                      hintText="Alege tipul sesizarii"
+                      fullWidth
+                      className="dropdown"
+                      labelStyle={overflowElipsisStyle}
+                      listStyle={listStyle}
+                    >
                       <MenuItem value="0" primaryText="Toate" />
-                      {this.props.incidentTypes.map((incident) =>
-                        <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
-                      )}
+                      {this.props.incidentTypes.map((incident) => (
+                        <MenuItem
+                          key={incident.id}
+                          value={incident.id}
+                          label={incident.name}
+                        >
+                          <span className="menu-item">{incident.name}</span>
+                        </MenuItem>
+                      ))}
                     </SelectField>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-3">
-                  <AutoComplete ref={(cb) => { this.countyRef = cb; }} style={this.props.map === 'abroad' ? { display: 'none' } : {}} hintText="Cauta judetul" floatingLabelText="Judetul" floatingLabelFixed fullWidth openOnFocus filter={AutoComplete.fuzzyFilter} maxSearchResults={5} dataSource={this.props.counties.length > 0 ? this.props.counties : []} onUpdateInput={this.selectCounty} />
+                  <AutoComplete
+                    ref={(cb) => {
+                      this.countyRef = cb;
+                    }}
+                    style={
+                      this.props.map === 'abroad' ? { display: 'none' } : {}
+                    }
+                    hintText="Cauta judetul"
+                    floatingLabelText="Judetul"
+                    floatingLabelFixed
+                    fullWidth
+                    openOnFocus
+                    filter={AutoComplete.fuzzyFilter}
+                    maxSearchResults={5}
+                    dataSource={
+                      this.props.counties.length > 0 ? this.props.counties : []
+                    }
+                    onUpdateInput={this.selectCounty}
+                  />
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-3">
                   <RaisedButton
@@ -169,4 +220,7 @@ const mapStateToProps = createStructuredSelector({
   map: activeMap(),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filters);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Filters);

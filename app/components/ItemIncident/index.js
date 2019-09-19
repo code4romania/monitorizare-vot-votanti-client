@@ -3,7 +3,6 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import styled from 'styled-components';
-import Icons from 'components/Icons';
 import RoomIcon from 'material-ui/svg-icons/action/room';
 import ZoomIcon from 'material-ui/svg-icons/action/zoom-in';
 
@@ -75,7 +74,37 @@ function IncidentItem(props) {
       <RoomIcon style={{ color: 'rgba(45, 45, 45, 0.5)', width: '20px', height: '20px', marginRight: '5px' }} />
       <span>{props.city ? props.city.name : ''}, {props.county ? props.county.name : ''}</span>
     </div>);
-  const icon = props.incidentType ? props.incidentType.label.toLowerCase() : '';
+
+  const CalendarWrap = styled.div`
+    border: 2px solid #5f288d;
+    text-align: center;
+    font-weight: 900;
+    display: inline-block;
+    margin-right: 10px;
+    .month {
+      background-color: #5f288d;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      color: #fff;
+      padding: 0 5px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .day {
+      border-radius: 5px;
+      background-color: white;
+      color: #5f288d;
+      font-size: 14px;
+    }`;
+  const Calendar = ({ createdAt }) => {
+    const createdAtFormatted = new Date(createdAt.replace(' ', 'T'));
+    return (<CalendarWrap>
+      <div className="month">
+        {createdAtFormatted.toLocaleString('en-us', { month: 'short' })}
+      </div>
+      <div className="day">{createdAtFormatted.getDate()}</div>
+    </CalendarWrap>);
+  };
 
   return (
     <IncidentWrap>
@@ -84,12 +113,12 @@ function IncidentItem(props) {
 
         <CardHeader
           title={props.incidentType ? props.incidentType.name : ''}
-          avatar={<Icons icon={icon} />}
-          textStyle={{ verticalAlign: 'middle' }}
+          avatar={<Calendar createdAt={props.createdAt} />}
           titleStyle={{ color: '#5F288D' }}
+          textStyle={{ paddingRight: '45px' }}
         />
 
-        { props.image ?
+        {props.image ?
           <div className="incident-media">
             <img src={props.image} role="presentation" />
             <ZoomIcon style={imageContainerIcon} />
@@ -97,7 +126,7 @@ function IncidentItem(props) {
           : null
         }
 
-        { props.precinct && props.precinct.precinctNumber
+        {props.precinct && props.precinct.precinctNumber
           ? <CardTitle
             className="incident-title"
             title={`Sectia ${props.precinct.precinctNumber}`}
@@ -122,6 +151,7 @@ function IncidentItem(props) {
 
 IncidentItem.propTypes = {
   description: React.PropTypes.string,
+  createdAt: React.PropTypes.string,
   city: React.PropTypes.object,
   name: React.PropTypes.string,
   image: React.PropTypes.string,

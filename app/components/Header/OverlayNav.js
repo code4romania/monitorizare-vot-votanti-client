@@ -66,7 +66,7 @@ export default function OverlayNav(props) {
           <li id="acasa"><MenuLink to="acasa">Adaugă o sesizare</MenuLink></li>
           <li id="sesizari"><MenuLink to="sesizari">Sesizări</MenuLink></li>
           <li id="statistici"><MenuLink to="statistici">Statistici</MenuLink></li>
-          <li id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></li>
+          {/* <li id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></li> */}
           <li id="despre-noi"><MenuLink to="despre-noi">Despre noi</MenuLink></li>
           <li id="doneaza"><DonateMenuLink href="https://code4.ro/doneaza/" target="_blank">Donează</DonateMenuLink></li>
         </ul>

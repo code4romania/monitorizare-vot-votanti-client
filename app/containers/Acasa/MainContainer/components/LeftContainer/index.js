@@ -14,9 +14,9 @@ import Toggle from 'material-ui/Toggle';
 import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import MenuItem from 'material-ui/MenuItem';
 import Map from 'components/selectCountry';
-// import FileUploader from 'components/FileUploader';
+import FileUploader from 'components/FileUploader';
 import { setNumeAction, setPrenumeAction, setIncidentIdAction, resetFormAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
-import { getName, getPrenume, map, getCities, getPrecints, getDescription, countyId, cityId, getIncidentId, getToken } from '../../../selectors';
+import { getName, getPrenume, map, getCities, getPrecints, getDescription, countyId, cityId, getIncidentId, getToken, getImage } from '../../../selectors';
 
 const buttonWrapStyle = {
   marginTop: '20px',
@@ -69,6 +69,10 @@ const AddIncident = styled.div`
   }
 `;
 
+const listStyle = {
+  display: 'block',
+};
+
 export class LeftContainer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -106,7 +110,6 @@ export class LeftContainer extends React.PureComponent {
     this.setState({ value });
     this.props.setIncidentId(value);
   }
-
 
   setPrecintId = (searchText, array) => {
     const precint = _.find(array, (o) => o.text === searchText);
@@ -178,10 +181,6 @@ export class LeftContainer extends React.PureComponent {
     this.props.submitForm();
   }
 
-  callback = () => {
-    console.log('Done!!!!');
-  };
-
   verifyCallback = (response) => {
     this.props.setValidationKey(response);
   };
@@ -193,7 +192,11 @@ export class LeftContainer extends React.PureComponent {
         <Interact className="interact">
           <Sticky isActive={this.shouldBeSticky()}>
             <h2>Adaugă o sesizare</h2>
-            <p>Mai jos găsești formularul prin care poți să trimiți o sesizare. Dacă nu ești sigur ce poate fi subiectul unei sesizări, verifică aici <Link to="reguli-vot">Regulile votului</Link>. <small><span style={{ fontWeight: 700 }}>Important:</span> sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau Biroului Electoral Central. Mai multe detalii <Link to="despre-noi">aici.</Link></small></p>
+            <p>
+              Sesizările trimise vor fi promovate în scop informativ în social media și către mass-media. Dacă dorești
+              un răspuns direct de la autorități, te rugăm să te adresezi Biroului Electoral de Circumscripție sau
+              Biroului Electoral Central. Mai multe detalii <Link to="despre-noi">aici.</Link>.
+            </p>
 
             <AddIncident className="row interact-form add-incident">
               <div className="col-xs-12">
@@ -205,7 +208,6 @@ export class LeftContainer extends React.PureComponent {
                   required
                   multiLine
                   rows={3}
-
                   name={'Text sesizare'}
                   defaultValue={this.props.description}
                   onChange={this.handleOnChangeDescription}
@@ -255,11 +257,6 @@ export class LeftContainer extends React.PureComponent {
                   />
                 </div>
               </div>
-
-              {/* <div className="col-xs-12 col-sm-6">
-                //   <FileUploader upload={this.upload} />
-                //   <div>{this.state.image}</div>
-                // </div> */ }
 
               { this.props.map === 'country' ?
                 <div className="col-xs-12">
@@ -322,13 +319,23 @@ export class LeftContainer extends React.PureComponent {
 
               <div className="col-xs-12 col-sm-6">
                 <div className="types">
-                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth required className="dropdown" labelStyle={overflowElipsisStyle}>
+                  <SelectField ref={(cb) => { this.typeRef = cb; }} floatingLabelText="Tipul sesizării" floatingLabelFixed value={this.state.value} onChange={this.setIncidentType} hintText="Alege tipul sesizării" fullWidth required className="dropdown" labelStyle={overflowElipsisStyle} listStyle={listStyle}>
                     <MenuItem value="0" primaryText="Toate" />
-                    {this.props.incidentTypes.map((incident) =>
-                      <MenuItem key={incident.id} value={incident.id} primaryText={incident.name} />
-                    )}
+                    {this.props.incidentTypes.map((incident) => (
+                      <MenuItem
+                        key={incident.id}
+                        value={incident.id}
+                        label={incident.name}
+                      >
+                        <span className="menu-item">{incident.name}</span>
+                      </MenuItem>
+                    ))}
                   </SelectField>
                 </div>
+              </div>
+
+              <div className="col-xs-12 col-sm-6">
+                <FileUploader upload={this.upload} file={this.props.image} />
               </div>
 
               <div className="col-xs-12 col-sm-6">
@@ -365,14 +372,11 @@ export class LeftContainer extends React.PureComponent {
                         icon={<AddCircleOutline style={buttonIconStyle} />}
                         fullWidth
                         className="button"
-
                       />
                   }
                 </div>
               </div>
-
             </AddIncident>
-
           </Sticky>
         </Interact>
       </StickyContainer>);
@@ -429,6 +433,7 @@ LeftContainer.propTypes = {
     React.PropTypes.number,
   ]),
   token: React.PropTypes.string,
+  image: React.PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -463,6 +468,7 @@ const mapStateToProps = createStructuredSelector({
   incidentId: getIncidentId(),
   cityId: cityId(),
   token: getToken(),
+  image: getImage(),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftContainer);

@@ -1,87 +1,61 @@
 import React from 'react';
-import { Link } from 'react-router';
-import styled from 'styled-components';
+import User from './User';
+import Admin from './Admin';
+import { isLoggedIn } from '../../utils/authUtils';
 
+const MENU_ITEMS = {
+  ACASA: {
+    title: 'Adaugă o sesizare',
+    path: 'acasa',
+  },
+  SESIZARI: {
+    title: 'Sesizări',
+    path: 'sesizari',
+  },
+  STATISTICI: {
+    title: 'Statistici',
+    path: 'statistici',
+  },
+  // REGULI_VOT: {
+  //   title: 'Reguli vot',
+  //   path: 'reguli-vot',
+  // },
+  DESPRE_NOI: {
+    title: 'Despre noi',
+    path: 'despre-noi',
+  },
+  DONEAZA: {
+    title: 'Donează',
+    href: 'https://code4.ro/doneaza/',
+  },
+  MESSAGES: {
+    title: 'Messages',
+    path: 'messages',
+  },
+  USERS: {
+    title: 'Users',
+    path: 'users',
+  },
+  FORMS: {
+    title: 'Forms',
+    path: 'forms',
+  },
+  PAGES: {
+    title: 'Pages',
+    path: 'pages',
+  },
+};
 
-const MenuList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  margin: 0 10px 0 0;
-  float: right;
-  display: none;
+const Menu = ({ pathname }) => {
+  const currentPath = pathname.replace(/\//, '');
 
-  @media (min-width: 64em) {
-    display: block;
-  }
-`;
-
-const MenuItem = styled.li`
-  display: inline-block;
-
-  &[disabled] {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-`;
-
-const MenuLink = styled(Link)`
-  text-decoration: none;
-  font-size: 14px;
-  display: inline-block;
-  line-height: 20px;
-  padding: 20px;
-  color: #5F288D;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-
-  &:active,
-  &:focus {
-    color: #5F288D;
-  }
-
-  &.selected {
-    background: #5F288D;
-    color: #fff;
-  }
-`;
-
-const DonateMenuLink = styled(MenuLink)`
-  color: #22B968;
-
-  &:active,
-  &:focus {
-    color: #22B968;
-  }
-`;
-
-export default class Menu extends React.PureComponent {
-  componentDidMount() {
-    const path = this.props.pathname.split('/');
-    const getLocation = path[1] || path[0];
-
-    if (this.props.pathname.length > 1 && this.props.pathname !== '/multumim') {
-      document.getElementById(getLocation).parentNode.querySelector('.selected').classList.remove('selected');
-      document.getElementById(getLocation).firstElementChild.classList.add('selected');
-    } else {
-      // document.querySelector('#menu-list .selected').classList.remove('selected');
-    }
-  }
-
-  render() {
-    return (
-      <MenuList id="menu-list">
-        <MenuItem id="acasa"><MenuLink to="acasa" className="selected">Adaugă o sesizare</MenuLink></MenuItem>
-        <MenuItem id="sesizari"><MenuLink to="sesizari">Sesizări</MenuLink></MenuItem>
-        <MenuItem id="statistici"><MenuLink to="statistici">Statistici</MenuLink></MenuItem>
-        <MenuItem id="reguli-vot"><MenuLink to="reguli-vot">Reguli vot</MenuLink></MenuItem>
-        <MenuItem id="despre-noi"><MenuLink to="despre-noi">Despre noi</MenuLink></MenuItem>
-        <MenuItem id="doneaza"><DonateMenuLink href="https://code4.ro/doneaza/" target="_blank">Donează</DonateMenuLink></MenuItem>
-      </MenuList>
-    );
-  }
-}
+  return (
+    (isLoggedIn() ? <Admin menuItems={MENU_ITEMS} path={currentPath} /> : <User menuItems={MENU_ITEMS} path={currentPath} />)
+  );
+};
 
 Menu.propTypes = {
   pathname: React.PropTypes.string,
 };
+
+export default Menu;

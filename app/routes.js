@@ -101,23 +101,25 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, {
-      path: '/reguli-vot',
-      name: 'reguli',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/ReguliVot'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component]) => {
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
+    },
+    // {
+    //   path: '/reguli-vot',
+    //   name: 'reguli',
+    //   getComponent(nextState, cb) {
+    //     const importModules = Promise.all([
+    //       System.import('containers/ReguliVot'),
+    //     ]);
+    //
+    //     const renderRoute = loadModule(cb);
+    //
+    //     importModules.then(([component]) => {
+    //       renderRoute(component);
+    //     });
+    //
+    //     importModules.catch(errorLoading);
+    //   },
+    // },
+    {
       path: '/despre-noi',
       name: 'despre',
       getComponent(nextState, cb) {
@@ -134,6 +136,65 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/login',
+      name: 'login',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Login'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/admin',
+      name: 'admin',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Sesizari/reducer'),
+          System.import('containers/Sesizari/sagas'),
+          System.import('containers/Admin'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('sesizari', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },
+    {
+      path: '/messages',
+      name: 'messages',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Sesizari/reducer'),
+          System.import('containers/Sesizari/sagas'),
+          System.import('containers/Sesizari/admin'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('sesizari', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },
+    {
       path: '/multumim',
       name: 'multumim',
       getComponent(nextState, cb) {

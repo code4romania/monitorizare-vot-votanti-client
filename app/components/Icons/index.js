@@ -24,6 +24,7 @@ import IconCode from './icons/icon-code';
 import IconGithub from './icons/icon-github';
 import IconTwitter from './icons/icon-twitter';
 import IconFacebook from './icons/icon-facebook';
+import IconLinkedin from './icons/icon-linkedin';
 
 const iconList = {
   box: <IconBox />,
@@ -51,6 +52,7 @@ const iconList = {
   github: <IconGithub />,
   twitter: <IconTwitter />,
   facebook: <IconFacebook />,
+  linkedin: <IconLinkedin />,
 };
 
 const Icon = styled.i`
@@ -60,9 +62,7 @@ const Icon = styled.i`
 `;
 
 function Icons(props) {
-  return (
-    <Icon className="svg-icon">{iconList[props.icon]}</Icon>
-  );
+  return <Icon className="svg-icon">{iconList[props.icon]}</Icon>;
 }
 
 Icons.propTypes = {

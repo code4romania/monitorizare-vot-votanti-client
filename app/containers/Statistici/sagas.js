@@ -4,9 +4,11 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import { GET_STATS } from './constants';
 import request from 'utils/request';
 import { statsLoaded } from './actions';
+import config from '../../api/config';
+
 
 export function* getStatsData() {
-  const requestURL = 'http://portal-votanti-uat.azurewebsites.net/api/reports';
+  const requestURL = `${config.api.baseURL}/reports`;
 
   try {
     const stats = yield call(request, requestURL);

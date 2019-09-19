@@ -4,6 +4,7 @@ import { GET_COUNTIES_SUCCESS, GET_INCIDENT_TYPES_SUCCESS } from './constants';
 const initialState = fromJS({
   counties: [],
   incidentTypes: [],
+  loggedIn: false,
 });
 
 function AppReducer(state = initialState, action) {
@@ -14,6 +15,10 @@ function AppReducer(state = initialState, action) {
     case GET_INCIDENT_TYPES_SUCCESS:
       return state
         .set('incidentTypes', action.incidentTypes);
+    case 'AUTHENTICATION_SUCCESFUL':
+      sessionStorage.setItem('jwtToken', action.response.token);
+      return state
+        .set('loggedIn', true);
     default:
       return state;
   }
