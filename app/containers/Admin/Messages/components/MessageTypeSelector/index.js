@@ -4,7 +4,7 @@ import { PendingMessagesList, ApprovedMessagesList, RejectedMessagesList } from 
 import { Button } from '../Button';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { getIncidentsByStatusAction } from '../../../../Sesizari/actions';
+import { getIncidentsByStatusAction, approveIncidentAction, rejectIncidentAction } from '../../../../Sesizari/actions';
 import { getApprovedIncidents,
   getPendingIncidents,
   getRejectedIncidents,
@@ -68,6 +68,8 @@ export class MessageTypeSelector extends React.Component {
         incidents={incidents}
         loader={this.parentComponent.props.dispatchGetApprovedIncidents}
         hasMoreIncidents={hasMoreIncidents}
+        approve={this.parentComponent.props.dispatchApproveIncidentAction}
+        reject={this.parentComponent.props.dispatchRejectIncidentAction}
       />);
   }
 
@@ -79,6 +81,8 @@ export class MessageTypeSelector extends React.Component {
         incidents={incidents}
         loader={this.parentComponent.props.dispatchGetRejectedIncidents}
         hasMoreIncidents={hasMoreIncidents}
+        approve={this.parentComponent.props.dispatchApproveIncidentAction}
+        reject={this.parentComponent.props.dispatchRejectIncidentAction}
       />);
   }
 
@@ -90,6 +94,8 @@ export class MessageTypeSelector extends React.Component {
         incidents={incidents}
         loader={this.parentComponent.props.dispatchGetPendingIncidents}
         hasMoreIncidents={hasMoreIncidents}
+        approve={this.parentComponent.props.dispatchApproveIncidentAction}
+        reject={this.parentComponent.props.dispatchRejectIncidentAction}
       />);
   }
 
@@ -127,6 +133,9 @@ export function mapDispatchToProps(dispatch) {
     dispatchGetPendingIncidents: () => dispatch(getIncidentsByStatusAction(PENDING)),
     dispatchGetApprovedIncidents: () => dispatch(getIncidentsByStatusAction(APPROVED)),
     dispatchGetRejectedIncidents: () => dispatch(getIncidentsByStatusAction(REJECTED)),
+    dispatchApproveIncidentAction: (id) => dispatch(approveIncidentAction(id)),
+    dispatchRejectIncidentAction: (id) => dispatch(rejectIncidentAction(id)),
+
 
   };
 }
