@@ -7,7 +7,7 @@ const getConfig = (requiresAuthorization) =>
     timeout: 10000,
     headers: {
       'Cache-Control': 'no-cache',
-      Authorization: requiresAuthorization ? `Bearer {${sessionStorage.getItem('token')}}` : '',
+      Authorization: requiresAuthorization ? `Bearer {${sessionStorage.getItem('jwtToken')}}` : '',
       'Content-Type': 'application/json; charset=utf-8',
     },
   });

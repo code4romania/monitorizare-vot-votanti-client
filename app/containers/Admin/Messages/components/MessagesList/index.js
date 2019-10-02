@@ -64,6 +64,8 @@ export default class MessagesList extends React.Component {
       incidents: PropTypes.any,
       hasMoreIncidents: PropTypes.bool,
       loader: PropTypes.func,
+      approve: PropTypes.func,
+      reject: PropTypes.func,
     };
   }
 
@@ -85,7 +87,7 @@ export default class MessagesList extends React.Component {
 
   provideIncidentComponents() {
     return this.props.incidents.map((value) =>
-      <MessageInformation key={value.id} data={value} setLightboxImage={this.setLightboxImage} />
+      <MessageInformation key={value.id} data={value} setLightboxImage={this.setLightboxImage} approve={this.props.approve} reject={this.props.reject} />
     );
   }
 
@@ -129,13 +131,15 @@ class MessageInformation extends React.Component {
     return {
       data: PropTypes.any,
       setLightboxImage: PropTypes.func,
+      approve: PropTypes.func,
+      reject: PropTypes.func,
     };
   }
 
   createButtons() {
     return (<ButtonsColumn>
-      <Button backgroundColor="#27AE60" textColor={'#FFFFFF'}>Accept</Button>
-      <Button backgroundColor="#EB5757" textColor={'#FFFFFF'}>Reject</Button>
+      <Button backgroundColor="#27AE60" textColor={'#FFFFFF'} onClick={() => this.props.approve(this.props.data.id)}>Accept</Button>
+      <Button backgroundColor="#EB5757" textColor={'#FFFFFF'} onClick={() => this.props.reject(this.props.data.id)}>Reject</Button>
     </ButtonsColumn>);
   }
 
@@ -196,7 +200,7 @@ class MessageInformation extends React.Component {
 export class RejectedMessagesList extends MessagesList {
   provideIncidentComponents() {
     return this.props.incidents.map((value) =>
-      <RejectedMessageInformation key={value.id} data={value} />);
+      <RejectedMessageInformation key={value.id} data={value} approve={this.props.approve} reject={this.props.reject} />);
   }
 }
 
@@ -204,7 +208,7 @@ class RejectedMessageInformation extends MessageInformation {
   createButtons() {
     return (
       <ButtonsColumn>
-        <Button backgroundColor="#27AE60" textColor={'#FFFFFF'}>Accept</Button>
+        <Button backgroundColor="#27AE60" textColor={'#FFFFFF'} onClick={() => this.props.approve(this.props.data.id)} >Accept</Button>
       </ButtonsColumn>
     );
   }
@@ -213,7 +217,7 @@ class RejectedMessageInformation extends MessageInformation {
 export class ApprovedMessagesList extends MessagesList {
   provideIncidentComponents() {
     return this.props.incidents.map((value) =>
-      <ApprovedMessageInformation key={value.id} data={value} />);
+      <ApprovedMessageInformation key={value.id} data={value} approve={this.props.approve} reject={this.props.reject} />);
   }
 }
 
@@ -221,7 +225,7 @@ class ApprovedMessageInformation extends MessageInformation {
   createButtons() {
     return (
       <ButtonsColumn>
-        <Button backgroundColor="#EB5757" textColor={'#FFFFFF'}>Reject</Button>
+        <Button backgroundColor="#EB5757" textColor={'#FFFFFF'} onClick={() => this.props.reject(this.props.data.id)} >Reject</Button>
       </ButtonsColumn>
     );
   }

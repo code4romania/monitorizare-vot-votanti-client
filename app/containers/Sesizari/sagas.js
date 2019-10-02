@@ -14,6 +14,7 @@ import {
 } from './selectors';
 import request from '../../utils/request';
 import config from '../../api/config';
+import incidentsApi from '../../api/incidentsApi';
 
 export function* getNextIncidents(data) {
   const status = data.status;
@@ -38,10 +39,12 @@ export function* getIncidents(data) {
 
 export function* approveIncident(data) {
   yield call(getNextIncidents, data);
+  yield call(incidentsApi.approveIncident, data.id, () => {}, (err) => { console.log(err); });
 }
 
 export function* rejectIncident(data) {
   yield call(getNextIncidents, data);
+  yield call(incidentsApi.rejectIncident, data.id, () => {}, (err) => { console.log(err); });
 }
 
 export function* getIncidentsWatcher() {
