@@ -18,3 +18,4 @@ export const GET_PRECINTS_SUCCESS = 'GET_PRECINTS_SUCCESS';
 export const SET_CAPTCHA_KEY = 'SET_CAPTCHA_KEY';
 export const SET_PRECINT_ID = 'SET_PRECINT_ID';
 export const RESET_FORM = 'RESET_FORM';
+export const RESET_CITY = 'RESET_CITY';

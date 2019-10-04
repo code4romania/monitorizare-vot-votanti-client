@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { SET_PRESENCE, RESET_FORM, SET_PRECINT_ID, SET_CAPTCHA_KEY, GET_PRECINTS_SUCCESS, SET_IMAGE, SET_INCIDENT_ID, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRENUME, SET_MAP, SET_COUNTY, SET_CITIES, SET_CITY } from './constants';
+import { SET_PRESENCE, RESET_FORM, SET_PRECINT_ID, SET_CAPTCHA_KEY, GET_PRECINTS_SUCCESS, SET_IMAGE, SET_INCIDENT_ID, SET_DESCRIPTION, SHORT_INCIDENTS_LODADED, SET_NUME, SET_PRENUME, SET_MAP, SET_COUNTY, SET_CITIES, SET_CITY, RESET_CITY } from './constants';
 
 const initialState = fromJS({
   incidents: [],
@@ -57,6 +57,9 @@ function acasaReducer(state = initialState, action) {
     case SET_IMAGE:
       return state
         .set('img', action.image);
+    case RESET_CITY:
+      return state
+        .set('cityId', null);
     case SET_PRECINT_ID:
       return state
         .set('precintId', action.id);
