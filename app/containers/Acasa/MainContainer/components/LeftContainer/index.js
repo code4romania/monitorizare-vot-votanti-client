@@ -15,7 +15,7 @@ import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
 import MenuItem from 'material-ui/MenuItem';
 import Map from 'components/selectCountry';
 import FileUploader from 'components/FileUploader';
-import { setNumeAction, setPrenumeAction, setIncidentIdAction, resetFormAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
+import { setNumeAction, setPrenumeAction, setIncidentIdAction, resetFormAction, setPrecintIdAction, setValidationKeyAction, setActiveMapAction, submitFormAction, setDescriptionAction, resetCityAction, resetCountyAction, setCountyAction, getCitiesAction, getPrecintsAction, setCityAction, setPresenceAction, uploadImageAction } from '../../../actions';
 import { getName, getPrenume, map, getCities, getPrecints, getDescription, countyId, cityId, getIncidentId, getToken, getImage } from '../../../selectors';
 
 const buttonWrapStyle = {
@@ -103,6 +103,9 @@ export class LeftContainer extends React.PureComponent {
       this.props.setCounty('DI');
       this.props.setCity(3191);
       this.props.getPrecints();
+    } else {
+      this.props.resetCity();
+      this.props.resetCounty();
     }
   }
 
@@ -155,6 +158,7 @@ export class LeftContainer extends React.PureComponent {
 
   selectCounty = (searchText, countiesArray) => {
     const getCounty = _.find(countiesArray, (o) => o.text === searchText);
+
     if (_.isUndefined(getCounty)) {
       this.props.resetCounty();
     } else {
@@ -389,6 +393,7 @@ LeftContainer.propTypes = {
   setActiveMap: React.PropTypes.func,
   setCounty: React.PropTypes.func,
   resetCounty: React.PropTypes.func,
+  resetCity: React.PropTypes.func,
   getCities: React.PropTypes.func,
   getPrecints: React.PropTypes.func,
   setCity: React.PropTypes.func,
@@ -443,6 +448,7 @@ export function mapDispatchToProps(dispatch) {
     setActiveMap: (activeMap) => dispatch(setActiveMapAction(activeMap)),
     setCounty: (id) => dispatch(setCountyAction(id)),
     resetCounty: () => dispatch(resetCountyAction()),
+    resetCity: () => dispatch(resetCityAction()),
     getCities: () => dispatch(getCitiesAction()),
     getPrecints: () => dispatch(getPrecintsAction()),
     setCity: (id) => dispatch(setCityAction(id)),
