@@ -151,6 +151,13 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+    // }, {
+    //   path: '/logout',
+    //   name: 'logout',
+    //   logout() {
+    //     localStorage.clear();
+    //     window.location.href = '/';
+    //   },
     }, {
       path: '/admin',
       name: 'admin',
@@ -179,7 +186,8 @@ export default function createRoutes(store) {
         const importModules = Promise.all([
           System.import('containers/Sesizari/reducer'),
           System.import('containers/Sesizari/sagas'),
-          System.import('containers/Sesizari/admin'),
+          System.import('containers/Admin'),
+          // System.import('containers/Sesizari/admin'),
         ]);
 
         const renderRoute = loadModule(cb);

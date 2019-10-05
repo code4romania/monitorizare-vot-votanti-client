@@ -27,7 +27,8 @@ export function* login(data) {
       }.
     */
     yield put({ type: 'AUTHENTICATION_SUCCESFUL', response });
-    yield put(push('/admin'));
+    yield put(push('/messages'));
+    // yield put(push('/admin'));
   } else {
     yield put({ type: 'AUTHENTICATION_FAILED', error });
   }
